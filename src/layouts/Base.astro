@@ -43,7 +43,11 @@ const essai = 'https://thomasgio.fr/conciergeai-7109?am_id=bene'
     <meta property="og:url" content={canonique} />
     {og && <meta property="og:image" content={new URL(og, 'https://www.concierge-ai.fr').href} />}
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/images/6aae9b26909ad3.02855117_logoconciergeai2.webp" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0A2540" />
   </head>
   <body>
     <header class="cai-nav">
@@ -73,5 +77,6 @@ const essai = 'https://thomasgio.fr/conciergeai-7109?am_id=bene'
         <Fragment set:html={pied} />
       </div>
     </div>
+    <script src="/consentement.js" defer is:inline></script>
   </body>
 </html>
