@@ -1,4 +1,7 @@
-/* Styles communs du site, extraits des pages en ligne le 23/09/2026. */
+/* Styles communs du site, extraits des pages en ligne le 23/09/2026.
+   Les polices ne sont plus chargées par @import : un @import doit précéder
+   toute autre règle, sinon il est invalide et ignoré. Elles sont appelées
+   par une balise <link> dans la mise en page, ce qui est aussi plus rapide. */
 
 /* Les variables de couleur n'étaient déclarées que sur .cai : elles sont
    remontées à la racine pour que l'en-tête et le pied de page les voient aussi. */
@@ -17,8 +20,6 @@
 }
 
 
-
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 .cai{
   --ink:#0A2540; --blue:#0D3B66; --grey:#475C72; --mute:#7C8DA1;
