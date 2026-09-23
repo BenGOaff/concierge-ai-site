@@ -161,3 +161,178 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Appels manqués : comment ne plus perdre de clients quand vous ne pouvez pas décrocher", "description": "Un client qui tombe sur le répondeur appelle souvent le suivant. Ce que coûtent vos appels manqués, et 4 solutions pour décrocher même les mains prises.", "image": ["https://d1yei2z3i6k35z.cloudfront.net/473100/6ab110094cccb8.46316757_appels-manques-perdre-des-clients.png", "https://d1yei2z3i6k35z.cloudfront.net/473100/6ab10fabced239.95017898_appel-manque-mains-prises.webp", "https://d1yei2z3i6k35z.cloudfront.net/473100/6ab10fe7b18ba9.89206282_rappeler-clients-le-soir.webp"], "datePublished": "2026-09-21", "dateModified": "2026-09-21", "inLanguage": "fr-FR", "articleSection": "Appels manqués", "keywords": "appels manqués, appel manqué client, ne plus rater d'appels, perdre des clients au téléphone, répondre au téléphone quand on travaille seul, rappeler un client, répondeur professionnel, standard téléphonique 24/24", "author": {"@type": "Organization", "name": "La rédaction de concierge-ai.fr", "url": "https://www.concierge-ai.fr"}, "publisher": {"@type": "Organization", "name": "concierge-ai.fr", "url": "https://www.concierge-ai.fr", "logo": {"@type": "ImageObject", "url": "https://d1yei2z3i6k35z.cloudfront.net/473100/6aafa75fca2954.32422880_logoconciergeai.webp"}}, "url": "https://www.concierge-ai.fr/appels-manques-perdre-des-clients", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.concierge-ai.fr/appels-manques-perdre-des-clients"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Combien de temps après un appel manqué faut-il rappeler un client ?", "acceptedAnswer": {"@type": "Answer", "text": "Le plus vite possible, idéalement dans l'heure. Un client qui n'obtient pas de réponse appelle souvent un autre professionnel dans la minute, et d'après l'analyse de Quo, les rappels ont presque tous lieu dans les 24 heures."}}, {"@type": "Question", "name": "Pourquoi les clients ne laissent-ils pas de message sur le répondeur ?", "acceptedAnswer": {"@type": "Answer", "text": "Parce qu'ils veulent une réponse maintenant, pas un rappel plus tard. D'après l'enquête CallRail, seuls 42 % des consommateurs laissent un message quand personne ne décroche : les autres raccrochent et appellent ailleurs."}}, {"@type": "Question", "name": "Un SMS automatique après un appel manqué suffit-il ?", "acceptedAnswer": {"@type": "Answer", "text": "Il aide, parce qu'il montre au client que son appel a été vu. Mais il ne répond pas à sa demande et ne lui donne pas de créneau : un client pressé continue souvent à chercher."}}, {"@type": "Question", "name": "Comment ne plus rater d'appels quand on travaille seul, sans embaucher ?", "acceptedAnswer": {"@type": "Answer", "text": "Avec un standard qui décroche à votre place quand vous ne pouvez pas répondre. Le téléphone sonne d'abord chez vous, l'assistant prend le relais si vous ne décrochez pas, pose le rendez-vous et vous envoie un résumé, sans changer de numéro."}}, {"@type": "Question", "name": "Mes clients sauront-ils qu'ils parlent à un assistant ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, l'assistant se présente comme l'assistant de votre entreprise. Les clients y gagnent : ils obtiennent une réponse et un rendez-vous tout de suite, au lieu de tomber sur un répondeur."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Blog", "item": "https://www.concierge-ai.fr/blog"}, {"@type": "ListItem", "position": 2, "name": "Appels manqués", "item": "https://www.concierge-ai.fr/category/appels-manques"}, {"@type": "ListItem", "position": 3, "name": "Appels manqués : comment ne plus perdre de clients quand vous ne pouvez pas décrocher", "item": "https://www.concierge-ai.fr/appels-manques-perdre-des-clients"}]}]}
 </script>
+
+<!-- scripts de la page -->
+<script>
+(function(){
+  if(window.__caiPartHaut){return;} window.__caiPartHaut=true;
+  function ready(fn){if(document.readyState!=="loading"){fn();}else{document.addEventListener("DOMContentLoaded",fn);}}
+  ready(function(){
+    var box=document.getElementById("cai-part"); if(!box){return;}
+    var url=location.origin+location.pathname;
+    var h1=document.querySelector("h1");
+    var title=(h1&&h1.textContent.trim())||document.title;
+    var u=encodeURIComponent(url), t=encodeURIComponent(title);
+    var hrefs={wa:"https://wa.me/?text="+t+"%20"+u,li:"https://www.linkedin.com/sharing/share-offsite/?url="+u,fb:"https://www.facebook.com/sharer/sharer.php?u="+u,mail:"mailto:?subject="+t+"&body="+t+"%0A%0A"+u};
+    var els=box.querySelectorAll("[data-net]");
+    for(var i=0;i<els.length;i++){
+      (function(el){
+        var k=el.getAttribute("data-net");
+        if(hrefs[k]){el.setAttribute("href",hrefs[k]);}
+        if(k==="copy"){
+          el.addEventListener("click",function(){
+            var done=function(){el.classList.add("is-ok");el.setAttribute("aria-label","Lien copié");setTimeout(function(){el.classList.remove("is-ok");el.setAttribute("aria-label","Copier le lien");},1800);};
+            if(navigator.clipboard){navigator.clipboard.writeText(url).then(done,function(){});}else{var x=document.createElement("textarea");x.value=url;document.body.appendChild(x);x.select();document.execCommand("copy");document.body.removeChild(x);done();}
+          });
+        }
+      })(els[i]);
+    }
+    /* barre de progression, posée sous le menu collant */
+    var wrap=document.createElement("div"), bar=document.createElement("i");
+    wrap.setAttribute("aria-hidden","true");
+    wrap.style.cssText="position:fixed;left:0;right:0;top:0;height:3px;z-index:9999;pointer-events:none;background:transparent";
+    bar.style.cssText="display:block;height:100%;width:100%;background:#22C55E;transform-origin:0 50%;transform:scaleX(0)";
+    wrap.appendChild(bar); document.body.appendChild(wrap);
+    function headerBottom(){
+      var b=0, el=document.elementFromPoint(Math.round(window.innerWidth/2),2);
+      while(el&&el!==document.body&&el!==document.documentElement){
+        var cs=getComputedStyle(el);
+        if((cs.position==="fixed"||cs.position==="sticky")&&el.getBoundingClientRect().top<=2&&el!==wrap){b=Math.max(b,el.getBoundingClientRect().bottom);}
+        el=el.parentElement;
+      }
+      return b;
+    }
+    var tick=false;
+    function upd(){
+      tick=false; if(!bar){return;}
+      wrap.style.top=Math.round(headerBottom())+"px";
+      var art=document.querySelector(".cai-art")||document.body;
+      var r=art.getBoundingClientRect(), h=r.height-window.innerHeight;
+      var p=h>0?Math.min(Math.max(-r.top/h,0),1):0;
+      bar.style.transform="scaleX("+p.toFixed(4)+")";
+    }
+    function on(){if(!tick){tick=true;requestAnimationFrame(upd);}}
+    window.addEventListener("scroll",on,{passive:true});
+    window.addEventListener("resize",on);
+    upd();
+  });
+})();
+</script>
+
+<script>
+(function(){
+  function ready(fn){if(document.readyState!=="loading"){fn();}else{document.addEventListener("DOMContentLoaded",fn);}}
+  ready(function(){
+    var root=document.querySelector(".cai-art"); if(!root){return;}
+    var body=document.getElementById("cai-art-b"), aside=document.getElementById("cai-toc"), inner=document.getElementById("cai-toc-in");
+    var l1=document.getElementById("cai-toc-l"), l2=document.getElementById("cai-tocm-l");
+    var hs=body.querySelectorAll("h2"), links=[];
+    function slug(t){return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
+    for(var i=0;i<hs.length;i++){
+      if(!hs[i].id){hs[i].id=slug(hs[i].textContent)||("partie-"+(i+1));}
+      [l1,l2].forEach(function(list,k){
+        var li=document.createElement("li"), a=document.createElement("a");
+        a.href="#"+hs[i].id; a.textContent=hs[i].textContent; li.appendChild(a); list.appendChild(li);
+        if(k===0){links.push(a);}
+      });
+    }
+    /* hauteur du menu collant de Systeme.io */
+    var off=110;
+    function headerBottom(){
+      var b=0, x=Math.round(window.innerWidth/2);
+      var el=document.elementFromPoint(x,2);
+      while(el&&el!==document.body&&el!==document.documentElement){
+        var cs=getComputedStyle(el);
+        if((cs.position==="fixed"||cs.position==="sticky")&&el.getBoundingClientRect().top<=2){b=Math.max(b,el.getBoundingClientRect().bottom);}
+        el=el.parentElement;
+      }
+      return b;
+    }
+    function setOff(){off=Math.max(24,Math.round(headerBottom())+24);root.style.setProperty("--cai-top",off+"px");}
+    /* collant : natif si possible, sinon calculé */
+    var native=true, p=aside?aside.parentElement:null;
+    while(p&&p!==document.body){var c=getComputedStyle(p);if(c.overflow!=="visible"||c.overflowY!=="visible"||c.transform!=="none"){native=false;break;}p=p.parentElement;}
+    if(inner){ if(native){inner.classList.add("is-sticky");}else{inner.style.position="absolute";inner.style.left="0";inner.style.right="0";} }
+    function place(){
+      if(!aside||native||getComputedStyle(aside).display==="none"){return;}
+      var r=aside.getBoundingClientRect(), ih=inner.offsetHeight;
+      var t=Math.min(Math.max(off-r.top,0),Math.max(aside.offsetHeight-ih,0));
+      inner.style.top=t+"px";
+    }
+    function spy(){
+      var cur=-1;
+      for(var i=0;i<hs.length;i++){if(hs[i].getBoundingClientRect().top<=off+40){cur=i;}}
+      for(var j=0;j<links.length;j++){links[j].className=(j===cur)?"is-on":"";}
+    }
+    var tick=false;
+    function onScroll(){if(tick){return;}tick=true;requestAnimationFrame(function(){setOff();place();spy();tick=false;});}
+    window.addEventListener("scroll",onScroll,{passive:true});
+    window.addEventListener("resize",onScroll);
+    setOff();place();spy();
+    /* clic sur un lien du sommaire */
+    root.addEventListener("click",function(e){
+      var a=e.target.closest?e.target.closest(".cai-toc-l a"):null; if(!a){return;}
+      var t=document.getElementById(a.getAttribute("href").slice(1)); if(!t){return;}
+      e.preventDefault(); setOff();
+      window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-off+4,behavior:"smooth"});
+      var m=document.getElementById("cai-tocm"); if(m&&a.closest("#cai-tocm")){m.open=false;}
+    });
+    /* replier le sommaire */
+    var btn=document.getElementById("cai-toc-h");
+    if(btn){btn.addEventListener("click",function(){var c=aside.classList.toggle("is-closed");btn.setAttribute("aria-expanded",c?"false":"true");onScroll();});}
+  });
+})();
+</script>
+
+<script>
+(function(){
+  if(window.__caiShareBas){return;}
+  window.__caiShareBas=true;
+  function ready(fn){if(document.readyState!=="loading"){fn();}else{document.addEventListener("DOMContentLoaded",fn);}}
+  ready(function(){
+    var url=location.origin+location.pathname;
+    var h1=document.querySelector("h1");
+    var title=(h1&&h1.textContent.trim())||document.title;
+    var u=encodeURIComponent(url), t=encodeURIComponent(title);
+    var hrefs={wa:"https://wa.me/?text="+t+"%20"+u,li:"https://www.linkedin.com/sharing/share-offsite/?url="+u,fb:"https://www.facebook.com/sharer/sharer.php?u="+u,mail:"mailto:?subject="+t+"&body="+t+"%0A%0A"+u};
+    var els=document.querySelectorAll(".cai-abas .cai-share [data-net]");
+    for(var i=0;i<els.length;i++){
+      (function(el){
+        var n=el.getAttribute("data-net");
+        if(hrefs[n]){el.setAttribute("href",hrefs[n]);}
+        if(n==="copy"){
+          el.addEventListener("click",function(){
+            var done=function(){el.classList.add("is-ok");setTimeout(function(){el.classList.remove("is-ok");},1800);};
+            if(navigator.clipboard){navigator.clipboard.writeText(url).then(done);}else{var x=document.createElement("textarea");x.value=url;document.body.appendChild(x);x.select();document.execCommand("copy");document.body.removeChild(x);done();}
+          });
+        }
+      })(els[i]);
+    }
+  });
+})();
+</script>
+
+<script>
+/* liste native « À lire aussi » : une carte par ligne sur mobile */
+(function(){
+  if(window.__caiListeMob){return;} window.__caiListeMob=true;
+  function fix(){
+    var mob=window.innerWidth<768, g=document.querySelectorAll("div");
+    for(var i=0;i<g.length;i++){
+      var el=g[i];
+      if(el.closest(".cai")){continue;}
+      if(el.getAttribute("data-cai-grid")==="1"){el.style.gridTemplateColumns=mob?"minmax(0,1fr)":"";continue;}
+      var cs=getComputedStyle(el);
+      if(cs.display!=="grid"||!mob){continue;}
+      var cols=cs.gridTemplateColumns.split(" ").length;
+      if(cols<2){continue;}
+      var kids=el.children, cards=0;
+      for(var k=0;k<kids.length;k++){if(kids[k].querySelector("a img")){cards++;}}
+      if(cards>=1&&cards===kids.length){el.setAttribute("data-cai-grid","1");el.style.gridTemplateColumns="minmax(0,1fr)";}
+    }
+  }
+  function run(){fix();setTimeout(fix,800);setTimeout(fix,2500);}
+  if(document.readyState!=="loading"){run();}else{document.addEventListener("DOMContentLoaded",run);}
+  var t;window.addEventListener("resize",function(){clearTimeout(t);t=setTimeout(fix,200);});
+})();
+</script>

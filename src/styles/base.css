@@ -354,22 +354,19 @@
   border-bottom-color: var(--g3);
 }
 
-.cai-nav-cta {
+/* Toutes ces règles doivent l'emporter sur .cai-nav a, plus spécifique :
+   sans cela le bouton perdait sa marge intérieure et le texte débordait. */
+.cai-nav a.cai-nav-cta {
   flex: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   font: 600 0.92rem/1 'Inter', sans-serif;
-  color: #0a2540;
-  background: #22c55e;
   border-radius: 99px;
-  padding: 12px 20px;
+  padding: 13px 22px;
   text-decoration: none;
-  border-bottom: none !important;
+  border-bottom: none;
   white-space: nowrap;
-}
-
-.cai-nav-cta:hover {
-  background: #16a34a;
 }
 
 @media (max-width: 860px) {

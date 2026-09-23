@@ -399,3 +399,44 @@
   ]
 }
 </script>
+
+<!-- scripts de la page -->
+<script>
+(function(){
+  var c1=document.getElementById('cai-c1'),c2=document.getElementById('cai-c2'),
+      c3=document.getElementById('cai-c3'),c4=document.getElementById('cai-c4'),
+      v1=document.getElementById('cai-v1'),v2=document.getElementById('cai-v2'),v4=document.getElementById('cai-v4'),
+      r1=document.getElementById('cai-r1'),r2=document.getElementById('cai-r2'),
+      r3=document.getElementById('cai-r3'),r4=document.getElementById('cai-r4');
+  if(!c1||!c2||!c3||!c4) return;
+  var PRIX=297;
+  function nb(n){ return Math.round(n).toLocaleString('fr-FR').replace(/ | /g,' '); }
+  function eur(n){ return nb(n)+' €'; }
+  function calc(){
+    var appels=parseFloat(c1.value)||0,
+        pct=(parseFloat(c2.value)||0)/100,
+        panier=parseFloat(c3.value),
+        conv=(parseFloat(c4.value)||0)/100;
+    if(isNaN(panier)||panier<0) panier=0;
+    v1.textContent=nb(appels);
+    v2.innerHTML=nb(parseFloat(c2.value)||0)+'&nbsp;%';
+    v4.innerHTML=nb(parseFloat(c4.value)||0)+'&nbsp;%';
+    var manques=appels*4.33*pct;
+    var mois=manques*conv*panier;
+    r1.textContent=nb(manques);
+    r2.textContent=eur(mois);
+    r3.textContent=eur(mois*12);
+    if(panier>0){
+      var n=Math.ceil(PRIX/panier);
+      r4.textContent=nb(n)+(n>1?' prestations':' prestation');
+    } else {
+      r4.textContent='—';
+    }
+  }
+  [c1,c2,c3,c4].forEach(function(el){
+    el.addEventListener('input',calc);
+    el.addEventListener('change',calc);
+  });
+  calc();
+})();
+</script>

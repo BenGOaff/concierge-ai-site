@@ -150,3 +150,16 @@
   ]
 }
 </script>
+
+<!-- scripts de la page -->
+<script>
+(function(){
+  var n='allo', d='concierge-ai.fr';
+  var l=document.querySelectorAll('[data-cai-mail]');
+  for(var i=0;i<l.length;i++){
+    var a=l[i];
+    a.setAttribute('href','mailto:'+n+'@'+d);
+    a.textContent=n+'@'+d;
+  }
+})();
+</script>

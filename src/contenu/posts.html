@@ -21,3 +21,28 @@
 <p class="cai-lead" id="cai-pl-lead">Des conseils concrets pour ceux qui ne peuvent pas décrocher en travaillant : appels manqués, rendez-vous annulés, urgences, soirées. Choisissez un sujet pour filtrer.</p>
 </section>
 </div>
+
+<!-- scripts de la page -->
+<script>
+(function(){
+  if(/\/category\//.test(location.pathname)){
+    var h=document.getElementById("cai-pl-h1"), l=document.getElementById("cai-pl-lead");
+    if(h){h.parentNode.removeChild(h);}
+    if(l){l.parentNode.removeChild(l);}
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var m=location.pathname.match(/\/category\/([^\/?#]+)/);
+  var slug=m?m[1]:"";
+  var links=document.querySelectorAll("#cai-pl-pills a");
+  for(var i=0;i<links.length;i++){
+    if(links[i].getAttribute("data-s")===slug){
+      links[i].className="is-on";
+      links[i].setAttribute("aria-current","page");
+    }
+  }
+})();
+</script>
