@@ -1,0 +1,261 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- message d'accueil modèle --- */
+.cai .cai-quote{margin:clamp(36px,4vw,46px) 0 0;padding:clamp(26px,3vw,36px);background:#fff;border:1px solid var(--line);border-left:5px solid #15803D;border-radius:calc(var(--rad) - 8px)}
+.cai .cai-quote p{font:500 clamp(1.08rem,1.8vw,1.26rem)/1.7 'Inter',sans-serif;color:var(--ink);margin:0;max-width:60ch}
+.cai .cai-quote cite{display:block;font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:var(--mute);margin-bottom:18px}
+
+/* --- sources --- */
+.cai .cai-src{margin-top:clamp(36px,4vw,46px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-src h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-src ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.cai .cai-src li{margin:0;padding:0;font-size:.9rem;line-height:1.65;color:var(--grey)}
+.cai .cai-src a{color:var(--gd);text-decoration:none;border-bottom:1px solid rgba(21,128,61,.3)}
+.cai .cai-src a:hover{border-color:#15803D}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- message d'accueil modèle --- */
+.cai .cai-quote{margin:clamp(36px,4vw,46px) 0 0;padding:clamp(26px,3vw,36px);background:#fff;border:1px solid var(--line);border-left:5px solid #15803D;border-radius:calc(var(--rad) - 8px)}
+.cai .cai-quote p{font:500 clamp(1.08rem,1.8vw,1.26rem)/1.7 'Inter',sans-serif;color:var(--ink);margin:0;max-width:60ch}
+.cai .cai-quote cite{display:block;font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:var(--mute);margin-bottom:18px}
+
+/* --- sources --- */
+.cai .cai-src{margin-top:clamp(36px,4vw,46px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-src h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-src ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.cai .cai-src li{margin:0;padding:0;font-size:.9rem;line-height:1.65;color:var(--grey)}
+.cai .cai-src a{color:var(--gd);text-decoration:none;border-bottom:1px solid rgba(21,128,61,.3)}
+.cai .cai-src a:hover{border-color:#15803D}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Conformité</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Pas d'ennuis avec les données : <em>ce qui est obligatoire, en clair</em></h1>
+<p class="cai-lead" style="max-width:58ch">Un accueil téléphonique automatique se met en règle avec une seule phrase, dite au début de chaque appel. Elle est plus bas sur cette page, prête à reprendre, et elle se règle avec l'équipe le jour de l'installation.</p>
+<ul class="cai-tick">
+<li>Trois règles, sans jargon</li>
+<li>Le message d'accueil conforme, mot pour mot</li>
+<li>Paramétré avec vous à l'installation</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Une cogérante d'entreprise artisanale lit attentivement un contrat à son bureau, stylo en main" height="643" loading="eager" src="/images/6ab0d2b11cea68.35480108_conformite-rgpd.webp" width="1500"/>
+<figcaption>Trois règles, une phrase d'accueil, et c'est réglé.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Qu'est-ce qui est obligatoire <em>avec un standard téléphonique automatique ?</em></h2>
+</div>
+<p class="cai-say">Vos clients doivent savoir dès le début de l'appel qu'ils parlent à un assistant automatique et que l'appel est enregistré. <span class="cai-key">Une phrase dans le message d'accueil suffit, et l'assistant ne demande que ce qui sert à poser le rendez-vous.</span></p>
+</section>
+<!-- 3. LES TROIS RÈGLES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les règles</span>
+<h2>Les trois règles <em>d'un accueil téléphonique automatique</em></h2>
+<p class="cai-lead" style="max-width:58ch">Les deux premières tiennent dans le message d'accueil. La troisième se règle une fois pour toutes à l'installation.</p>
+</div>
+<ul class="cai-list">
+<li><b>Annoncer que c'est un assistant automatique</b><span>Le règlement européen sur l'intelligence artificielle demande que la personne le sache dès le début de l'échange. Une phrase suffit : « je suis l'assistant automatique de l'entreprise ».</span></li>
+<li><b>Prévenir que l'appel est enregistré</b><span>La CNIL demande de le dire en début d'appel, avec ce à quoi sert l'enregistrement et la possibilité de s'y opposer. C'est la même phrase d'accueil qui s'en charge.</span></li>
+<li><b>Ne demander que l'utile</b><span>Un nom, un numéro, une adresse d'intervention, la nature de la demande : c'est ce qu'il faut pour poser un rendez-vous, et c'est tout ce que l'assistant demande.</span></li>
+</ul>
+</section>
+<!-- 4. LE MESSAGE D'ACCUEIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">À reprendre</span>
+<h2>Le message d'accueil <em>qui tient les deux premières règles</em></h2>
+<p class="cai-lead" style="max-width:58ch">Quinze secondes. Il est paramétré avec vous à l'installation : vous choisissez le nom de l'entreprise, la raison de votre absence et le ton.</p>
+</div>
+<blockquote class="cai-quote">
+<cite>Exemple de message d'accueil</cite>
+<p>« Bonjour, vous êtes bien chez Plomberie Martin. Je suis l'assistant automatique de l'entreprise : Julien est sur un chantier et ne peut pas décrocher. Cet appel est enregistré pour assurer le suivi de votre demande, et vous pouvez vous y opposer à tout moment. Que puis-je faire pour vous ? »</p>
+</blockquote>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Vos clients ne détestent pas les assistants automatiques, ils détestent le bip du répondeur. Un accueil qui dit franchement ce qu'il est, puis donne un créneau en deux minutes, passe beaucoup mieux qu'une sonnerie dans le vide.</p>
+</section>
+<!-- 5. CE QUI SE RÈGLE À L'INSTALLATION -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vous gardez la main</span>
+<h2>Ce que vous décidez <em>au rendez-vous d'installation</em></h2>
+<p class="cai-lead" style="max-width:58ch">Trente minutes au téléphone avec l'équipe, et l'accueil dit exactement ce que vous avez validé.</p>
+</div>
+<ul class="cai-list">
+<li><b>Le message d'accueil</b><span>Les mots exacts, le nom de l'entreprise, la raison de votre absence. Rien n'est dit en votre nom sans que vous l'ayez choisi.</span></li>
+<li><b>Les questions posées à vos clients</b><span>Seulement celles qui servent à votre métier et à la prise de rendez-vous. Vous validez la liste.</span></li>
+<li><b>Ce que l'assistant a le droit de dire</b><span>Les tarifs annoncés, les zones couvertes, ce qu'il refuse, et ce qui déclenche un transfert vers vous. Tout le reste attend votre retour.</span></li>
+</ul>
+<a class="cai-more" href="/fonctionnement">Voir comment se passe l'installation</a>
+</section>
+<!-- 6. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions sur le RGPD et <em>l'accueil téléphonique automatique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Est-ce que je dois dire à mes clients que c'est un robot ?</summary>
+<div class="cai-ans"><p>Oui, en une phrase au début de l'appel : « je suis l'assistant automatique de l'entreprise ». Elle est intégrée au message d'accueil que vous validez à l'installation.</p><p>Et dans la pratique, ce qui agace vos clients n'est pas l'assistant, c'est le répondeur.</p></div>
+</details>
+<details>
+<summary>Je dois prévenir que l'appel est enregistré ?</summary>
+<div class="cai-ans"><p>Oui, et la même phrase d'accueil le fait : elle dit que l'appel est enregistré pour assurer le suivi de la demande, et qu'on peut s'y opposer.</p></div>
+</details>
+<details>
+<summary>Qu'est-ce que l'assistant demande à mes clients ?</summary>
+<div class="cai-ans"><p>Ce qui sert à poser le rendez-vous : nom, numéro, adresse d'intervention et nature de la demande. Vous validez la liste à l'installation, et rien d'autre n'est demandé.</p></div>
+</details>
+<details>
+<summary>Mes clients vont-ils mal le prendre ?</summary>
+<div class="cai-ans"><p>Ce que les gens n'aiment pas, c'est tomber sur un répondeur et ne pas savoir quand vous passerez. Un accueil qui répond tout de suite, comprend la demande et donne un créneau, c'est ce qu'ils cherchaient en appelant.</p><p>Et le téléphone sonne toujours d'abord chez vous : l'assistant ne prend le relais que si vous ne décrochez pas.</p></div>
+</details>
+<details>
+<summary>Et le RGPD, j'ai quelque chose à faire moi-même ?</summary>
+<div class="cai-ans"><p>Pour l'essentiel, valider votre message d'accueil et la liste des questions posées. Le reste se voit avec l'équipe au rendez-vous d'installation, en même temps que le paramétrage.</p></div>
+</details>
+</div>
+<div class="cai-src">
+<h3>D'où viennent ces règles</h3>
+<ul>
+<li>Informer qu'on parle à un système d'intelligence artificielle : article 50 du règlement européen sur l'intelligence artificielle, <a href="https://artificialintelligenceact.eu/article/50/" rel="nofollow noopener" target="_blank">texte de l'article</a>.</li>
+<li>Informer de l'enregistrement d'un appel : <a href="https://www.cnil.fr/fr/lecoute-et-lenregistrement-des-appels-sur-le-lieu-de-travail" rel="nofollow noopener" target="_blank">CNIL, l'écoute et l'enregistrement des appels</a>.</li>
+</ul>
+</div>
+</section>
+<!-- 7. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:23ch">Vos clients obtiennent une réponse, <em>et vous restez dans les règles</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne, avec un message d'accueil clair dès le premier appel. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/comparer/repondeur-renvoi-standard">Répondeur, renvoi ou standard</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/metiers">Votre métier</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+<li><a href="/politique-de-confidentialite">Confidentialité de ce site</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/conformite#webpage",
+      "url": "https://www.concierge-ai.fr/conformite",
+      "name": "RGPD et assistant téléphonique : ce qui est obligatoire",
+      "description": "Annoncer l'assistant automatique, prévenir de l'enregistrement, ne demander que l'utile : les trois règles, et le message d'accueil prêt à reprendre.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/conformite#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/conformite#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Conformité" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/conformite#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/conformite#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il dire aux clients qu'ils parlent à un assistant automatique au téléphone ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, en une phrase au début de l'appel, par exemple « je suis l'assistant automatique de l'entreprise ». Elle fait partie du message d'accueil validé à l'installation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il prévenir que l'appel téléphonique est enregistré ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. La même phrase d'accueil indique que l'appel est enregistré pour assurer le suivi de la demande et que la personne peut s'y opposer." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles informations un assistant téléphonique automatique demande-t-il aux clients ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Seulement ce qui sert à poser le rendez-vous : nom, numéro, adresse d'intervention et nature de la demande. L'entreprise valide la liste à l'installation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Les clients acceptent-ils de parler à un assistant téléphonique automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ce que les clients n'aiment pas, c'est le répondeur et l'absence de réponse. Un accueil qui répond tout de suite, comprend la demande et donne un créneau correspond à ce qu'ils cherchaient. Le téléphone sonne d'abord chez l'artisan, l'assistant ne prenant le relais que s'il ne décroche pas." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un artisan doit faire lui-même pour le RGPD avec un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pour l'essentiel, valider son message d'accueil et la liste des questions posées aux clients. Le reste se voit avec l'équipe au rendez-vous d'installation, en même temps que le paramétrage." }
+        }
+      ]
+    }
+  ]
+}
+</script>

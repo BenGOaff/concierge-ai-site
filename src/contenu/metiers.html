@@ -1,0 +1,376 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- familles de métiers --- */
+.cai .cai-fam{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(18px,2.2vw,24px)}
+.cai .cai-famc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-famc h3{font:700 1.14rem/1.35 'Inter',sans-serif;color:var(--ink);margin:0 0 12px}
+.cai .cai-famc p{font-size:.97rem;line-height:1.7;color:var(--grey);margin:0 0 22px;max-width:58ch}
+.cai .cai-famc ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-famc li{margin:0;padding:0}
+.cai .cai-famc a{display:inline-flex;font:500 .9rem/1.3 'Inter',sans-serif;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s,background .16s}
+.cai .cai-famc a:hover{border-color:#B6CADD;background:#fff}
+@media(min-width:900px){.cai .cai-fam{grid-template-columns:repeat(2,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- familles de métiers --- */
+.cai .cai-fam{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(18px,2.2vw,24px)}
+.cai .cai-famc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-famc h3{font:700 1.14rem/1.35 'Inter',sans-serif;color:var(--ink);margin:0 0 12px}
+.cai .cai-famc p{font-size:.97rem;line-height:1.7;color:var(--grey);margin:0 0 22px;max-width:58ch}
+.cai .cai-famc ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-famc li{margin:0;padding:0}
+.cai .cai-famc a{display:inline-flex;font:500 .9rem/1.3 'Inter',sans-serif;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s,background .16s}
+.cai .cai-famc a:hover{border-color:#B6CADD;background:#fff}
+@media(min-width:900px){.cai .cai-fam{grid-template-columns:repeat(2,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Les métiers</span>
+<h1 style="max-width:25ch;margin:22px 0 20px">Ce qui coûte un appel manqué <em>n'est pas le même selon votre métier</em></h1>
+<p class="cai-lead" style="max-width:58ch">Chez un serrurier, un appel manqué part chez le concurrent en trente secondes. Chez un kiné, c'est un créneau qui reste vide. Chez un avocat, c'est un dossier entier. Dix-huit métiers, dix-huit pages : choisissez le vôtre.</p>
+<ul class="cai-tick">
+<li>Des scènes réelles, pas des cas d'école</li>
+<li>Le seuil de rentabilité calculé sur votre panier</li>
+<li>Et à chaque fois, ce qu'un standard ne doit pas faire</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un artisan range sa caisse à outils dans son fourgon, son téléphone allumé posé sur le pare-chocs" height="643" loading="eager" src="/images/6ab01644b6e2f2.16249561_metiers-permanence-telepho.webp" width="1500"/>
+<figcaption>Le point commun des dix-huit métiers : on est occupé à produire quand on appelle.</figcaption>
+</figure>
+</section>
+<!-- 2. LES 18 MÉTIERS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Choisissez le vôtre</span>
+<h2>Dix-huit métiers, dix-huit façons <em>de perdre un appel</em></h2>
+<p class="cai-lead" style="max-width:58ch">Si votre métier n'y est pas, prenez celui dont les appels ressemblent le plus aux vôtres.</p>
+</div>
+<div class="cai-fam">
+<article class="cai-famc">
+<h3>Dépannage et chantier</h3>
+<p>Ici l'appel manqué part chez le confrère dans la minute, parce que la personne a une fuite, une panne ou une porte fermée. Le sujet central est le tri entre vraie et fausse urgence, et le renvoi de ce qui vous concerne vraiment.</p>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+</ul>
+</article>
+<article class="cai-famc">
+<h3>Santé et soin</h3>
+<p>Ici deux problèmes se superposent : les créneaux annulés qui ne se repourvoient pas, et les appels qui décrivent un symptôme. Le sujet central est la limite : aucune évaluation, aucun conseil, une consigne de renvoi que vous écrivez vous-même.</p>
+<ul>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+</ul>
+</article>
+<article class="cai-famc">
+<h3>Professions du conseil</h3>
+<p>Ici un appel manqué ne coûte pas une prestation mais un dossier annuel, parce que la personne appelle trois cabinets dans la même heure. Le sujet central est le secret professionnel et l'interdiction de répondre sur le fond.</p>
+<ul>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+</ul>
+</article>
+<article class="cai-famc">
+<h3>Rendez-vous et accueil</h3>
+<p>Ici le volume est fait de questions répétitives qui vous sortent de votre travail dix fois par jour, et d'annulations entendues trop tard. Le sujet central est l'agenda : durées, places disponibles, créneaux libérés dans la minute.</p>
+<ul>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</article>
+</div>
+</section>
+<!-- 3. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment répondre au téléphone <em>quand on travaille seul ?</em></h2>
+</div>
+<p class="cai-say">Vous ne pouvez pas décrocher sous un évier, au fauteuil ou au volant, et la personne qui appelle n'attend pas : elle compose le numéro suivant. <span class="cai-key">Un standard joignable 24 h/24 prend l'appel quand vous ne le prenez pas, pose le rendez-vous dans votre agenda et ne vous transfère que ce que vous avez décidé.</span></p>
+</section>
+<!-- 4. TABLEAU DE SYNTHÈSE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Synthèse</span>
+<h2>Ce qui change d'un métier à l'autre <em>dans une permanence téléphonique</em></h2>
+<p class="cai-lead" style="max-width:58ch">L'appel qui coûte le plus cher, et la phrase qui ne doit jamais être dite. Les deux changent par famille.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Famille</th>
+<th scope="col">L'appel qui coûte le plus cher</th>
+<th scope="col">Ce qu'un standard ne doit jamais faire</th>
+<th scope="col">Ce qui se règle au paramétrage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Dépannage et chantier</th>
+<td data-l="L'appel qui coûte le plus cher">L'urgence du soir ou du week-end, qui part chez le confrère</td>
+<td data-l="Ce qu'un standard ne doit jamais faire">Annoncer un prix d'intervention ou un délai d'arrivée</td>
+<td data-l="Ce qui se règle au paramétrage">Zone d'intervention, critères de vraie urgence, règles de transfert</td>
+</tr>
+<tr>
+<th scope="row">Santé et soin</th>
+<td data-l="L'appel qui coûte le plus cher">L'annulation entendue trop tard, qui laisse un créneau vide</td>
+<td data-l="Ce qu'un standard ne doit jamais faire">Évaluer une situation clinique ou donner un conseil de soin</td>
+<td data-l="Ce qui se règle au paramétrage">Consigne de renvoi écrite, durées de séance, créneaux ouverts</td>
+</tr>
+<tr>
+<th scope="row">Professions du conseil</th>
+<td data-l="L'appel qui coûte le plus cher">Le premier appel d'un prospect, qui vaut un dossier annuel</td>
+<td data-l="Ce qu'un standard ne doit jamais faire">Répondre sur le fond, ou engager une mission</td>
+<td data-l="Ce qui se règle au paramétrage">Informations recueillies, hébergement des données, créneaux de rendez-vous</td>
+</tr>
+<tr>
+<th scope="row">Rendez-vous et accueil</th>
+<td data-l="L'appel qui coûte le plus cher">La demande arrivée après la fermeture, qui va à côté</td>
+<td data-l="Ce qu'un standard ne doit jamais faire">Dépasser vos places, ou s'engager sur un contrat</td>
+<td data-l="Ce qui se règle au paramétrage">Durées, capacité par créneau, tarifs écrits, règles d'annulation</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Ce tableau est une synthèse des dix-huit pages de ce site. Sur chaque page métier, la même logique est détaillée avec les scènes, les montants et la réglementation propres à l'activité.</p>
+</section>
+<!-- 5. CE QUI NE CHANGE PAS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le socle</span>
+<h2>Ce qui ne change pas, <em>quel que soit le métier</em></h2>
+<p class="cai-lead" style="max-width:58ch">Trois principes valables sur les dix-huit pages, et qui sont aussi les trois questions à poser à n'importe quel prestataire.</p>
+</div>
+<ul class="cai-list">
+<li><b>Ça sonne d'abord chez vous</b><span>Le système ne prend le relais que si vous ne décrochez pas. Vous restez le premier interlocuteur de vos clients, et votre relation avec eux reste la vôtre.</span></li>
+<li><b>Vous gardez la main</b><span>Vous écrivez les règles : les tarifs annoncés, les zones, les créneaux ouverts, ce qui déclenche un appel vers vous, ce qui est refusé. Et vous recevez le résumé écrit de chaque appel.</span></li>
+<li><b>Vous gardez votre numéro</b><span>Rien à installer, personne à prévenir, aucune carte de visite à refaire. Le branchement se fait sur la ligne que vous avez déjà, et se défait aussi facilement.</span></li>
+</ul>
+<a class="cai-more" href="/fonctionnement">Voir comment ça se branche</a>
+</section>
+<!-- 6. MÉTIER ABSENT -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Autre activité</span>
+<h2>Votre métier n'est pas dans <em>les dix-huit pages ?</em></h2>
+</div>
+<p class="cai-say">Le mécanisme est le même pour toute activité où le dirigeant produit lui-même : ambulancier, ramoneur, pisciniste, dépanneur informatique, pressing, toiletteur, menuisier, pompes funèbres. <span class="cai-key">Ce qui change n'est pas la solution, c'est le paramétrage : vos règles d'urgence, vos durées, vos tarifs écrits, vos consignes de renvoi.</span></p>
+<p class="cai-fine" style="max-width:64ch">Dans ce cas, la page la plus utile est celle du métier dont les appels ressemblent le plus aux vôtres. Si vous intervenez en urgence, lisez la page serrurier. Si vous travaillez sur rendez-vous, lisez la page coiffeur. Si votre valeur est dans le premier contact, lisez la page avocat.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que vos appels manqués représentent</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions sur la <em>permanence téléphonique métier par métier</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Est-ce que c'est vraiment différent selon le métier ?</summary>
+<div class="cai-ans"><p>La technique est identique, le paramétrage ne l'est pas, et c'est lui qui décide du résultat. Un serrurier a besoin d'un tri d'urgence et d'une zone d'intervention. Un kiné a besoin de durées de séance et d'une consigne de renvoi. Un restaurant a besoin d'un nombre de couverts par créneau.</p><p>Un standard mal paramétré fait plus de dégâts qu'un répondeur : il donne un prix qui ne tient pas, il pose un rendez-vous impossible, ou il rassure quelqu'un qu'il ne fallait pas rassurer.</p></div>
+</details>
+<details>
+<summary>Quelle page lire si j'exerce deux activités ?</summary>
+<div class="cai-ans"><p>Celle de l'activité qui vous fait perdre le plus d'appels, pas celle qui vous rapporte le plus. Un restaurateur qui fait aussi du traiteur trouvera les deux sur la même page, un artisan qui fait du dépannage et de la rénovation gagnera à lire les deux, parce que les règles d'urgence n'y sont pas les mêmes.</p></div>
+</details>
+<details>
+<summary>Est-ce que ça marche pour un dirigeant seul ?</summary>
+<div class="cai-ans"><p>C'est le cas principal. Les dix-huit pages sont écrites pour le dirigeant qui produit lui-même et qui décide seul, de une à cinq personnes. C'est exactement la situation où personne ne peut décrocher, faute de quelqu'un dont ce soit le poste.</p></div>
+</details>
+<details>
+<summary>Et si mes clients tiennent à me parler à moi ?</summary>
+<div class="cai-ans"><p>Ils continuent : la ligne sonne d'abord chez vous, et le relais ne se déclenche que si vous ne décrochez pas. Aujourd'hui, l'alternative à ce relais n'est pas vous, c'est un répondeur.</p><p>Vous pouvez aussi décider que certains appels vous sont transférés en direct, et écrire lesquels.</p></div>
+</details>
+<details>
+<summary>Combien ça coûte, et à partir de combien c'est rentable ?</summary>
+<div class="cai-ans"><p>Chaque page métier porte son propre calcul, parce que le seuil dépend de votre panier. Une intervention de dépannage récupérée par mois suffit généralement, un dossier d'avocat couvre l'année, une inscription en auto-école aussi.</p><p>La page tarifs donne les montants, et le calculateur fait le calcul sur vos propres chiffres.</p></div>
+</details>
+<details>
+<summary>Comment savoir combien d'appels je rate vraiment ?</summary>
+<div class="cai-ans"><p>Aucune page ne peut vous le dire, et c'est la limite honnête de tout ce site : personne ne connaît votre volume à votre place. Sept jours sur votre vraie ligne donnent le chiffre, et c'est la seule mesure qui vaille.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Le chiffre que vous cherchez <em>est sur votre propre ligne</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vrai numéro vous diront combien d'appels passaient pendant que vous travailliez, et ce qu'ils valaient. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/calculateur">Le calculateur</a></li>
+<li><a href="/guides/astreinte-et-tri-des-urgences">Astreinte et tri des urgences</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Ce site mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.concierge-ai.fr/metiers#webpage",
+      "url": "https://www.concierge-ai.fr/metiers",
+      "name": "Permanence téléphonique artisan et TPE : tous les métiers",
+      "description": "Dix-huit métiers, dix-huit façons de perdre un appel. Choisissez le vôtre : scènes réelles, coûts comparés et limites d'un standard 24 h/24.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers#breadcrumb" },
+      "mainEntity": { "@id": "https://www.concierge-ai.fr/metiers#liste" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.concierge-ai.fr/metiers#liste",
+      "name": "Permanence téléphonique par métier",
+      "numberOfItems": 18,
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Plombier, chauffagiste", "url": "https://www.concierge-ai.fr/metiers/plombier-chauffagiste" },
+        { "@type": "ListItem", "position": 2, "name": "Électricien", "url": "https://www.concierge-ai.fr/metiers/electricien" },
+        { "@type": "ListItem", "position": 3, "name": "Serrurier", "url": "https://www.concierge-ai.fr/metiers/serrurier" },
+        { "@type": "ListItem", "position": 4, "name": "Garage, carrosserie", "url": "https://www.concierge-ai.fr/metiers/garage-carrosserie" },
+        { "@type": "ListItem", "position": 5, "name": "Rénovation, bâtiment", "url": "https://www.concierge-ai.fr/metiers/renovation-batiment" },
+        { "@type": "ListItem", "position": 6, "name": "Paysagiste", "url": "https://www.concierge-ai.fr/metiers/paysagiste" },
+        { "@type": "ListItem", "position": 7, "name": "Cabinet dentaire", "url": "https://www.concierge-ai.fr/metiers/cabinet-dentaire" },
+        { "@type": "ListItem", "position": 8, "name": "Kiné, ostéopathe", "url": "https://www.concierge-ai.fr/metiers/kine-osteopathe" },
+        { "@type": "ListItem", "position": 9, "name": "Vétérinaire", "url": "https://www.concierge-ai.fr/metiers/veterinaire" },
+        { "@type": "ListItem", "position": 10, "name": "Clinique esthétique", "url": "https://www.concierge-ai.fr/metiers/clinique-esthetique" },
+        { "@type": "ListItem", "position": 11, "name": "Avocat, juriste", "url": "https://www.concierge-ai.fr/metiers/avocat-juriste" },
+        { "@type": "ListItem", "position": 12, "name": "Expert-comptable", "url": "https://www.concierge-ai.fr/metiers/expert-comptable" },
+        { "@type": "ListItem", "position": 13, "name": "Agence immobilière", "url": "https://www.concierge-ai.fr/metiers/agence-immobiliere" },
+        { "@type": "ListItem", "position": 14, "name": "Coiffeur, barbier", "url": "https://www.concierge-ai.fr/metiers/coiffeur-barbier" },
+        { "@type": "ListItem", "position": 15, "name": "Institut, spa", "url": "https://www.concierge-ai.fr/metiers/institut-spa" },
+        { "@type": "ListItem", "position": 16, "name": "Salle de sport", "url": "https://www.concierge-ai.fr/metiers/salle-de-sport" },
+        { "@type": "ListItem", "position": 17, "name": "Auto-école", "url": "https://www.concierge-ai.fr/metiers/auto-ecole" },
+        { "@type": "ListItem", "position": 18, "name": "Restaurant, traiteur", "url": "https://www.concierge-ai.fr/metiers/restaurant-traiteur" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Une permanence téléphonique est-elle vraiment différente selon le métier ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La technique est identique, le paramétrage ne l'est pas, et c'est lui qui décide du résultat. Un serrurier a besoin d'un tri d'urgence et d'une zone d'intervention, un kiné de durées de séance et d'une consigne de renvoi, un restaurant d'un nombre de couverts par créneau. Un standard mal paramétré fait plus de dégâts qu'un répondeur : il donne un prix qui ne tient pas, pose un rendez-vous impossible ou rassure quelqu'un qu'il ne fallait pas rassurer." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle page métier lire quand on exerce deux activités ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Celle de l'activité qui fait perdre le plus d'appels, pas celle qui rapporte le plus. Un restaurateur qui fait aussi du traiteur trouve les deux sur la même page ; un artisan qui fait du dépannage et de la rénovation gagne à lire les deux, les règles d'urgence n'y étant pas les mêmes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Une permanence téléphonique convient-elle à un dirigeant seul ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "C'est le cas principal. Les pages métier sont écrites pour le dirigeant qui produit lui-même et décide seul, de une à cinq personnes : la situation où personne ne peut décrocher, faute de quelqu'un dont ce soit le poste." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que devient la relation client si les clients veulent parler au dirigeant ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La ligne sonne d'abord chez le dirigeant et le relais ne se déclenche que s'il ne décroche pas. L'alternative à ce relais n'est pas lui, c'est un répondeur. Il peut aussi décider quels appels lui sont transférés en direct et écrire lesquels." }
+        },
+        {
+          "@type": "Question",
+          "name": "À partir de combien d'appels récupérés une permanence téléphonique est-elle rentable ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le seuil dépend du panier, et chaque page métier porte son propre calcul. Une intervention de dépannage récupérée par mois suffit généralement, un dossier d'avocat couvre l'année, une inscription en auto-école aussi. La page tarifs donne les montants et le calculateur fait le calcul sur les chiffres de l'entreprise." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir combien d'appels une entreprise rate réellement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Aucune page ne peut le dire : personne ne connaît ce volume à la place du dirigeant. Sept jours de mesure sur la ligne réelle donnent le chiffre, et c'est la seule mesure qui vaille." }
+        }
+      ]
+    }
+  ]
+}
+</script>

@@ -1,0 +1,425 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Paysagiste · jardin</span>
+<h1 style="max-width:23ch;margin:22px 0 20px">Casque sur les oreilles, <em>taille-haie en main</em></h1>
+<p class="cai-lead" style="max-width:58ch">Au printemps, votre téléphone sonne dix fois par jour pendant que vous ne pouvez rien entendre. Le reste de l'année, il sonne à peine. Voici comment passer la saison sans laisser une demande sans réponse.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Sans engagement : vous pouvez ne le garder que pendant la saison</li>
+<li>Sept jours d'essai, arrêt sans justification</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un paysagiste taille une haie au taille-haie thermique, son téléphone allumé posé hors de portée" height="643" loading="eager" src="/images/6aaffa02da0e88.17791098_paysagiste-permanence-telephone.webp" width="1500"/>
+<figcaption>Un taille-haie thermique couvre absolument tout. Le téléphone n'a aucune chance.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment un paysagiste peut-il répondre <em>en pleine saison ?</em></h2>
+</div>
+<p class="cai-say">Le problème d'un paysagiste n'est pas l'urgence, c'est la concentration : l'essentiel des demandes de l'année arrive sur quelques semaines de printemps, exactement quand les journées sont les plus remplies. <span class="cai-key">Une solution sans engagement peut se prendre pour la saison et s'arrêter en octobre.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où un paysagiste <em>perd un contrat</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est une journée ordinaire de mars à juin.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>10 h 20</b>
+<p>Taille-haie thermique en main, casque antibruit sur les oreilles. Vous n'entendrez pas la sonnerie, et vous ne la verrez pas non plus : le téléphone est dans la camionnette.</p>
+</article>
+<article class="cai-scc">
+<b>15 h 45</b>
+<p>Vous êtes sur la tondeuse autoportée depuis deux heures. Trois appels sont passés. Aucun message, parce qu'on ne laisse pas de message pour demander un devis de tonte.</p>
+</article>
+<article class="cai-scc">
+<b>Avril</b>
+<p>La semaine où tout le monde regarde son jardin en même temps. Votre planning se remplit en quatre jours, et vous ne savez pas combien de demandes sont passées à côté.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Le particulier qui veut faire tailler sa haie ne rappelle pas. Il appelle le paysagiste suivant, et s'il est content, il le garde pour les années d'après. Un appel manqué au printemps n'est pas une prestation perdue, c'est un client perdu pour plusieurs saisons.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. LES DEMANDES EN PAYSAGE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>chez un paysagiste</em></h2>
+<p class="cai-lead" style="max-width:58ch">Peu d'urgences, sauf après un coup de vent. Ces repères sont des points de départ à ajuster à votre activité.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Niveau</th>
+<th scope="col">Ce qu'il faut en faire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Arbre tombé sur une voie ou une toiture</th>
+<td data-l="Niveau">Urgence</td>
+<td data-l="Ce qu'il faut en faire">Vous êtes appelé en direct, avec l'adresse et la situation</td>
+</tr>
+<tr>
+<th scope="row">Branche menaçante après un coup de vent</th>
+<td data-l="Niveau">Urgence</td>
+<td data-l="Ce qu'il faut en faire">Appel direct si des personnes ou des biens sont exposés</td>
+</tr>
+<tr>
+<th scope="row">Abattage ou élagage à planifier</th>
+<td data-l="Niveau">Prioritaire</td>
+<td data-l="Ce qu'il faut en faire">Hauteur, essence et accès qualifiés, visite posée</td>
+</tr>
+<tr>
+<th scope="row">Devis de contrat d'entretien annuel</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Surface, fréquence souhaitée et accès recueillis, visite posée</td>
+</tr>
+<tr>
+<th scope="row">Tonte ou taille ponctuelle</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Rendez-vous direct sur un créneau libre, surface notée</td>
+</tr>
+<tr>
+<th scope="row">Création de jardin, terrasse, clôture</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Qualification complète, visite technique planifiée</td>
+</tr>
+<tr>
+<th scope="row">Arrosage automatique, plantation, engazonnement</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Surface et nature du terrain recueillies, rappel planifié</td>
+</tr>
+<tr>
+<th scope="row">Client sous contrat qui veut décaler un passage</th>
+<td data-l="Niveau">Information</td>
+<td data-l="Ce qu'il faut en faire">Demande notée et transmise, sans vous interrompre</td>
+</tr>
+<tr>
+<th scope="row">Demande hors zone ou hors compétence</th>
+<td data-l="Niveau">Refus</td>
+<td data-l="Ce qu'il faut en faire">Refus dit proprement, sans vous faire perdre de temps</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Une question change tout sur ce métier : l'accès. Portail étroit, terrain en pente, absence de point d'eau, obligation de passer par la maison. Posée au téléphone, elle vous évite un déplacement pour rien ; posée sur place, elle vous coûte une demi-journée.</p>
+<a class="cai-more" href="/guides/astreinte-et-tri-des-urgences">Écrire vos propres règles de tri</a>
+</section>
+<!-- 5. LA SAISON -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">La saison</span>
+<h2>Passer le printemps <em>sans perdre de demandes</em></h2>
+<p class="cai-lead" style="max-width:58ch">C'est le métier où la saisonnalité est la plus marquée de tout le site, et c'est ce qui rend l'absence d'engagement décisive.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Branchez avant le pic, pas pendant.</strong> La ligne est en service sous quarante-huit heures, mais le cadrage demande trente minutes de votre temps. En avril vous ne les aurez pas : c'est en février qu'on prépare la saison.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Ouvrez moins de créneaux que vous n'en avez.</strong> Un agenda saturé en quatre jours ne laisse aucune place aux contrats annuels, qui appellent souvent plus tard. Gardez des créneaux fermés à la réservation automatique pour les demandes à forte valeur.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Faites remonter le nombre d'appels, pas seulement les rendez-vous.</strong> Le rapport mensuel vous dira enfin combien de personnes ont appelé en avril. C'est le chiffre que vous n'avez jamais eu, et celui qui décide de vos embauches saisonnières.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Arrêtez en basse saison si vous le voulez.</strong> Il n'y a aucun engagement de durée : rien n'oblige à payer douze mois un service qui vous sert surtout d'avril à septembre. Le renvoi se retire, votre ligne revient à son fonctionnement précédent.</p></div>
+</div>
+</section>
+<!-- 6. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien de prestations couvrent une <em>permanence téléphonique de paysagiste</em></h2>
+<p class="cai-lead" style="max-width:58ch">Divisez le coût mensuel de la solution par le montant moyen d'une de vos prestations. Voici le résultat pour trois montants, à remplacer par le vôtre.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une prestation vous rapporte</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">100 €</th>
+<td data-l="Télésecrétariat">2 par mois</td>
+<td data-l="Standard 24/7">3 par mois</td>
+<td data-l="Embauche">17 par mois</td>
+</tr>
+<tr>
+<th scope="row">250 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">2 par mois</td>
+<td data-l="Embauche">7 par mois</td>
+</tr>
+<tr>
+<th scope="row">600 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">1 par mois</td>
+<td data-l="Embauche">3 par mois</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur, puisqu'on ne récupère pas une demi-prestation. Les trois montants sont des exemples de calcul, pas une moyenne de marché. Ce calcul sous-estime volontairement : un contrat d'entretien annuel récupéré au printemps rapporte pendant plusieurs saisons, et une seule tonte ne représente qu'une fraction de ce qu'il vaut.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions de paysagistes sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Puis-je le prendre seulement pendant la saison ?</summary>
+<div class="cai-ans"><p>Oui. Il n'y a aucun engagement de durée ni de reconduction tacite : vous arrêtez quand vous voulez, sans justification, et le renvoi est retiré de votre ligne.</p><p>Prévoyez simplement le cadrage en amont : trente minutes en février valent mieux que trente minutes introuvables en avril.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut annoncer un prix de tonte ?</summary>
+<div class="cai-ans"><p>Uniquement les forfaits que vous avez écrits, par exemple un prix au mètre carré de pelouse ou un tarif d'heure de main-d'œuvre. Pour un élagage, une création ou un terrain difficile d'accès, aucun montant n'est avancé : la visite est posée et vous chiffrez après.</p></div>
+</details>
+<details>
+<summary>Qu'est-ce qu'il demande pour préparer mon déplacement ?</summary>
+<div class="cai-ans"><p>Ce que vous lui avez dit de demander. Sur ce métier, l'essentiel tient en quelques questions : la surface, la hauteur de la haie, l'essence de l'arbre, la largeur du portail, la présence d'une pente, l'existence d'un point d'eau et d'une prise électrique, et l'évacuation des déchets verts.</p><p>C'est ce qui évite d'arriver avec la mauvaise remorque ou sans le bon matériel.</p></div>
+</details>
+<details>
+<summary>Et après une tempête ?</summary>
+<div class="cai-ans"><p>C'est le seul moment de l'année où le volume et l'urgence arrivent ensemble. Un arbre tombé sur une voie ou une toiture vous est transféré en direct ; une branche cassée sans danger immédiat est planifiée. Sans filtre, ces deux appels se ressemblent et vous prenez les deux.</p></div>
+</details>
+<details>
+<summary>Comment il gère mes clients sous contrat ?</summary>
+<div class="cai-ans"><p>Leurs demandes de décalage, de passage supplémentaire ou de question d'entretien sont notées et transmises par écrit, sans vous interrompre. Vous pouvez aussi placer certains clients ou collectivités en transfert direct.</p></div>
+</details>
+<details>
+<summary>Je travaille aussi pour des collectivités et des syndics</summary>
+<div class="cai-ans"><p>Leurs appels se qualifient comme les autres : nom de l'organisme, site concerné, nature de la demande, délai contractuel. Vous listez les numéros qui doivent vous joindre directement, et les autres sont qualifiés puis transmis.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Le printemps arrive vite. <em>Le cadrage se fait en février.</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront combien de demandes vous receviez pendant que le taille-haie tournait. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas le paysage ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/paysagiste#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/paysagiste",
+      "name": "Permanence téléphonique paysagiste : ne rien rater",
+      "description": "Taille, tonte, contrats d'entretien : vos appels explosent au printemps pendant que le taille-haie tourne. Coûts comparés et gestion de la saison.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/paysagiste#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/paysagiste#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/paysagiste#metier",
+      "name": "Permanence téléphonique pour paysagiste",
+      "serviceType": "Permanence téléphonique, qualification des demandes et prise de rendez-vous pour entreprises du paysage et de l'entretien de jardins",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Paysagistes et entreprises d'entretien de jardins en petite équipe"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/paysagiste#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Paysagiste" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/paysagiste#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/paysagiste#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Peut-on prendre une permanence téléphonique seulement pendant la saison ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. Il n'y a aucun engagement de durée ni de reconduction tacite : l'arrêt se fait sans justification et le renvoi est retiré de la ligne. Le cadrage de trente minutes se prépare en amont, en février plutôt qu'en pleine saison." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il annoncer un prix de tonte ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Uniquement les forfaits écrits par le paysagiste, par exemple un prix au mètre carré de pelouse ou un tarif horaire. Pour un élagage, une création ou un terrain difficile d'accès, aucun montant n'est avancé : la visite est posée et le chiffrage se fait après." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles questions poser au téléphone pour préparer un chantier de jardin ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La surface, la hauteur de la haie, l'essence de l'arbre, la largeur du portail, la présence d'une pente, l'existence d'un point d'eau et d'une prise électrique, et l'évacuation des déchets verts. C'est ce qui évite d'arriver avec la mauvaise remorque ou sans le bon matériel." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment gérer les appels après une tempête ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "C'est le seul moment de l'année où le volume et l'urgence arrivent ensemble. Un arbre tombé sur une voie ou une toiture est transféré en direct ; une branche cassée sans danger immédiat est planifiée. Sans filtre, ces deux appels se ressemblent." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont traités les clients sous contrat d'entretien ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Leurs demandes de décalage, de passage supplémentaire ou d'entretien sont notées et transmises par écrit, sans interruption. Certains clients ou collectivités peuvent être placés en transfert direct." }
+        },
+        {
+          "@type": "Question",
+          "name": "Et les appels des collectivités et des syndics ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ils se qualifient comme les autres : nom de l'organisme, site concerné, nature de la demande, délai contractuel. Les numéros qui doivent joindre directement sont listés, les autres sont qualifiés puis transmis." }
+        }
+      ]
+    }
+  ]
+}
+</script>

@@ -1,0 +1,477 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Coiffeur, barbier</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Un fauteuil vide une heure <em>ne se rattrape jamais</em></h1>
+<p class="cai-lead" style="max-width:58ch">Vos deux mains sont sur une couleur, une annulation arrive à seize heures quarante-cinq, un client réserve pour samedi à vingt heures quarante. Voici ce que deviennent ces appels, ce qu'ils coûtent, et ce qu'un standard ne doit pas faire à votre place.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Le créneau annulé redevient réservable immédiatement</li>
+<li>Sans engagement, sept jours d'essai</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un barbier taille la barbe d'un client, tondeuse et peigne en main, son téléphone allumé posé sur le poste de travail" height="643" loading="eager" src="/images/6ab00b02bb5bb1.28355458_coiffeur-barbier-permanence-telephone.webp" width="1500"/>
+<figcaption>Pendant une prestation, on ne décroche pas. Et un client qui n'obtient pas de réponse prend rendez-vous ailleurs.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment un salon peut-il répondre <em>pendant une prestation ?</em></h2>
+</div>
+<p class="cai-say">Le problème d'un salon n'est pas le volume d'appels, c'est leur moment : ils tombent tous quand vos mains sont prises, et une annulation entendue trop tard laisse un fauteuil vide qui ne se repourvoit pas. <span class="cai-key">Un standard prend les rendez-vous et les annulations à l'heure où elles arrivent, et libère le créneau dans l'agenda dans la minute.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où un salon de coiffure <em>perd un client</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est la journée ordinaire d'un salon où tout le monde est au fauteuil.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>10 h 20</b>
+<p>Vous appliquez une couleur, gants aux mains. Deux appels passent. Personne ne laisse de message pour prendre un rendez-vous : on rappelle plus tard, ou on essaie le salon d'en face.</p>
+</article>
+<article class="cai-scc">
+<b>16 h 45</b>
+<p>Une cliente annule son rendez-vous de dix-huit heures. Vous écoutez le message à dix-sept heures trente, trop tard pour proposer le créneau à quelqu'un d'autre.</p>
+</article>
+<article class="cai-scc">
+<b>20 h 40</b>
+<p>Le salon est fermé. Quelqu'un veut un rendez-vous pour samedi. Il tombe sur un répondeur, et samedi est le jour où votre planning se remplit le plus vite.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Ce métier ne perd pas des gros dossiers, il perd des créneaux, plusieurs par semaine, toute l'année. Et un fauteuil vide à dix-huit heures un mardi ne se rattrape ni le lendemain ni le mois suivant.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. LA LIMITE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le cadre</span>
+<h2>Ce qu'un standard ne fait jamais <em>dans un salon de coiffure</em></h2>
+<p class="cai-lead" style="max-width:58ch">Sur ce métier, les limites sont techniques plus que réglementaires, et elles comptent autant.</p>
+</div>
+<ul class="cai-list">
+<li><b>Aucun conseil technique</b><span>Ni sur une couleur, ni sur un lissage, ni sur la faisabilité d'un passage du brun au blond. Ces questions se voient sur cheveux, en diagnostic, et pas au téléphone.</span></li>
+<li><b>Aucun prix improvisé sur une prestation technique</b><span>Une coupe, un barbe, un shampoing : vos tarifs écrits sont confirmés. Une couleur, des mèches, une extension dépendent de la longueur et de l'état du cheveu, donc la demande est notée et vous revient.</span></li>
+<li><b>Aucune promesse sur une allergie ou une réaction</b><span>Si une cliente évoque une réaction après une coloration ou pose une question d'allergie, rien n'est répondu : la demande est transmise, et vous appliquez votre protocole de test habituel.</span></li>
+<li><b>Aucun engagement sur la personne qui coiffe</b><span>Le rendez-vous est posé sur les créneaux que vous avez ouverts. Si vos clientes choisissent leur coiffeuse, c'est vous qui le paramétrez dans l'agenda, ce n'est jamais négocié au téléphone.</span></li>
+</ul>
+</section>
+<!-- 5. LES DEMANDES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>dans un salon de coiffure</em></h2>
+<p class="cai-lead" style="max-width:58ch">Presque uniquement de l'agenda, et c'est précisément ce qui s'automatise le mieux. Ces repères sont des points de départ à ajuster à votre salon.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Traitement</th>
+<th scope="col">Ce que ça vous fait gagner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Prise de rendez-vous coupe ou barbe</th>
+<td data-l="Traitement">Posée directement sur un créneau libre, durée appliquée selon vos règles</td>
+<td data-l="Ce que ça vous fait gagner">Aucune interruption de prestation</td>
+</tr>
+<tr>
+<th scope="row">Annulation ou report du jour</th>
+<td data-l="Traitement">Prise immédiatement, créneau libéré dans l'agenda</td>
+<td data-l="Ce que ça vous fait gagner">Le créneau redevient réservable dans la minute</td>
+</tr>
+<tr>
+<th scope="row">Rendez-vous couleur, mèches, lissage</th>
+<td data-l="Traitement">Créneau posé sur la durée que vous avez définie, aucun conseil technique</td>
+<td data-l="Ce que ça vous fait gagner">Votre planning reste réaliste</td>
+</tr>
+<tr>
+<th scope="row">Question de prix sur une prestation technique</th>
+<td data-l="Traitement">Vos tarifs écrits confirmés, le reste transmis</td>
+<td data-l="Ce que ça vous fait gagner">Aucun montant avancé hors de votre validation</td>
+</tr>
+<tr>
+<th scope="row">Nouveau client qui découvre le salon</th>
+<td data-l="Traitement">Coordonnées et prestation souhaitée recueillies, rendez-vous posé</td>
+<td data-l="Ce que ça vous fait gagner">Il n'essaie pas le salon suivant</td>
+</tr>
+<tr>
+<th scope="row">Demande hors horaires, le soir ou le dimanche</th>
+<td data-l="Traitement">Rendez-vous posé comme en journée</td>
+<td data-l="Ce que ça vous fait gagner">Vos samedis se remplissent quand le salon est fermé</td>
+</tr>
+<tr>
+<th scope="row">Question d'allergie ou de réaction après une couleur</th>
+<td data-l="Traitement">Notée et transmise, aucune réponse avancée</td>
+<td data-l="Ce que ça vous fait gagner">Vous gardez la main sur un sujet sensible</td>
+</tr>
+<tr>
+<th scope="row">Horaires, adresse, moyens de paiement</th>
+<td data-l="Traitement">Répondu à partir de ce que vous avez écrit</td>
+<td data-l="Ce que ça vous fait gagner">Les appels les plus fréquents ne vous atteignent plus</td>
+</tr>
+<tr>
+<th scope="row">Démarchage commercial ou fournisseur</th>
+<td data-l="Traitement">Écarté poliment</td>
+<td data-l="Ce que ça vous fait gagner">Vous n'en entendez jamais parler</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/fonctionnement">Voir comment l'agenda se branche</a>
+</section>
+<!-- 6. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien de prestations couvrent une <em>permanence téléphonique de salon de coiffure</em></h2>
+<p class="cai-lead" style="max-width:58ch">Divisez le coût mensuel de la solution par votre ticket moyen. Voici le résultat pour trois montants, à remplacer par le vôtre.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une prestation vous rapporte</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">25 €</th>
+<td data-l="Télésecrétariat">6 par mois</td>
+<td data-l="Standard 24/7">12 par mois</td>
+<td data-l="Embauche">68 par mois</td>
+</tr>
+<tr>
+<th scope="row">45 €</th>
+<td data-l="Télésecrétariat">4 par mois</td>
+<td data-l="Standard 24/7">7 par mois</td>
+<td data-l="Embauche">38 par mois</td>
+</tr>
+<tr>
+<th scope="row">90 €</th>
+<td data-l="Télésecrétariat">2 par mois</td>
+<td data-l="Standard 24/7">4 par mois</td>
+<td data-l="Embauche">19 par mois</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur. Les trois montants sont des exemples de calcul, pas une moyenne de marché : remplacez-les par votre ticket réel. Avec un ticket bas, le seuil se compte en nombre de créneaux : à vingt-cinq euros la prestation, il faut douze créneaux récupérés dans le mois, soit environ trois par semaine. À vous de juger si votre agenda en perd autant.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 7. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Une annulation à 16 h 45, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une cliente annule son rendez-vous de dix-huit heures pendant que tout le monde est au fauteuil. Voici ce qui se passe.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Réservation en ligne</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">L'annulation est enregistrée tout de suite</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Réservation en ligne">Seulement si elle avait réservé en ligne</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Le créneau est de nouveau réservable</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Réservation en ligne">Dans ce seul cas</td>
+<td data-l="Standard 24/7">Oui, dans la minute</td>
+</tr>
+<tr>
+<th scope="row">Un autre client peut le prendre par téléphone</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Réservation en ligne">Non</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Vous avez été interrompu</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Réservation en ligne">Non</td>
+<td data-l="Standard 24/7">Non</td>
+</tr>
+<tr>
+<th scope="row">À dix-huit heures</th>
+<td data-l="Répondeur">Le fauteuil est vide</td>
+<td data-l="Réservation en ligne">Vide aussi, sauf coup de chance</td>
+<td data-l="Standard 24/7">Quelqu'un a pris la place</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 8. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions de coiffeurs et de barbiers sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>J'ai déjà la réservation en ligne, ça sert à quoi ?</summary>
+<div class="cai-ans"><p>C'est la bonne question à poser, et la réponse est franche : les deux ne couvrent pas la même chose. La réservation en ligne prend les clients qui réservent en ligne. Le téléphone reste le canal de ceux qui ne le font pas, des annulations de dernière minute, des demandes qui ne rentrent pas dans une case, et de tous ceux qui appellent parce qu'ils sont devant votre vitrine.</p><p>Si tous vos clients réservent déjà en ligne et que votre ligne ne sonne presque plus, vous n'avez pas besoin de ce service. C'est un test de sept jours qui vous le dira, pas nous.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut conseiller une couleur au téléphone ?</summary>
+<div class="cai-ans"><p>Non, et c'est volontaire. La faisabilité d'une couleur dépend de la base, de l'historique du cheveu et de son état, ce qui se voit en diagnostic. Aucun conseil n'est donné.</p><p>Il pose le rendez-vous sur la durée que vous avez définie pour cette prestation, ce qui évite le rendez-vous d'une heure pour un travail de trois.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il connaît mes tarifs ?</summary>
+<div class="cai-ans"><p>Ceux que vous écrivez. Coupe, barbe, shampoing, brushing : les prix fixes sont confirmés sans hésitation. Les prestations techniques qui dépendent de la longueur ou de la quantité de produit ne sont jamais chiffrées au téléphone, la demande vous revient.</p></div>
+</details>
+<details>
+<summary>Comment il gère les durées de prestation ?</summary>
+<div class="cai-ans"><p>Par les règles que vous posez au paramétrage : une durée par type de prestation, les temps de pause d'une couleur, ce qui peut se superposer et ce qui ne peut pas. C'est l'étape qui demande le plus d'attention au démarrage, et c'est ce qui fait qu'un planning tient ou pas.</p></div>
+</details>
+<details>
+<summary>Et les rappels de rendez-vous ?</summary>
+<div class="cai-ans"><p>Les invitations d'agenda et les rappels automatiques avant la prestation sont compris dès la formule d'entrée. Sur ce métier c'est souvent le gain le plus direct, parce que chaque client qui ne vient pas est un fauteuil bloqué pour rien.</p></div>
+</details>
+<details>
+<summary>Mes clientes demandent leur coiffeuse habituelle, c'est gérable ?</summary>
+<div class="cai-ans"><p>Oui, à condition que ce soit dans l'agenda. Si chaque coiffeuse a son propre planning, le rendez-vous est posé sur le bon. Ce qui n'est pas possible, c'est de négocier au téléphone une exception à vos règles : le standard ne sort pas de ce que vous avez ouvert.</p></div>
+</details>
+</div>
+</section>
+<!-- 9. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Combien de créneaux <em>votre agenda perd-il par semaine ?</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous donneront le chiffre : appels pendant les prestations, annulations entendues trop tard, demandes après la fermeture. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas la coiffure ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/coiffeur-barbier#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/coiffeur-barbier",
+      "name": "Permanence téléphonique salon de coiffure et barbier",
+      "description": "Appels pendant une couleur, annulations de dernière minute, réservations après la fermeture : ce que deviennent vos appels. Coûts comparés et limites.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/coiffeur-barbier#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/coiffeur-barbier#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/coiffeur-barbier#metier",
+      "name": "Permanence téléphonique pour salon de coiffure et barbershop",
+      "serviceType": "Permanence téléphonique et prise de rendez-vous pour salons de coiffure et barbiers",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Coiffeurs et barbiers indépendants, salons de petite taille"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/coiffeur-barbier#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Coiffeur, barbier" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/coiffeur-barbier#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/coiffeur-barbier#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "À quoi sert une permanence téléphonique quand un salon a déjà la réservation en ligne ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les deux ne couvrent pas la même chose. La réservation en ligne prend les clients qui réservent en ligne. Le téléphone reste le canal des clients qui n'y vont pas, des annulations de dernière minute et des demandes qui ne rentrent pas dans une case. Si la ligne ne sonne presque plus, le service est inutile : un essai de sept jours le montre." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique peut-il conseiller une couleur de cheveux ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. La faisabilité d'une couleur dépend de la base, de l'historique et de l'état du cheveu, ce qui se voit en diagnostic. Aucun conseil technique n'est donné. Le standard pose le rendez-vous sur la durée définie par le salon pour cette prestation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard connaît-il les tarifs du salon ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Il confirme les tarifs écrits par le salon : coupe, barbe, shampoing, brushing. Les prestations techniques dont le prix dépend de la longueur ou de la quantité de produit ne sont jamais chiffrées au téléphone, la demande est transmise." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont gérées les durées de prestation dans l'agenda ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Par les règles posées au paramétrage : une durée par type de prestation, les temps de pause d'une couleur, ce qui peut se superposer et ce qui ne peut pas. C'est l'étape qui demande le plus d'attention au démarrage et qui détermine si le planning tient." }
+        },
+        {
+          "@type": "Question",
+          "name": "Les rappels de rendez-vous sont-ils compris ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les invitations d'agenda et les rappels automatiques avant la prestation sont compris dès la formule d'entrée. C'est souvent le gain le plus direct, chaque client absent étant un fauteuil bloqué pour rien." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il poser un rendez-vous avec une coiffeuse en particulier ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui si chaque coiffeuse a son propre planning dans l'agenda : le rendez-vous est posé sur le bon. Ce qui n'est pas possible, c'est de négocier au téléphone une exception aux règles du salon, le standard ne sortant pas des créneaux ouverts." }
+        }
+      ]
+    }
+  ]
+}
+</script>

@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/prix-du-marche.html?raw'
+---
+
+<Base
+  titre="Prix d'une permanence téléphonique : le relevé 2026"
+  description="Grilles publiques relevées chez trois prestataires, les quatre modes de facturation, et ce que coûtent 100, 200 ou 450 appels par mois."
+  chemin="/prix-du-marche"
+  og="/images/6aafeb3971e724.23842765_prix-permanence-telephone-artisans.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

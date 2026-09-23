@@ -1,0 +1,394 @@
+[
+ {
+  "nom": "accueil",
+  "chemin": "/",
+  "titre": "Permanence téléphonique artisans : ne ratez plus un appel",
+  "description": "Vous ne pouvez pas décrocher quand vous travaillez. Répondeur, télésecrétariat ou standard 24/7 : le comparatif des coûts, pour 18 métiers.",
+  "og": "/images/6aafda7e1bf4a8.73647982_accueil-concierge-ai.png",
+  "h1": "Ne ratez plus un appel, même quand vous ne pouvez pas décrocher"
+ },
+ {
+  "nom": "appels-manques-perdre-des-clients",
+  "chemin": "/appels-manques-perdre-des-clients",
+  "titre": "Appels manqués : ne plus perdre de clients | concierge-ai.fr",
+  "description": "Un client qui tombe sur le répondeur appelle souvent le suivant. Ce que coûtent vos appels manqués, et 4 solutions pour décrocher même les mains prises.",
+  "og": "/images/6ab110094cccb8.46316757_appels-manques-perdre-des-clients.png",
+  "h1": "Appels manqués : comment ne plus perdre de clients quand vous ne pouvez pas décrocher"
+ },
+ {
+  "nom": "blog",
+  "chemin": "/blog",
+  "titre": "Appels manqués et permanence téléphonique : le blog",
+  "description": "Conseils concrets pour les artisans qui ne peuvent pas décrocher : appels manqués, urgences, soirées à rappeler, et comment ne plus perdre de chantiers.",
+  "og": "/images/6ab0ef4b5957b6.71132931_blog.png",
+  "h1": "Moins d'appels ratés, plus de soirées à vous"
+ },
+ {
+  "nom": "calculateur",
+  "chemin": "/calculateur",
+  "titre": "Artisans : Calculateur : ce que vous coûtent vos appels manqués",
+  "description": "Combien d'appels restent sans réponse chaque mois, ce qu'ils représentent sur un an, et combien il faut en récupérer pour couvrir un standard 24/7.",
+  "og": "/images/6aafe7618ea598.63375751_calcul-appels-manques-artisans.png",
+  "h1": "Combien vous coûtent vos appels manqués ?"
+ },
+ {
+  "nom": "category__appels-manques",
+  "chemin": "/category/appels-manques",
+  "titre": "Tous les articles sur les appels manqués et l'accueil téléphonique",
+  "description": "Appels manqués, rendez-vous annulés, urgences, soirées à rappeler : tous les articles pour les indépendants qui ne peuvent pas décrocher en travaillant.",
+  "og": "/images/6ab0f3f12adce8.67682388_blog.png",
+  "h1": "Appels manqués"
+ },
+ {
+  "nom": "category__couts-solutions",
+  "chemin": "/category/couts-solutions",
+  "titre": "Tous les articles sur les appels manqués et l'accueil téléphonique",
+  "description": "Appels manqués, rendez-vous annulés, urgences, soirées à rappeler : tous les articles pour les indépendants qui ne peuvent pas décrocher en travaillant.",
+  "og": "/images/6ab0f3f12adce8.67682388_blog.png",
+  "h1": "Coûts et solutions"
+ },
+ {
+  "nom": "category__metier-par-metier",
+  "chemin": "/category/metier-par-metier",
+  "titre": "Tous les articles sur les appels manqués et l'accueil téléphonique",
+  "description": "Appels manqués, rendez-vous annulés, urgences, soirées à rappeler : tous les articles pour les indépendants qui ne peuvent pas décrocher en travaillant.",
+  "og": "/images/6ab0f3f12adce8.67682388_blog.png",
+  "h1": "Métier par métier"
+ },
+ {
+  "nom": "category__rendez-vous-annules",
+  "chemin": "/category/rendez-vous-annules",
+  "titre": "Tous les articles sur les appels manqués et l'accueil téléphonique",
+  "description": "Appels manqués, rendez-vous annulés, urgences, soirées à rappeler : tous les articles pour les indépendants qui ne peuvent pas décrocher en travaillant.",
+  "og": "/images/6ab0f3f12adce8.67682388_blog.png",
+  "h1": "Rendez-vous annulés"
+ },
+ {
+  "nom": "category__soirees-et-week-ends",
+  "chemin": "/category/soirees-et-week-ends",
+  "titre": "Tous les articles sur les appels manqués et l'accueil téléphonique",
+  "description": "Appels manqués, rendez-vous annulés, urgences, soirées à rappeler : tous les articles pour les indépendants qui ne peuvent pas décrocher en travaillant.",
+  "og": "/images/6ab0f3f12adce8.67682388_blog.png",
+  "h1": "Soirées et week-ends"
+ },
+ {
+  "nom": "category__urgences-astreinte",
+  "chemin": "/category/urgences-astreinte",
+  "titre": "Tous les articles sur les appels manqués et l'accueil téléphonique",
+  "description": "Appels manqués, rendez-vous annulés, urgences, soirées à rappeler : tous les articles pour les indépendants qui ne peuvent pas décrocher en travaillant.",
+  "og": "/images/6ab0f3f12adce8.67682388_blog.png",
+  "h1": "Urgences et astreinte"
+ },
+ {
+  "nom": "comparer__embaucher-ou-automatiser",
+  "chemin": "/comparer/embaucher-ou-automatiser",
+  "titre": "Embaucher ou automatiser sa permanence téléphonique",
+  "description": "Le coût réel d'une embauche à 35 h, les heures qu'elle ne couvre pas, et les cas où un salarié reste le bon choix. Chiffres sourcés et calculs posés.",
+  "og": "/images/6ab0261c0070c6.15878446_embaucher-ou-automatiser-permanence-telephone.png",
+  "h1": "Un temps plein couvre 152 heures sur les 730 d'un mois"
+ },
+ {
+  "nom": "comparer__permanence-telephonique",
+  "chemin": "/comparer/permanence-telephonique",
+  "titre": "Permanence téléphonique : les 4 solutions comparées",
+  "description": "Répondeur, télésecrétariat, embauche ou standard 24/7 : ce que chacun couvre, ce qu'il coûte par mois, et lequel choisir selon vos horaires d'appels.",
+  "og": "/images/6aafe25e9db145.23949167_comparatif-permanence-telephonique-artisans.png",
+  "h1": "Permanence téléphonique : les quatre solutions comparées"
+ },
+ {
+  "nom": "comparer__repondeur-renvoi-standard",
+  "chemin": "/comparer/repondeur-renvoi-standard",
+  "titre": "Répondeur, renvoi d'appel ou standard : que choisir ?",
+  "description": "Le répondeur que personne n'utilise, le renvoi sur le portable, le SMS « je vous rappelle » : ce que chacun rattrape vraiment, appel par appel.",
+  "og": "/images/6ab0cfcaeb2699.38587884_repondeur-renvoi-standard-artisans.png",
+  "h1": "Les gens ne laissent pas de message, ils appellent le suivant"
+ },
+ {
+  "nom": "conformite",
+  "chemin": "/conformite",
+  "titre": "RGPD et assistant téléphonique : ce qui est obligatoire",
+  "description": "Annoncer l'assistant automatique, prévenir de l'enregistrement, ne demander que l'utile : les trois règles, et le message d'accueil prêt à reprendre.",
+  "og": "/images/6ab0d713730be8.44333056_conformite-rgpd-concierge-ai.png",
+  "h1": "Pas d'ennuis avec les données : ce qui est obligatoire, en clair"
+ },
+ {
+  "nom": "demonstration",
+  "chemin": "/demonstration",
+  "titre": "Démonstration : standard téléphonique 24/7 en appel réel",
+  "description": "Écoutez un appel réel : un client demande un débouchage, le standard propose deux créneaux et pose le rendez-vous. Retranscription intégrale.",
+  "og": "/images/6aafda5fda50f7.43583166_demonstration-demo-concierge-ai.png",
+  "h1": "Écoutez un appel réel, du début à la fin"
+ },
+ {
+  "nom": "faq",
+  "chemin": "/faq",
+  "titre": "FAQ : vos questions sur la permanence téléphonique",
+  "description": "Vos clients face à une machine, le contrôle de ce qui est dit, les urgences, le prix, l'engagement et vos données : les réponses en clair.",
+  "og": "/images/6aaff1bd788a23.72508790_questions-concierge-ai.png",
+  "h1": "Tout ce qu'on nous demande avant de se lancer"
+ },
+ {
+  "nom": "fonctionnement",
+  "chemin": "/fonctionnement",
+  "titre": "Comment fonctionne un standard téléphonique automatique",
+  "description": "Le téléphone sonne d'abord chez vous. Ce qui se passe ensuite, ce que vous paramétrez, et comment la ligne est en service en 48 heures.",
+  "og": "/images/6aafe541c11bb6.25165308_fonctionnement-concierge-ai.png",
+  "h1": "Le téléphone sonne d'abord chez vous"
+ },
+ {
+  "nom": "garage-carrosserie",
+  "chemin": "/metiers/garage-carrosserie",
+  "titre": "Permanence téléphonique garagiste et carrossier : ne plus rater d'appel",
+  "description": "Véhicule immobilisé, devis, rendez-vous d'atelier : vos appels arrivent pendant que vous êtes sous un pont. Coûts comparés et tri des demandes.",
+  "og": "/images/6aaff861464de0.74222351_permanence-telephone-garagiste-carrossier.png",
+  "h1": "L'atelier couvre la sonnerie, et le client raccroche"
+ },
+ {
+  "nom": "guides__astreinte-et-tri-des-urgences",
+  "chemin": "/guides/astreinte-et-tri-des-urgences",
+  "titre": "Astreinte : quelles urgences méritent de vous déranger",
+  "description": "Trois niveaux d'urgence, les déclencheurs métier par métier, et comment écrire les règles qui décident ce qui vous réveille et ce qui attend.",
+  "og": "/images/6aafea0615a436.58139264_astreinte-telephone.png",
+  "h1": "Quelles urgences méritent de vous déranger ?"
+ },
+ {
+  "nom": "mentions-legales",
+  "chemin": "/mentions-legales",
+  "titre": "Mentions légales",
+  "description": "Éditeur, hébergeur, propriété intellectuelle et transparence sur l'affiliation du site concierge-ai.fr.",
+  "og": "/images/6aafaedf5f3426.07202866_og-site.webp",
+  "h1": "Mentions légales"
+ },
+ {
+  "nom": "message-repondeur-professionnel",
+  "chemin": "/message-repondeur-professionnel",
+  "titre": "Message répondeur professionnel : exemples à copier",
+  "description": "Des messages de répondeur professionnel prêts à copier : journée, soir, week-end, congés, par métier. Écrits pour que le client ne raccroche pas.",
+  "og": "/images/6ab14bcaeeb577.50467635_ChatGPTImage21sept.202617_22_23.png",
+  "h1": "Message répondeur professionnel : exemples à copier pour ne plus perdre de clients"
+ },
+ {
+  "nom": "methode-calcul",
+  "chemin": "/methode-calcul",
+  "titre": "Méthode de calcul du coût des appels manqués",
+  "description": "La formule complète, la justification de chaque variable, les fourchettes utilisées avec leur origine et les limites de l'estimation.",
+  "og": "/images/6aafe893990e74.68755906_methode-calcul-appels-manques-artisant.png",
+  "h1": "Comment on calcule le coût d'un appel manqué"
+ },
+ {
+  "nom": "metiers",
+  "chemin": "/metiers",
+  "titre": "Permanence téléphonique artisan et TPE : tous les métiers",
+  "description": "Dix-huit métiers, dix-huit façons de perdre un appel. Choisissez le vôtre : scènes réelles, coûts comparés et limites d'un standard 24 h/24.",
+  "og": "/images/6ab017907a4069.19579959_metiers-concierge-ai.png",
+  "h1": "Ce qui coûte un appel manqué n'est pas le même selon votre métier"
+ },
+ {
+  "nom": "metiers__agence-immobiliere",
+  "chemin": "/metiers/agence-immobiliere",
+  "titre": "Permanence téléphonique agence immobilière 24 h/24",
+  "description": "Appel sur une annonce le soir, demande d'estimation, locataire en panne : ce que deviennent vos appels pendant les visites. Coûts comparés et limites.",
+  "og": "/images/6ab009fa773a24.21082665_permanence-telephone-agent-immobilier.png",
+  "h1": "Un acquéreur qui appelle a quatre autres annonces ouvertes"
+ },
+ {
+  "nom": "metiers__auto-ecole",
+  "chemin": "/metiers/auto-ecole",
+  "titre": "Permanence téléphonique auto-école 7 jours sur 7",
+  "description": "Demandes de tarifs, inscriptions, annulations de leçon : ce que deviennent vos appels quand vous êtes au volant. Coûts comparés et limites à poser.",
+  "og": "/images/6ab0114f24fd52.05968503_auto-ecole-permanence-telephone.png",
+  "h1": "Au volant, vous ne pouvez pas décrocher, et c'est la loi"
+ },
+ {
+  "nom": "metiers__avocat-juriste",
+  "chemin": "/metiers/avocat-juriste",
+  "titre": "Permanence téléphonique avocat : ne plus rater un client",
+  "description": "Premier appel d'un justiciable, secret professionnel, honoraires : ce que deviennent vos appels pendant une audience. Coûts comparés et limites.",
+  "og": "/images/6ab0078410b8c4.10806391_permanence-telephone-avocat-juriste.png",
+  "h1": "Un justiciable sans réponse appelle le cabinet suivant"
+ },
+ {
+  "nom": "metiers__cabinet-dentaire",
+  "chemin": "/metiers/cabinet-dentaire",
+  "titre": "Permanence téléphonique dentiste : ne plus rater d'appel",
+  "description": "Urgences dentaires, annulations, devis prothèse : ce que deviennent vos appels pendant que vous avez les mains dans la bouche d'un patient.",
+  "og": "/images/6aafaedf5f3426.07202866_og-site.webp",
+  "h1": "Vos mains sont déjà prises, et le téléphone sonne"
+ },
+ {
+  "nom": "metiers__clinique-esthetique",
+  "chemin": "/metiers/clinique-esthetique",
+  "titre": "Permanence téléphonique clinique de médecine esthétique",
+  "description": "Premiers appels, consultations, suivi après un acte : ce que deviennent vos appels pendant les soins. Cadre médical, coûts comparés et limites à poser.",
+  "og": "/images/6ab00e57d88fa0.27716609_clinique-esthetique-permanence-telephone.png",
+  "h1": "Un patient qui appelle le soir attend une consigne, pas un répondeur"
+ },
+ {
+  "nom": "metiers__coiffeur-barbier",
+  "chemin": "/metiers/coiffeur-barbier",
+  "titre": "Permanence téléphonique salon de coiffure et barbier",
+  "description": "Appels pendant une couleur, annulations de dernière minute, réservations après la fermeture : ce que deviennent vos appels. Coûts comparés et limites.",
+  "og": "/images/6ab00b34a50808.50268557_permanence-telephone-coiffeur-barbier.png",
+  "h1": "Un fauteuil vide une heure ne se rattrape jamais"
+ },
+ {
+  "nom": "metiers__electricien",
+  "chemin": "/metiers/electricien",
+  "titre": "Permanence téléphonique électricien : ne rien rater",
+  "description": "Panne totale, tableau qui chauffe, devis de rénovation : ce que deviennent vos appels quand vous êtes sous tension. Coûts et tri des urgences.",
+  "og": "/images/6aaff3e8effbb6.33919366_permanence-telephone-electricien.png",
+  "h1": "On ne lâche pas un tableau pour décrocher"
+ },
+ {
+  "nom": "metiers__expert-comptable",
+  "chemin": "/metiers/expert-comptable",
+  "titre": "Permanence téléphonique expert-comptable : ne rien rater",
+  "description": "Échéances fiscales, clients qui rappellent, prospects en janvier : ce que deviennent vos appels pendant la saison des bilans. Coûts comparés et limites.",
+  "og": "/images/6ab008c9e90683.43608601_permanence-telephone-comptable.png",
+  "h1": "En pleine saison des bilans, le téléphone sonne dans le vide"
+ },
+ {
+  "nom": "metiers__institut-spa",
+  "chemin": "/metiers/institut-spa",
+  "titre": "Permanence téléphonique institut de beauté et spa",
+  "description": "Appels pendant un soin, annulations, réservations le soir : ce que deviennent vos appels quand la cabine est occupée. Coûts comparés et limites.",
+  "og": "/images/6ab00c96856491.57162891_permanence-telephone-institut-spa.png",
+  "h1": "Vous êtes en cabine, le téléphone sonne dans le vide"
+ },
+ {
+  "nom": "metiers__kine-osteopathe",
+  "chemin": "/metiers/kine-osteopathe",
+  "titre": "Permanence téléphonique kiné : ne plus rater d'appel",
+  "description": "Vous êtes en séance, le téléphone sonne. Annulations, nouveaux patients, blocages aigus : ce que deviennent vos appels et ce qu'ils coûtent.",
+  "og": "/images/6aaffd01702899.35623757_permanence-telephone-kine-osteopathe.png",
+  "h1": "On n'interrompt pas une séance"
+ },
+ {
+  "nom": "metiers__paysagiste",
+  "chemin": "/metiers/paysagiste",
+  "titre": "Permanence téléphonique : ne plus rater d'appel",
+  "description": "Demandes de devis, suivi de chantier, délais : vos appels arrivent quand la ponceuse tourne. Coûts comparés et tri des demandes en rénovation.",
+  "og": "/images/6aaffc3c66fe03.69581027_permanence-telephone-paysagiste.png",
+  "h1": "Casque sur les oreilles, taille-haie en main"
+ },
+ {
+  "nom": "metiers__plombier-chauffagiste",
+  "chemin": "/metiers/plombier-chauffagiste",
+  "titre": "Permanence téléphonique plombier : ne plus rater d'appel",
+  "description": "Fuite, chaudière, devis : ce que deviennent vos appels quand vous avez les mains dans un siphon. Coûts comparés et tri des urgences en plomberie.",
+  "og": "/images/6aaff2b05ec1c1.32900567_permanence-telephone-plombier.png",
+  "h1": "Vous ne décrochez pas les mains dans un siphon"
+ },
+ {
+  "nom": "metiers__renovation-batiment",
+  "chemin": "/metiers/renovation-batiment",
+  "titre": "Permanence téléphonique bâtiment : ne plus rater d'appel",
+  "description": "Demandes de devis, suivi de chantier, délais : vos appels arrivent quand la ponceuse tourne. Coûts comparés et tri des demandes en rénovation.",
+  "og": "/images/6aaff9241f2f13.06191913_permanence-telephone-batiment-renovation.png",
+  "h1": "La ponceuse couvre tout, même le téléphone"
+ },
+ {
+  "nom": "metiers__restaurant-traiteur",
+  "chemin": "/metiers/restaurant-traiteur",
+  "titre": "Permanence téléphonique restaurant et traiteur 24 h/24",
+  "description": "Réservations pendant le coup de feu, annulations, devis de groupe : ce que deviennent vos appels quand la salle est pleine. Coûts comparés et limites à poser.",
+  "og": "/images/6ab012873986c8.47857921_traiteur-permanence-telephone.png",
+  "h1": "Le téléphone sonne le plus fort quand personne ne peut répondre"
+ },
+ {
+  "nom": "metiers__salle-de-sport",
+  "chemin": "/metiers/salle-de-sport",
+  "titre": "Permanence téléphonique salle de sport et club de fitness",
+  "description": "Demandes de tarifs, séances d'essai, questions d'horaires : ce que deviennent vos appels quand vous êtes sur le plateau. Coûts comparés et limites à poser.",
+  "og": "/images/6ab00ff4cc5ae9.98837204_salle-de-sport-permanence-telephone.png",
+  "h1": "Un abonnement perdu, c'est dix mois de cotisation en moins"
+ },
+ {
+  "nom": "metiers__serrurier",
+  "chemin": "/metiers/serrurier",
+  "titre": "Permanence téléphonique serrurier : décrocher 24 h/24",
+  "description": "Porte claquée, effraction, cylindre à changer : vos appels arrivent la nuit et le week-end. Coûts comparés et tri des urgences en serrurerie.",
+  "og": "/images/6aaff54f3a9859.57231340_permanence-telephone-serrurier.png",
+  "h1": "Une porte claquée n'attend pas demain"
+ },
+ {
+  "nom": "metiers__veterinaire",
+  "chemin": "/metiers/veterinaire",
+  "titre": "Permanence téléphonique vétérinaire : répondre 24 h/24",
+  "description": "Urgences, rendez-vous, suivi post-opératoire : ce que deviennent vos appels pendant une consultation. Coûts comparés et tri des situations.",
+  "og": "/images/6ab005090904c7.63668972_permanence-telephone-veterinaire.png",
+  "h1": "Un animal en détresse n'attend pas votre consultation"
+ },
+ {
+  "nom": "partir-en-vacances-independant",
+  "chemin": "/partir-en-vacances-independant",
+  "titre": "Vacances d'indépendant : partir sans perdre de clients",
+  "description": "Peur de perdre des clients en partant ? Comment prévenir, gérer vos appels et vraiment couper pendant vos congés d'indépendant, sans rien laisser filer.",
+  "og": "/images/6ab15ad1750777.40601713_partir-en-vacances-independant.png",
+  "h1": "Partir en vacances quand on est indépendant : comment ne pas perdre de clients"
+ },
+ {
+  "nom": "politique-de-confidentialite",
+  "chemin": "/politique-de-confidentialite",
+  "titre": "Politique de confidentialité",
+  "description": "Quelles données ce site collecte, pourquoi, combien de temps, qui y a accès, et comment exercer vos droits.",
+  "og": "/images/6aafaedf5f3426.07202866_og-site.webp",
+  "h1": "Politique de confidentialité"
+ },
+ {
+  "nom": "politique-de-cookies",
+  "chemin": "/politique-de-cookies",
+  "titre": "Politique de cookies",
+  "description": "Les traceurs déposés sur ce site, par qui, pour combien de temps, et comment modifier votre choix à tout moment.",
+  "og": "/images/6aafaedf5f3426.07202866_og-site.webp",
+  "h1": "Politique de cookies"
+ },
+ {
+  "nom": "posts",
+  "chemin": "/posts",
+  "titre": "Tous les articles sur les appels manqués et l'accueil téléphonique",
+  "description": "Appels manqués, rendez-vous annulés, urgences, soirées à rappeler : tous les articles pour les indépendants qui ne peuvent pas décrocher en travaillant.",
+  "og": "/images/6ab0f3f12adce8.67682388_blog.png",
+  "h1": "Tous les articles"
+ },
+ {
+  "nom": "prix-du-marche",
+  "chemin": "/prix-du-marche",
+  "titre": "Prix d'une permanence téléphonique : le relevé 2026",
+  "description": "Grilles publiques relevées chez trois prestataires, les quatre modes de facturation, et ce que coûtent 100, 200 ou 450 appels par mois.",
+  "og": "/images/6aafeb3971e724.23842765_prix-permanence-telephone-artisans.png",
+  "h1": "Le prix d'une permanence téléphonique en France"
+ },
+ {
+  "nom": "rendez-vous-non-honores",
+  "chemin": "/rendez-vous-non-honores",
+  "titre": "Rendez-vous non honorés : comment réduire les lapins",
+  "description": "Clients ou patients qui ne viennent pas : pourquoi les rendez-vous non honorés arrivent, ce qu'ils coûtent, et 6 moyens simples de les réduire.",
+  "og": "/images/6ab1582f2ab689.26543687_rendez-vous-non-honores.png",
+  "h1": "Rendez-vous non honorés : comment réduire les lapins et les créneaux vides"
+ },
+ {
+  "nom": "renvoi-appel-si-non-reponse",
+  "chemin": "/renvoi-appel-si-non-reponse",
+  "titre": "Renvoi d'appel si non réponse : codes Orange, SFR, Free",
+  "description": "Renvoi d'appel si pas de réponse : les codes pour Orange, SFR, Free et Bouygues, le réglage du temps de sonnerie, et vers qui renvoyer vos appels.",
+  "og": "/images/6ab150a148ba43.71426690_renvoi-appel-si-non-reponse.png",
+  "h1": "Renvoi d'appel si pas de réponse : codes et réglages pour ne plus rater d'appels"
+ },
+ {
+  "nom": "tarifs",
+  "chemin": "/tarifs",
+  "titre": "Tarifs Concierge AI : 297, 497 ou 997 € par mois",
+  "description": "Les trois formules détaillées, les frais d'installation, l'essai de 7 jours, et combien d'interventions récupérées suffisent à couvrir l'abonnement.",
+  "og": "/images/6aafddd4b8e451.09097643_tarifs-concierge-ai.png",
+  "h1": "Combien coûte un standard téléphonique 24/7"
+ },
+ {
+  "nom": "telephone-pro-soir-week-end",
+  "chemin": "/telephone-pro-soir-week-end",
+  "titre": "Couper le téléphone pro le soir sans perdre de clients",
+  "description": "Vos clients appellent quand vous avez fini. Comment couper le téléphone pro le soir et le week-end, sans perdre de clients ni vos soirées.",
+  "og": "/images/6ab140677b20f9.96514918_telephone-pro-soir-week-end2.png",
+  "h1": "Téléphone pro le soir et le week-end : comment couper sans perdre de clients"
+ }
+]

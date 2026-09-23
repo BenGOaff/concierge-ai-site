@@ -1,0 +1,478 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Agence immobilière</span>
+<h1 style="max-width:25ch;margin:22px 0 20px">Un acquéreur qui appelle <em>a quatre autres annonces ouvertes</em></h1>
+<p class="cai-lead" style="max-width:58ch">Un appel sur une annonce pendant une visite, une demande d'estimation à dix-neuf heures, un locataire avec une fuite d'eau la nuit : vos appels n'attendent pas. Voici ce qu'ils deviennent, ce qu'ils coûtent, et la limite qu'un standard ne doit jamais franchir.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Le rendez-vous de visite est posé pendant que vous êtes en visite</li>
+<li>Sans engagement, sept jours d'essai</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un agent immobilier attend devant la porte d'un immeuble avec ses clés et une pochette de documents, son téléphone rangé dans sa poche" height="643" loading="eager" src="/images/6ab009b33e09b0.21151867_agent-immobilier-permanence-telephone.webp" width="1500"/>
+<figcaption>Pendant une visite, votre téléphone est dans votre poche. Et les appels ne se reportent pas au lendemain.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment une agence immobilière peut-elle répondre <em>pendant les visites ?</em></h2>
+</div>
+<p class="cai-say">Deux appels très différents arrivent sur la même ligne : un acquéreur, qui vaut un rendez-vous de visite, et un propriétaire qui veut une estimation, qui vaut un mandat. <span class="cai-key">Le premier se perd en quelques minutes parce qu'il a d'autres annonces sous les yeux, le second se gagne en décrochant avant vos deux concurrents.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où une agence immobilière <em>perd un appel</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est la journée ordinaire d'un agent qui fait ses visites lui-même.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>12 h 30</b>
+<p>Vous êtes en visite avec un couple. Deux appels passent sur l'annonce du trois pièces. Les deux ont l'onglet du portail encore ouvert et cliquent sur l'annonce suivante.</p>
+</article>
+<article class="cai-scc">
+<b>18 h 50</b>
+<p>Un propriétaire veut faire estimer son bien. Il appelle en rentrant du travail, souvent trois agences d'affilée, et donne son mandat à celle qui l'a rappelé le lendemain matin.</p>
+</article>
+<article class="cai-scc">
+<b>20 h 30</b>
+<p>Un locataire d'un bien en gestion signale une fuite. Personne ne répond, il coupe l'eau lui-même ou appelle un plombier au tarif de nuit, et le propriétaire l'apprendra par la facture.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Sur ce métier, le délai de rappel est le critère de choix. Un acquéreur compare des biens, un propriétaire compare des agences, et les deux jugent d'abord sur une chose : est-ce que quelqu'un a décroché.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. LA LIMITE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le cadre</span>
+<h2>Ce qu'un standard ne fait jamais <em>dans une agence immobilière</em></h2>
+<p class="cai-lead" style="max-width:58ch">Avant de parler de rendez-vous, il faut poser la limite, parce qu'elle vous engage juridiquement.</p>
+</div>
+<ul class="cai-list">
+<li><b>Aucune estimation de valeur</b><span>Pas de fourchette de prix, pas d'avis sur le marché du quartier, pas de comparaison avec une vente récente. L'estimation est votre travail et elle se fait sur place.</span></li>
+<li><b>Aucune information au-delà de l'annonce</b><span>Surface, nombre de pièces, étage, prix affiché : ce que vous avez publié peut être confirmé. Ce qui n'y figure pas, diagnostics, charges réelles, travaux votés, servitudes, n'est jamais improvisé.</span></li>
+<li><b>Aucun engagement contractuel</b><span>Ni réservation de bien, ni acceptation d'offre, ni promesse de mandat, ni condition de commission. Tout cela se signe, et par vous.</span></li>
+<li><b>Aucune sélection de candidat locataire</b><span>Les critères de solvabilité ne se discutent pas au téléphone d'accueil. Un tri improvisé sur des éléments personnels vous expose à une réclamation, et l'appelant repart sans avoir été évalué.</span></li>
+</ul>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Sur la gestion locative, la consigne de renvoi que vous écrivez s'adresse au locataire, pas au propriétaire : c'est vous qui décidez à quel moment un sinistre déclenche un appel vers vous et à quel numéro renvoyer en attendant.</p>
+</section>
+<!-- 5. LES DEMANDES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>dans une agence immobilière</em></h2>
+<p class="cai-lead" style="max-width:58ch">Beaucoup d'appels sur annonces, quelques mandats, et le bruit de fond de la gestion locative. Ces repères sont des points de départ à ajuster à votre activité.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Traitement</th>
+<th scope="col">Ce que ça vous fait gagner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Appel sur une annonce en vente</th>
+<td data-l="Traitement">Bien identifié, projet et financement notés, visite posée sur vos créneaux</td>
+<td data-l="Ce que ça vous fait gagner">Il ne clique pas sur l'annonce suivante</td>
+</tr>
+<tr>
+<th scope="row">Demande d'estimation ou de mandat</th>
+<td data-l="Traitement">Adresse, type de bien et échéance recueillis, rendez-vous d'estimation posé</td>
+<td data-l="Ce que ça vous fait gagner">Vous passez avant les deux agences suivantes</td>
+</tr>
+<tr>
+<th scope="row">Question de prix ou de valeur du bien</th>
+<td data-l="Traitement">Prix affiché confirmé, aucune estimation avancée</td>
+<td data-l="Ce que ça vous fait gagner">Aucun chiffre donné hors de votre validation</td>
+</tr>
+<tr>
+<th scope="row">Question sur les charges, les diagnostics, les travaux</th>
+<td data-l="Traitement">Transmise, jamais improvisée</td>
+<td data-l="Ce que ça vous fait gagner">Aucune information approximative sur un sujet contractuel</td>
+</tr>
+<tr>
+<th scope="row">Candidat à la location</th>
+<td data-l="Traitement">Coordonnées et bien souhaité notés, aucun tri sur la solvabilité</td>
+<td data-l="Ce que ça vous fait gagner">Un vivier de candidats, sans risque de réclamation</td>
+</tr>
+<tr>
+<th scope="row">Annulation ou report d'une visite</th>
+<td data-l="Traitement">Prise immédiatement, créneau libéré dans l'agenda</td>
+<td data-l="Ce que ça vous fait gagner">Vous ne faites plus le déplacement pour rien</td>
+</tr>
+<tr>
+<th scope="row">Locataire, panne ou sinistre en gestion</th>
+<td data-l="Traitement">Consigne de renvoi que vous avez écrite, transfert si vous l'avez demandé</td>
+<td data-l="Ce que ça vous fait gagner">Le sinistre ne s'aggrave pas jusqu'au lundi</td>
+</tr>
+<tr>
+<th scope="row">Propriétaire bailleur qui demande un point</th>
+<td data-l="Traitement">Demande transmise, aucun élément de dossier communiqué</td>
+<td data-l="Ce que ça vous fait gagner">Vous rappelez quand vous avez l'information</td>
+</tr>
+<tr>
+<th scope="row">Démarchage, mandataire, prestataire</th>
+<td data-l="Traitement">Écarté poliment</td>
+<td data-l="Ce que ça vous fait gagner">Vous n'en entendez jamais parler</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/guides/astreinte-et-tri-des-urgences">Écrire vos propres règles de renvoi</a>
+</section>
+<!-- 6. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien de transactions couvrent une <em>permanence téléphonique d'agence immobilière</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ici le calcul se fait à l'année, parce qu'une commission tombe en une fois. Divisez le coût annuel de la solution par votre commission moyenne.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une commission vous rapporte</th>
+<th scope="col">Télésecrétariat 1 800 €</th>
+<th scope="col">Standard 24/7 2 970 €</th>
+<th scope="col">Embauche 20 400 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">4 000 €</th>
+<td data-l="Télésecrétariat">1 par an</td>
+<td data-l="Standard 24/7">1 par an</td>
+<td data-l="Embauche">6 par an</td>
+</tr>
+<tr>
+<th scope="row">8 000 €</th>
+<td data-l="Télésecrétariat">1 par an</td>
+<td data-l="Standard 24/7">1 par an</td>
+<td data-l="Embauche">3 par an</td>
+</tr>
+<tr>
+<th scope="row">15 000 €</th>
+<td data-l="Télésecrétariat">1 par an</td>
+<td data-l="Standard 24/7">1 par an</td>
+<td data-l="Embauche">2 par an</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur, sur douze mois d'abonnement. Les trois montants sont des exemples de calcul, pas une moyenne de marché : remplacez-les par votre commission réelle. Une seule vente couvre l'année entière d'abonnement. La vraie question n'est donc pas le coût, c'est de savoir combien de mandats vous passent devant sans que vous le sachiez.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 7. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Une demande d'estimation à 18 h 50, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un propriétaire veut vendre et appelle trois agences en rentrant du travail. Voici ce qu'il obtient chez vous.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un a répondu</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non, hors horaires</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Un rendez-vous d'estimation est posé</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Oui, sur un créneau que vous avez ouvert</td>
+</tr>
+<tr>
+<th scope="row">Vous savez de quel bien il s'agit</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Oui, adresse, type de bien et échéance notés</td>
+</tr>
+<tr>
+<th scope="row">Une valeur a été avancée</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Non, et c'est volontaire</td>
+</tr>
+<tr>
+<th scope="row">Le lendemain matin</th>
+<td data-l="Répondeur">Il a signé avec l'agence d'à côté</td>
+<td data-l="Télésecrétariat">Vous le rappelez, s'il décroche</td>
+<td data-l="Standard 24/7">Vous êtes déjà dans son agenda</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 8. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions d'agents immobiliers sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Est-ce qu'il peut donner une estimation au téléphone ?</summary>
+<div class="cai-ans"><p>Non, et il ne faut pas le vouloir. Une fourchette avancée par un standard devient une référence dans la tête du propriétaire, et vous passez le reste du rendez-vous à la corriger. Aucun prix n'est donné, aucune comparaison de quartier n'est faite.</p><p>Ce qu'il fait : recueillir l'adresse, le type de bien et l'échéance du projet, puis poser le rendez-vous d'estimation. C'est exactement ce qui vous met devant vos concurrents.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il connaît mes annonces ?</summary>
+<div class="cai-ans"><p>Il connaît ce que vous lui donnez. Les éléments publiés dans l'annonce, surface, pièces, étage, prix affiché, sont confirmés tels quels. Tout ce qui n'y figure pas, charges réelles, diagnostics, travaux votés en assemblée, est noté comme question et vous revient.</p><p>C'est une limite à assumer : sur un sujet contractuel, une information approximative se paie plus cher qu'un rappel.</p></div>
+</details>
+<details>
+<summary>Comment il gère la gestion locative la nuit ?</summary>
+<div class="cai-ans"><p>Par une consigne que vous écrivez, pour le locataire. Vous décidez quelles situations déclenchent un appel vers vous, lesquelles renvoient vers un numéro d'astreinte ou un prestataire, et lesquelles attendent l'ouverture.</p><p>Le standard applique cette règle sans l'interpréter : il ne juge pas la gravité d'une fuite, il suit ce que vous avez posé.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut faire le tri dans les candidats locataires ?</summary>
+<div class="cai-ans"><p>Non, et c'est délibéré. Les critères de solvabilité se vérifient sur dossier, pas au téléphone. Un tri improvisé sur des éléments personnels vous expose à une réclamation.</p><p>Il recueille les coordonnées et le bien souhaité, ce qui vous laisse un vivier à traiter quand vous le décidez.</p></div>
+</details>
+<details>
+<summary>Et les appels pendant les visites ?</summary>
+<div class="cai-ans"><p>C'est le créneau où le gain est le plus net. Plusieurs appels simultanés sont pris en même temps, sans file d'attente, pendant que vous êtes avec des acquéreurs. Vous récupérez à la fin de la visite un résumé écrit de chaque appel, avec le bien concerné.</p></div>
+</details>
+<details>
+<summary>J'ai une assistante commerciale, ça sert à quoi ?</summary>
+<div class="cai-ans"><p>À prendre ce qu'elle ne peut pas prendre : le deuxième appel pendant qu'elle est déjà en ligne, les samedis de visites, le soir après dix-huit heures, le dimanche où se décident beaucoup de projets, et ses congés.</p><p>Les agences qui ont un accueil s'en servent en renfort sur ces créneaux, pas en remplacement.</p></div>
+</details>
+</div>
+</section>
+<!-- 9. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Le mandat va à celui <em>qui a décroché</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront combien d'appels sur annonces et de demandes d'estimation passaient pendant vos visites et après la fermeture. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas l'immobilier ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/agence-immobiliere#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/agence-immobiliere",
+      "name": "Permanence téléphonique agence immobilière 24 h/24",
+      "description": "Appel sur une annonce le soir, demande d'estimation, locataire en panne : ce que deviennent vos appels pendant les visites. Coûts comparés et limites.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/agence-immobiliere#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/agence-immobiliere#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/agence-immobiliere#metier",
+      "name": "Permanence téléphonique pour agence immobilière",
+      "serviceType": "Permanence téléphonique, qualification des appels et prise de rendez-vous pour agences immobilières",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Agents immobiliers, mandataires et agences indépendantes"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/agence-immobiliere#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Agence immobilière" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/agence-immobiliere#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/agence-immobiliere#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique peut-il donner une estimation immobilière au téléphone ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Une fourchette avancée par un standard devient une référence pour le propriétaire et fausse le rendez-vous d'estimation. Aucun prix n'est donné et aucune comparaison de quartier n'est faite. Le standard recueille l'adresse, le type de bien et l'échéance du projet, puis pose le rendez-vous d'estimation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique connaît-il les annonces de l'agence ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Il confirme ce qui est publié dans l'annonce : surface, nombre de pièces, étage, prix affiché. Tout ce qui n'y figure pas, comme les charges réelles, les diagnostics ou les travaux votés en assemblée, est noté comme question et transmis, car une information approximative sur un sujet contractuel coûte plus cher qu'un rappel." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment une permanence téléphonique gère-t-elle un sinistre locatif la nuit ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Par une consigne écrite par l'agence à destination du locataire : quelles situations déclenchent un appel vers l'agent, lesquelles renvoient vers un numéro d'astreinte ou un prestataire, lesquelles attendent l'ouverture. Le standard applique cette règle sans juger la gravité du sinistre." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il trier les candidats locataires ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Les critères de solvabilité se vérifient sur dossier, pas au téléphone : un tri improvisé sur des éléments personnels expose l'agence à une réclamation. Le standard recueille les coordonnées et le bien souhaité, laissant un vivier de candidats à traiter." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que deviennent les appels reçus pendant une visite immobilière ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Plusieurs appels simultanés sont pris en même temps, sans file d'attente, pendant la visite. À la fin de celle-ci, l'agent récupère un résumé écrit de chaque appel avec le bien concerné." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il choisir entre une assistante commerciale et un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les deux se complètent. Le standard prend le deuxième appel simultané, les samedis de visites, le soir, le dimanche où se décident beaucoup de projets, et les congés. Les agences qui ont un accueil s'en servent en renfort sur ces créneaux, pas en remplacement." }
+        }
+      ]
+    }
+  ]
+}
+</script>

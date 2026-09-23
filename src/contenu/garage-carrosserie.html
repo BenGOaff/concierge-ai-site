@@ -1,0 +1,448 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Garage · carrosserie</span>
+<h1 style="max-width:23ch;margin:22px 0 20px">L'atelier couvre la sonnerie, <em>et le client raccroche</em></h1>
+<p class="cai-lead" style="max-width:58ch">Véhicule immobilisé, devis de réparation, rendez-vous de révision : vos appels arrivent pendant que vous êtes sous un pont, la soufflette en main. Voici ce qu'ils deviennent, ce qu'ils valent, et les solutions pour qu'ils obtiennent une réponse.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Vous définissez ce qui justifie de vous déranger à l'atelier</li>
+<li>Sans engagement, sept jours d'essai</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un mécanicien examine un véhicule sur un pont élévateur, son téléphone allumé posé sur l'établi" height="643" loading="eager" src="/images/6aaff723242f87.36987631_garagiste-permanence-telephone.webp" width="1500"/>
+<figcaption>Sous un pont élévateur, avec le bruit de l'atelier, un téléphone ne s'entend pas.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment un garage peut-il répondre <em>pendant les interventions ?</em></h2>
+</div>
+<p class="cai-say">Un garage reçoit beaucoup d'appels courts et répétitifs : disponibilité, délai, « est-ce que c'est prêt ? », demande de devis. <span class="cai-key">Ce ne sont pas des urgences, mais chacun interrompt une intervention en cours, et celui qu'on ne prend pas devient un client qui appelle le garage d'à côté.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où un garage <em>perd un client</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est la journée ordinaire d'un atelier de deux à cinq personnes.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>08 h 40</b>
+<p>L'atelier vient d'ouvrir. Trois appels arrivent en vingt minutes pendant que vous réceptionnez deux véhicules au comptoir. Deux sonnent dans le vide.</p>
+</article>
+<article class="cai-scc">
+<b>11 h 15</b>
+<p>Vous êtes sous un pont élévateur, la soufflette en main. Le téléphone est au bureau, à quinze mètres, et le bruit couvre tout.</p>
+</article>
+<article class="cai-scc">
+<b>18 h 50</b>
+<p>Un véhicule est immobilisé sur le bord de la route. Le conducteur appelle trois garages. Il ira chez celui qui a décroché et donné une heure.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">La particularité du métier est le volume plutôt que l'urgence : beaucoup d'appels courts, très répétitifs, dont aucun ne justifie d'arrêter une intervention, mais dont l'accumulation coûte des entrées d'atelier.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. LES DEMANDES EN GARAGE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>dans un garage</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une seule justifie vraiment de vous interrompre. Toutes les autres se traitent sans vous, à condition que quelqu'un décroche. Ces repères sont des points de départ à ajuster à votre organisation.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Niveau</th>
+<th scope="col">Ce qu'il faut en faire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Véhicule immobilisé sur la voie publique</th>
+<td data-l="Niveau">Urgence</td>
+<td data-l="Ce qu'il faut en faire">Vous êtes appelé en direct, avec le lieu et le modèle déjà recueillis</td>
+</tr>
+<tr>
+<th scope="row">Panne qui empêche de rouler, véhicule au domicile</th>
+<td data-l="Niveau">Prioritaire</td>
+<td data-l="Ce qu'il faut en faire">Créneau au plus tôt, résumé envoyé, sans vous déranger</td>
+</tr>
+<tr>
+<th scope="row">Voyant allumé, bruit inhabituel</th>
+<td data-l="Niveau">Prioritaire</td>
+<td data-l="Ce qu'il faut en faire">Diagnostic planifié, symptômes notés pour préparer l'intervention</td>
+</tr>
+<tr>
+<th scope="row">Demande de devis de réparation</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Modèle, année, kilométrage et symptômes recueillis, rappel planifié</td>
+</tr>
+<tr>
+<th scope="row">Révision, vidange, entretien</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Rendez-vous posé directement sur un créneau libre d'atelier</td>
+</tr>
+<tr>
+<th scope="row">Contre-visite de contrôle technique</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Rendez-vous posé, date limite de contre-visite notée</td>
+</tr>
+<tr>
+<th scope="row">Carrosserie, sinistre, expertise</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Assureur et numéro de sinistre recueillis, rendez-vous de constat</td>
+</tr>
+<tr>
+<th scope="row">Changement de pneus en début de saison</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Dimensions relevées, créneau posé, y compris en pleine affluence</td>
+</tr>
+<tr>
+<th scope="row">« Est-ce que ma voiture est prête ? »</th>
+<td data-l="Niveau">Information</td>
+<td data-l="Ce qu'il faut en faire">Demande notée et transmise, sans interrompre l'atelier</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Les appels d'information sont ceux qui coûtent le plus de temps pour le moins de valeur. Ce sont aussi les plus faciles à traiter sans vous, à condition que la personne obtienne une réponse plutôt qu'une sonnerie dans le vide.</p>
+<a class="cai-more" href="/guides/astreinte-et-tri-des-urgences">Écrire vos propres règles de tri</a>
+</section>
+<!-- 5. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien d'entrées d'atelier couvrent une <em>permanence téléphonique de garage</em></h2>
+<p class="cai-lead" style="max-width:58ch">Divisez le coût mensuel de la solution par le montant moyen d'une de vos factures. Voici le résultat pour trois montants, à remplacer par le vôtre.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une facture moyenne s'élève à</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">200 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">2 par mois</td>
+<td data-l="Embauche">9 par mois</td>
+</tr>
+<tr>
+<th scope="row">400 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">1 par mois</td>
+<td data-l="Embauche">5 par mois</td>
+</tr>
+<tr>
+<th scope="row">800 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">1 par mois</td>
+<td data-l="Embauche">3 par mois</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur, puisqu'on ne récupère pas une demi-entrée d'atelier. Les trois montants sont des exemples de calcul, pas une moyenne de marché : remplacez-les par votre panier réel, qui est le seul qui compte. Sur ce métier le raisonnement se fait plutôt en volume qu'en urgence, puisqu'un seul embrayage couvre plusieurs mois d'abonnement.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 6. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Un appel de garage à 11 h 15, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une personne veut un rendez-vous de révision pour la semaine prochaine. Tout le monde est à l'atelier. Voici où en est sa demande à la fin de l'appel.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un a décroché</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Oui</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Le véhicule est identifié</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Rarement</td>
+<td data-l="Standard 24/7">Modèle, année, kilométrage</td>
+</tr>
+<tr>
+<th scope="row">Créneau d'atelier bloqué</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non, message transmis</td>
+<td data-l="Standard 24/7">Oui, sur un créneau libre</td>
+</tr>
+<tr>
+<th scope="row">L'atelier a été interrompu</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Non</td>
+</tr>
+<tr>
+<th scope="row">Votre travail ensuite</th>
+<td data-l="Répondeur">Rappeler entre deux véhicules</td>
+<td data-l="Télésecrétariat">Rappeler pour caler la date</td>
+<td data-l="Standard 24/7">Rien, le rendez-vous est posé</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions de garagistes sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Est-ce qu'il peut poser un rendez-vous d'atelier tout seul ?</summary>
+<div class="cai-ans"><p>Oui, sur les créneaux que vous avez ouverts dans l'agenda connecté, et jamais sur un créneau déjà pris. Vous décidez combien de véhicules par demi-journée et quels types d'intervention peuvent être réservés sans validation.</p><p>Une révision se pose seule ; une réparation lourde se qualifie puis attend votre accord.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut annoncer un prix de réparation ?</summary>
+<div class="cai-ans"><p>Uniquement les forfaits que vous avez écrits, comme une vidange ou un train de pneus. Jamais un montant de réparation, puisque le diagnostic se fait à l'atelier et que le devis doit être accepté avant intervention.</p><p>Pour tout le reste, il recueille le modèle, l'année, le kilométrage et les symptômes, et vous rappelez avec un chiffre fiable.</p></div>
+</details>
+<details>
+<summary>Et les appels « est-ce que ma voiture est prête ? »</summary>
+<div class="cai-ans"><p>Ce sont les plus nombreux et les plus coûteux en temps. Le standard prend la demande, l'identifie au bon véhicule et vous la transmet par écrit : vous répondez groupé quand vous sortez de l'atelier, au lieu d'être coupé cinq fois dans la matinée.</p></div>
+</details>
+<details>
+<summary>Comment il gère les sinistres et les assureurs ?</summary>
+<div class="cai-ans"><p>En recueillant ce dont vous avez besoin pour ouvrir le dossier : nom de l'assureur, numéro de sinistre, date, nature des dégâts, et si le véhicule roule encore. Le rendez-vous de constat est ensuite posé.</p><p>Vous pouvez définir une liste d'assureurs ou de sociétés de flotte dont les appels vous sont transférés directement.</p></div>
+</details>
+<details>
+<summary>Et en pleine saison de changement de pneus ?</summary>
+<div class="cai-ans"><p>C'est la période où le volume double et où le plus grand nombre d'appels reste sans réponse. Un standard prend plusieurs appels en parallèle, relève les dimensions et pose les rendez-vous sans que l'atelier s'arrête.</p><p>C'est aussi la période où le calcul de rentabilité est le plus favorable, parce que les appels perdus sont les plus nombreux.</p></div>
+</details>
+<details>
+<summary>J'ai déjà quelqu'un à l'accueil, ça sert à quoi ?</summary>
+<div class="cai-ans"><p>À prendre ce que cette personne ne peut pas prendre : le deuxième appel pendant qu'elle est déjà en ligne, la pause déjeuner, l'heure de fermeture, le samedi après-midi et les congés. Les garages qui ont une équipe l'utilisent en renfort, pas en remplacement.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Chaque appel décroché <em>est une entrée d'atelier</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront combien d'appels vous receviez pendant que l'atelier tournait, et ce qu'ils demandaient. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas la mécanique ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/garage-carrosserie#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/garage-carrosserie",
+      "name": "Permanence téléphonique garage : ne plus rater d'appel",
+      "description": "Véhicule immobilisé, devis, rendez-vous d'atelier : vos appels arrivent pendant que vous êtes sous un pont. Coûts comparés et tri des demandes.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/garage-carrosserie#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/garage-carrosserie#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/garage-carrosserie#metier",
+      "name": "Permanence téléphonique pour garage et carrosserie",
+      "serviceType": "Permanence téléphonique et prise de rendez-vous d'atelier pour garages, mécaniciens et carrossiers",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Garages indépendants, mécaniciens et carrossiers en petite équipe"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/garage-carrosserie#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Garage et carrosserie" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/garage-carrosserie#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/garage-carrosserie#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique peut-il poser un rendez-vous d'atelier tout seul ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, sur les créneaux ouverts dans l'agenda connecté et jamais sur un créneau déjà pris. Le garagiste décide du nombre de véhicules par demi-journée et des types d'intervention réservables sans validation : une révision se pose seule, une réparation lourde se qualifie puis attend son accord." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il annoncer un prix de réparation automobile ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Uniquement les forfaits écrits par le garage, comme une vidange ou un train de pneus. Jamais un montant de réparation, puisque le diagnostic se fait à l'atelier et que le devis doit être accepté avant intervention. Pour le reste, il recueille modèle, année, kilométrage et symptômes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont traités les appels « est-ce que ma voiture est prête ? »",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ce sont les plus nombreux et les plus coûteux en temps. Le standard prend la demande, l'identifie au bon véhicule et la transmet par écrit, ce qui permet de répondre groupé en sortant de l'atelier au lieu d'être interrompu plusieurs fois." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont gérés les sinistres et les assureurs ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En recueillant le nom de l'assureur, le numéro de sinistre, la date, la nature des dégâts et si le véhicule roule encore, puis en posant le rendez-vous de constat. Une liste d'assureurs ou de sociétés de flotte transférés directement peut être définie." }
+        },
+        {
+          "@type": "Question",
+          "name": "Et pendant la saison de changement de pneus ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "C'est la période où le volume double et où le plus grand nombre d'appels reste sans réponse. Un standard prend plusieurs appels en parallèle, relève les dimensions et pose les rendez-vous sans arrêter l'atelier. C'est aussi la période où le calcul de rentabilité est le plus favorable." }
+        },
+        {
+          "@type": "Question",
+          "name": "J'ai déjà quelqu'un à l'accueil du garage, à quoi sert un standard ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "À prendre ce que cette personne ne peut pas prendre : le deuxième appel pendant qu'elle est en ligne, la pause déjeuner, l'heure de fermeture, le samedi après-midi et les congés. Les garages qui ont une équipe l'utilisent en renfort, pas en remplacement." }
+        }
+      ]
+    }
+  ]
+}
+</script>

@@ -1,0 +1,178 @@
+<style>
+.cai .cai-infos{display:flex;align-items:center;gap:14px;margin:clamp(14px,1.8vw,20px) 0 0}
+.cai .cai-aut-ic{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#0A2540;color:#22C55E;font:800 .9rem/1 'Archivo','Inter',sans-serif;letter-spacing:-.02em;flex:none}
+.cai .cai-aut-t{min-width:0}
+.cai .cai-aut-t b{display:block;font:600 .98rem/1.35 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-aut-t span{display:block;font:500 .88rem/1.45 'Inter',sans-serif;color:var(--mute);margin-top:2px}
+.cai .cai-part{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px;margin:0;padding:clamp(18px,2.2vw,24px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cai .cai-part-t{font:600 .75rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 6px 0 0}
+.cai .cai-part-l{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.cai .cai-part-l a,.cai .cai-part-l button{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);cursor:pointer;padding:0;transition:border-color .16s,background .16s,color .16s}
+.cai .cai-part-l a:hover,.cai .cai-part-l button:hover{border-color:#0A2540;background:#0A2540;color:#fff}
+.cai .cai-part-l svg{width:18px;height:18px;fill:currentColor}
+.cai .cai-part-l .is-ok{background:#15803D;border-color:#15803D;color:#fff}
+/* ===== Mise en page : sommaire collant à gauche sur ordinateur, repliable en haut sur mobile ===== */
+.cai .cai-art-g{display:block;padding:clamp(8px,1vw,14px) 0 0}
+@media(min-width:1024px){.cai .cai-art-g{display:grid;grid-template-columns:270px minmax(0,1fr);gap:clamp(40px,4.4vw,64px);align-items:stretch}}
+.cai .cai-toc{display:none;position:relative}
+@media(min-width:1024px){.cai .cai-toc{display:block}}
+.cai .cai-toc-in{top:var(--cai-top,110px);max-height:calc(100vh - var(--cai-top,110px) - 24px);overflow:auto;padding:4px 6px 12px 0}
+.cai .cai-toc-in.is-sticky{position:sticky}
+.cai .cai-toc-h{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:0;padding:0 0 14px;margin:0;cursor:pointer;font:700 1.12rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);text-align:left}
+.cai .cai-toc-h::after{content:"";width:9px;height:9px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(-135deg);margin:6px 6px 0 0;transition:transform .2s}
+.cai .cai-toc.is-closed .cai-toc-h::after{transform:rotate(45deg);margin-top:0}
+.cai .cai-toc.is-closed .cai-toc-l{display:none}
+.cai .cai-toc-l{list-style:none;margin:0;padding:0 0 0 2px;border-left:2px solid var(--line)}
+.cai .cai-toc-l li{margin:0;padding:0}
+.cai .cai-toc-l a{display:block;font:500 .92rem/1.45 'Inter',sans-serif;color:var(--mute);text-decoration:none;padding:8px 0 8px 16px;margin-left:-2px;border-left:2px solid transparent;transition:color .15s,border-color .15s}
+.cai .cai-toc-l a:hover{color:var(--ink)}
+.cai .cai-toc-l a.is-on{color:var(--ink);border-left-color:#15803D;font-weight:600}
+.cai .cai-tocm{display:block;border:1px solid var(--line);border-radius:16px;background:#fff;margin:0 0 30px}
+@media(min-width:1024px){.cai .cai-tocm{display:none}}
+.cai .cai-tocm summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font:700 1.02rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink)}
+.cai .cai-tocm summary::-webkit-details-marker{display:none}
+.cai .cai-tocm summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);margin:-4px 4px 0 0;transition:transform .2s}
+.cai .cai-tocm[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+.cai .cai-tocm .cai-toc-l{margin:0 20px 16px}
+
+/* ===== Texte ===== */
+.cai .cai-art-b{min-width:0}
+.cai .cai-art-b p{font-size:clamp(1.03rem,1.3vw,1.1rem);line-height:1.8;color:#2A3F55;margin:0 0 22px}
+.cai .cai-art-b strong{color:var(--ink);font-weight:700}
+.cai .cai-art-b a{color:#15803D;text-decoration:underline;text-underline-offset:3px}
+.cai .cai-art-b h2{font:800 clamp(1.5rem,2.6vw,1.95rem)/1.18 'Archivo','Inter',sans-serif;letter-spacing:-.025em;color:var(--ink);margin:clamp(46px,5vw,64px) 0 18px;scroll-margin-top:var(--cai-top,110px)}
+.cai .cai-art-b h3{font:700 clamp(1.18rem,1.8vw,1.32rem)/1.3 'Archivo','Inter',sans-serif;color:var(--ink);margin:32px 0 12px;scroll-margin-top:var(--cai-top,110px)}
+.cai .cai-art-b ul.cai-ul{list-style:none;margin:0 0 24px;padding:0}
+.cai .cai-art-b ul.cai-ul li{position:relative;list-style:none;font-size:clamp(1.03rem,1.3vw,1.1rem);line-height:1.75;color:#2A3F55;margin:0 0 12px;padding:0 0 0 26px}
+.cai .cai-art-b ul.cai-ul li::before{content:"";position:absolute;left:4px;top:.72em;width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 3px #E2FBEC}
+.cai .cai-art-b .cai-chapo{font-size:clamp(1.1rem,1.6vw,1.24rem);line-height:1.75;color:var(--grey);border-left:3px solid #15803D;padding:2px 0 2px 22px;margin:0 0 36px}
+.cai .cai-art-b .cai-rep{font:600 clamp(1.06rem,1.4vw,1.14rem)/1.65 'Inter',sans-serif;color:var(--ink);margin:0 0 20px}
+
+/* ===== L'essentiel à retenir ===== */
+.cai .cai-ret{margin:0 0 36px;padding:clamp(24px,2.8vw,32px);background:#F2FBF5;border:1px solid #CBEFDB;border-radius:20px}
+.cai .cai-ret-h{display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.cai .cai-ret-h i{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#15803D;flex:none}
+.cai .cai-ret-h i::before{content:"";width:16px;height:12px;background:linear-gradient(#fff,#fff) 0 0/16px 2px no-repeat,linear-gradient(#fff,#fff) 0 5px/16px 2px no-repeat,linear-gradient(#fff,#fff) 0 10px/10px 2px no-repeat}
+.cai .cai-ret-h b{font:700 .9rem/1.2 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.cai .cai-ret ul{list-style:none;margin:0;padding:0}
+.cai .cai-ret li{font-size:1.02rem;line-height:1.65;color:#2A3F55;margin:0 0 12px;padding:0 0 0 18px;border-left:2px solid #86DBA8}
+.cai .cai-ret li:last-child{margin-bottom:0}
+
+/* ===== Bon à savoir ===== */
+.cai .cai-bon{display:grid;grid-template-columns:38px 1fr;gap:14px;margin:28px 0 30px;padding:20px 22px;background:var(--soft);border:1px solid var(--line);border-left:4px solid #0D3B66;border-radius:18px}
+.cai .cai-bon i{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#0A2540;color:#22C55E;font:800 1.05rem/1 'Archivo',sans-serif;font-style:normal}
+.cai .cai-bon b{display:block;font:700 .8rem/1.2 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#0D3B66;margin:2px 0 6px}
+.cai .cai-art-b .cai-bon p{margin:0;font-size:1rem;line-height:1.65;color:#2A3F55}
+
+/* ===== Photo ===== */
+.cai .cai-fig{margin:32px 0}
+.cai .cai-fig img{display:block;width:100%;max-width:100%;height:auto;border-radius:18px;background:#DCE6EF}
+.cai .cai-fig figcaption{font:500 .88rem/1.55 'Inter',sans-serif;color:var(--mute);margin-top:12px}
+
+/* ===== Schéma ===== */
+.cai .cai-sch{margin:30px 0;padding:clamp(20px,2.6vw,28px);background:var(--soft);border:1px solid var(--line);border-radius:18px}
+.cai .cai-sch-t{font:700 1rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);margin:0 0 16px}
+.cai .cai-sch ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media(min-width:560px){.cai .cai-sch ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cai .cai-sch li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0}
+.cai .cai-sch li b{display:block;font:700 .8rem/1 'Inter',sans-serif;color:#15803D;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.cai .cai-sch li span{display:block;font-size:.93rem;line-height:1.5;color:#2A3F55}
+
+/* ===== Encart d'action ===== */
+.cai .cai-enc{margin:36px 0;padding:clamp(24px,3vw,32px);background:#0A2540;border-radius:22px}
+.cai .cai-enc-t{font:800 clamp(1.2rem,2vw,1.45rem)/1.25 'Archivo','Inter',sans-serif;color:#fff;margin:0 0 10px}
+.cai .cai-art-b .cai-enc p{color:rgba(255,255,255,.82);margin:0 0 20px;font-size:1rem;line-height:1.65}
+.cai .cai-art-b .cai-enc a.cai-enc-b{display:inline-flex;align-items:center;gap:8px;font:600 .95rem/1 'Inter',sans-serif;background:#22C55E;color:#0A2540;text-decoration:none;padding:15px 22px;border-radius:99px}
+.cai .cai-art-b .cai-enc a.cai-enc-b::after{content:"\2192"}
+
+/* ===== Tableau ===== */
+.cai .cai-tw{margin:26px 0 32px;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:16px}
+.cai .cai-at{width:100%;border-collapse:collapse;font-size:.96rem}
+.cai .cai-at th{background:var(--soft);text-align:left;padding:14px 16px;font:700 .92rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);border-bottom:1px solid var(--line)}
+.cai .cai-at td{padding:14px 16px;border-bottom:1px solid var(--line);color:#2A3F55;line-height:1.5;vertical-align:top}
+.cai .cai-at tr:last-child td{border-bottom:0}
+@media(max-width:640px){
+  .cai .cai-tw{border:0;border-radius:0;overflow:visible}
+  .cai .cai-at thead{display:none}
+  .cai .cai-at tr{display:block;border:1px solid var(--line);border-radius:14px;margin:0 0 12px;padding:6px 0;background:#fff}
+  .cai .cai-at td{display:grid;grid-template-columns:44% 1fr;gap:10px;border:0;padding:8px 14px}
+  .cai .cai-at td::before{content:attr(data-l);font-weight:600;color:var(--ink)}
+}
+
+/* ===== FAQ ===== */
+.cai .cai-faqa{border-top:1px solid var(--line);margin:8px 0 0}
+.cai .cai-faqa details{border-bottom:1px solid var(--line)}
+.cai .cai-faqa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font:600 1.04rem/1.45 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-faqa summary::-webkit-details-marker{display:none}
+.cai .cai-faqa summary::after{content:"+";font:500 1.5rem/1 'Inter',sans-serif;color:#15803D;flex:none}
+.cai .cai-faqa details[open] summary::after{content:"\2212"}
+.cai .cai-faqa details p{margin:0 0 18px}
+
+/* ===== Conclusion et sources ===== */
+.cai .cai-concl{margin:44px 0 0;padding:clamp(24px,2.8vw,30px);border:2px solid #15803D;border-radius:20px}
+.cai .cai-concl-t{font:700 1.15rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);margin:0 0 10px}
+.cai .cai-art-b .cai-concl p{margin:0}
+.cai .cai-src2{margin:30px 0 0;padding:18px 0 0;border-top:1px solid var(--line)}
+.cai .cai-src2-t{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 12px}
+.cai .cai-src2 ul{list-style:none;margin:0;padding:0}
+.cai .cai-src2 li{font-size:.88rem;line-height:1.6;color:var(--grey);margin:0 0 8px}
+.cai .cai-art-b .cai-src2 a{color:var(--grey)}
+
+/* ===== Message à copier ===== */
+.cai .cai-msg{margin:14px 0 26px;padding:18px 20px 20px;background:#fff;border:1px solid var(--line);border-left:4px solid #22C55E;border-radius:16px}
+.cai .cai-msg-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 10px}
+.cai .cai-msg-h b{font:700 .78rem/1.2 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#15803D}
+.cai .cai-msg-c{flex:none;font:600 .82rem/1 'Inter',sans-serif;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;cursor:pointer;transition:background .16s,border-color .16s,color .16s}
+.cai .cai-msg-c:hover{border-color:#0A2540}
+.cai .cai-msg-c.is-ok{background:#15803D;border-color:#15803D;color:#fff}
+.cai .cai-art-b .cai-msg-t{margin:0;font-size:clamp(1rem,1.25vw,1.06rem);line-height:1.75;color:var(--ink)}
+.cai .cai-msg-t mark{background:#E2FBEC;color:#0A2540;padding:1px 3px;border-radius:4px}
+
+/* ===== Code à composer ===== */
+.cai .cai-art-b code{font:600 .92em/1.3 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;color:#0A2540;background:#EEF3F8;border:1px solid var(--line);border-radius:6px;padding:2px 6px;white-space:nowrap}
+.cai .cai-at code{white-space:normal;overflow-wrap:anywhere}
+.cai .cai-ret code{font:600 .92em/1.3 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;color:#0A2540;background:#fff;border:1px solid #CBEFDB;border-radius:6px;padding:2px 6px;white-space:nowrap}
+.cai .cai-abas{margin-top:clamp(40px,4.6vw,56px)}
+.cai .cai-abas-share{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px;padding:clamp(18px,2vw,24px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cai .cai-abas-share p{font:600 1rem/1.4 'Inter',sans-serif;color:var(--ink);margin:0}
+.cai .cai-share{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.cai .cai-share a,.cai .cai-share button{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);cursor:pointer;padding:0;transition:border-color .16s,background .16s,color .16s}
+.cai .cai-share a:hover,.cai .cai-share button:hover{border-color:#0A2540;background:#0A2540;color:#fff}
+.cai .cai-share svg{width:18px;height:18px;fill:currentColor}
+.cai .cai-share .is-ok{background:#15803D;border-color:#15803D;color:#fff}
+.cai .cai-redac{display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:start;margin-top:clamp(30px,3.4vw,40px);padding:clamp(22px,2.6vw,28px);background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 8px)}
+.cai .cai-redac-ic{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:#0A2540;color:#fff;font:700 1.05rem/1 'Inter',sans-serif}
+.cai .cai-redac b{display:block;font:700 1rem/1.4 'Inter',sans-serif;color:var(--ink);margin-bottom:6px}
+.cai .cai-redac p{font-size:.95rem;line-height:1.65;color:var(--grey);margin:0}
+.cai .cai-acta{margin-top:clamp(30px,3.4vw,40px)}
+.cai .cai-acta-t{font:800 clamp(1.4rem,2.6vw,1.9rem)/1.2 'Inter',sans-serif;color:var(--ink);max-width:24ch;margin:14px 0 14px}
+.cai .cai-acta-t em{font-style:normal;color:#15803D}
+.cai .cai-acta .cai-row{margin-top:clamp(24px,2.8vw,32px);display:flex;flex-wrap:wrap;gap:12px}
+.cai .cai-aussi{margin-top:clamp(30px,3.4vw,40px);padding-top:clamp(24px,2.8vw,32px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+.cai .cai-lire-t{margin-top:clamp(40px,4.6vw,56px)}
+.cai .cai-lire-h{font:800 clamp(1.3rem,2.4vw,1.7rem)/1.2 'Archivo','Inter',sans-serif;letter-spacing:-.02em;color:var(--ink);margin:14px 0 0;max-width:30ch}
+</style>
+<div class="cai"><section class="cai-box cai-art-tete"><h1>Partir en vacances quand on est indépendant : comment ne pas perdre de clients</h1></section>
+<style>
+.cai .cai-infos{display:flex;align-items:center;gap:14px;margin:clamp(14px,1.8vw,20px) 0 0}
+.cai .cai-aut-ic{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#0A2540;color:#22C55E;font:800 .9rem/1 'Archivo','Inter',sans-serif;letter-spacing:-.02em;flex:none}
+.cai .cai-aut-t{min-width:0}
+.cai .cai-aut-t b{display:block;font:600 .98rem/1.35 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-aut-t span{display:block;font:500 .88rem/1.45 'Inter',sans-serif;color:var(--mute);margin-top:2px}
+</style>
+<div class="cai-infos">
+<span aria-hidden="true" class="cai-aut-ic">CA</span>
+<div class="cai-aut-t">
+<b>Par la rédaction de concierge-ai.fr</b>
+<span id="cai-meta">Publié le 21 septembre 2026 · 6 min de lecture</span>
+</div>
+</div>
+</div>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Partir en vacances quand on est indépendant : comment ne pas perdre de clients", "description": "Peur de perdre des clients en partant ? Comment prévenir, gérer vos appels et vraiment couper pendant vos congés d'indépendant, sans rien laisser filer.", "image": ["https://d1yei2z3i6k35z.cloudfront.net/473100/6ab15ad1750777.40601713_partir-en-vacances-independant.png", "https://d1yei2z3i6k35z.cloudfront.net/473100/6ab15b46034569.46880616_independant-en-vacances-telephone.webp", "https://d1yei2z3i6k35z.cloudfront.net/473100/6ab15ba0087611.46492275_fermeture-conges-institut.webp"], "datePublished": "2026-09-21", "dateModified": "2026-09-21", "inLanguage": "fr-FR", "articleSection": "Soirées et week-ends", "url": "https://www.concierge-ai.fr/partir-en-vacances-independant", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.concierge-ai.fr/partir-en-vacances-independant"}, "keywords": "partir en vacances indépendant, vacances artisan clients, gérer ses appels pendant les congés, fermeture pour congés prévenir clients, indépendant qui ne prend pas de vacances, joignable pendant les vacances, remplaçant pendant les vacances, standard téléphonique vacances", "author": {"@type": "Organization", "name": "La rédaction de concierge-ai.fr", "url": "https://www.concierge-ai.fr"}, "publisher": {"@type": "Organization", "name": "concierge-ai.fr", "url": "https://www.concierge-ai.fr", "logo": {"@type": "ImageObject", "url": "https://d1yei2z3i6k35z.cloudfront.net/473100/6aafa75fca2954.32422880_logoconciergeai.webp"}}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quand prévenir ses clients de ses vacances ?", "acceptedAnswer": {"@type": "Answer", "text": "Deux à trois semaines avant de partir. C'est assez tôt pour que vos clients réservent un rendez-vous avant votre départ ou juste après votre retour, et assez proche pour qu'ils s'en souviennent."}}, {"@type": "Question", "name": "Faut-il rester joignable pendant ses vacances quand on est indépendant ?", "acceptedAnswer": {"@type": "Answer", "text": "Rien ne vous y oblige. Ce qui compte pour vos clients, c'est d'obtenir une réponse et une date. Un message de congés clair, un relais pour les vraies urgences, ou un standard qui répond à votre place suffisent à les rassurer."}}, {"@type": "Question", "name": "Comment indiquer sa fermeture pour congés sur Google ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans votre fiche d'établissement Google, ajoutez des horaires exceptionnels sur vos dates de fermeture. Votre fiche affichera « fermé » ces jours-là, au lieu de vos horaires habituels."}}, {"@type": "Question", "name": "Que dire dans son message de répondeur pendant les vacances ?", "acceptedAnswer": {"@type": "Answer", "text": "Vos dates de fermeture, votre date de retour, ce que le client doit laisser, et la conduite à tenir en cas d'urgence. Un exemple prêt à copier est disponible dans l'article sur le message de répondeur professionnel."}}, {"@type": "Question", "name": "Comment ne pas perdre de clients pendant ses congés ?", "acceptedAnswer": {"@type": "Answer", "text": "En prévenant vos clients à l'avance, et en faisant en sorte que ceux qui appellent pendant votre absence obtiennent une réponse et un rendez-vous pour votre retour, plutôt qu'un simple bip."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Blog", "item": "https://www.concierge-ai.fr/blog"}, {"@type": "ListItem", "position": 2, "name": "Soirées et week-ends", "item": "https://www.concierge-ai.fr/category/soirees-et-week-ends"}, {"@type": "ListItem", "position": 3, "name": "Partir en vacances quand on est indépendant : comment ne pas perdre de clients", "item": "https://www.concierge-ai.fr/partir-en-vacances-independant"}]}]}
+</script>

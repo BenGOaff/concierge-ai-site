@@ -1,0 +1,479 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Clinique esthétique</span>
+<h1 style="max-width:25ch;margin:22px 0 20px">Un patient qui appelle le soir <em>attend une consigne, pas un répondeur</em></h1>
+<p class="cai-lead" style="max-width:58ch">Une première demande d'information, un report de consultation, un appel inquiet quelques heures après un acte : ces trois appels n'ont rien à voir entre eux, et aucun ne supporte un répondeur. Voici ce qu'ils deviennent, et surtout la limite qu'un standard ne doit jamais franchir dans une structure médicale.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Aucun prix d'acte, aucun avis médical donné en votre nom</li>
+<li>Sans engagement, sept jours d'essai</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un médecin consulte un dossier dans une salle de consultation sobre, son téléphone allumé posé sur le plan de travail" height="643" loading="eager" src="/images/6ab00e2fee6971.84876335_clinique-esthetique-permanence-telephone.webp" width="1500"/>
+<figcaption>Pendant une consultation ou un acte, la ligne sonne sans réponse. Et un appel post-opératoire n'attend pas l'ouverture.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment une clinique esthétique peut-elle répondre <em>hors des heures de secrétariat ?</em></h2>
+</div>
+<p class="cai-say">Ici le téléphone porte deux enjeux à la fois : des premières demandes à forte valeur, et des appels de suivi où une phrase de trop engage votre responsabilité. <span class="cai-key">Un standard prend la première demande et pose la consultation, transmet le suivi sans y répondre, et applique pour les symptômes une consigne de renvoi que vous avez écrite.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où une clinique esthétique <em>perd un appel</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est la journée ordinaire d'une structure où le praticien consulte et opère lui-même.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>09 h 40</b>
+<p>Vous êtes en consultation, puis en acte. La ligne sonne quatre fois en deux heures. Personne ne laisse de message pour une première demande : on appelle la structure suivante.</p>
+</article>
+<article class="cai-scc">
+<b>13 h 30</b>
+<p>Une première demande d'information. La personne a comparé trois structures la veille au soir et veut savoir quand elle peut être reçue. Elle retiendra celle qui lui a donné une date.</p>
+</article>
+<article class="cai-scc">
+<b>19 h 50</b>
+<p>Un patient opéré ou injecté dans la journée s'inquiète d'un gonflement. Le secrétariat est fermé. Sans consigne claire, il attend, ou il appelle les urgences sans savoir s'il doit y aller.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Les deux premiers appels sont un enjeu d'activité. Le troisième est un enjeu de qualité des soins et de tranquillité pour vous : un patient qui obtient une consigne claire le soir n'arrive pas paniqué le lendemain matin, et vous n'apprenez pas son inquiétude après coup.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. LA LIMITE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le cadre</span>
+<h2>Ce qu'un standard ne fait jamais <em>dans une clinique esthétique</em></h2>
+<p class="cai-lead" style="max-width:58ch">Sur ce métier, la limite se paramètre avant tout le reste, parce qu'elle vous engage médicalement et juridiquement.</p>
+</div>
+<ul class="cai-list">
+<li><b>Aucun prix d'acte annoncé</b><span>Pas de tarif d'injection, pas de fourchette d'intervention, pas de « ça part de tant ». Un acte de chirurgie esthétique fait l'objet d'un devis détaillé écrit remis au patient, et un montant lâché au téléphone devient une promesse dont vous êtes tenu.</span></li>
+<li><b>Aucune évaluation médicale, aucun conseil</b><span>Ni sur l'indication, ni sur une suite d'acte, ni sur un gonflement, un hématome, une douleur ou une rougeur. La situation est notée telle que le patient la décrit, sans interprétation.</span></li>
+<li><b>Aucune promesse de résultat</b><span>Pas de durée d'effet, pas de nombre de séances, pas de comparaison avec un autre patient. Le résultat s'explique en consultation, par vous.</span></li>
+<li><b>Aucun acte posé directement dans l'agenda</b><span>Le standard pose la consultation, jamais l'intervention. Un acte de chirurgie esthétique suppose une consultation préalable, un devis écrit et un délai de réflexion : un rendez-vous opératoire pris au téléphone court-circuiterait ce parcours.</span></li>
+<li><b>Une consigne de renvoi écrite par vous</b><span>Pour un symptôme après un acte, vous écrivez la phrase exacte : appeler tel numéro d'astreinte, se présenter à tel service, appeler le 15. C'est une consigne fixe, jamais une appréciation de gravité.</span></li>
+</ul>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Les règles de communication des professions médicales, l'information du patient, le devis et le délai de réflexion relèvent de textes et de votre ordre. Ce sont les seules sources qui fassent autorité sur ce que vous pouvez déléguer et sur ce que votre accueil peut dire.</p>
+</section>
+<!-- 5. LES DEMANDES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>dans une clinique esthétique</em></h2>
+<p class="cai-lead" style="max-width:58ch">Des premières demandes, de l'agenda, et du suivi. Ces repères sont des points de départ à ajuster à votre exercice.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Traitement</th>
+<th scope="col">Ce que ça vous fait gagner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Symptôme après un acte, gonflement, douleur, saignement</th>
+<td data-l="Traitement">Situation notée telle quelle, consigne de renvoi que vous avez écrite, transfert si vous l'avez demandé</td>
+<td data-l="Ce que ça vous fait gagner">Aucune appréciation de gravité faite à votre place</td>
+</tr>
+<tr>
+<th scope="row">Première demande d'information</th>
+<td data-l="Traitement">Identité, coordonnées, demande exprimée en une ligne, consultation posée</td>
+<td data-l="Ce que ça vous fait gagner">La personne n'appelle pas la structure suivante</td>
+</tr>
+<tr>
+<th scope="row">Question de prix d'un acte</th>
+<td data-l="Traitement">Renvoyée en consultation, aucun montant avancé</td>
+<td data-l="Ce que ça vous fait gagner">Aucun chiffre qui vous engage avant le devis</td>
+</tr>
+<tr>
+<th scope="row">Question d'indication ou de faisabilité</th>
+<td data-l="Traitement">Notée, aucune réponse médicale donnée</td>
+<td data-l="Ce que ça vous fait gagner">Rien n'est dit en votre nom sur un cas que vous n'avez pas vu</td>
+</tr>
+<tr>
+<th scope="row">Report ou annulation d'une consultation</th>
+<td data-l="Traitement">Pris immédiatement, créneau libéré dans l'agenda</td>
+<td data-l="Ce que ça vous fait gagner">Le créneau redevient disponible dans la minute</td>
+</tr>
+<tr>
+<th scope="row">Patient qui demande un compte rendu ou un résultat</th>
+<td data-l="Traitement">Demande transmise, aucune information de dossier communiquée</td>
+<td data-l="Ce que ça vous fait gagner">Le secret médical reste intact</td>
+</tr>
+<tr>
+<th scope="row">Consigne pré-opératoire ou post-opératoire déjà écrite</th>
+<td data-l="Traitement">Rappelée mot pour mot telle que vous l'avez rédigée</td>
+<td data-l="Ce que ça vous fait gagner">Moins d'appels de rappel, aucune reformulation</td>
+</tr>
+<tr>
+<th scope="row">Demande de devis</th>
+<td data-l="Traitement">Consultation posée, le devis restant établi par vous</td>
+<td data-l="Ce que ça vous fait gagner">Le parcours réglementaire est respecté</td>
+</tr>
+<tr>
+<th scope="row">Démarchage, laboratoire, fournisseur</th>
+<td data-l="Traitement">Écarté poliment</td>
+<td data-l="Ce que ça vous fait gagner">Vous n'en entendez jamais parler</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/guides/astreinte-et-tri-des-urgences">Écrire vos propres règles de renvoi</a>
+</section>
+<!-- 6. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien de consultations couvrent une <em>permanence téléphonique de clinique esthétique</em></h2>
+<p class="cai-lead" style="max-width:58ch">Divisez le coût mensuel de la solution par le montant moyen d'une prise en charge. Voici le résultat pour trois montants, à remplacer par le vôtre.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une prise en charge vous rapporte</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">300 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">1 par mois</td>
+<td data-l="Embauche">6 par mois</td>
+</tr>
+<tr>
+<th scope="row">900 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">1 par mois</td>
+<td data-l="Embauche">2 par mois</td>
+</tr>
+<tr>
+<th scope="row">2 500 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">1 par mois</td>
+<td data-l="Embauche">1 par mois</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur. Les trois montants sont des exemples de calcul, pas une moyenne de marché : remplacez-les par votre montant réel. Une seule prise en charge suffit à couvrir le mois, donc l'arbitrage ne se joue pas sur le coût. Il se joue sur ce que vous acceptez de laisser dire au téléphone, et c'est exactement ce qui se décide au paramétrage.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 7. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Un appel à 19 h 50 après un acte, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un patient traité dans la journée s'inquiète d'un gonflement, une fois le secrétariat fermé. Voici ce qu'il obtient.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un a répondu</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non, hors horaires</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Il sait quoi faire ce soir</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Oui, votre consigne de renvoi</td>
+</tr>
+<tr>
+<th scope="row">Un avis médical a été donné</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Non, et c'est volontaire</td>
+</tr>
+<tr>
+<th scope="row">Vous êtes prévenu</th>
+<td data-l="Répondeur">Demain, par le message</td>
+<td data-l="Télésecrétariat">Demain</td>
+<td data-l="Standard 24/7">Tout de suite si vous l'avez décidé, sinon par un résumé écrit</td>
+</tr>
+<tr>
+<th scope="row">Le lendemain matin</th>
+<td data-l="Répondeur">Il arrive inquiet, ou il est allé aux urgences</td>
+<td data-l="Télésecrétariat">Vous découvrez l'appel</td>
+<td data-l="Standard 24/7">La situation est tracée et le suivi est posé</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 8. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions de médecins esthétiques sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Est-ce qu'il peut annoncer le prix d'un acte ?</summary>
+<div class="cai-ans"><p>Non, et c'est la limite la plus importante à paramétrer. Un acte de chirurgie esthétique fait l'objet d'un devis détaillé écrit remis au patient, et une fourchette donnée au téléphone devient une promesse dont vous êtes tenu, en plus de fausser la consultation.</p><p>La demande est notée et la consultation est posée. C'est là que le montant se dit, avec l'indication et le protocole qui vont avec.</p></div>
+</details>
+<details>
+<summary>Comment il gère un appel après un acte ?</summary>
+<div class="cai-ans"><p>Par une consigne fixe que vous écrivez vous-même. Il note ce que le patient décrit, mot pour mot, sans l'interpréter, puis applique la règle : rappeler tel numéro d'astreinte, se présenter à tel service, appeler le 15, et vous transférer l'appel si vous l'avez demandé.</p><p>Il n'évalue jamais la gravité d'un symptôme. Ce qu'il apporte, c'est qu'un patient inquiet à vingt heures obtienne une réponse claire au lieu d'un répondeur.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut poser directement une intervention dans l'agenda ?</summary>
+<div class="cai-ans"><p>Non. Il pose la consultation, et seulement la consultation. Un acte de chirurgie esthétique suppose une consultation préalable, un devis écrit et un délai de réflexion avant l'intervention : poser l'acte au téléphone court-circuiterait ce parcours.</p><p>C'est une limite technique simple à régler : seuls les créneaux de consultation sont ouverts au standard.</p></div>
+</details>
+<details>
+<summary>Et le secret médical ?</summary>
+<div class="cai-ans"><p>Les informations recueillies sont celles d'une prise de rendez-vous : identité, coordonnées, demande exprimée en une ligne. Aucun élément de dossier, aucun compte rendu, aucun résultat n'est communiqué.</p><p>Dès qu'un motif est renseigné, il s'agit d'un traitement de données de santé : demandez à l'éditeur le lieu d'hébergement, l'existence d'une certification pour l'hébergement de données de santé et les conditions de sous-traitance avant toute mise en service.</p></div>
+</details>
+<details>
+<summary>Est-ce compatible avec les règles de communication de ma profession ?</summary>
+<div class="cai-ans"><p>Un accueil téléphonique répond à des personnes qui vous appellent de leur propre initiative, et le standard ne passe aucun appel de prospection. Ce qui demande votre attention, c'est le contenu du script : aucune formule promotionnelle, aucune comparaison, aucune promesse de résultat.</p><p>Votre ordre est la seule source qui fasse autorité sur ce que votre accueil peut dire, et c'est là qu'il faut vérifier avant de valider le script.</p></div>
+</details>
+<details>
+<summary>J'ai déjà un secrétariat médical, ça sert à quoi ?</summary>
+<div class="cai-ans"><p>À couvrir les créneaux qu'il ne couvre pas : le soir, la nuit, le week-end, les jours fériés, et le deuxième appel simultané en journée. Or ce sont précisément les heures où arrivent les appels de suivi post-acte, ceux qui ne peuvent pas attendre le lendemain.</p><p>Les structures qui ont un secrétariat s'en servent en renfort sur ces heures, pas en remplacement.</p></div>
+</details>
+</div>
+</section>
+<!-- 9. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:23ch">Un patient inquiet à 20 heures <em>ne doit pas tomber sur un répondeur</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront combien de premières demandes et combien d'appels de suivi arrivaient hors des heures de secrétariat. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas la médecine esthétique ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/clinique-esthetique#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/clinique-esthetique",
+      "name": "Permanence téléphonique clinique de médecine esthétique",
+      "description": "Premiers appels, consultations, suivi après un acte : ce que deviennent vos appels pendant les soins. Cadre médical, coûts comparés et limites à poser.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/clinique-esthetique#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/clinique-esthetique#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/clinique-esthetique#metier",
+      "name": "Permanence téléphonique pour clinique de médecine esthétique",
+      "serviceType": "Permanence téléphonique, prise de rendez-vous de consultation et application de consignes de renvoi pour structures de médecine esthétique",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Médecins esthétiques et petites structures de médecine et chirurgie esthétique"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/clinique-esthetique#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Clinique esthétique" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/clinique-esthetique#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/clinique-esthetique#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique peut-il annoncer le prix d'un acte de médecine esthétique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Un acte de chirurgie esthétique fait l'objet d'un devis détaillé écrit remis au patient, et une fourchette donnée au téléphone devient une promesse dont la structure est tenue, en plus de fausser la consultation. La demande est notée et la consultation est posée : c'est là que le montant se dit, avec l'indication et le protocole." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment une permanence téléphonique gère-t-elle un appel après un acte esthétique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Par une consigne fixe écrite par le praticien. Le standard note ce que le patient décrit, sans interpréter, puis applique la règle : rappeler un numéro d'astreinte, se présenter à un service, appeler le 15, avec transfert si cela a été demandé. Il n'évalue jamais la gravité d'un symptôme, mais le patient obtient une réponse claire au lieu d'un répondeur." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il poser directement une intervention esthétique dans l'agenda ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Il pose uniquement la consultation. Un acte de chirurgie esthétique suppose une consultation préalable, un devis écrit et un délai de réflexion avant l'intervention : poser l'acte au téléphone court-circuiterait ce parcours. Seuls les créneaux de consultation sont ouverts au standard." }
+        },
+        {
+          "@type": "Question",
+          "name": "Une permanence téléphonique est-elle compatible avec le secret médical en médecine esthétique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les informations recueillies sont celles d'une prise de rendez-vous : identité, coordonnées, demande exprimée en une ligne. Aucun élément de dossier, compte rendu ou résultat n'est communiqué. Dès qu'un motif est renseigné, il s'agit d'un traitement de données de santé : il faut demander à l'éditeur le lieu d'hébergement, la certification pour l'hébergement de données de santé et les conditions de sous-traitance." }
+        },
+        {
+          "@type": "Question",
+          "name": "Une permanence téléphonique respecte-t-elle les règles de communication des médecins ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un accueil téléphonique répond à des personnes qui appellent de leur propre initiative et le standard ne passe aucun appel de prospection. Le contenu du script demande en revanche de l'attention : aucune formule promotionnelle, aucune comparaison, aucune promesse de résultat. L'ordre est la seule source qui fasse autorité sur ce que l'accueil peut dire." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il choisir entre un secrétariat médical et un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les deux se complètent. Le standard couvre le soir, la nuit, le week-end, les jours fériés et le deuxième appel simultané en journée, précisément les heures où arrivent les appels de suivi après un acte. Les structures qui ont un secrétariat s'en servent en renfort, pas en remplacement." }
+        }
+      ]
+    }
+  ]
+}
+</script>

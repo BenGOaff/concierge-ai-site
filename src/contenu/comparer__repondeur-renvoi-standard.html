@@ -1,0 +1,375 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Comparer</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Les gens ne laissent pas de message, <em>ils appellent le suivant</em></h1>
+<p class="cai-lead" style="max-width:58ch">Le répondeur que personne n'utilise, le renvoi sur votre portable qui sonne sous l'évier, le SMS « je vous rappelle », les soirées passées à rappeler. Voici ce que chacun rattrape vraiment, appel par appel, et ce que ça vous coûte en chantiers et en soirées.</p>
+<ul class="cai-tick">
+<li>Les quatre solutions que vous utilisez déjà, comparées</li>
+<li>Ce que le client obtient réellement avec chacune</li>
+<li>Et le coût de celles qu'on croit gratuites</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un artisan assis dans son fourgon en fin de journée rappelle ses appels manqués, téléphone à l'oreille et carnet posé sur le volant" height="643" loading="eager" src="/images/6ab0cf7e8bb275.08217008_repondeur-renvoi-standard.webp" width="1500"/>
+<figcaption>Dix-neuf heures quarante. La journée est finie, et les rappels commencent.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Répondeur, renvoi d'appel ou standard : <em>lequel rattrape vraiment les appels ?</em></h2>
+</div>
+<p class="cai-say">Un répondeur, un renvoi sur votre portable et un SMS automatique ont le même défaut : aucun ne donne au client ce qu'il cherche, c'est-à-dire savoir quand vous passez. <span class="cai-key">Seul un standard qui décroche pose le rendez-vous pendant l'appel, et c'est pour ça que le client ne compose pas le numéro suivant.</span></p>
+</section>
+<!-- 3. LA SCÈNE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">La scène</span>
+<h2>Ce qui se passe vraiment <em>quand ça sonne dans le vide</em></h2>
+<p class="cai-lead" style="max-width:58ch">Trois moments de la même journée. Vous les avez sans doute déjà vécus tous les trois.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>10 h 20</b>
+<p>Vous êtes sous un évier. Votre téléphone sonne dans la poche. Le client tombe sur votre répondeur, entend le bip, et raccroche sans rien dire.</p>
+</article>
+<article class="cai-scc">
+<b>10 h 21</b>
+<p>Il revient sur Google, clique sur le deuxième numéro de la liste. Votre confrère décroche. Rendez-vous pris pour quatorze heures.</p>
+</article>
+<article class="cai-scc">
+<b>19 h 40</b>
+<p>Vous rappelez le numéro manqué depuis votre fourgon. « Ah, c'est bon, j'ai trouvé quelqu'un. » C'était pour vous, et vous le savez.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Une personne qui a une fuite, une panne ou une porte fermée ne laisse pas de message et n'attend pas un rappel. Elle appelle deux ou trois numéros d'affilée et prend le premier qui décroche. Ce n'est pas une question de qualité de votre travail, c'est une question de timing.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça vous coûte chaque mois</a>
+</section>
+<!-- 4. LES QUATRE SOLUTIONS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les options</span>
+<h2>Répondeur, renvoi, SMS, standard : <em>ce que chacun fait vraiment</em></h2>
+<p class="cai-lead" style="max-width:58ch">Les quatre solutions qu'utilisent aujourd'hui la plupart des artisans, avec ce qu'elles font bien et ce qu'elles ne font pas.</p>
+</div>
+<ul class="cai-list">
+<li><b>Le répondeur</b><span>Gratuit, déjà en place, et c'est son seul avantage. En urgence, la plupart des gens raccrochent au bip. Les rares messages laissés sont souvent incomplets : « Rappelez-moi, c'est pour un truc », sans adresse ni nature de la panne.</span></li>
+<li><b>Le renvoi sur votre portable, votre conjoint ou un salarié</b><span>L'appel arrive quelque part, mais chez quelqu'un qui est lui aussi occupé. Sur votre portable, ça sonne sous l'évier comme avant. Chez votre conjoint, c'est une charge de plus qui tombe à la maison, et la question de savoir si c'est urgent n'a toujours pas de réponse.</span></li>
+<li><b>Le SMS automatique « je vous rappelle »</b><span>C'est un vrai progrès sur le répondeur : le client sait qu'il a été entendu. Mais un SMS promet un rappel, il ne donne pas de créneau. Et quelqu'un qui a de l'eau par terre ne veut pas une promesse, il veut savoir quand vous passez.</span></li>
+<li><b>Le standard qui décroche</b><span>Il répond à votre place, pose les bonnes questions, repère l'urgence selon vos critères et cale le rendez-vous dans votre agenda. Le client raccroche avec une heure de passage, donc il n'appelle pas le suivant. C'est la seule des quatre options qui coûte un abonnement.</span></li>
+</ul>
+</section>
+<!-- 5. LE TABLEAU -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Le même appel à 10 h 20, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une fuite sous un évier, un particulier qui cherche un plombier tout de suite. Voici ce qu'il obtient à la fin de l'appel.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Renvoi sur portable</th>
+<th scope="col">SMS automatique</th>
+<th scope="col">Standard qui décroche</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un a répondu</th>
+<td data-l="Répondeur">Non, un bip</td>
+<td data-l="Renvoi sur portable">Non, ça sonne sous l'évier</td>
+<td data-l="SMS automatique">Non, un message écrit</td>
+<td data-l="Standard qui décroche">Oui</td>
+</tr>
+<tr>
+<th scope="row">Le client sait quand vous passez</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Renvoi sur portable">Non</td>
+<td data-l="SMS automatique">Non, on lui promet un rappel</td>
+<td data-l="Standard qui décroche">Oui, rendez-vous posé</td>
+</tr>
+<tr>
+<th scope="row">Vous savez de quoi il s'agit</th>
+<td data-l="Répondeur">Rarement</td>
+<td data-l="Renvoi sur portable">Non</td>
+<td data-l="SMS automatique">Non</td>
+<td data-l="Standard qui décroche">Oui, adresse et nature de la panne</td>
+</tr>
+<tr>
+<th scope="row">Une vraie urgence est repérée</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Renvoi sur portable">Si vous décrochez</td>
+<td data-l="SMS automatique">Non</td>
+<td data-l="Standard qui décroche">Oui, selon vos critères</td>
+</tr>
+<tr>
+<th scope="row">Vous avez été interrompu</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Renvoi sur portable">Oui</td>
+<td data-l="SMS automatique">Non</td>
+<td data-l="Standard qui décroche">Seulement si vous l'avez décidé</td>
+</tr>
+<tr>
+<th scope="row">Ce que vous faites le soir</th>
+<td data-l="Répondeur">Vous rappelez</td>
+<td data-l="Renvoi sur portable">Vous rappelez</td>
+<td data-l="SMS automatique">Vous rappelez</td>
+<td data-l="Standard qui décroche">Vous lisez les résumés</td>
+</tr>
+<tr>
+<th scope="row">Coût</th>
+<td data-l="Répondeur">Inclus dans votre forfait</td>
+<td data-l="Renvoi sur portable">Généralement inclus</td>
+<td data-l="SMS automatique">Faible, selon l'outil</td>
+<td data-l="Standard qui décroche">297 € par mois, ou 248 € au tarif annuel</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 6. LES SOIRÉES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le vrai coût</span>
+<h2>Le répondeur est gratuit, <em>vos soirées ne le sont pas</em></h2>
+<p class="cai-lead" style="max-width:58ch">Les trois premières solutions ne coûtent presque rien sur la facture. Elles se paient autrement, entre dix-neuf et vingt et une heures.</p>
+</div>
+<p class="cai-say">Rappeler quinze numéros le soir, tomber sur la moitié qui ne décroche plus, et sur l'autre moitié qui a déjà trouvé quelqu'un. <span class="cai-key">Pendant ce temps, le repas refroidit, et on vous demande pour la troisième fois si vous ne pouvez pas lâcher ce téléphone.</span></p>
+<ul class="cai-list">
+<li><b>Vous perdez des chantiers</b><span>Ceux qui étaient pour vous, et qui sont partis chez le confrère qui a décroché. C'est un manque à gagner que vous ne voyez jamais sur un relevé, mais que vous entendez à chaque « c'est bon, j'ai trouvé ».</span></li>
+<li><b>Vous perdez vos soirées</b><span>Deux heures de rappels après une journée de chantier, cinq soirs par semaine en saison. Et le week-end, vous gardez le téléphone à portée de main par peur de rater la vraie urgence.</span></li>
+<li><b>Vous perdez en image</b><span>« Injoignable », « ne rappelle jamais » : ce sont les mots qu'on lit dans les avis Google des artisans qui travaillent bien, mais qui ne peuvent pas décrocher.</span></li>
+</ul>
+<a class="cai-more" href="/calculateur">Mettre vos propres chiffres</a>
+</section>
+<!-- 7. LE BRANCHEMENT -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le branchement</span>
+<h2>Le standard ne remplace pas le renvoi d'appel, <em>il s'en sert</em></h2>
+<p class="cai-lead" style="max-width:58ch">C'est la réponse à deux questions qu'on se pose toujours : est-ce que je garde mon numéro, et est-ce que mes clients vont encore tomber sur moi.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Ça sonne d'abord chez vous.</strong> Rien ne change quand vous êtes disponible : vous décrochez comme avant, sur votre numéro habituel.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Vous ne décrochez pas, le renvoi se déclenche.</strong> C'est un renvoi d'appel conditionnel posé sur votre ligne actuelle, celui qui ne s'active que quand personne ne répond.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Le standard décroche à votre place.</strong> Il se présente comme l'accueil de votre entreprise, demande l'adresse et la nature du problème, et pose le rendez-vous sur un créneau libre de votre agenda.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Une vraie urgence vous est transférée.</strong> Selon les critères que vous avez fixés, pas selon ceux de l'appelant. Tout le reste attend votre retour sans vous déranger.</p></div>
+<div class="cai-beat"><b>5</b><p><strong>Vous recevez un résumé écrit.</strong> Qui a appelé, pour quoi, à quelle adresse, et le créneau posé. Le soir, vous lisez au lieu de rappeler.</p></div>
+</div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Le transfert des urgences, le résumé écrit et le SMS envoyé au client après un appel manqué sont compris à partir de la formule Growth. La formule d'entrée décroche 24 h/24, qualifie l'appel et pose le rendez-vous. Si vous arrêtez, le renvoi est retiré et votre ligne revient exactement à son état d'avant.</p>
+<a class="cai-more" href="/fonctionnement">Voir le branchement en détail</a>
+</section>
+<!-- 8. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions sur le répondeur, le renvoi <em>et le standard téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Un répondeur qui prend les rendez-vous, ça existe ?</summary>
+<div class="cai-ans"><p>Oui, et c'est exactement ce qu'est un standard qui décroche. La différence avec un répondeur, c'est qu'il y a une conversation : il pose les questions, comprend la demande et cale le créneau pendant l'appel, au lieu d'attendre qu'on laisse un message.</p><p>Le client raccroche avec une heure de passage, ce qu'aucun répondeur ne peut lui donner.</p></div>
+</details>
+<details>
+<summary>Pourquoi payer alors que mon répondeur est gratuit ?</summary>
+<div class="cai-ans"><p>Parce que le répondeur ne rattrape presque rien : en urgence, les gens raccrochent au bip et appellent le suivant. Il est gratuit sur la facture, mais il vous coûte les chantiers qui partent ailleurs et les soirées passées à rappeler.</p><p>Un seul chantier récupéré dans le mois couvre généralement l'abonnement. Le calculateur vous donne le chiffre avec votre propre panier.</p></div>
+</details>
+<details>
+<summary>Je renvoie déjà sur mon conjoint ou un salarié, ça ne suffit pas ?</summary>
+<div class="cai-ans"><p>Ça rattrape une partie des appels, quand la personne est disponible. Mais elle a aussi sa journée, elle ne connaît pas toujours vos tarifs ni vos critères d'urgence, et elle n'a pas accès à votre agenda depuis le chantier.</p><p>Beaucoup d'artisans gardent ce renvoi en journée et mettent un standard le soir, le week-end et pendant les congés, pour que la charge ne retombe plus à la maison.</p></div>
+</details>
+<details>
+<summary>Le SMS automatique après un appel manqué, ça ne suffit pas ?</summary>
+<div class="cai-ans"><p>C'est mieux que rien : le client sait qu'il a été entendu. Mais le SMS promet un rappel, il ne donne pas de rendez-vous. Quelqu'un en urgence lit le message, puis appelle quand même le numéro suivant pour avoir une réponse tout de suite.</p><p>Ce SMS reste utile en complément, et il est d'ailleurs compris à partir de la formule Growth.</p></div>
+</details>
+<details>
+<summary>Est-ce que je garde mon numéro ?</summary>
+<div class="cai-ans"><p>Oui. Le standard se branche par un renvoi conditionnel sur votre ligne actuelle. Vos cartes de visite, votre fiche Google et le marquage de votre véhicule gardent le même numéro, et vous n'avez aucune démarche à faire auprès de votre opérateur.</p></div>
+</details>
+<details>
+<summary>Et si je veux décrocher moi-même ?</summary>
+<div class="cai-ans"><p>Vous décrochez. Le téléphone sonne d'abord chez vous, et le standard ne prend le relais que si vous ne répondez pas. Quand vous êtes disponible, rien ne change pour vos clients.</p></div>
+</details>
+</div>
+</section>
+<!-- 9. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:23ch">Arrêtez de rappeler des gens <em>qui ont déjà trouvé quelqu'un</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne : vous verrez combien d'appels auraient fini au bip, et vous récupérerez vos soirées pour le savoir. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer toutes les solutions</a></li>
+<li><a href="/comparer/embaucher-ou-automatiser">Embaucher ou automatiser</a></li>
+<li><a href="/guides/astreinte-et-tri-des-urgences">Astreinte et tri des urgences</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/metiers">Votre métier</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/comparer/repondeur-renvoi-standard#webpage",
+      "url": "https://www.concierge-ai.fr/comparer/repondeur-renvoi-standard",
+      "name": "Répondeur, renvoi d'appel ou standard : que choisir ?",
+      "description": "Le répondeur que personne n'utilise, le renvoi sur le portable, le SMS « je vous rappelle » : ce que chacun rattrape vraiment, appel par appel.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/comparer/repondeur-renvoi-standard#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/comparer/repondeur-renvoi-standard#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Comparer", "item": "https://www.concierge-ai.fr/comparer/permanence-telephonique" },
+        { "@type": "ListItem", "position": 3, "name": "Répondeur, renvoi ou standard" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/comparer/repondeur-renvoi-standard#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/comparer/repondeur-renvoi-standard#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un répondeur qui prend les rendez-vous, ça existe ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, c'est ce qu'est un standard qui décroche. À la différence d'un répondeur, il mène une conversation : il pose les questions, comprend la demande et cale le créneau pendant l'appel. Le client raccroche avec une heure de passage au lieu d'avoir laissé un message." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi payer un standard alors qu'un répondeur est gratuit ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le répondeur ne rattrape presque rien : en urgence, les gens raccrochent au bip et appellent le numéro suivant. Il est gratuit sur la facture mais coûte les chantiers qui partent ailleurs et les soirées passées à rappeler. Un seul chantier récupéré dans le mois couvre généralement l'abonnement." }
+        },
+        {
+          "@type": "Question",
+          "name": "Renvoyer les appels vers son conjoint ou un salarié suffit-il ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Cela rattrape une partie des appels quand la personne est disponible, mais elle a sa propre journée, ne connaît pas toujours les tarifs ni les critères d'urgence, et n'a pas accès à l'agenda depuis le chantier. Beaucoup d'artisans gardent ce renvoi en journée et utilisent un standard le soir, le week-end et pendant les congés." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un SMS automatique après un appel manqué suffit-il ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "C'est mieux qu'un répondeur, car le client sait qu'il a été entendu. Mais le SMS promet un rappel sans donner de rendez-vous : une personne en urgence appelle quand même le numéro suivant. Il reste utile en complément d'un standard qui décroche." }
+        },
+        {
+          "@type": "Question",
+          "name": "Garde-t-on son numéro avec un standard téléphonique automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. Le standard se branche par un renvoi d'appel conditionnel sur la ligne actuelle, qui ne se déclenche que lorsque personne ne décroche. Cartes de visite, fiche Google et marquage du véhicule gardent le même numéro, sans démarche auprès de l'opérateur." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on continuer à décrocher soi-même avec un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. Le téléphone sonne d'abord chez l'artisan et le standard ne prend le relais que s'il ne répond pas. Quand il est disponible, rien ne change pour ses clients." }
+        }
+      ]
+    }
+  ]
+}
+</script>

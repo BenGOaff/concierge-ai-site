@@ -1,0 +1,397 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-feat{margin-top:clamp(40px,4.6vw,54px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:38ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- lecteur vidéo --- */
+.cai .cai-play{margin-top:clamp(30px,3.4vw,40px);margin-bottom:clamp(44px,5vw,60px)}
+.cai .cai-vid{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:calc(var(--rad) - 8px);overflow:hidden;background:#0A2540;box-shadow:0 18px 44px -18px rgba(10,37,64,.4)}
+.cai .cai-vid video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#0A2540;border-radius:inherit}
+
+/* --- sommaire de la vidéo --- */
+.cai .cai-chap{margin:0;padding:0;display:grid;gap:clamp(16px,2vw,22px);list-style:none}
+.cai .cai-chap li{display:grid;grid-template-columns:32px 1fr;gap:16px;align-items:start;list-style:none;margin:0;padding:0}
+.cai .cai-chap li::marker{content:""}
+.cai .cai-chap b{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.78);border:1px solid rgba(10,37,64,.1);font:600 .84rem/1 'Inter',sans-serif;color:var(--blue)}
+.cai .cai-chap p{font-size:.99rem;line-height:1.7;color:var(--grey);margin:0;padding-top:4px}
+.cai .cai-chap p strong{color:var(--ink);font-weight:600}
+
+/* --- retranscription --- */
+.cai .cai-talk{margin-top:clamp(36px,4vw,48px);display:flex;flex-direction:column;gap:clamp(14px,1.8vw,18px)}
+.cai .cai-turn{display:flex;flex-direction:column;gap:8px;max-width:100%;border-radius:20px;padding:clamp(20px,2.2vw,26px) clamp(20px,2.2vw,28px)}
+.cai .cai-turn--a{background:linear-gradient(150deg,var(--g1) 0%,#F2FDF7 100%);border:1px solid #CBEFDB}
+.cai .cai-turn--c{background:#fff;border:1px solid var(--line);margin-left:clamp(0px,4vw,52px)}
+.cai .cai-who{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--mute)}
+.cai .cai-turn--a .cai-who{color:var(--gd)}
+.cai .cai-turn p{font-size:1rem;line-height:1.72;color:var(--ink);margin:0}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- grille critères --- */
+.cai .cai-grid{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-card{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(26px,3vw,34px)}
+.cai .cai-card h3{font-size:1.06rem;line-height:1.45;margin:0 0 14px}
+.cai .cai-card p{font-size:.96rem;line-height:1.7;color:var(--grey);margin:0}
+@media(min-width:760px){.cai .cai-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-feat{margin-top:clamp(40px,4.6vw,54px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:38ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- lecteur vidéo --- */
+.cai .cai-play{margin-top:clamp(30px,3.4vw,40px);margin-bottom:clamp(44px,5vw,60px)}
+.cai .cai-vid{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:calc(var(--rad) - 8px);overflow:hidden;background:#0A2540;box-shadow:0 18px 44px -18px rgba(10,37,64,.4)}
+.cai .cai-vid video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#0A2540;border-radius:inherit}
+
+/* --- sommaire de la vidéo --- */
+.cai .cai-chap{margin:0;padding:0;display:grid;gap:clamp(16px,2vw,22px);list-style:none}
+.cai .cai-chap li{display:grid;grid-template-columns:32px 1fr;gap:16px;align-items:start;list-style:none;margin:0;padding:0}
+.cai .cai-chap li::marker{content:""}
+.cai .cai-chap b{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.78);border:1px solid rgba(10,37,64,.1);font:600 .84rem/1 'Inter',sans-serif;color:var(--blue)}
+.cai .cai-chap p{font-size:.99rem;line-height:1.7;color:var(--grey);margin:0;padding-top:4px}
+.cai .cai-chap p strong{color:var(--ink);font-weight:600}
+
+/* --- retranscription --- */
+.cai .cai-talk{margin-top:clamp(36px,4vw,48px);display:flex;flex-direction:column;gap:clamp(14px,1.8vw,18px)}
+.cai .cai-turn{display:flex;flex-direction:column;gap:8px;max-width:100%;border-radius:20px;padding:clamp(20px,2.2vw,26px) clamp(20px,2.2vw,28px)}
+.cai .cai-turn--a{background:linear-gradient(150deg,var(--g1) 0%,#F2FDF7 100%);border:1px solid #CBEFDB}
+.cai .cai-turn--c{background:#fff;border:1px solid var(--line);margin-left:clamp(0px,4vw,52px)}
+.cai .cai-who{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--mute)}
+.cai .cai-turn--a .cai-who{color:var(--gd)}
+.cai .cai-turn p{font-size:1rem;line-height:1.72;color:var(--ink);margin:0}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- grille critères --- */
+.cai .cai-grid{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-card{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(26px,3vw,34px)}
+.cai .cai-card h3{font-size:1.06rem;line-height:1.45;margin:0 0 14px}
+.cai .cai-card p{font-size:.96rem;line-height:1.7;color:var(--grey);margin:0}
+@media(min-width:760px){.cai .cai-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO + VIDÉO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Démonstration · appel réel</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Écoutez un appel réel, <em>du début à la fin</em></h1>
+<p class="cai-lead" style="max-width:58ch">Un client appelle un plombier pour faire déboucher son évier. Personne ne décroche côté entreprise. En deux minutes, la demande est comprise, deux créneaux sont proposés, et le rendez-vous est posé.</p>
+<div class="cai-play">
+<div class="cai-vid">
+<video controls="" playsinline="" poster="/images/6aafd7a74730a0.83867713_demo-poster-appel.webp" preload="metadata">
+<source src="/images/6aafd778d279c3.19908481_democonciergeai.mp4" type="video/mp4">
+        Votre navigateur ne peut pas lire cette vidéo.
+      </source></video>
+</div>
+</div>
+<ul class="cai-chap">
+<li><b>1</b><p><strong>La présentation du service par son éditeur.</strong> C'est un discours commercial, dit comme tel. Il explique ce que fait le service et il annonce lui-même que la version montrée est la première.</p></li>
+<li><b>2</b><p><strong>L'appel, entier.</strong> Du décroché au rendez-vous confirmé, sans coupe à l'intérieur de la conversation.</p></li>
+<li><b>3</b><p><strong>L'explication d'après-coup.</strong> Pourquoi la voix appelle l'interlocuteur « guest visitor » : c'est un appelant déjà enregistré lors de tests précédents, que le système a reconnu.</p></li>
+</ul>
+<ul class="cai-tick">
+<li>Retranscription intégrale de l'appel, plus bas</li>
+<li>Ce que la démonstration ne prouve pas est écrit noir sur blanc</li>
+<li>Le même appel traité par un répondeur et un télésecrétariat</li>
+</ul>
+</section>
+<!-- 2. RÉPONSE COURTE EXTRACTIBLE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Que fait un standard téléphonique automatique pendant un appel ?</h2>
+</div>
+<p class="cai-say">Il décroche, identifie la demande, propose des créneaux libres dans l'agenda de l'entreprise, recueille le nom, l'adresse, le téléphone et l'e-mail, relit chaque information pour validation, puis confirme le rendez-vous. <span class="cai-key">L'appel entier dure deux minutes et l'artisan n'intervient à aucun moment.</span></p>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Décroché et présentation.</strong> « Vous avez bien contacté Jean Plomberie, je suis Pauline, votre assistante vocale. » Le nom de l'entreprise est annoncé, pas celui du gérant.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Demande formulée librement.</strong> Le client ne suit aucun menu et ne tape sur aucune touche. Il explique ce qu'il veut avec ses mots : un évier bouché, si possible demain.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Deux créneaux proposés.</strong> Midi ou 14 heures, pour le vendredi. Ce sont des créneaux libres : le service est relié à l'agenda de l'entreprise.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Le client choisit.</strong> 14 heures. Rien n'est imposé, rien n'est renvoyé à un rappel ultérieur.</p></div>
+<div class="cai-beat"><b>5</b><p><strong>Nom et adresse d'intervention.</strong> Le standard demande l'adresse parisienne puis le numéro de téléphone.</p></div>
+<div class="cai-beat"><b>6</b><p><strong>Chaque donnée est relue.</strong> Adresse, puis numéro, répétés à voix haute pour validation. C'est ce qui évite le déplacement à la mauvaise adresse.</p></div>
+<div class="cai-beat"><b>7</b><p><strong>E-mail pour la confirmation.</strong> Recueilli, relu, validé lui aussi.</p></div>
+<div class="cai-beat"><b>8</b><p><strong>Rendez-vous confirmé.</strong> Jour, date et heure répétés, puis fin d'appel. Le créneau est bloqué.</p></div>
+</div>
+</section>
+<!-- 3. RETRANSCRIPTION -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Mot pour mot</span>
+<h2>La retranscription intégrale de l'appel</h2>
+<p class="cai-lead" style="max-width:58ch">Rien n'est coupé, rien n'est réécrit. Les répétitions sont celles de l'enregistrement.</p>
+</div>
+<div class="cai-talk">
+<div class="cai-turn cai-turn--a"><span class="cai-who">Standard</span><p>Bonjour, vous avez bien contacté Jean Plomberie. Je suis Pauline, votre assistante vocale. Comment puis-je vous aider ?</p></div>
+<div class="cai-turn cai-turn--c"><span class="cai-who">Client</span><p>Bonjour Pauline. J'aimerais que quelqu'un puisse m'aider à déboucher mon évier demain, si c'est possible. Est-ce que vous avez de la disponibilité ?</p></div>
+<div class="cai-turn cai-turn--a"><span class="cai-who">Standard</span><p>Bien sûr, je regarde ça. Pour demain, vendredi 24 juillet, j'ai des créneaux à midi ou à 14 heures. Vous préférez lequel ?</p></div>
+<div class="cai-turn cai-turn--c"><span class="cai-who">Client</span><p>14 heures, ça m'a l'air bien.</p></div>
+<div class="cai-turn cai-turn--a"><span class="cai-who">Standard</span><p>Parfait. Je vous ai au nom de « guest visitor 003 », c'est bien ça ? Et j'aurai besoin de votre adresse à Paris et de votre numéro de téléphone.</p></div>
+<div class="cai-turn cai-turn--c"><span class="cai-who">Client</span><p>Mon nom, c'est Thomas, et mon adresse c'est 11 rue du Bonheur, Paris 75016.</p></div>
+<div class="cai-turn cai-turn--a"><span class="cai-who">Standard</span><p>Très bien, merci. Donc c'est Thomas, et l'adresse : 11 rue du Bonheur, Paris 75016. C'est bien ça ? Et quel est votre numéro de téléphone, s'il vous plaît ?</p></div>
+<div class="cai-turn cai-turn--c"><span class="cai-who">Client</span><p>Exactement. Et mon numéro de téléphone, c'est le 01 23 45 67 89.</p></div>
+<div class="cai-turn cai-turn--a"><span class="cai-who">Standard</span><p>Parfait, je note le numéro 01 23 45 67 89. Vous avez une adresse e-mail pour recevoir la confirmation ?</p></div>
+<div class="cai-turn cai-turn--c"><span class="cai-who">Client</span><p>Oui, bien sûr. <em>(le client dicte son adresse e-mail)</em></p></div>
+<div class="cai-turn cai-turn--a"><span class="cai-who">Standard</span><p>Merci, donc c'est bien cette adresse ? Parfait. C'est confirmé pour demain, vendredi 24 juillet, à 14 heures. Merci d'avoir contacté Jean Plomberie, je vous souhaite une excellente soirée. À très vite, au revoir.</p></div>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:62ch">Le nom « guest visitor 003 » est l'identifiant d'un appelant déjà enregistré pendant les tests : le système l'a reconnu et a proposé de réutiliser sa fiche. C'est expliqué dans la vidéo, juste après l'appel.</p>
+</section>
+<!-- 4. CE QUE LA DÉMONSTRATION NE MONTRE PAS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Honnêteté</span>
+<h2>Ce que cette démonstration <em>ne prouve pas</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une démonstration est une démonstration. Voici ce qu'elle établit, et ce qu'elle laisse ouvert.</p>
+</div>
+<ul class="cai-list">
+<li><b>Ce n'est pas un appel client anonyme</b><span>C'est un test réalisé par l'éditeur du service sur la ligne d'un de ses clients plombier. L'appelant savait à quoi il appelait, et il avait déjà appelé plusieurs fois.</span></li>
+<li><b>Un seul scénario est testé</b><span>Une demande simple, en français, sans bruit de fond, sans interlocuteur agressif, sans accent difficile, sans changement d'avis en cours d'appel. Votre réalité contient les quatre.</span></li>
+<li><b>Rien n'est mesuré</b><span>Aucun taux de rendez-vous posés, aucun taux d'erreur, aucun pourcentage d'appels bien compris. Ces chiffres ne sont publiés ni par cet éditeur ni par ses concurrents.</span></li>
+<li><b>Le reste est affirmé, pas montré</b><span>L'envoi des coordonnées vers un CRM consultable en temps réel, la connexion à l'agenda qui empêche le double rendez-vous, les rappels automatiques avant intervention, l'installation en moins de dix minutes : tout cela est décrit par l'éditeur dans la vidéo, mais n'apparaît pas à l'écran.</span></li>
+</ul>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:62ch">C'est exactement pour cette raison que la période d'essai existe. Sept jours sur votre vraie ligne avec vos vrais appels valent plus que n'importe quelle démonstration, y compris celle-ci.</p>
+</section>
+<!-- 5. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le même appel, ailleurs</span>
+<h2>Ce que cet appel serait devenu <em>avec une autre solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un jeudi, 19 h 40. Le même client, la même demande, trois traitements différents.</p>
+</div>
+<table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un a décroché</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non, bureau fermé</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">La demande est connue</th>
+<td data-l="Répondeur">Si le client laisse un message</td>
+<td data-l="Télésecrétariat">Le lendemain matin</td>
+<td data-l="Standard 24/7">Immédiatement</td>
+</tr>
+<tr>
+<th scope="row">Adresse et téléphone recueillis</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Le lendemain, par rappel</td>
+<td data-l="Standard 24/7">Oui, relus et validés</td>
+</tr>
+<tr>
+<th scope="row">Créneau bloqué dans l'agenda</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Oui, vendredi 14 h</td>
+</tr>
+<tr>
+<th scope="row">Travail restant pour vous</th>
+<td data-l="Répondeur">Écouter, rappeler, négocier un créneau</td>
+<td data-l="Télésecrétariat">Rappeler le lendemain</td>
+<td data-l="Standard 24/7">Se présenter à 14 h</td>
+</tr>
+</tbody>
+</table>
+<a class="cai-more" href="/comparer/permanence-telephonique">Le comparatif complet, avec les coûts</a>
+</section>
+<!-- 6. GRILLE D'ÉCOUTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Méthode</span>
+<h2>Six choses à écouter dans <em>n'importe quelle démonstration</em></h2>
+<p class="cai-lead" style="max-width:58ch">Tous les éditeurs de standards automatiques publient une vidéo de démonstration. Voici ce qui distingue un enregistrement utile d'une mise en scène.</p>
+</div>
+<div class="cai-grid">
+<article class="cai-card"><h3>L'appel est-il montré en entier ?</h3><p>Du décroché au raccroché, sans coupe. Un appel présenté en extraits cache presque toujours une reformulation qui n'a pas fonctionné.</p></article>
+<article class="cai-card"><h3>Les informations sont-elles relues ?</h3><p>Un numéro mal noté, c'est un client perdu. Une adresse mal notée, c'est un déplacement perdu. Le standard doit répéter et faire valider.</p></article>
+<article class="cai-card"><h3>Le créneau est-il réel ?</h3><p>« Je vous rappellerai pour confirmer » n'est pas un rendez-vous. Écoutez si une date et une heure précises sortent de l'appel.</p></article>
+<article class="cai-card"><h3>Que se passe-t-il hors du script ?</h3><p>Une bonne démonstration inclut une hésitation, une correction, une question imprévue. Si tout est fluide du début à la fin, ce n'est pas un appel, c'est une lecture.</p></article>
+<article class="cai-card"><h3>Le standard dit-il ce qu'il est ?</h3><p>Il doit annoncer clairement qu'il n'est pas un humain. C'est une question de confiance avec vos clients, et à partir du 2 août 2026 une obligation européenne.</p></article>
+<article class="cai-card"><h3>Peut-on vous joindre malgré tout ?</h3><p>Une vraie urgence doit arriver sur votre téléphone. Une démonstration qui ne montre jamais de transfert laisse la question ouverte.</p></article>
+</div>
+<a class="cai-more" href="/guides/astreinte-et-tri-des-urgences">Définir ce qui mérite de vous réveiller</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions sur <em>cette démonstration d'appel</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Est-ce que la voix de la démonstration est celle qui répondra chez moi ?</summary>
+<div class="cai-ans"><p>C'est la même technologie, mais le contenu change : le nom de l'entreprise, les prestations, la zone d'intervention, les tarifs indicatifs et les règles d'urgence sont paramétrés à partir de vos réponses. Ce que vous entendez dans l'appel, c'est le comportement du système, pas le script que vous aurez.</p></div>
+</details>
+<details>
+<summary>Pourquoi la voix dit-elle « guest visitor 003 » ?</summary>
+<div class="cai-ans"><p>Parce que l'appelant avait déjà appelé cette ligne pendant des tests, et que le système a reconnu son numéro. Il propose donc la fiche existante au lieu de tout redemander. Sur une ligne en service, cela signifie qu'un client qui rappelle n'a pas à redonner son adresse et son téléphone à chaque fois.</p></div>
+</details>
+<details>
+<summary>Le standard dit-il qu'il n'est pas un humain ?</summary>
+<div class="cai-ans"><p>Dans cet enregistrement, il se présente comme « assistante vocale ». C'est une formulation qui indique une machine sans employer le mot « intelligence artificielle ». L'article 50 du règlement européen sur l'IA, applicable au 2 août 2026, demande que la personne soit informée qu'elle interagit avec un système d'IA. Demandez à l'éditeur si la phrase d'accueil est modifiable : c'est à vérifier avant de mettre une ligne en service.</p></div>
+</details>
+<details>
+<summary>Et si le client refuse de parler à une machine ?</summary>
+<div class="cai-ans"><p>Il raccroche, exactement comme il raccrochait sur votre répondeur. La différence, c'est qu'un standard qui répond peut aussi transférer un appel vers vous quand la demande correspond à ce que vous avez défini comme urgent. Un répondeur, lui, ne transfère jamais rien.</p></div>
+</details>
+<details>
+<summary>Est-ce que ça marche pour un métier qui n'est pas la plomberie ?</summary>
+<div class="cai-ans"><p>La démonstration porte sur un débouchage d'évier, mais la mécanique est la même pour un rendez-vous chez un kinésithérapeute, une coupe chez un coiffeur, une demande de devis chez un avocat ou une réservation dans un restaurant : comprendre la demande, proposer un créneau libre, recueillir les coordonnées, confirmer. Ce qui change d'un métier à l'autre, c'est ce qui compte comme urgence.</p></div>
+</details>
+<details>
+<summary>Puis-je tester sur ma propre ligne avant de décider ?</summary>
+<div class="cai-ans"><p>Oui, une période d'essai de sept jours existe, sans engagement et sans changement de numéro. C'est le seul moyen de savoir ce que le système fait de vos appels, à vos horaires, avec vos clients.</p></div>
+</details>
+</div>
+<a class="cai-more" href="/faq">Toutes les questions</a>
+</section>
+<!-- 8. SORTIE + DISTRIBUTION -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:20ch">Vous avez entendu l'appel. <em>Reste à l'entendre chez vous.</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne, avec vos vrais appels et vos horaires. Sans engagement, sans changer de numéro, sans rien installer. C'est la seule démonstration qui vaut vraiment : la vôtre.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Tester 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/calculateur">Calculer ce que je perds</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/fonctionnement">Comment ça se branche sur ma ligne</a></li>
+<li><a href="/prix-du-marche">Les prix pratiqués sur le marché</a></li>
+<li><a href="/guides/astreinte-et-tri-des-urgences">Astreinte et tri des urgences</a></li>
+<li><a href="/tarifs">Le tarif du service présenté ici</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page présente un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/demonstration#webpage",
+      "url": "https://www.concierge-ai.fr/demonstration",
+      "name": "Démonstration : standard téléphonique 24/7 en appel réel",
+      "description": "Écoutez un appel réel du décroché au rendez-vous confirmé, avec la retranscription intégrale et ce que la démonstration ne prouve pas.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/demonstration#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/demonstration#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Démonstration" }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.concierge-ai.fr/demonstration#video",
+      "name": "Appel réel : prise de rendez-vous par un standard téléphonique automatique",
+      "description": "Un client appelle un plombier pour faire déboucher son évier. Le standard décroche, propose deux créneaux, recueille et relit les coordonnées, puis confirme le rendez-vous.",
+      "thumbnailUrl": "https://d1yei2z3i6k35z.cloudfront.net/473100/6aafd7a74730a0.83867713_demo-poster-appel.webp",
+      "uploadDate": "2026-09-20",
+      "contentUrl": "https://d1yei2z3i6k35z.cloudfront.net/473100/6aafd778d279c3.19908481_democonciergeai.mp4",
+      "inLanguage": "fr-FR",
+      "transcript": "Standard : Bonjour, vous avez bien contacté Jean Plomberie. Je suis Pauline, votre assistante vocale. Comment puis-je vous aider ? — Client : Bonjour Pauline. J'aimerais que quelqu'un puisse m'aider à déboucher mon évier demain, si c'est possible. Est-ce que vous avez de la disponibilité ? — Standard : Bien sûr, je regarde ça. Pour demain, vendredi 24 juillet, j'ai des créneaux à midi ou à 14 heures. Vous préférez lequel ? — Client : 14 heures, ça m'a l'air bien. — Standard : Parfait. J'aurai besoin de votre nom, de votre adresse à Paris et de votre numéro de téléphone. — Client : Mon nom, c'est Thomas, et mon adresse c'est 11 rue du Bonheur, Paris 75016. — Standard : Très bien, merci. Donc c'est Thomas, et l'adresse : 11 rue du Bonheur, Paris 75016. C'est bien ça ? Et quel est votre numéro de téléphone, s'il vous plaît ? — Client : Exactement. Et mon numéro de téléphone, c'est le 01 23 45 67 89. — Standard : Parfait, je note le numéro 01 23 45 67 89. Vous avez une adresse e-mail pour recevoir la confirmation ? — Client : Oui, bien sûr. — Standard : Merci. C'est confirmé pour demain, vendredi 24 juillet, à 14 heures. Merci d'avoir contacté Jean Plomberie, je vous souhaite une excellente soirée. À très vite, au revoir.",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/demonstration#webpage" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/demonstration#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/demonstration#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Est-ce que la voix de la démonstration est celle qui répondra chez moi ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "C'est la même technologie, mais le contenu change : le nom de l'entreprise, les prestations, la zone d'intervention, les tarifs indicatifs et les règles d'urgence sont paramétrés à partir de vos réponses. Ce que vous entendez dans l'appel, c'est le comportement du système, pas le script que vous aurez." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi la voix dit-elle guest visitor 003 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Parce que l'appelant avait déjà appelé cette ligne pendant des tests, et que le système a reconnu son numéro. Il propose donc la fiche existante au lieu de tout redemander. Sur une ligne en service, cela signifie qu'un client qui rappelle n'a pas à redonner son adresse et son téléphone à chaque fois." }
+        },
+        {
+          "@type": "Question",
+          "name": "Le standard dit-il qu'il n'est pas un humain ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Dans cet enregistrement, il se présente comme assistante vocale. C'est une formulation qui indique une machine sans employer le mot intelligence artificielle. L'article 50 du règlement européen sur l'IA, applicable au 2 août 2026, demande que la personne soit informée qu'elle interagit avec un système d'IA. Il faut donc vérifier auprès de l'éditeur si la phrase d'accueil est modifiable avant de mettre une ligne en service." }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si le client refuse de parler à une machine ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Il raccroche, exactement comme il raccrochait sur un répondeur. La différence, c'est qu'un standard qui répond peut aussi transférer un appel vers l'artisan quand la demande correspond à ce qui a été défini comme urgent. Un répondeur ne transfère jamais rien." }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce que ça marche pour un métier qui n'est pas la plomberie ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La démonstration porte sur un débouchage d'évier, mais la mécanique est la même pour un rendez-vous chez un kinésithérapeute, une coupe chez un coiffeur, une demande de devis chez un avocat ou une réservation dans un restaurant : comprendre la demande, proposer un créneau libre, recueillir les coordonnées, confirmer. Ce qui change d'un métier à l'autre, c'est ce qui compte comme urgence." }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je tester sur ma propre ligne avant de décider ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, une période d'essai de sept jours existe, sans engagement et sans changement de numéro. C'est le seul moyen de savoir ce que le système fait de vos appels, à vos horaires, avec vos clients." }
+        }
+      ]
+    }
+  ]
+}
+</script>

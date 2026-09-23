@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/conformite.html?raw'
+---
+
+<Base
+  titre="RGPD et assistant téléphonique : ce qui est obligatoire"
+  description="Annoncer l'assistant automatique, prévenir de l'enregistrement, ne demander que l'utile : les trois règles, et le message d'accueil prêt à reprendre."
+  chemin="/conformite"
+  og="/images/6ab0d713730be8.44333056_conformite-rgpd-concierge-ai.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

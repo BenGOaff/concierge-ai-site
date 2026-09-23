@@ -1,0 +1,412 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-feat{margin-top:clamp(40px,4.6vw,54px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:40ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- colonnes opposées --- */
+.cai .cai-duos{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-duo2{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(28px,3.2vw,38px)}
+.cai .cai-duo2--g{border-color:#CBEFDB;background:linear-gradient(170deg,#F4FDF8 0%,#FFFFFF 60%)}
+.cai .cai-duo2 h3{font-size:1.14rem;line-height:1.4;margin:0 0 6px}
+.cai .cai-duo2 .cai-duo2-sub{font-size:.93rem;line-height:1.6;color:var(--mute);margin:0 0 22px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.cai .cai-duo2 ul{list-style:none;padding:0;margin:0;display:grid;gap:13px}
+.cai .cai-duo2 ul li{position:relative;padding-left:26px;font-size:.97rem;line-height:1.65;color:var(--ink)}
+.cai .cai-duo2 ul li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:50%;background:var(--mute)}
+.cai .cai-duo2--g ul li::before{background:var(--g3)}
+@media(min-width:840px){.cai .cai-duos{grid-template-columns:repeat(2,1fr)}}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+/* --- opérateurs compatibles --- */
+.cai .cai-ope-logos{display:block;width:100%;max-width:100%;height:auto;margin:clamp(34px,3.8vw,44px) 0 0}
+.cai .cai-ope-duo{display:none}
+.cai .cai-ope .cai-fine{margin-top:clamp(18px,2.2vw,24px)}
+@media(max-width:640px){
+  .cai .cai-ope-logos{display:none}
+  .cai .cai-ope-duo{display:grid;gap:14px;margin-top:30px}
+  .cai .cai-ope-duo span{display:block;width:100%;max-width:100%;aspect-ratio:750/214;background:url('https://d1yei2z3i6k35z.cloudfront.net/473100/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp') 0 0/200% 100% no-repeat}
+  .cai .cai-ope-duo span+span{background-position:100% 0}
+}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-feat{margin-top:clamp(40px,4.6vw,54px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:40ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- colonnes opposées --- */
+.cai .cai-duos{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-duo2{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(28px,3.2vw,38px)}
+.cai .cai-duo2--g{border-color:#CBEFDB;background:linear-gradient(170deg,#F4FDF8 0%,#FFFFFF 60%)}
+.cai .cai-duo2 h3{font-size:1.14rem;line-height:1.4;margin:0 0 6px}
+.cai .cai-duo2 .cai-duo2-sub{font-size:.93rem;line-height:1.6;color:var(--mute);margin:0 0 22px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.cai .cai-duo2 ul{list-style:none;padding:0;margin:0;display:grid;gap:13px}
+.cai .cai-duo2 ul li{position:relative;padding-left:26px;font-size:.97rem;line-height:1.65;color:var(--ink)}
+.cai .cai-duo2 ul li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:50%;background:var(--mute)}
+.cai .cai-duo2--g ul li::before{background:var(--g3)}
+@media(min-width:840px){.cai .cai-duos{grid-template-columns:repeat(2,1fr)}}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+/* --- opérateurs compatibles --- */
+.cai .cai-ope-logos{display:block;width:100%;max-width:100%;height:auto;margin:clamp(34px,3.8vw,44px) 0 0}
+.cai .cai-ope-duo{display:none}
+.cai .cai-ope .cai-fine{margin-top:clamp(18px,2.2vw,24px)}
+@media(max-width:640px){
+  .cai .cai-ope-logos{display:none}
+  .cai .cai-ope-duo{display:grid;gap:14px;margin-top:30px}
+  .cai .cai-ope-duo span{display:block;width:100%;max-width:100%;aspect-ratio:750/214;background:url('/images/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp') 0 0/200% 100% no-repeat}
+  .cai .cai-ope-duo span+span{background-position:100% 0}
+}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Fonctionnement</span>
+<h1 style="max-width:23ch;margin:22px 0 20px">Le téléphone sonne <em>d'abord chez vous</em></h1>
+<p class="cai-lead" style="max-width:58ch">Un standard téléphonique automatique ne prend pas votre ligne. Il prend le relais quand vous ne décrochez pas. Voici ce qui se passe exactement, sonnerie par sonnerie, et ce que vous décidez à chaque étape.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro et votre opérateur</li>
+<li>Rien à installer, rien à apprendre</li>
+<li>En service sous 48 heures</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un électricien travaille dans un tableau électrique, son téléphone allumé posé hors de portée" height="643" loading="eager" src="/images/6aafe2adcdf507.91261427_fonctionnement-concierge-ai.webp" width="1500"/>
+<figcaption>Vous ne décrochez pas parce que vous travaillez. C'est exactement le moment que le standard couvre.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE + DÉROULÉ DE L'APPEL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment fonctionne un standard <em>téléphonique automatique ?</em></h2>
+</div>
+<p class="cai-say">Un renvoi d'appel est posé sur votre ligne actuelle : si vous ne décrochez pas au bout de quelques sonneries, l'appel bascule vers le standard, qui répond au nom de votre entreprise. <span class="cai-key">Il qualifie la demande selon vos règles, pose le rendez-vous dans votre agenda et vous envoie un résumé écrit.</span></p>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Votre téléphone sonne, comme aujourd'hui.</strong> Rien ne change pour l'appelant, rien ne change pour vous. Si vous êtes disponible, vous décrochez et l'histoire s'arrête là.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Vous ne décrochez pas.</strong> Vous êtes dans un tableau, sous un évier, en consultation ou au volant. Après quelques sonneries, l'appel bascule automatiquement.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Le standard répond au nom de votre entreprise.</strong> Il annonce le nom de la société et se présente comme son accueil. Il ne se fait pas passer pour vous.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Il écoute et qualifie.</strong> Pas de menu à touches, pas de script récité. La personne explique ce qu'elle veut avec ses mots, et le standard applique les règles que vous avez définies.</p></div>
+<div class="cai-beat"><b>5</b><p><strong>Deux issues, selon vos critères.</strong> Si la demande correspond à ce que vous avez défini comme une urgence, l'appel vous est transféré en direct sur votre portable. Sinon, un créneau libre de votre agenda est proposé et bloqué.</p></div>
+<div class="cai-beat"><b>6</b><p><strong>Vous recevez le résumé.</strong> Qui a appelé, pourquoi, avec quelles coordonnées et quel niveau d'urgence. Le rendez-vous est déjà dans votre agenda quand vous lisez le message.</p></div>
+</div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel du début à la fin</a>
+</section>
+<!-- 3. LA MISE EN PLACE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Mise en place</span>
+<h2>Comment la ligne est en service <em>en 48 heures</em></h2>
+<p class="cai-lead" style="max-width:58ch">Votre part du travail tient en un appel de trente minutes. Le reste est fait par l'équipe.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Vous racontez votre métier, une fois.</strong> Trente minutes au téléphone : vos tarifs indicatifs, votre zone d'intervention, vos horaires, les questions qu'on vous pose dix fois par jour, ce que vous refusez, et ce qui constitue une urgence chez vous. C'est le seul moment où on vous demande du temps.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>L'équipe branche et paramètre.</strong> Le renvoi est posé sur votre numéro actuel et, si vous le souhaitez, sur votre site. Vous ne changez pas de ligne, vous ne prévenez ni votre opérateur ni vos clients. Sous quarante-huit heures, c'est en service.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Vous ajustez après les premières semaines.</strong> Vous réécoutez des appels réels avec l'équipe et vous corrigez ce qui doit l'être : une fourchette de prix, une question mal posée, une condition de transfert. C'est prévu dans l'accompagnement.</p></div>
+</div>
+<a class="cai-more" href="/tarifs">Ce que comprend l'abonnement</a>
+</section>
+<!-- 3 bis. OPÉRATEURS COMPATIBLES -->
+<section class="cai-box cai-ope">
+<span class="cai-eye">Compatibilité</span>
+<h2 style="margin:22px 0 16px;max-width:24ch">Compatible avec votre opérateur, <em>mobile ou fixe</em></h2>
+<p class="cai-lead" style="max-width:58ch;margin:0">Le renvoi quand vous ne décrochez pas est une fonction standard des lignes téléphoniques. La solution que nous recommandons fonctionne donc avec les opérateurs et les lignes pro que vous utilisez déjà. Vous gardez votre numéro, votre opérateur et votre forfait.</p>
+<img alt="Compatible avec Orange, SFR, Free, Bouygues Telecom, Onoff et Ringover" class="cai-ope-logos" height="214" loading="lazy" src="/images/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp" width="1500"/>
+<div aria-hidden="true" class="cai-ope-duo"><span></span><span></span></div>
+<p class="cai-fine">Orange, SFR, Free, Bouygues Telecom, Onoff et Ringover sont des marques de leurs propriétaires respectifs, citées pour indiquer la compatibilité.</p>
+</section>
+<!-- 4. QUI DÉCIDE QUOI -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le contrôle</span>
+<h2>Ce que vous décidez, et ce que <em>le standard exécute</em></h2>
+<p class="cai-lead" style="max-width:58ch">La crainte la plus répandue n'est pas le prix. C'est de ne plus savoir ce qui se dit à votre place. Voici la répartition exacte.</p>
+</div>
+<div class="cai-duos">
+<article class="cai-duo2 cai-duo2--g">
+<h3>Vous décidez</h3>
+<p class="cai-duo2-sub">Défini avec vous à la mise en place, modifiable ensuite.</p>
+<ul>
+<li>Ce qui constitue une urgence chez vous, et ce qui attend un créneau</li>
+<li>Les fourchettes de prix qui peuvent être annoncées, et celles qui ne le seront jamais</li>
+<li>Votre zone d'intervention, et ce qui se passe au-delà</li>
+<li>Les demandes que vous refusez : hors compétence, hors budget, hors zone</li>
+<li>Vos horaires, vos jours de repos, vos périodes de congés</li>
+<li>Les créneaux de votre agenda qui peuvent être proposés</li>
+<li>Le moment où vous arrêtez tout, sans justification</li>
+</ul>
+</article>
+<article class="cai-duo2">
+<h3>Le standard exécute</h3>
+<p class="cai-duo2-sub">Dans le cadre que vous avez fixé, sans interprétation.</p>
+<ul>
+<li>Décrocher quand vous ne décrochez pas, à n'importe quelle heure</li>
+<li>Annoncer le nom de votre entreprise et se présenter comme son accueil</li>
+<li>Répondre aux questions courantes avec vos réponses</li>
+<li>Recueillir le nom, l'adresse, le téléphone et le motif, et les relire pour validation</li>
+<li>Bloquer un créneau libre, jamais un créneau déjà occupé</li>
+<li>Vous transférer en direct ce que vous avez défini comme urgent</li>
+<li>Vous envoyer le résumé écrit de chaque appel</li>
+</ul>
+</article>
+</div>
+</section>
+<!-- 5. CE QU'IL DIT ET NE DIRA JAMAIS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Ce qui est dit à votre place</span>
+<h2>Ce que le standard dit, <em>et ce qu'il ne dira jamais</em></h2>
+<p class="cai-lead" style="max-width:58ch">Votre réputation locale tient à des mots précis. Une phrase de trop sur un prix ou un délai peut coûter un litige.</p>
+</div>
+<div class="cai-duos">
+<article class="cai-duo2 cai-duo2--g">
+<h3>Ce qu'il dit</h3>
+<p class="cai-duo2-sub">Des informations que vous avez validées.</p>
+<ul>
+<li>« Vous avez bien contacté telle entreprise, je suis son assistante vocale. »</li>
+<li>Une fourchette de prix, uniquement si vous l'avez écrite</li>
+<li>Un créneau réellement libre dans votre agenda</li>
+<li>Une zone d'intervention et des délais que vous avez fixés</li>
+<li>« Je ne sais pas répondre, je transmets votre demande. »</li>
+</ul>
+</article>
+<article class="cai-duo2">
+<h3>Ce qu'il ne dira jamais</h3>
+<p class="cai-duo2-sub">Les trois choses qui coûtent le plus cher.</p>
+<ul>
+<li>Qu'il est vous, ou qu'il est un membre humain de votre équipe</li>
+<li>Un prix ferme, un devis ou un engagement que vous n'avez pas validé</li>
+<li>Un délai d'intervention qui ne tient pas compte de votre agenda réel</li>
+<li>Un diagnostic technique à la place du vôtre</li>
+<li>Un oui à une demande que vous avez listée comme refusée</li>
+</ul>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Sur la transparence, le cadre est aussi réglementaire : l'article 50 du règlement européen sur l'intelligence artificielle, applicable au 2 août 2026, impose d'informer une personne qu'elle interagit avec un système d'IA. Un standard qui se ferait passer pour un humain vous exposerait, en plus de vous coûter la confiance de vos clients.</p>
+</section>
+<!-- 6. LE TRI DES URGENCES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Astreinte</span>
+<h2>Comment le standard trie <em>les vraies urgences</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une urgence de plombier n'est pas une urgence de kinésithérapeute. Le tri repose sur vos mots, pas sur une définition générique.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Vous listez vos déclencheurs.</strong> Fuite active, dégât des eaux, odeur de brûlé, tableau qui chauffe, porte claquée avec un enfant à l'intérieur, animal en détresse respiratoire. Ce sont vos mots, pris pendant l'appel de cadrage.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Le standard écoute la demande entière.</strong> Il ne déclenche pas sur un mot isolé sorti de son contexte : il qualifie la situation décrite avant de décider.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Si c'est une urgence, vous êtes appelé.</strong> L'appel est transféré en direct sur votre portable. Vous décidez alors, vous, s'il faut y aller.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Sinon, c'est planifié sans vous.</strong> Le créneau est posé, le résumé vous arrive, et vous le lisez quand vous avez fini votre journée. Personne ne vous réveille pour un devis de salle de bain.</p></div>
+</div>
+<a class="cai-more" href="/guides/astreinte-et-tri-des-urgences">Écrire ses propres règles d'astreinte</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions sur le <em>fonctionnement</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Faut-il changer de numéro ou d'opérateur ?</summary>
+<div class="cai-ans"><p>Non, ni l'un ni l'autre. Le standard se branche sur votre ligne actuelle par un renvoi d'appel conditionnel, celui qui se déclenche quand vous ne décrochez pas. Vos cartes de visite, votre fiche Google, le marquage de votre véhicule et vos anciens clients gardent le même numéro. Vous n'avez aucune démarche à faire auprès de votre opérateur.</p><p>Il fonctionne avec les opérateurs que vous utilisez déjà : Orange, SFR, Free, Bouygues Telecom, ainsi que les lignes pro Onoff et Ringover.</p></div>
+</details>
+<details>
+<summary>Que se passe-t-il si je décroche moi-même ?</summary>
+<div class="cai-ans"><p>Rien. L'appel ne bascule jamais. Le standard n'intervient que sur les appels que vous n'avez pas pris : votre relation avec vos clients habituels reste exactement ce qu'elle est aujourd'hui.</p></div>
+</details>
+<details>
+<summary>Et si le service tombe en panne ?</summary>
+<div class="cai-ans"><p>Votre ligne continue de fonctionner comme avant, puisque c'est elle qui sonne en premier. Un incident sur le standard ne vous coupe pas du monde : il vous ramène à la situation que vous connaissez aujourd'hui, c'est-à-dire un appel non décroché.</p></div>
+</details>
+<details>
+<summary>Le standard reconnaît-il un client qui a déjà appelé ?</summary>
+<div class="cai-ans"><p>Oui. Un appelant dont le numéro est déjà enregistré est reconnu, et ses informations sont proposées plutôt que redemandées. Concrètement, un client fidèle n'a pas à redonner son adresse et son téléphone à chaque appel, et la prise de rendez-vous est beaucoup plus rapide.</p></div>
+</details>
+<details>
+<summary>Quelles données sont collectées pendant l'appel ?</summary>
+<div class="cai-ans"><p>Celles nécessaires pour traiter la demande : le nom, l'adresse d'intervention, le numéro de téléphone, l'adresse e-mail pour la confirmation, et le motif de l'appel. Elles remontent dans un espace auquel vous avez accès, et qui devient votre fichier client.</p></div>
+</details>
+<details>
+<summary>Puis-je modifier les règles après la mise en service ?</summary>
+<div class="cai-ans"><p>Oui, et c'est recommandé. Après les premières semaines, vous réécoutez des appels réels avec l'équipe et vous ajustez : les tarifs annoncés, les questions posées, les conditions de transfert. C'est un réglage continu, pas une configuration figée.</p></div>
+</details>
+<details>
+<summary>Comment j'arrête si ça ne me convient pas ?</summary>
+<div class="cai-ans"><p>Vous arrêtez, sans préavis et sans motif à fournir. Le renvoi est retiré et votre ligne revient à son fonctionnement précédent. Ni durée minimale, ni frais de résiliation, ni reconduction tacite.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:21ch">Vous savez ce qui se passe. <em>Reste à l'entendre.</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne, avec vos règles et vos horaires. Sans engagement, sans changer de numéro, sans rien installer.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/calculateur">Calculer ce que je perds</a></li>
+<li><a href="/guides/astreinte-et-tri-des-urgences">Astreinte et tri des urgences</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page présente un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/fonctionnement#webpage",
+      "url": "https://www.concierge-ai.fr/fonctionnement",
+      "name": "Comment fonctionne un standard téléphonique automatique",
+      "description": "Le téléphone sonne d'abord chez vous. Ce qui se passe ensuite, ce que vous paramétrez, et comment la ligne est en service en 48 heures.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-20",
+      "dateModified": "2026-09-20",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/fonctionnement#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/fonctionnement#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr" },
+        { "@type": "ListItem", "position": 2, "name": "Fonctionnement", "item": "https://www.concierge-ai.fr/fonctionnement" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.concierge-ai.fr/fonctionnement#howto",
+      "name": "Mettre en service un standard téléphonique automatique sur sa ligne existante",
+      "description": "Les trois étapes de mise en place d'un standard téléphonique automatique sur le numéro actuel d'une entreprise, sans changer d'opérateur.",
+      "totalTime": "P2D",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/fonctionnement#webpage" },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Décrire son métier en trente minutes",
+          "text": "Un appel de trente minutes suffit : tarifs indicatifs, zone d'intervention, horaires, questions récurrentes, demandes refusées et définition de ce qui constitue une urgence dans ce métier."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Brancher le renvoi sur le numéro actuel",
+          "text": "L'équipe pose un renvoi d'appel conditionnel sur la ligne existante et, si besoin, sur le site web. Aucun changement de numéro ni démarche auprès de l'opérateur. La ligne est en service sous quarante-huit heures."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Ajuster après les premières semaines",
+          "text": "Des appels réels sont réécoutés avec l'équipe pour corriger les fourchettes de prix annoncées, les questions posées et les conditions de transfert des urgences."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/fonctionnement#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/fonctionnement#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il changer de numéro ou d'opérateur pour un standard téléphonique automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non, ni l'un ni l'autre. Le standard se branche sur la ligne actuelle par un renvoi d'appel conditionnel, celui qui se déclenche quand personne ne décroche. Les cartes de visite, la fiche Google et le marquage du véhicule gardent le même numéro, et aucune démarche n'est à faire auprès de l'opérateur. Il fonctionne avec les opérateurs déjà utilisés : Orange, SFR, Free, Bouygues Telecom, ainsi que les lignes pro Onoff et Ringover." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il si je décroche moi-même ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Rien. L'appel ne bascule jamais. Le standard n'intervient que sur les appels qui n'ont pas été pris, donc la relation avec les clients habituels reste inchangée." }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si le service tombe en panne ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La ligne continue de fonctionner comme avant, puisque c'est elle qui sonne en premier. Un incident sur le standard ramène simplement à la situation actuelle, c'est-à-dire un appel non décroché." }
+        },
+        {
+          "@type": "Question",
+          "name": "Le standard reconnaît-il un client qui a déjà appelé ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. Un appelant dont le numéro est déjà enregistré est reconnu et ses informations sont proposées plutôt que redemandées, ce qui accélère nettement la prise de rendez-vous." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles données sont collectées pendant l'appel ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Celles nécessaires au traitement de la demande : nom, adresse d'intervention, numéro de téléphone, adresse e-mail de confirmation et motif de l'appel. Elles remontent dans un espace accessible au professionnel, qui devient son fichier client." }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je modifier les règles après la mise en service ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, et c'est recommandé. Après les premières semaines, des appels réels sont réécoutés avec l'équipe pour ajuster les tarifs annoncés, les questions posées et les conditions de transfert." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment arrêter un standard téléphonique automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sans préavis ni motif à fournir. Le renvoi est retiré et la ligne revient à son fonctionnement précédent. Ni durée minimale, ni frais de résiliation, ni reconduction tacite." }
+        }
+      ]
+    }
+  ]
+}
+</script>

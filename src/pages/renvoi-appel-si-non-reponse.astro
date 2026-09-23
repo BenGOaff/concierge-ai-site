@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/renvoi-appel-si-non-reponse.html?raw'
+---
+
+<Base
+  titre="Renvoi d'appel si non réponse : codes Orange, SFR, Free"
+  description="Renvoi d'appel si pas de réponse : les codes pour Orange, SFR, Free et Bouygues, le réglage du temps de sonnerie, et vers qui renvoyer vos appels."
+  chemin="/renvoi-appel-si-non-reponse"
+  og="/images/6ab150a148ba43.71426690_renvoi-appel-si-non-reponse.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

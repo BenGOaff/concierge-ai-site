@@ -1,0 +1,205 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(32px,3.6vw,42px);display:flex;flex-wrap:wrap;gap:12px}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- grille des catégories --- */
+.cai .cai-bgrid{margin-top:clamp(36px,4vw,48px);display:grid;grid-template-columns:1fr;gap:clamp(18px,2.2vw,26px)}
+@media(min-width:640px){.cai .cai-bgrid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.cai .cai-bgrid{grid-template-columns:repeat(3,1fr)}}
+.cai .cai-bcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);overflow:hidden;text-decoration:none;color:inherit;transition:transform .18s,box-shadow .18s,border-color .18s}
+.cai .cai-bcard:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(10,37,64,.10);border-color:#B6CADD}
+.cai .cai-bcard:focus-visible{outline:3px solid #15803D;outline-offset:3px}
+.cai .cai-bcard img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:10/7;object-fit:cover;background:#0A2540}
+.cai .cai-bcard-b{display:flex;flex-direction:column;flex:1;padding:clamp(22px,2.6vw,28px)}
+.cai .cai-bcard h3{font:700 1.14rem/1.35 'Inter',sans-serif;color:var(--ink);margin:0 0 10px}
+.cai .cai-bcard p{font-size:.96rem;line-height:1.65;color:var(--grey);margin:0 0 22px;flex:1}
+.cai .cai-bcard-go{display:inline-flex;align-items:center;gap:8px;font:600 .92rem/1 'Inter',sans-serif;color:#15803D}
+.cai .cai-bcard-go::after{content:"\2192";font-size:1.05rem;line-height:1;transition:transform .18s}
+.cai .cai-bcard:hover .cai-bcard-go::after{transform:translateX(3px)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(32px,3.6vw,42px);display:flex;flex-wrap:wrap;gap:12px}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- grille des catégories --- */
+.cai .cai-bgrid{margin-top:clamp(36px,4vw,48px);display:grid;grid-template-columns:1fr;gap:clamp(18px,2.2vw,26px)}
+@media(min-width:640px){.cai .cai-bgrid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.cai .cai-bgrid{grid-template-columns:repeat(3,1fr)}}
+.cai .cai-bcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);overflow:hidden;text-decoration:none;color:inherit;transition:transform .18s,box-shadow .18s,border-color .18s}
+.cai .cai-bcard:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(10,37,64,.10);border-color:#B6CADD}
+.cai .cai-bcard:focus-visible{outline:3px solid #15803D;outline-offset:3px}
+.cai .cai-bcard img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:10/7;object-fit:cover;background:#0A2540}
+.cai .cai-bcard-b{display:flex;flex-direction:column;flex:1;padding:clamp(22px,2.6vw,28px)}
+.cai .cai-bcard h3{font:700 1.14rem/1.35 'Inter',sans-serif;color:var(--ink);margin:0 0 10px}
+.cai .cai-bcard p{font-size:.96rem;line-height:1.65;color:var(--grey);margin:0 0 22px;flex:1}
+.cai .cai-bcard-go{display:inline-flex;align-items:center;gap:8px;font:600 .92rem/1 'Inter',sans-serif;color:#15803D}
+.cai .cai-bcard-go::after{content:"\2192";font-size:1.05rem;line-height:1;transition:transform .18s}
+.cai .cai-bcard:hover .cai-bcard-go::after{transform:translateX(3px)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Le blog</span>
+<h1 style="max-width:22ch;margin:22px 0 20px">Moins d'appels ratés, <em>plus de soirées à vous</em></h1>
+<p class="cai-lead" style="max-width:58ch">Des conseils concrets pour ceux qui ne peuvent pas décrocher en travaillant : artisans, professions de santé, cabinets, commerces sur rendez-vous. Choisissez un sujet, ou lisez tout.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="/posts">Lire tous les articles</a>
+</div>
+<figure class="cai-ph">
+<img alt="Une femme dîne en famille le soir, détendue, son téléphone retourné sur le buffet derrière elle" height="643" loading="eager" src="/images/6ab0e624804913.15978562_blog-appels-manques.webp" width="1500"/>
+<figcaption>Le téléphone retourné sur le buffet, et personne qui attend un rappel.</figcaption>
+</figure>
+</section>
+<!-- 2. LES CATÉGORIES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les sujets</span>
+<h2>Six sujets pour <em>ne plus perdre de clients au téléphone</em></h2>
+<p class="cai-lead" style="max-width:58ch">Chaque sujet rassemble les articles qui répondent à la même question. Cliquez sur celui qui vous ressemble.</p>
+</div>
+<div class="cai-bgrid">
+<a class="cai-bcard" href="/category/appels-manques">
+<img alt="Appels manqués : ne plus perdre de clients au téléphone" height="1050" loading="lazy" src="/images/6ab0e63cc948f1.13229465_cat-appels-manques.webp" width="1500"/>
+<div class="cai-bcard-b">
+<h3>Appels manqués</h3>
+<p>Pourquoi les gens ne laissent pas de message, ce que coûte un appel raté, et les réglages qui évitent de perdre des clients.</p>
+<span class="cai-bcard-go">Voir les articles</span>
+</div>
+</a>
+<a class="cai-bcard" href="/category/rendez-vous-annules">
+<img alt="Rendez-vous annulés : ne plus laisser un créneau vide" height="1050" loading="lazy" src="/images/6ab0e862544b22.60159946_cat-rendez-vous-annules.webp" width="1500"/>
+<div class="cai-bcard-b">
+<h3>Rendez-vous annulés</h3>
+<p>Annulations de dernière minute, absents, créneaux vides : garder un agenda plein sans décrocher entre deux clients.</p>
+<span class="cai-bcard-go">Voir les articles</span>
+</div>
+</a>
+<a class="cai-bcard" href="/category/urgences-astreinte">
+<img alt="Urgences et astreinte : trier les vraies urgences des fausses" height="1050" loading="lazy" src="/images/6ab0e8b7432ca6.18688390_cat-urgences-astreinte.webp" width="1500"/>
+<div class="cai-bcard-b">
+<h3>Urgences et astreinte</h3>
+<p>Trier les vraies urgences des fausses, et décider soi-même de ce qui mérite un appel la nuit ou le week-end.</p>
+<span class="cai-bcard-go">Voir les articles</span>
+</div>
+</a>
+<a class="cai-bcard" href="/category/soirees-et-week-ends">
+<img alt="Soirées et week-ends : récupérer ses soirées sans rien rater" height="1050" loading="lazy" src="/images/6ab0e8fd529a98.31593188_cat-soirees-week-ends.webp" width="1500"/>
+<div class="cai-bcard-b">
+<h3>Soirées et week-ends</h3>
+<p>Arrêter de rappeler de 19 h à 21 h, couper vraiment le dimanche, et organiser son téléphone quand on travaille seul.</p>
+<span class="cai-bcard-go">Voir les articles</span>
+</div>
+</a>
+<a class="cai-bcard" href="/category/couts-solutions">
+<img alt="Coûts et solutions : ce que coûte vraiment chaque solution" height="1050" loading="lazy" src="/images/6ab0e9aa96ec90.53717198_cat-couts-solutions.webp" width="1500"/>
+<div class="cai-bcard-b">
+<h3>Coûts et solutions</h3>
+<p>Répondeur, télésecrétariat, embauche, standard automatique : ce que coûte chaque solution et ce qu'elle rattrape vraiment.</p>
+<span class="cai-bcard-go">Voir les articles</span>
+</div>
+</a>
+<a class="cai-bcard" href="/category/metier-par-metier">
+<img alt="Métier par métier : ce que chaque métier perd au téléphone" height="1050" loading="lazy" src="/images/6ab0eb75afb4d4.13473148_cat-metier-par-metier.webp" width="1500"/>
+<div class="cai-bcard-b">
+<h3>Métier par métier</h3>
+<p>Plombier, avocat, kiné, coiffeur, agence immobilière : ce que chaque métier perd au téléphone, avec des scènes réelles.</p>
+<span class="cai-bcard-go">Voir les articles</span>
+</div>
+</a>
+</div>
+</section>
+<!-- 3. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Tous les articles, <em>du plus récent au plus ancien</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Pas de sujet précis en tête ? Parcourez tout. Et si vous voulez voir ce que ça donne sur votre propre ligne, l'essai dure sept jours, sans engagement et sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="/posts">Lire tous les articles</a>
+<a class="cai-btn cai-btn--w" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+</div>
+<div class="cai-aussi">
+<h4>Pour aller plus vite</h4>
+<ul>
+<li><a href="/calculateur">Chiffrer mes appels manqués</a></li>
+<li><a href="/demonstration">Écouter un appel réel</a></li>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/metiers">Votre métier</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Ce site mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.concierge-ai.fr/blog#webpage",
+      "url": "https://www.concierge-ai.fr/blog",
+      "name": "Appels manqués et permanence téléphonique : le blog",
+      "description": "Pour les indépendants qui ne peuvent pas décrocher : appels manqués, rendez-vous annulés, urgences, soirées, et comment ne plus perdre de clients.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/blog#breadcrumb" },
+      "mainEntity": { "@id": "https://www.concierge-ai.fr/blog#categories" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.concierge-ai.fr/blog#categories",
+      "name": "Catégories du blog",
+      "numberOfItems": 6,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Appels manqués", "url": "https://www.concierge-ai.fr/category/appels-manques" },
+        { "@type": "ListItem", "position": 2, "name": "Rendez-vous annulés", "url": "https://www.concierge-ai.fr/category/rendez-vous-annules" },
+        { "@type": "ListItem", "position": 3, "name": "Urgences et astreinte", "url": "https://www.concierge-ai.fr/category/urgences-astreinte" },
+        { "@type": "ListItem", "position": 4, "name": "Soirées et week-ends", "url": "https://www.concierge-ai.fr/category/soirees-et-week-ends" },
+        { "@type": "ListItem", "position": 5, "name": "Coûts et solutions", "url": "https://www.concierge-ai.fr/category/couts-solutions" },
+        { "@type": "ListItem", "position": 6, "name": "Métier par métier", "url": "https://www.concierge-ai.fr/category/metier-par-metier" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/blog#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog" }
+      ]
+    }
+  ]
+}
+</script>

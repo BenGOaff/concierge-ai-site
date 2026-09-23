@@ -1,0 +1,517 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:40ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- cartes de formules --- */
+.cai .cai-offres{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-off{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(28px,3.2vw,38px);display:flex;flex-direction:column;position:relative}
+.cai .cai-off--top{border-color:#ACEFC9;background:linear-gradient(170deg,#F4FDF8 0%,#FFFFFF 55%);box-shadow:0 16px 40px -22px rgba(21,128,61,.45)}
+.cai .cai-off-tag{display:inline-flex;align-self:flex-start;font:600 .68rem/1 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#fff;background:var(--gd);border-radius:99px;padding:8px 13px;margin-bottom:18px}
+.cai .cai-off h3{font-size:1.02rem;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);margin:0 0 16px}
+.cai .cai-off-px{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.cai .cai-off-px b{font:700 clamp(2.1rem,3.4vw,2.7rem)/1 'Inter',sans-serif;color:var(--ink);letter-spacing:-.02em}
+.cai .cai-off-px span{font:500 1rem/1 'Inter',sans-serif;color:var(--grey)}
+.cai .cai-off-an{font:500 .9rem/1.5 'Inter',sans-serif;color:var(--mute);margin:0 0 22px}
+.cai .cai-off-qui{font-size:.97rem;line-height:1.68;color:var(--grey);margin:0 0 22px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.cai .cai-off ul{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:11px;flex:1}
+.cai .cai-off ul li{position:relative;padding-left:26px;font-size:.95rem;line-height:1.6;color:var(--ink)}
+.cai .cai-off ul li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:50%;background:var(--g3)}
+.cai .cai-off ul li em{display:block;font-style:normal;font-size:.88rem;color:var(--mute);margin-top:3px}
+@media(min-width:900px){.cai .cai-offres{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+
+/* --- grille de cartes --- */
+.cai .cai-grid{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-card{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(26px,3vw,34px)}
+.cai .cai-card h3{font-size:1.06rem;line-height:1.45;margin:0 0 14px}
+.cai .cai-card p{font-size:.96rem;line-height:1.7;color:var(--grey);margin:0}
+@media(min-width:760px){.cai .cai-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+/* --- opérateurs compatibles --- */
+.cai .cai-ope-logos{display:block;width:100%;max-width:100%;height:auto;margin:clamp(30px,3.4vw,40px) 0 0}
+.cai .cai-ope-duo{display:none}
+.cai .cai-ope .cai-fine{margin-top:clamp(18px,2.2vw,24px)}
+@media(max-width:640px){
+  .cai .cai-ope-logos{display:none}
+  .cai .cai-ope-duo{display:grid;gap:14px;margin-top:28px}
+  .cai .cai-ope-duo span{display:block;width:100%;max-width:100%;aspect-ratio:750/214;background:url('https://d1yei2z3i6k35z.cloudfront.net/473100/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp') 0 0/200% 100% no-repeat}
+  .cai .cai-ope-duo span+span{background-position:100% 0}
+}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:40ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- cartes de formules --- */
+.cai .cai-offres{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-off{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(28px,3.2vw,38px);display:flex;flex-direction:column;position:relative}
+.cai .cai-off--top{border-color:#ACEFC9;background:linear-gradient(170deg,#F4FDF8 0%,#FFFFFF 55%);box-shadow:0 16px 40px -22px rgba(21,128,61,.45)}
+.cai .cai-off-tag{display:inline-flex;align-self:flex-start;font:600 .68rem/1 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#fff;background:var(--gd);border-radius:99px;padding:8px 13px;margin-bottom:18px}
+.cai .cai-off h3{font-size:1.02rem;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);margin:0 0 16px}
+.cai .cai-off-px{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.cai .cai-off-px b{font:700 clamp(2.1rem,3.4vw,2.7rem)/1 'Inter',sans-serif;color:var(--ink);letter-spacing:-.02em}
+.cai .cai-off-px span{font:500 1rem/1 'Inter',sans-serif;color:var(--grey)}
+.cai .cai-off-an{font:500 .9rem/1.5 'Inter',sans-serif;color:var(--mute);margin:0 0 22px}
+.cai .cai-off-qui{font-size:.97rem;line-height:1.68;color:var(--grey);margin:0 0 22px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.cai .cai-off ul{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:11px;flex:1}
+.cai .cai-off ul li{position:relative;padding-left:26px;font-size:.95rem;line-height:1.6;color:var(--ink)}
+.cai .cai-off ul li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:50%;background:var(--g3)}
+.cai .cai-off ul li em{display:block;font-style:normal;font-size:.88rem;color:var(--mute);margin-top:3px}
+@media(min-width:900px){.cai .cai-offres{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+
+/* --- grille de cartes --- */
+.cai .cai-grid{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-card{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(26px,3vw,34px)}
+.cai .cai-card h3{font-size:1.06rem;line-height:1.45;margin:0 0 14px}
+.cai .cai-card p{font-size:.96rem;line-height:1.7;color:var(--grey);margin:0}
+@media(min-width:760px){.cai .cai-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+/* --- opérateurs compatibles --- */
+.cai .cai-ope-logos{display:block;width:100%;max-width:100%;height:auto;margin:clamp(30px,3.4vw,40px) 0 0}
+.cai .cai-ope-duo{display:none}
+.cai .cai-ope .cai-fine{margin-top:clamp(18px,2.2vw,24px)}
+@media(max-width:640px){
+  .cai .cai-ope-logos{display:none}
+  .cai .cai-ope-duo{display:grid;gap:14px;margin-top:28px}
+  .cai .cai-ope-duo span{display:block;width:100%;max-width:100%;aspect-ratio:750/214;background:url('/images/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp') 0 0/200% 100% no-repeat}
+  .cai .cai-ope-duo span+span{background-position:100% 0}
+}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Tarifs et formules</span>
+<h1 style="max-width:22ch;margin:22px 0 20px">Combien coûte un standard téléphonique 24/7</h1>
+<p class="cai-lead" style="max-width:58ch">Trois formules à 297, 497 et 997 euros par mois. Voici ce que chacune contient, et combien d'interventions récupérées suffisent à la couvrir.</p>
+<ul class="cai-tick">
+<li>Sept jours d'essai sur les trois formules</li>
+<li>Sans engagement de durée, résiliable sans justification</li>
+<li>Vous gardez votre numéro actuel</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Une gérante de salon de coiffure consulte son agenda sur une tablette, à son comptoir d'accueil" height="643" loading="eager" src="/images/6aafde417fd5d9.35675636_artisan-tarifs-concierge.webp" width="1500"/>
+<figcaption>Un standard téléphonique ne remplace personne. Il prend les appels que vous ne pouvez pas prendre.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE EXTRACTIBLE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Quel est le prix de Concierge AI ?</h2>
+</div>
+<p class="cai-say">L'abonnement va de 297 € à 997 € par mois selon le volume d'appels et les canaux couverts, avec deux mois offerts en paiement annuel. <span class="cai-key">Les frais d'installation, affichés à 1 500 €, sont annoncés comme offerts pour les nouveaux clients.</span></p>
+<div class="cai-offres">
+<article class="cai-off">
+<h3>Starter</h3>
+<div class="cai-off-px"><b>297 €</b><span>/ mois</span></div>
+<p class="cai-off-an">ou 2 970 € par an, soit deux mois offerts</p>
+<p class="cai-off-qui">Pour ne plus laisser un appel sans réponse, sans chercher plus loin.</p>
+<ul>
+<li>500 conversations par mois</li>
+<li>Branché sur votre numéro et sur votre site</li>
+<li>Réponse immédiate, 24 h/24 et 7 j/7</li>
+<li>Qualification selon vos critères</li>
+<li>Rendez-vous posés dans votre agenda<em>Invitation Google Agenda et rappels automatiques</em></li>
+<li>Synchronisation avec votre CRM</li>
+<li>Notification par e-mail après chaque appel</li>
+<li>Rapport de performance mensuel</li>
+</ul>
+<a class="cai-btn cai-btn--w" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+</article>
+<article class="cai-off cai-off--top">
+<span class="cai-off-tag">Le plus choisi</span>
+<h3>Growth</h3>
+<div class="cai-off-px"><b>497 €</b><span>/ mois</span></div>
+<p class="cai-off-an">ou 4 970 € par an, soit deux mois offerts</p>
+<p class="cai-off-qui">Pour que l'appel devienne un rendez-vous réellement tenu.</p>
+<ul>
+<li>Tout Starter, et :</li>
+<li>2 000 conversations par mois</li>
+<li>SMS automatique après un appel manqué<em>Le prospect reçoit un message dans la minute et peut y répondre</em></li>
+<li>Transfert des urgences vers votre portable</li>
+<li>Résumé écrit de chaque appel<em>Demande, coordonnées, niveau d'urgence</em></li>
+<li>Chat en direct sur votre site</li>
+<li>Support prioritaire</li>
+</ul>
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+</article>
+<article class="cai-off">
+<h3>Elite</h3>
+<div class="cai-off-px"><b>997 €</b><span>/ mois</span></div>
+<p class="cai-off-an">ou 9 970 € par an, soit deux mois offerts</p>
+<p class="cai-off-qui">Pour faire venir les clients autant que pour les recevoir.</p>
+<ul>
+<li>Tout Growth, et :</li>
+<li>Conversations illimitées</li>
+<li>Avis Google Maps<em>Demande d'avis après chaque prestation et réponse rédigée</em></li>
+<li>Réactivation de votre base dormante</li>
+<li>WhatsApp, Instagram, Messenger et chat<em>Une seule boîte de réception pour tous vos canaux</em></li>
+<li>Tableau de bord analytique avancé</li>
+<li>Équipe dédiée prioritaire</li>
+</ul>
+<a class="cai-btn cai-btn--w" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Tarifs publics de l'offre. Les frais d'installation, affichés à 1 500 €, y sont annoncés comme offerts pour les nouveaux clients. La page officielle fait foi.</p>
+</section>
+<!-- 3. LE SEUIL DE RENTABILITÉ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul qui décide</span>
+<h2>Combien d'interventions faut-il récupérer <em>pour couvrir l'abonnement ?</em></h2>
+<p class="cai-lead" style="max-width:58ch">C'est la seule question qui compte. Divisez le prix de la formule par le montant moyen d'une de vos prestations. Voici le résultat pour trois paniers moyens courants dans les métiers d'intervention.</p>
+</div>
+<table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une prestation vous rapporte</th>
+<th scope="col">Starter 297 €</th>
+<th scope="col">Growth 497 €</th>
+<th scope="col">Elite 997 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">150 €</th>
+<td data-l="Starter">2 par mois</td>
+<td data-l="Growth">4 par mois</td>
+<td data-l="Elite">7 par mois</td>
+</tr>
+<tr>
+<th scope="row">250 €</th>
+<td data-l="Starter">2 par mois</td>
+<td data-l="Growth">2 par mois</td>
+<td data-l="Elite">4 par mois</td>
+</tr>
+<tr>
+<th scope="row">450 €</th>
+<td data-l="Starter">1 par mois</td>
+<td data-l="Growth">2 par mois</td>
+<td data-l="Elite">3 par mois</td>
+</tr>
+</tbody>
+</table>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur, car on ne récupère pas une demi-intervention. La fourchette de 150 à 450 € correspond aux paniers moyens couramment observés dans les métiers du dépannage et de l'intervention à domicile ; remplacez-la par votre chiffre réel, c'est le seul qui compte. Ce calcul dit ce qu'il faut atteindre pour être à l'équilibre, il ne promet pas que vous l'atteindrez.</p>
+<a class="cai-more" href="/calculateur">Estimer ce que vous perdez aujourd'hui</a>
+</section>
+<!-- 4. QUELLE FORMULE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Choisir</span>
+<h2>Quelle formule pour quel <em>volume d'appels ?</em></h2>
+<p class="cai-lead" style="max-width:58ch">La vraie variable, c'est le nombre de conversations. Comptez vos appels entrants d'une semaine ordinaire et multipliez par quatre.</p>
+</div>
+<div class="cai-grid">
+<article class="cai-card">
+<h3>Moins de 500 appels par mois</h3>
+<p>Starter suffit. C'est le cas d'un artisan seul ou à deux, avec une vingtaine d'appels entrants par semaine. La différence avec aujourd'hui, c'est que les appels du soir et du week-end obtiennent une réponse.</p>
+</article>
+<article class="cai-card">
+<h3>Entre 500 et 2 000 appels</h3>
+<p>Growth. C'est aussi la formule à prendre si vous perdez surtout des clients faute de relance : elle ajoute le SMS automatique après un appel manqué, les rappels avant rendez-vous et le transfert des urgences vers votre portable.</p>
+</article>
+<article class="cai-card">
+<h3>Au-delà, ou plusieurs canaux</h3>
+<p>Elite. Les conversations deviennent illimitées, et WhatsApp, Instagram et Messenger arrivent dans la même boîte de réception. C'est une formule d'acquisition autant que d'accueil.</p>
+</article>
+</div>
+</section>
+<!-- 5. LES QUESTIONS À POSER -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Sans supplément</span>
+<h2>Ce que le tarif comprend <em>en plus de l'abonnement</em></h2>
+<p class="cai-lead" style="max-width:58ch">Sur un abonnement mensuel, ce qui coûte cher n'est pas toujours la ligne du haut. Voici ce qui est compris dans le prix affiché.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Le paramétrage complet, fait pour vous.</strong> Configuration, mise en ligne, réglages : tout est pris en charge par l'équipe. Votre seule contribution est un appel de trente minutes où vous racontez votre métier.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Le branchement sur votre numéro actuel.</strong> Vos cartes de visite, votre fiche Google et le marquage de votre véhicule restent valables. Rien à déclarer à votre opérateur, personne à prévenir.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Les réglages d'après-lancement.</strong> Après les premières semaines, vous réécoutez des appels réels avec l'équipe et vous affinez : tarifs annoncés, questions posées, conditions de transfert. C'est prévu, pas facturé en supplément.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Le rapport mensuel de performance.</strong> Inclus dès la formule Starter. C'est ce qui vous dit enfin combien d'appels vous receviez en dehors de vos heures, et ce qu'ils sont devenus.</p></div>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Les frais d'installation, affichés à 1 500 €, sont annoncés comme intégralement offerts pour les nouveaux clients.</p>
+</section>
+<!-- 6. COMPARAISON AVEC L'EMBAUCHE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Mise en perspective</span>
+<h2>Ce tarif face au coût d'une <em>personne à l'accueil</em></h2>
+<p class="cai-lead" style="max-width:58ch">La comparaison la plus utile n'est pas avec un répondeur, qui ne coûte rien et ne rapporte rien. C'est avec la solution que vous envisagez quand vous n'en pouvez plus : embaucher.</p>
+</div>
+<table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Critère</th>
+<th scope="col">Une personne à l'accueil</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Coût mensuel</th>
+<td data-l="Une personne à l'accueil">1 700 à 2 000 € chargés</td>
+<td data-l="Standard 24/7">297 à 997 €</td>
+</tr>
+<tr>
+<th scope="row">Heures couvertes</th>
+<td data-l="Une personne à l'accueil">35 h par semaine</td>
+<td data-l="Standard 24/7">168 h par semaine</td>
+</tr>
+<tr>
+<th scope="row">Soirées, week-ends, jours fériés</th>
+<td data-l="Une personne à l'accueil">Non couverts</td>
+<td data-l="Standard 24/7">Couverts</td>
+</tr>
+<tr>
+<th scope="row">Congés et arrêts</th>
+<td data-l="Une personne à l'accueil">À remplacer</td>
+<td data-l="Standard 24/7">Sans objet</td>
+</tr>
+<tr>
+<th scope="row">Double appel simultané</th>
+<td data-l="Une personne à l'accueil">Un seul appel à la fois</td>
+<td data-l="Standard 24/7">Plusieurs en parallèle</td>
+</tr>
+<tr>
+<th scope="row">Pour arrêter</th>
+<td data-l="Une personne à l'accueil">Procédure de rupture</td>
+<td data-l="Standard 24/7">Résiliation sans justification</td>
+</tr>
+</tbody>
+</table>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">La fourchette de 1 700 à 2 000 € correspond au coût chargé couramment estimé pour un poste d'accueil à temps plein. Un standard automatique ne remplace pas une personne : il ne prend pas un client au comptoir et il ne règle pas un litige. Il prend ce qu'une personne à 35 heures ne peut pas prendre.</p>
+<a class="cai-more" href="/comparer/permanence-telephonique">Comparer avec un télésecrétariat</a>
+</section>
+<!-- 6 bis. OPÉRATEURS COMPATIBLES -->
+<section class="cai-box cai-ope">
+<span class="cai-eye">Compatible avec votre opérateur</span>
+<h2 style="margin:22px 0 16px;max-width:24ch">Vous gardez votre opérateur <em>et votre forfait actuel</em></h2>
+<p class="cai-lead" style="max-width:58ch;margin:0">Pas de nouvelle ligne à ouvrir, pas de forfait à changer. La solution que nous recommandons fonctionne avec les opérateurs et les lignes pro que vous utilisez déjà, sur mobile comme sur fixe.</p>
+<img alt="Compatible avec Orange, SFR, Free, Bouygues Telecom, Onoff et Ringover" class="cai-ope-logos" height="214" loading="lazy" src="/images/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp" width="1500"/>
+<div aria-hidden="true" class="cai-ope-duo"><span></span><span></span></div>
+<p class="cai-fine">Orange, SFR, Free, Bouygues Telecom, Onoff et Ringover sont des marques de leurs propriétaires respectifs, citées pour indiquer la compatibilité.</p>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions sur le prix <em>et l'engagement</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Y a-t-il un engagement de durée ?</summary>
+<div class="cai-ans"><p>Non. Les trois formules sont annoncées sans engagement de durée et résiliables sans justification à fournir. Ni durée minimale, ni frais de résiliation, ni reconduction tacite sur douze ou vingt-quatre mois. C'est l'un des rares services de permanence téléphonique à le proposer, la plupart des télésecrétariats fonctionnant avec un engagement annuel.</p></div>
+</details>
+<details>
+<summary>Faut-il changer d'opérateur ou de forfait téléphonique ?</summary>
+<div class="cai-ans"><p>Non. Le standard se branche sur votre ligne actuelle, et il fonctionne avec les opérateurs que vous utilisez déjà : Orange, SFR, Free, Bouygues Telecom, ainsi que les lignes pro Onoff et Ringover. Vous gardez votre numéro et votre forfait.</p></div>
+</details>
+<details>
+<summary>Combien coûtent les frais d'installation ?</summary>
+<div class="cai-ans"><p>Ils sont affichés à 1 500 € et annoncés comme intégralement offerts pour les nouveaux clients. Concrètement, la mise en service ne vous coûte rien aujourd'hui : vous ne payez que l'abonnement, et seulement après vos sept jours d'essai.</p></div>
+</details>
+<details>
+<summary>Que gagne-t-on à payer à l'année ?</summary>
+<div class="cai-ans"><p>Deux mois, soit environ 17 % de remise : 2 970 € au lieu de 3 564 € pour Starter, 4 970 € au lieu de 5 964 € pour Growth, 9 970 € au lieu de 11 964 € pour Elite. C'est une économie réelle, mais elle immobilise la trésorerie d'un an. Le mensuel est le bon choix tant que vous n'avez pas vu tourner le service sur une saison complète.</p></div>
+</details>
+<details>
+<summary>L'essai de sept jours est-il vraiment gratuit ?</summary>
+<div class="cai-ans"><p>Oui, et il est disponible sur les trois formules. Sept jours, c'est suffisant pour couvrir un week-end entier et plusieurs soirées, c'est-à-dire précisément les créneaux où vous perdez des appels aujourd'hui. Vous jugez sur les appels réellement traités pendant ces sept jours, pas sur une promesse.</p></div>
+</details>
+<details>
+<summary>Que comprend la mise en place ?</summary>
+<div class="cai-ans"><p>Tout, sauf trente minutes de votre temps. La configuration, le paramétrage et la mise en ligne sont faits par l'équipe. Votre contribution se limite à un appel où vous donnez vos tarifs, votre zone d'intervention, vos horaires, les questions qu'on vous pose dix fois par jour et les demandes que vous refusez. La ligne est opérationnelle sous quarante-huit heures.</p></div>
+</details>
+<details>
+<summary>Ce tarif est-il plus cher qu'un télésecrétariat ?</summary>
+<div class="cai-ans"><p>Cela dépend de votre volume d'appels, parce que les deux ne se facturent pas de la même façon : un télésecrétariat facture le plus souvent à l'appel ou au forfait d'appels en heures ouvrées, alors qu'il s'agit ici d'un abonnement à volume inclus couvrant 24 heures sur 24. Le comparatif détaillé des deux modes de facturation est sur la page dédiée.</p></div>
+</details>
+</div>
+<a class="cai-more" href="/prix-du-marche">Les prix pratiqués sur le marché</a>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:20ch">Sept jours coûtent moins cher <em>qu'un mois d'hésitation</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">L'essai est gratuit sur les trois formules, sans engagement et sans changement de numéro. À la fin de la semaine, vous saurez combien d'appels vous receviez vraiment en dehors de vos heures, et ce qu'ils valaient.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Commencer les 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel d'abord</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/calculateur">Calculer ce que je perds</a></li>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page présente un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/tarifs#webpage",
+      "url": "https://www.concierge-ai.fr/tarifs",
+      "name": "Tarifs Concierge AI : 297, 497 ou 997 € par mois",
+      "description": "Les trois formules, ce qu'elles incluent, les frais d'installation, et combien d'interventions récupérées couvrent l'abonnement.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-20",
+      "dateModified": "2026-09-20",
+      "isPartOf": {
+        "@id": "https://www.concierge-ai.fr/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://www.concierge-ai.fr/tarifs#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/tarifs#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.concierge-ai.fr"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tarifs",
+          "item": "https://www.concierge-ai.fr/tarifs"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/tarifs#faq",
+      "isPartOf": {
+        "@id": "https://www.concierge-ai.fr/tarifs#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Y a-t-il un engagement de durée ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Les trois formules sont annoncées sans engagement de durée et résiliables sans justification à fournir. Ni durée minimale, ni frais de résiliation, ni reconduction tacite sur douze ou vingt-quatre mois."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il changer d'opérateur ou de forfait téléphonique pour utiliser Concierge AI ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le standard se branche sur la ligne actuelle et fonctionne avec les opérateurs déjà utilisés : Orange, SFR, Free, Bouygues Telecom, ainsi que les lignes pro Onoff et Ringover. Le numéro et le forfait restent les mêmes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûtent les frais d'installation de Concierge AI ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ils sont affichés à 1 500 € et annoncés comme intégralement offerts pour les nouveaux clients. La mise en service ne coûte donc rien : seul l'abonnement est dû, et seulement après les sept jours d'essai."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que gagne-t-on à payer Concierge AI à l'année ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deux mois, soit environ 17 % de remise : 2 970 € au lieu de 3 564 € pour Starter, 4 970 € au lieu de 5 964 € pour Growth, 9 970 € au lieu de 11 964 € pour Elite. L'économie est réelle mais immobilise la trésorerie d'un an."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'essai de sept jours est-il vraiment gratuit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, et il est disponible sur les trois formules. Sept jours couvrent un week-end entier et plusieurs soirées, c'est-à-dire les créneaux où les appels se perdent aujourd'hui."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que comprend la mise en place de Concierge AI ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tout, sauf trente minutes de temps. La configuration, le paramétrage et la mise en ligne sont faits par l'équipe. La contribution du client se limite à un appel où il donne ses tarifs, sa zone d'intervention, ses horaires, les questions récurrentes et les demandes qu'il refuse. La ligne est opérationnelle sous quarante-huit heures."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce tarif est-il plus cher qu'un télésecrétariat ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cela dépend du volume d'appels, parce que les deux ne se facturent pas de la même façon : un télésecrétariat facture le plus souvent à l'appel ou au forfait d'appels en heures ouvrées, alors qu'il s'agit ici d'un abonnement à volume inclus couvrant 24 heures sur 24."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>

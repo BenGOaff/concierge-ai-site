@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/methode-calcul.html?raw'
+---
+
+<Base
+  titre="Méthode de calcul du coût des appels manqués"
+  description="La formule complète, la justification de chaque variable, les fourchettes utilisées avec leur origine et les limites de l'estimation."
+  chemin="/methode-calcul"
+  og="/images/6aafe893990e74.68755906_methode-calcul-appels-manques-artisant.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

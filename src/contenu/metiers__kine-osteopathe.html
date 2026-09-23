@@ -1,0 +1,472 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Kiné · ostéopathe</span>
+<h1 style="max-width:23ch;margin:22px 0 20px">On n'interrompt pas <em>une séance</em></h1>
+<p class="cai-lead" style="max-width:58ch">Vos mains sont sur un patient sept heures par jour. Pendant ce temps, on annule, on cherche un créneau, on demande si vous prenez de nouveaux patients. Le créneau libéré à 7 h du matin et jamais repourvu est la vraie perte de ce métier.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Le créneau annulé redevient réservable immédiatement</li>
+<li>Sans engagement, sept jours d'essai</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Une kinésithérapeute en séance auprès d'un patient, son téléphone allumé posé hors de portée" height="643" loading="eager" src="/images/6aaffccd3ab949.45268134_kine-osteo-permanence-telephone.webp" width="1500"/>
+<figcaption>Sept heures de séances par jour, et un téléphone qui sonne pendant chacune d'elles.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment un kiné peut-il répondre <em>sans interrompre ses séances ?</em></h2>
+</div>
+<p class="cai-say">Le sujet n'est pas l'urgence mais le remplissage : chaque annulation qui n'obtient pas de réponse est un créneau perdu, et chaque nouveau patient qui tombe sur un répondeur appelle le cabinet suivant. <span class="cai-key">Un standard relié à votre agenda rend le créneau libéré immédiatement réservable par l'appelant suivant.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où un cabinet <em>perd un créneau</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est la journée ordinaire d'un praticien qui exerce seul.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>07 h 10</b>
+<p>Un patient annule sa séance de 14 heures. Vous êtes encore chez vous, il tombe sur le répondeur. Vous l'écouterez à 13 h 50, quand il sera trop tard pour repourvoir.</p>
+</article>
+<article class="cai-scc">
+<b>11 h 00</b>
+<p>Vos mains sont sur un patient. Le téléphone sonne dans la pièce, et vous ne décrochez pas parce qu'on n'interrompt pas une séance pour répondre.</p>
+</article>
+<article class="cai-scc">
+<b>16 h 15</b>
+<p>Une personne avec une prescription cherche un cabinet qui prend de nouveaux patients. Elle appelle trois numéros. Elle ira chez celui qui a décroché.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Un créneau vide ne se rattrape jamais : il ne se reporte pas au lendemain, il disparaît. C'est la différence avec un métier d'intervention, où le chantier perdu peut être remplacé par un autre la semaine suivante.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. UNE LIMITE À CONNAÎTRE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le cadre</span>
+<h2>Ce qu'un standard ne fait pas <em>dans un cabinet de soins</em></h2>
+<p class="cai-lead" style="max-width:58ch">Avant de parler de rendez-vous, il faut poser la limite, parce qu'elle vous engage.</p>
+</div>
+<ul class="cai-list">
+<li><b>Aucun tri médical</b><span>Un standard automatique n'évalue pas la gravité d'un symptôme et n'oriente jamais vers un soin. Il note ce qui est décrit, et il transmet ou transfère selon la règle que vous avez écrite.</span></li>
+<li><b>Aucun conseil</b><span>Ni sur une douleur, ni sur un traitement, ni sur la conduite à tenir en attendant. Ces questions vous reviennent, à vous seul.</span></li>
+<li><b>Une phrase de renvoi claire en cas de doute</b><span>Vous écrivez la consigne donnée à quelqu'un qui décrit une situation grave : appeler le 15, le médecin traitant ou les urgences. C'est une phrase fixe, jamais une appréciation.</span></li>
+<li><b>Un cadre professionnel à vérifier</b><span>Secret professionnel, obligation d'information, continuité des soins : ces règles s'appliquent aussi aux appels entrants et varient selon la profession et le mode d'exercice. Votre ordre professionnel est la seule source qui fasse autorité sur ce que vous pouvez déléguer.</span></li>
+</ul>
+</section>
+<!-- 5. LES DEMANDES EN CABINET -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>dans un cabinet de kiné</em></h2>
+<p class="cai-lead" style="max-width:58ch">Beaucoup de gestion d'agenda, très peu d'urgence. Ces repères sont des points de départ à ajuster à votre exercice.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Traitement</th>
+<th scope="col">Ce que ça vous fait gagner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Annulation d'une séance du jour</th>
+<td data-l="Traitement">Prise immédiatement, créneau libéré dans l'agenda</td>
+<td data-l="Ce que ça vous fait gagner">Le créneau redevient réservable dans la minute</td>
+</tr>
+<tr>
+<th scope="row">Demande de report ou de décalage</th>
+<td data-l="Traitement">Nouveau créneau proposé parmi vos disponibilités</td>
+<td data-l="Ce que ça vous fait gagner">Aucun aller-retour, aucun rappel à faire</td>
+</tr>
+<tr>
+<th scope="row">Nouveau patient avec prescription</th>
+<td data-l="Traitement">Motif, prescripteur et disponibilités recueillis</td>
+<td data-l="Ce que ça vous fait gagner">Vous savez avant de rappeler si vous pouvez le prendre</td>
+</tr>
+<tr>
+<th scope="row">Première consultation d'ostéopathie</th>
+<td data-l="Traitement">Rendez-vous posé directement sur un créneau libre</td>
+<td data-l="Ce que ça vous fait gagner">Le patient est acquis pendant qu'il a encore le téléphone en main</td>
+</tr>
+<tr>
+<th scope="row">Question de tarif ou de remboursement</th>
+<td data-l="Traitement">Réponse donnée si vous l'avez écrite, sinon transmise</td>
+<td data-l="Ce que ça vous fait gagner">Vous ne répétez plus la même phrase dix fois par semaine</td>
+</tr>
+<tr>
+<th scope="row">Douleur aiguë décrite au téléphone</th>
+<td data-l="Traitement">Transfert ou consigne de renvoi que vous avez écrite</td>
+<td data-l="Ce que ça vous fait gagner">Aucune appréciation médicale faite à votre place</td>
+</tr>
+<tr>
+<th scope="row">Série de séances à planifier</th>
+<td data-l="Traitement">Créneaux récurrents proposés selon vos règles</td>
+<td data-l="Ce que ça vous fait gagner">Une seule conversation au lieu de six</td>
+</tr>
+<tr>
+<th scope="row">Démarchage commercial</th>
+<td data-l="Traitement">Écarté poliment</td>
+<td data-l="Ce que ça vous fait gagner">Vous n'en entendez jamais parler</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/fonctionnement">Comment ces règles sont appliquées à l'appel</a>
+</section>
+<!-- 6. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien de séances couvrent une <em>permanence téléphonique de cabinet</em></h2>
+<p class="cai-lead" style="max-width:58ch">Divisez le coût mensuel de la solution par le montant d'une de vos séances. Voici le résultat pour trois montants, à remplacer par le vôtre.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une séance vous rapporte</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">25 €</th>
+<td data-l="Télésecrétariat">6 par mois</td>
+<td data-l="Standard 24/7">12 par mois</td>
+<td data-l="Embauche">68 par mois</td>
+</tr>
+<tr>
+<th scope="row">40 €</th>
+<td data-l="Télésecrétariat">4 par mois</td>
+<td data-l="Standard 24/7">8 par mois</td>
+<td data-l="Embauche">43 par mois</td>
+</tr>
+<tr>
+<th scope="row">60 €</th>
+<td data-l="Télésecrétariat">3 par mois</td>
+<td data-l="Standard 24/7">5 par mois</td>
+<td data-l="Embauche">29 par mois</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur. Les trois montants sont des exemples de calcul, pas une moyenne de marché. C'est le métier du site où le seuil est le plus exigeant en nombre, et le plus facile à atteindre en pratique : douze créneaux repourvus dans le mois, c'est trois par semaine. Un nouveau patient qui suit une série complète en vaut à lui seul plusieurs.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 7. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Une annulation à 7 h 10, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un patient libère sa séance de 14 heures avant l'ouverture du cabinet. Voici ce qu'il advient de ce créneau.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de la journée</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">L'annulation est connue</th>
+<td data-l="Répondeur">À l'écoute du message</td>
+<td data-l="Télésecrétariat">À l'ouverture du bureau</td>
+<td data-l="Standard 24/7">À 7 h 10</td>
+</tr>
+<tr>
+<th scope="row">Le créneau est libéré dans l'agenda</th>
+<td data-l="Répondeur">Manuellement, plus tard</td>
+<td data-l="Télésecrétariat">Selon l'option souscrite</td>
+<td data-l="Standard 24/7">Immédiatement</td>
+</tr>
+<tr>
+<th scope="row">Un autre patient peut le réserver</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">En heures ouvrées</td>
+<td data-l="Standard 24/7">Dès l'appel suivant</td>
+</tr>
+<tr>
+<th scope="row">Vous avez été interrompu</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Non</td>
+</tr>
+<tr>
+<th scope="row">Le créneau à 14 h</th>
+<td data-l="Répondeur">Perdu</td>
+<td data-l="Télésecrétariat">Peut-être repourvu</td>
+<td data-l="Standard 24/7">Disponible toute la matinée</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 8. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions de praticiens sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Et le secret professionnel ?</summary>
+<div class="cai-ans"><p>Les informations recueillies pendant un appel sont celles nécessaires à la prise de rendez-vous : identité, coordonnées, motif tel que la personne l'exprime, prescripteur éventuel. Elles constituent un traitement de données de santé dès lors qu'un motif est renseigné.</p><p>Avant toute mise en service, demandez à l'éditeur le lieu d'hébergement des données, l'existence d'une certification pour l'hébergement de données de santé, et les conditions de sous-traitance. Votre ordre professionnel est la seule source qui fasse autorité sur ce que vous pouvez déléguer.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut juger si une douleur est urgente ?</summary>
+<div class="cai-ans"><p>Non, et c'est une limite à poser explicitement. Un standard automatique n'évalue aucun symptôme et ne donne aucun conseil de soin. Ce que vous écrivez, c'est une consigne fixe : devant telle situation décrite, la personne est invitée à appeler son médecin traitant, le 15 ou les urgences, et l'appel vous est transféré si vous l'avez demandé.</p></div>
+</details>
+<details>
+<summary>Peut-il gérer une série de séances ?</summary>
+<div class="cai-ans"><p>Oui, si votre agenda le permet : les créneaux récurrents sont proposés selon les règles que vous avez fixées, par exemple deux séances par semaine sur six semaines, aux mêmes horaires. Une seule conversation remplace six prises de rendez-vous.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut annoncer mes tarifs ?</summary>
+<div class="cai-ans"><p>Uniquement ceux que vous avez écrits, y compris votre secteur de conventionnement et le montant d'un éventuel dépassement. Sur les questions de remboursement par la Sécurité sociale ou par une mutuelle, aucune réponse n'est improvisée : la demande est transmise.</p></div>
+</details>
+<details>
+<summary>Mes patients âgés vont-ils s'y retrouver ?</summary>
+<div class="cai-ans"><p>Il n'y a ni menu à touches, ni « tapez 1 » : la personne parle normalement. C'est plus simple qu'un serveur vocal et beaucoup plus simple qu'un répondeur sur lequel il faut laisser un message. La date et l'heure du rendez-vous sont répétées à voix haute avant la fin de l'appel.</p></div>
+</details>
+<details>
+<summary>Et si j'ai déjà un secrétariat médical ?</summary>
+<div class="cai-ans"><p>Les deux se complètent. Un secrétariat médical couvre les heures ouvrées et connaît vos patients ; un standard automatique prend le deuxième appel simultané, les annulations de 7 heures du matin, le samedi et les congés. Beaucoup de cabinets gardent les deux.</p></div>
+</details>
+</div>
+</section>
+<!-- 9. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Un créneau vide <em>ne se rattrape jamais</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront combien d'annulations et de nouveaux patients vous receviez pendant vos séances. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas la kinésithérapie ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/kine-osteopathe#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/kine-osteopathe",
+      "name": "Permanence téléphonique kiné : ne plus rater d'appel",
+      "description": "Vous êtes en séance, le téléphone sonne. Annulations, nouveaux patients, blocages aigus : ce que deviennent vos appels et ce qu'ils coûtent.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/kine-osteopathe#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/kine-osteopathe#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/kine-osteopathe#metier",
+      "name": "Permanence téléphonique pour cabinet de kinésithérapie et d'ostéopathie",
+      "serviceType": "Permanence téléphonique et gestion des rendez-vous pour cabinets de kinésithérapie et d'ostéopathie",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Kinésithérapeutes et ostéopathes exerçant seuls ou en petit cabinet"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/kine-osteopathe#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Kiné et ostéopathe" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/kine-osteopathe#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/kine-osteopathe#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Une permanence téléphonique est-elle compatible avec le secret professionnel ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les informations recueillies sont celles nécessaires à la prise de rendez-vous : identité, coordonnées, motif exprimé, prescripteur éventuel. Elles constituent un traitement de données de santé dès lors qu'un motif est renseigné. Avant toute mise en service, il faut demander à l'éditeur le lieu d'hébergement, l'existence d'une certification pour l'hébergement de données de santé et les conditions de sous-traitance. L'ordre professionnel est la seule source qui fasse autorité sur ce qui est délégable." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique peut-il juger si une douleur est urgente ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Un standard automatique n'évalue aucun symptôme et ne donne aucun conseil de soin. Le praticien écrit une consigne fixe : devant telle situation décrite, la personne est invitée à appeler son médecin traitant, le 15 ou les urgences, et l'appel est transféré si cela a été demandé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il planifier une série de séances de kinésithérapie ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui si l'agenda le permet : les créneaux récurrents sont proposés selon les règles fixées, par exemple deux séances par semaine sur six semaines aux mêmes horaires. Une seule conversation remplace six prises de rendez-vous." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il annoncer les tarifs d'un cabinet de kiné ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Uniquement ceux écrits par le praticien, y compris le secteur de conventionnement et le montant d'un éventuel dépassement. Sur les questions de remboursement par la Sécurité sociale ou une mutuelle, aucune réponse n'est improvisée : la demande est transmise." }
+        },
+        {
+          "@type": "Question",
+          "name": "Les patients âgés arrivent-ils à utiliser un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Il n'y a ni menu à touches ni « tapez 1 » : la personne parle normalement. C'est plus simple qu'un serveur vocal et qu'un répondeur. La date et l'heure du rendez-vous sont répétées à voix haute avant la fin de l'appel." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il choisir entre un secrétariat médical et un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les deux se complètent. Un secrétariat médical couvre les heures ouvrées et connaît les patients ; un standard automatique prend le deuxième appel simultané, les annulations matinales, le samedi et les congés." }
+        }
+      ]
+    }
+  ]
+}
+</script>

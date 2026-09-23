@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/fonctionnement.html?raw'
+---
+
+<Base
+  titre="Comment fonctionne un standard téléphonique automatique"
+  description="Le téléphone sonne d'abord chez vous. Ce qui se passe ensuite, ce que vous paramétrez, et comment la ligne est en service en 48 heures."
+  chemin="/fonctionnement"
+  og="/images/6aafe541c11bb6.25165308_fonctionnement-concierge-ai.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

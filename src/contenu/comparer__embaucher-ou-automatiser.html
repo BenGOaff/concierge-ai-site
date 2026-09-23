@@ -1,0 +1,423 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- chiffres clés --- */
+.cai .cai-nums{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-numc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(24px,2.8vw,32px)}
+.cai .cai-numc b{display:block;font:700 clamp(1.8rem,3.4vw,2.4rem)/1 'Inter',sans-serif;color:var(--gd);font-variant-numeric:tabular-nums;margin-bottom:14px}
+.cai .cai-numc span{display:block;font-size:.97rem;line-height:1.65;color:var(--grey)}
+@media(min-width:820px){.cai .cai-nums{grid-template-columns:repeat(3,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- sources --- */
+.cai .cai-src{margin-top:clamp(36px,4vw,46px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-src h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-src ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.cai .cai-src li{margin:0;padding:0;font-size:.9rem;line-height:1.65;color:var(--grey)}
+.cai .cai-src a{color:var(--gd);text-decoration:none;border-bottom:1px solid rgba(21,128,61,.3)}
+.cai .cai-src a:hover{border-color:#15803D}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- chiffres clés --- */
+.cai .cai-nums{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-numc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(24px,2.8vw,32px)}
+.cai .cai-numc b{display:block;font:700 clamp(1.8rem,3.4vw,2.4rem)/1 'Inter',sans-serif;color:var(--gd);font-variant-numeric:tabular-nums;margin-bottom:14px}
+.cai .cai-numc span{display:block;font-size:.97rem;line-height:1.65;color:var(--grey)}
+@media(min-width:820px){.cai .cai-nums{grid-template-columns:repeat(3,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- sources --- */
+.cai .cai-src{margin-top:clamp(36px,4vw,46px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-src h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-src ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.cai .cai-src li{margin:0;padding:0;font-size:.9rem;line-height:1.65;color:var(--grey)}
+.cai .cai-src a{color:var(--gd);text-decoration:none;border-bottom:1px solid rgba(21,128,61,.3)}
+.cai .cai-src a:hover{border-color:#15803D}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Comparer</span>
+<h1 style="max-width:25ch;margin:22px 0 20px">Un temps plein couvre 152 heures <em>sur les 730 d'un mois</em></h1>
+<p class="cai-lead" style="max-width:58ch">Embaucher quelqu'un pour répondre au téléphone, c'est la solution évidente, et c'est celle à laquelle tout le monde pense d'abord. Voici ce qu'elle coûte vraiment, ce qu'elle couvre, ce qu'elle ne couvre pas, et les cas où elle reste malgré tout le bon choix.</p>
+<ul class="cai-tick">
+<li>Chiffres sourcés, calculs posés en clair</li>
+<li>Les heures non couvertes, en arithmétique pure</li>
+<li>Et ce qu'un salarié fait qu'aucun standard ne fera</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un artisan trie ses factures le soir à un petit bureau, une chaise vide en face de lui, son téléphone allumé posé à côté" height="643" loading="eager" src="/images/6ab0190796d628.33380707_embaucher-ou-automatiser.webp" width="1500"/>
+<figcaption>La chaise en face est vide, et c'est vous qui faites le travail qu'elle ferait.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Faut-il embaucher ou automatiser <em>sa permanence téléphonique ?</em></h2>
+</div>
+<p class="cai-say">Un salarié à 35 heures coûte environ 1 933 € par mois et couvre une heure sur cinq du mois, en journée et en semaine seulement. <span class="cai-key">Un standard automatique couvre les 730 heures pour environ 248 € par mois, mais il ne fait qu'une seule chose : répondre au téléphone.</span></p>
+</section>
+<!-- 3. LE COÛT RÉEL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le coût</span>
+<h2>Ce que coûte vraiment <em>une embauche à temps plein</em></h2>
+<p class="cai-lead" style="max-width:58ch">Au niveau du salaire minimum, c'est-à-dire le plancher. Une personne qualifiée en accueil ou en secrétariat se situe au-dessus.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Poste</th>
+<th scope="col">Par mois</th>
+<th scope="col">Par an</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Salaire minimum brut, 35 h par semaine</th>
+<td data-l="Par mois">1 867 €</td>
+<td data-l="Par an">22 404 €</td>
+</tr>
+<tr>
+<th scope="row">Cotisations patronales après réduction générale, environ 3,55 %</th>
+<td data-l="Par mois">66 €</td>
+<td data-l="Par an">795 €</td>
+</tr>
+<tr>
+<th scope="row">Coût employeur</th>
+<td data-l="Par mois">1 933 €</td>
+<td data-l="Par an">23 196 €</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Ce plancher ne comprend pas le poste de travail, la ligne, le logiciel, le temps de recrutement, celui de formation, ni le remplacement pendant les absences. Le taux de cotisations de 3,55 % est celui qui s'applique au niveau du salaire minimum grâce à la réduction générale : il monte dès que le salaire monte, donc une personne payée au-dessus du minimum coûte davantage, proportionnellement comme en valeur absolue.</p>
+</section>
+<!-- 4. LES HEURES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les heures</span>
+<h2>Ce qu'un temps plein couvre, <em>et ce qu'il laisse découvert</em></h2>
+<p class="cai-lead" style="max-width:58ch">Le calcul que personne ne fait avant d'embaucher. Trente-cinq heures par semaine, ramenées au nombre d'heures que contient réellement un mois.</p>
+</div>
+<div class="cai-nums">
+<article class="cai-numc">
+<b>730 h</b>
+<span>Le nombre d'heures dans un mois moyen. C'est la durée pendant laquelle votre numéro peut sonner.</span>
+</article>
+<article class="cai-numc">
+<b>152 h</b>
+<span>Ce qu'un temps plein à 35 heures par semaine couvre dans ce mois, soit une heure sur cinq.</span>
+</article>
+<article class="cai-numc">
+<b>4,8</b>
+<span>Le nombre de salariés à temps plein qu'il faudrait pour couvrir les 730 heures, sans compter les congés.</span>
+</article>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Le calcul</th>
+<th scope="col">Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">35 h par semaine × 52 semaines ÷ 12 mois</th>
+<td data-l="Résultat">151,7 h couvertes par mois</td>
+</tr>
+<tr>
+<th scope="row">365,25 jours × 24 h ÷ 12 mois</th>
+<td data-l="Résultat">730,5 h dans un mois</td>
+</tr>
+<tr>
+<th scope="row">151,7 ÷ 730,5</th>
+<td data-l="Résultat">20,8 % du mois couvert</td>
+</tr>
+<tr>
+<th scope="row">730,5 − 151,7</th>
+<td data-l="Résultat">579 h sans personne pour répondre</td>
+</tr>
+<tr>
+<th scope="row">730,5 ÷ 151,7</th>
+<td data-l="Résultat">4,8 temps pleins pour couvrir 24 h/24</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">À ces 579 heures s'ajoutent cinq semaines de congés payés et les jours fériés, soit environ sept semaines par an où la ligne n'est tenue par personne, sauf si vous payez un remplacement. Et les 152 heures couvertes tombent en journée et en semaine, c'est-à-dire aux heures où vous êtes vous-même le plus souvent joignable.</p>
+</section>
+<!-- 5. LE COMPARATIF -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Embauche, temps partiel et <em>standard automatique</em></h2>
+<p class="cai-lead" style="max-width:58ch">Sur le seul terrain de la réponse aux appels. Le temps partiel est pris à 20 heures par semaine, le standard au tarif annuel de la formule d'entrée.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">Temps plein 35 h</th>
+<th scope="col">Temps partiel 20 h</th>
+<th scope="col">Standard 24 h/24</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Coût par mois</th>
+<td data-l="Temps plein">1 933 €</td>
+<td data-l="Temps partiel">1 105 €</td>
+<td data-l="Standard">248 €</td>
+</tr>
+<tr>
+<th scope="row">Heures couvertes sur 730</th>
+<td data-l="Temps plein">152</td>
+<td data-l="Temps partiel">87</td>
+<td data-l="Standard">730</td>
+</tr>
+<tr>
+<th scope="row">Le soir après 18 h</th>
+<td data-l="Temps plein">Non</td>
+<td data-l="Temps partiel">Non</td>
+<td data-l="Standard">Oui</td>
+</tr>
+<tr>
+<th scope="row">Le samedi et le dimanche</th>
+<td data-l="Temps plein">Non</td>
+<td data-l="Temps partiel">Non</td>
+<td data-l="Standard">Oui</td>
+</tr>
+<tr>
+<th scope="row">Pendant les congés</th>
+<td data-l="Temps plein">Personne, ou un remplacement à payer</td>
+<td data-l="Temps partiel">Personne</td>
+<td data-l="Standard">Inchangé</td>
+</tr>
+<tr>
+<th scope="row">Deux appels en même temps</th>
+<td data-l="Temps plein">Un seul pris</td>
+<td data-l="Temps partiel">Un seul pris</td>
+<td data-l="Standard">Les deux</td>
+</tr>
+<tr>
+<th scope="row">Délai avant d'être opérationnel</th>
+<td data-l="Temps plein">Recrutement, puis formation</td>
+<td data-l="Temps partiel">Recrutement, puis formation</td>
+<td data-l="Standard">48 h après un appel de cadrage</td>
+</tr>
+<tr>
+<th scope="row">Si ça ne convient pas</th>
+<td data-l="Temps plein">Procédure de rupture</td>
+<td data-l="Temps partiel">Procédure de rupture</td>
+<td data-l="Standard">Résiliation sans justification</td>
+</tr>
+<tr>
+<th scope="row">Accueil physique, encaissement, administratif</th>
+<td data-l="Temps plein">Oui</td>
+<td data-l="Temps partiel">Oui</td>
+<td data-l="Standard">Non</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Ramené à l'heure de disponibilité, un temps plein coûte 12,75 € et un standard 34 centimes. Cette division n'a de sens que sur la disponibilité téléphonique : un salarié fait pendant ses heures une quantité de travail qu'aucun standard ne fera, et c'est la dernière ligne du tableau qui le dit.</p>
+</section>
+<!-- 6. QUAND EMBAUCHER -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le bon choix</span>
+<h2>Quand une embauche <em>reste la bonne décision</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un standard répond au téléphone. Dès que le besoin déborde de là, il ne remplace personne.</p>
+</div>
+<ul class="cai-list">
+<li><b>Vous avez besoin de quelqu'un dans les murs</b><span>Accueil physique, remise de clés, encaissement, réception de livraisons, tenue d'un comptoir : rien de tout cela ne se fait à distance. Si votre besoin premier est une présence, embauchez.</span></li>
+<li><b>Vous avez besoin de travail administratif</b><span>Devis à saisir, factures à sortir, relances d'impayés, dossiers d'aide, planning à réorganiser. C'est un métier, et il occupe largement un poste dans une entreprise en croissance.</span></li>
+<li><b>Votre volume d'appels dépasse ce qu'une ligne peut absorber</b><span>Au-delà d'un certain nombre de conversations par mois, la question n'est plus d'arbitrer mais de cumuler : une personne en journée, un relais le reste du temps.</span></li>
+<li><b>Vos appels demandent un vrai jugement métier</b><span>Négociation, chiffrage complexe, gestion de litige, relation avec des donneurs d'ordre : ces échanges vont à vous ou à quelqu'un que vous avez formé, pas à un accueil.</span></li>
+</ul>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Dans la pratique, les deux ne s'opposent pas souvent. Les entreprises qui ont quelqu'un à l'accueil utilisent un relais automatique sur les créneaux que cette personne ne couvre pas, c'est-à-dire le deuxième appel simultané, le soir, le week-end et les congés.</p>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions sur le choix entre <em>embauche et permanence automatique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Combien coûte vraiment un salarié au salaire minimum ?</summary>
+<div class="cai-ans"><p>Environ 1 933 € par mois pour 35 heures par semaine : 1 867 € de salaire brut, plus environ 66 € de cotisations patronales une fois appliquée la réduction générale, qui ramène le taux à environ 3,55 % à ce niveau de salaire. Sur l'année, cela représente 23 196 €.</p><p>C'est un plancher. Il ne comprend ni le poste de travail, ni le recrutement, ni la formation, ni le remplacement pendant les congés, et il monte dès que le salaire dépasse le minimum, parce que la réduction générale décroît.</p></div>
+</details>
+<details>
+<summary>Un mi-temps ne serait-il pas suffisant ?</summary>
+<div class="cai-ans"><p>Pour la moitié du coût, vous couvrez 87 heures sur 730, soit une heure sur huit. Et ces heures tombent presque toujours en journée, donc aux moments où vos clients savent déjà que vous êtes au travail.</p><p>Le mi-temps résout la question du budget, pas celle des heures où votre téléphone sonne sans réponse.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'un standard peut vraiment remplacer une secrétaire ?</summary>
+<div class="cai-ans"><p>Non, et le prétendre serait malhonnête. Il répond au téléphone, pose des rendez-vous, applique vos règles et vous envoie un résumé écrit. Il ne tient pas un comptoir, ne saisit pas vos devis, ne relance pas vos impayés et ne range pas vos dossiers.</p><p>La bonne question n'est pas de savoir s'il remplace une personne, mais si votre besoin actuel est une personne ou une ligne qui répond.</p></div>
+</details>
+<details>
+<summary>Et une alternance ou un stage, ça ne coûte pas moins cher ?</summary>
+<div class="cai-ans"><p>Le coût est effectivement plus bas, et les aides existantes le réduisent encore. Deux limites restent : les heures couvertes sont celles d'un temps de travail réduit par les périodes de cours, et un apprenti a besoin d'être formé et encadré, ce qui prend de votre temps.</p><p>C'est un choix qui se justifie s'il apporte autre chose que la réponse au téléphone.</p></div>
+</details>
+<details>
+<summary>Que se passe-t-il si je cumule les deux ?</summary>
+<div class="cai-ans"><p>C'est la configuration la plus fréquente chez les entreprises qui ont déjà quelqu'un. La personne prend les appels sur ses heures, le relais prend le deuxième appel simultané, le soir, le week-end et les congés.</p><p>Les 579 heures non couvertes par un temps plein sont exactement le périmètre où un relais automatique a un intérêt.</p></div>
+</details>
+<details>
+<summary>Comment savoir de quel côté je suis ?</summary>
+<div class="cai-ans"><p>Par une seule question : si demain votre ligne était tenue 24 heures sur 24, est-ce que votre problème serait réglé, ou est-ce qu'il resterait une pile de travail sur votre bureau ?</p><p>Si le problème est la ligne, un standard suffit et coûte le huitième d'une embauche. S'il reste une pile de travail, votre besoin est un poste, et un standard ne répondra qu'à une partie de la question.</p></div>
+</details>
+</div>
+<div class="cai-src">
+<h3>D'où viennent ces chiffres</h3>
+<ul>
+<li>Salaire minimum horaire et mensuel brut pour 35 heures : montants en vigueur publiés par le gouvernement, <a href="https://www.info.gouv.fr/actualite/le-smic-revalorise-au-1er-janvier-2026" rel="nofollow noopener" target="_blank">info.gouv.fr</a> et <a href="https://www.juristique.org/conventionnel/smic-juin-2026" rel="nofollow noopener" target="_blank">Juristique</a>.</li>
+<li>Taux de cotisations patronales au niveau du salaire minimum après réduction générale et coût employeur mensuel : <a href="https://staffmatch.com/blog/fr/charges-patronales-smic/" rel="nofollow noopener" target="_blank">Staffmatch</a>.</li>
+<li>Heures couvertes, heures non couvertes et nombre de temps pleins nécessaires : calculs de concierge-ai.fr, détaillés dans le tableau ci-dessus et reproductibles.</li>
+<li>Tarif du standard 24 h/24 : formule d'entrée au tarif annuel, ramenée au mois. Les montants figurent sur la <a href="/tarifs">page tarifs</a>.</li>
+</ul>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:23ch">Sept jours vous diront <em>si votre problème est la ligne</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Avant de lancer un recrutement, mesurez. Sept jours sur votre vraie ligne vous diront combien d'appels arrivent hors des heures d'un salarié, et ce qu'ils valaient. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/calculateur">Chiffrer mes appels manqués</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer toutes les solutions</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/methode-calcul">La méthode de calcul</a></li>
+<li><a href="/metiers">Votre métier</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/comparer/embaucher-ou-automatiser#webpage",
+      "url": "https://www.concierge-ai.fr/comparer/embaucher-ou-automatiser",
+      "name": "Embaucher ou automatiser sa permanence téléphonique",
+      "description": "Le coût réel d'une embauche à 35 h, les heures qu'elle ne couvre pas, et les cas où un salarié reste le bon choix. Chiffres sourcés et calculs posés.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/comparer/embaucher-ou-automatiser#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/comparer/embaucher-ou-automatiser#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Comparer", "item": "https://www.concierge-ai.fr/comparer/permanence-telephonique" },
+        { "@type": "ListItem", "position": 3, "name": "Embaucher ou automatiser" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/comparer/embaucher-ou-automatiser#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/comparer/embaucher-ou-automatiser#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien coûte vraiment un salarié au salaire minimum en France ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Environ 1 933 € par mois pour 35 heures par semaine : 1 867 € de salaire brut plus environ 66 € de cotisations patronales, la réduction générale ramenant le taux à environ 3,55 % à ce niveau de salaire. Soit 23 196 € par an. Ce plancher ne comprend ni le poste de travail, ni le recrutement, ni la formation, ni le remplacement pendant les congés, et il augmente dès que le salaire dépasse le minimum." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un mi-temps suffit-il pour tenir la permanence téléphonique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un temps partiel de 20 heures par semaine couvre 87 heures sur les 730 d'un mois, soit une heure sur huit, et presque toujours en journée. Il résout la question du budget, pas celle des heures où le téléphone sonne sans réponse." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique automatique peut-il remplacer une secrétaire ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Il répond au téléphone, pose des rendez-vous, applique les règles définies et envoie un résumé écrit. Il ne tient pas un comptoir, ne saisit pas les devis, ne relance pas les impayés et ne gère pas les dossiers. La question utile est de savoir si le besoin est une personne ou une ligne qui répond." }
+        },
+        {
+          "@type": "Question",
+          "name": "Une alternance ou un stage coûte-t-il moins cher qu'un standard téléphonique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le coût est plus bas et les aides le réduisent encore, mais les heures couvertes sont réduites par les périodes de cours et un apprenti demande formation et encadrement. Ce choix se justifie s'il apporte autre chose que la réponse au téléphone." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on cumuler un salarié à l'accueil et une permanence automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "C'est la configuration la plus fréquente. La personne prend les appels sur ses heures, le relais prend le deuxième appel simultané, le soir, le week-end et les congés. Les 579 heures non couvertes par un temps plein sont exactement ce périmètre." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir s'il faut embaucher ou automatiser ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Par une question : si la ligne était tenue 24 heures sur 24, le problème serait-il réglé, ou resterait-il une pile de travail sur le bureau ? Si le problème est la ligne, un standard suffit et coûte environ le huitième d'une embauche. S'il reste du travail administratif, le besoin est un poste." }
+        }
+      ]
+    }
+  ]
+}
+</script>

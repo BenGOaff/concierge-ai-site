@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/metiers.html?raw'
+---
+
+<Base
+  titre="Permanence téléphonique artisan et TPE : tous les métiers"
+  description="Dix-huit métiers, dix-huit façons de perdre un appel. Choisissez le vôtre : scènes réelles, coûts comparés et limites d'un standard 24 h/24."
+  chemin="/metiers"
+  og="/images/6ab017907a4069.19579959_metiers-concierge-ai.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

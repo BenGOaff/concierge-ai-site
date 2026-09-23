@@ -1,0 +1,448 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Rénovation · bâtiment</span>
+<h1 style="max-width:23ch;margin:22px 0 20px">La ponceuse couvre tout, <em>même le téléphone</em></h1>
+<p class="cai-lead" style="max-width:58ch">Sur ce métier, l'appel manqué n'est presque jamais une urgence. C'est presque toujours une demande de devis, et c'est ce qui le rend si cher : celui qui appelle trois entreprises confie son chantier à la première qui décroche.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Les demandes de devis sont qualifiées avant votre rappel</li>
+<li>Sans engagement, sept jours d'essai</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un artisan ponce un mur dans une pièce en rénovation, son téléphone allumé posé hors de portée" height="643" loading="eager" src="/images/6aaff8eed72636.56010308_batiment-renovation-permanence-telephone.webp" width="1500"/>
+<figcaption>Casque sur les oreilles, masque sur le visage, machine en main. Personne ne décroche.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment une entreprise du bâtiment <em>peut-elle répondre depuis le chantier ?</em></h2>
+</div>
+<p class="cai-say">Sur un chantier, le bruit, les gants et la hauteur rendent le décroché impossible pendant des heures d'affilée. <span class="cai-key">Ce qui compte n'est donc pas de répondre vite à tout, mais de ne jamais laisser une demande de devis sans réponse : c'est l'appel le plus rare et le plus cher de la semaine.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où une entreprise <em>du bâtiment perd un chantier</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est la semaine ordinaire d'un artisan seul ou d'une équipe de trois.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>09 h 50</b>
+<p>Ponceuse en main, casque antibruit sur les oreilles, masque sur le visage. Le téléphone est sur un tréteau à l'autre bout de la pièce et vous n'entendez rien.</p>
+</article>
+<article class="cai-scc">
+<b>14 h 05</b>
+<p>Vous êtes sur un échafaudage, les mains prises. Redescendre pour un numéro inconnu n'est ni raisonnable ni rentable.</p>
+</article>
+<article class="cai-scc">
+<b>17 h 38</b>
+<p>Un particulier veut refaire sa salle de bain. Il appelle trois entreprises trouvées sur Google. La première qui décroche obtiendra la visite.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Le soir, vous rappelez. Sur une demande de devis, le rappel fonctionne parfois — mais vous arrivez en deuxième ou en troisième position, face à quelqu'un qui a déjà reçu une entreprise et commencé à se faire une idée.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. LES DEMANDES EN RÉNOVATION -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>dans le bâtiment</em></h2>
+<p class="cai-lead" style="max-width:58ch">Peu d'urgences, beaucoup de qualification. Ces repères sont des points de départ à ajuster à votre activité.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Niveau</th>
+<th scope="col">Ce qu'il faut en faire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Sinistre sur un chantier en cours</th>
+<td data-l="Niveau">Urgence</td>
+<td data-l="Ce qu'il faut en faire">Vous êtes appelé en direct, avec l'adresse et la nature du dommage</td>
+</tr>
+<tr>
+<th scope="row">Dégât chez un client à la suite de vos travaux</th>
+<td data-l="Niveau">Urgence</td>
+<td data-l="Ce qu'il faut en faire">Appel direct : votre responsabilité et votre réputation sont engagées</td>
+</tr>
+<tr>
+<th scope="row">Chantier bloqué, livraison manquante, accès impossible</th>
+<td data-l="Niveau">Prioritaire</td>
+<td data-l="Ce qu'il faut en faire">Transmis dans l'heure, votre équipe attend sur place</td>
+</tr>
+<tr>
+<th scope="row">Demande de devis de rénovation</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Qualification complète, puis visite technique posée dans votre agenda</td>
+</tr>
+<tr>
+<th scope="row">Suivi de chantier par un client en cours</th>
+<td data-l="Niveau">Information</td>
+<td data-l="Ce qu'il faut en faire">Demande notée et transmise, sans interrompre l'équipe</td>
+</tr>
+<tr>
+<th scope="row">Question de délai ou de planning</th>
+<td data-l="Niveau">Information</td>
+<td data-l="Ce qu'il faut en faire">Réponse donnée si vous l'avez écrite, sinon transmise</td>
+</tr>
+<tr>
+<th scope="row">Appel d'un donneur d'ordre ou d'un maître d'œuvre</th>
+<td data-l="Niveau">Prioritaire</td>
+<td data-l="Ce qu'il faut en faire">Transfert direct si le numéro figure dans votre liste</td>
+</tr>
+<tr>
+<th scope="row">Démarchage, appel commercial</th>
+<td data-l="Niveau">Refus</td>
+<td data-l="Ce qu'il faut en faire">Écarté poliment, vous n'en entendez jamais parler</td>
+</tr>
+<tr>
+<th scope="row">Demande hors zone ou hors compétence</th>
+<td data-l="Niveau">Refus</td>
+<td data-l="Ce qu'il faut en faire">Refus dit proprement, sans vous faire perdre de temps</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">La qualification d'une demande de devis vaut à elle seule l'abonnement : nature exacte des travaux, surface, pièces concernées, propriétaire ou locataire, délai souhaité, et si d'autres entreprises ont déjà été contactées. Vous rappelez en sachant si le chantier vous intéresse, au lieu de vous déplacer pour rien.</p>
+<a class="cai-more" href="/guides/astreinte-et-tri-des-urgences">Écrire vos propres règles de tri</a>
+</section>
+<!-- 5. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien de mois d'abonnement <em>couvre un chantier signé</em></h2>
+<p class="cai-lead" style="max-width:58ch">Sur ce métier, le raisonnement s'inverse : la question n'est pas combien de chantiers il faut pour couvrir l'abonnement, mais combien de mois d'abonnement un seul chantier finance.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Un chantier signé à</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">1 500 €</th>
+<td data-l="Télésecrétariat">10 mois</td>
+<td data-l="Standard 24/7">5 mois</td>
+<td data-l="Embauche">Moins d'un mois</td>
+</tr>
+<tr>
+<th scope="row">5 000 €</th>
+<td data-l="Télésecrétariat">33 mois</td>
+<td data-l="Standard 24/7">16 mois</td>
+<td data-l="Embauche">2 mois</td>
+</tr>
+<tr>
+<th scope="row">15 000 €</th>
+<td data-l="Télésecrétariat">100 mois</td>
+<td data-l="Standard 24/7">50 mois</td>
+<td data-l="Embauche">8 mois</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi à l'inférieur, et calculé sur le chiffre d'affaires du chantier, pas sur la marge : appliquez votre propre taux pour obtenir le chiffre juste. Les trois montants sont des exemples de calcul, pas une moyenne de marché. Ce qu'ils montrent reste vrai quelle que soit la valeur retenue : un seul chantier récupéré dans l'année suffit largement, ce qui déplace la question du coût vers celle du nombre de demandes de devis qui n'obtiennent jamais de réponse.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 6. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Une demande de devis à 17 h 38, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un particulier veut refaire sa salle de bain et appelle trois entreprises à la suite. Voici où en est sa demande à la fin de l'appel.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un a décroché</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non, bureau fermé</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">La nature des travaux est connue</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Le lendemain, partiellement</td>
+<td data-l="Standard 24/7">Surface, pièces, délai souhaité</td>
+</tr>
+<tr>
+<th scope="row">Vous savez si le chantier vous intéresse</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Après un rappel</td>
+<td data-l="Standard 24/7">Avant même de rappeler</td>
+</tr>
+<tr>
+<th scope="row">Visite technique posée</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Oui, sur un créneau libre</td>
+</tr>
+<tr>
+<th scope="row">Votre position face aux concurrents</th>
+<td data-l="Répondeur">Troisième, si vous rappelez</td>
+<td data-l="Télésecrétariat">Deuxième ou troisième</td>
+<td data-l="Standard 24/7">Première, rendez-vous déjà fixé</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions d'artisans du bâtiment sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Est-ce qu'il peut chiffrer un chantier au téléphone ?</summary>
+<div class="cai-ans"><p>Non, et c'est volontaire. Aucun montant de travaux n'est avancé, aucun prix au mètre carré, aucun ordre de grandeur que vous n'auriez pas écrit. Sur un chantier de rénovation, un chiffre lâché au téléphone et démenti après la visite fait perdre le client et peut créer un litige.</p><p>Ce qu'il fait, c'est recueillir de quoi vous permettre de chiffrer vite et juste.</p></div>
+</details>
+<details>
+<summary>Qu'est-ce qu'il demande sur une demande de devis ?</summary>
+<div class="cai-ans"><p>Ce que vous lui avez dit de demander. En général : la nature exacte des travaux, la surface, les pièces concernées, si la personne est propriétaire ou locataire, le délai souhaité, l'accessibilité du logement, et si d'autres entreprises ont déjà été contactées.</p><p>C'est ce qui vous permet de trier vos rappels par ordre d'intérêt au lieu de rappeler dans l'ordre d'arrivée.</p></div>
+</details>
+<details>
+<summary>Et les clients dont le chantier est en cours ?</summary>
+<div class="cai-ans"><p>Ils appellent beaucoup, et rarement pour une urgence : un point d'avancement, une question de finition, un doute sur un délai. Leur demande est notée, rattachée au bon chantier et transmise par écrit, sans que votre équipe s'arrête.</p><p>Vous pouvez aussi placer un chantier ou un client particulier en transfert direct pendant une période sensible.</p></div>
+</details>
+<details>
+<summary>Comment il gère les maîtres d'œuvre et la sous-traitance ?</summary>
+<div class="cai-ans"><p>Vous listez les numéros de vos donneurs d'ordre : leurs appels vous sont transférés directement, quelle que soit la demande. Pour les autres, l'identification de l'entreprise, la nature du lot et la date d'intervention souhaitée sont recueillies avant transmission.</p></div>
+</details>
+<details>
+<summary>Et les questions sur les aides et les subventions ?</summary>
+<div class="cai-ans"><p>Elles sont notées et transmises, jamais improvisées. Les dispositifs d'aide changent régulièrement et engagent votre responsabilité : une réponse approximative au téléphone vaut moins que zéro réponse. Vous traitez le sujet vous-même, lors de la visite.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il écarte les appels de démarchage ?</summary>
+<div class="cai-ans"><p>Oui, et c'est un gain quotidien sur ce métier. Les appels commerciaux sont écartés poliment et ne vous sont pas transmis. Vous ne les voyez pas passer, et ils ne consomment pas votre attention entre deux tâches.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Un seul chantier récupéré <em>paie l'année</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront combien de demandes de devis vous receviez pendant que vous étiez sur le chantier. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas la rénovation ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/renovation-batiment#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/renovation-batiment",
+      "name": "Permanence téléphonique bâtiment : ne plus rater d'appel",
+      "description": "Demandes de devis, suivi de chantier, délais : vos appels arrivent quand la ponceuse tourne. Coûts comparés et tri des demandes en rénovation.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/renovation-batiment#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/renovation-batiment#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/renovation-batiment#metier",
+      "name": "Permanence téléphonique pour entreprise du bâtiment",
+      "serviceType": "Permanence téléphonique, qualification des demandes de devis et prise de rendez-vous pour entreprises de rénovation et du bâtiment",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Artisans et entreprises de rénovation et du bâtiment en petite équipe"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/renovation-batiment#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Rénovation et bâtiment" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/renovation-batiment#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/renovation-batiment#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique peut-il chiffrer un chantier au téléphone ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non, et c'est volontaire. Aucun montant de travaux, aucun prix au mètre carré, aucun ordre de grandeur non écrit par l'entreprise. Sur un chantier de rénovation, un chiffre lâché au téléphone puis démenti après la visite fait perdre le client et peut créer un litige. Le standard recueille de quoi chiffrer vite et juste." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que demande un standard sur une demande de devis de rénovation ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ce que l'entreprise lui a dit de demander : nature exacte des travaux, surface, pièces concernées, statut de propriétaire ou de locataire, délai souhaité, accessibilité du logement, et si d'autres entreprises ont été contactées. Cela permet de trier les rappels par ordre d'intérêt." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont traités les appels des clients dont le chantier est en cours ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Leur demande est notée, rattachée au bon chantier et transmise par écrit, sans que l'équipe s'arrête. Un chantier ou un client particulier peut aussi être placé en transfert direct pendant une période sensible." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont gérés les maîtres d'œuvre et la sous-traitance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les numéros des donneurs d'ordre sont listés et leurs appels transférés directement. Pour les autres, l'identification de l'entreprise, la nature du lot et la date d'intervention souhaitée sont recueillies avant transmission." }
+        },
+        {
+          "@type": "Question",
+          "name": "Et les questions sur les aides et les subventions aux travaux ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Elles sont notées et transmises, jamais improvisées. Les dispositifs changent régulièrement et engagent la responsabilité de l'entreprise : le sujet se traite lors de la visite, pas au téléphone." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard écarte-t-il les appels de démarchage ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. Les appels commerciaux sont écartés poliment et ne sont pas transmis, ce qui représente un gain quotidien d'attention sur ce métier." }
+        }
+      ]
+    }
+  ]
+}
+</script>

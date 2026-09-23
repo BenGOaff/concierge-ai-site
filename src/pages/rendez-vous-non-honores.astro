@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/rendez-vous-non-honores.html?raw'
+---
+
+<Base
+  titre="Rendez-vous non honorés : comment réduire les lapins"
+  description="Clients ou patients qui ne viennent pas : pourquoi les rendez-vous non honorés arrivent, ce qu'ils coûtent, et 6 moyens simples de les réduire."
+  chemin="/rendez-vous-non-honores"
+  og="/images/6ab1582f2ab689.26543687_rendez-vous-non-honores.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

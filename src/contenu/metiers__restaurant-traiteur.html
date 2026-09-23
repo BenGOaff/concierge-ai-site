@@ -1,0 +1,477 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Restaurant, traiteur</span>
+<h1 style="max-width:25ch;margin:22px 0 20px">Le téléphone sonne le plus fort <em>quand personne ne peut répondre</em></h1>
+<p class="cai-lead" style="max-width:58ch">Midi quarante et vingt heures : la salle est pleine, la cuisine est en plein coup de feu, et c'est exactement là que la ligne sonne. Voici ce que deviennent ces appels, ce qu'ils valent, et la limite qu'un standard ne doit jamais franchir dans un restaurant.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Aucune allergie confirmée au téléphone, jamais</li>
+<li>Sans engagement, sept jours d'essai</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Une cheffe dresse une assiette au passe de sa cuisine, son téléphone allumé posé sur l'inox à côté d'un bon de commande" height="643" loading="eager" src="/images/6ab0123e395a28.17074804_restaurant-traiteur-permanence-telephone.webp" width="1500"/>
+<figcaption>Pendant le service, décrocher veut dire arrêter la cuisine. Et celui qui appelait voulait une table pour ce soir.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment un restaurant peut-il répondre <em>pendant le service ?</em></h2>
+</div>
+<p class="cai-say">Les appels d'un restaurant arrivent aux deux heures de la journée où personne ne peut décrocher, et celui qui cherche une table pour ce soir appelle le restaurant suivant en trente secondes. <span class="cai-key">Un standard prend les réservations et les annulations pendant le coup de feu, dans les limites de places que vous avez fixées, et ne se prononce jamais sur une allergie.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où un restaurant <em>perd des couverts</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est la journée ordinaire d'un restaurant indépendant en plein service.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>12 h 40</b>
+<p>Coup de feu. Cinq appels passent en vingt minutes. Personne ne laisse de message pour réserver une table : on appelle l'adresse suivante trouvée sur la carte.</p>
+</article>
+<article class="cai-scc">
+<b>15 h 10</b>
+<p>Une entreprise cherche un traiteur pour quarante couverts. Vous êtes aux commandes, en livraison ou en coupure. C'est l'appel le plus rentable de la semaine, et il tombe sur un répondeur.</p>
+</article>
+<article class="cai-scc">
+<b>19 h 50</b>
+<p>Une table de quatre pour ce soir, et plus tard une annulation de groupe. Le premier appel remplit la salle, le second permet de la remplir autrement, à condition de l'entendre tout de suite.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Une réservation manquée coûte un ticket. Une annulation de groupe entendue le lendemain matin coûte une soirée entière, parce que personne n'a pu reprendre les places libérées.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. LA LIMITE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le cadre</span>
+<h2>Ce qu'un standard ne fait jamais <em>dans un restaurant</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une de ces limites est plus grave que toutes les autres du site, et elle se paramètre avant même les horaires.</p>
+</div>
+<ul class="cai-list">
+<li><b>Aucune confirmation sur une allergie</b><span>Il ne dit jamais qu'un plat est sans gluten, sans arachide, sans lactose ou sans œuf. Une erreur là-dessus n'est pas un litige commercial. La demande est notée, signalée sur la réservation, et la vérification se fait en cuisine, par vous.</span></li>
+<li><b>Aucun dépassement de vos places</b><span>Le nombre de couverts par service, par créneau et par table est ce que vous avez fixé. Le standard ne prend rien au-delà, et ne promet aucune table en particulier, ni terrasse, ni salle du fond.</span></li>
+<li><b>Aucun prix improvisé sur un groupe ou une prestation traiteur</b><span>Votre carte et vos menus écrits sont confirmés tels quels. Un devis pour quarante couverts dépend du menu, du service, du matériel et de la date : la demande est recueillie avec ses éléments et vous revient.</span></li>
+<li><b>Aucun engagement sur une privatisation ou une date d'événement</b><span>Une date bloquée au téléphone sans votre accord peut vous coûter une soirée complète. Le standard note la demande et pose le rappel, il ne réserve pas la salle.</span></li>
+</ul>
+</section>
+<!-- 5. LES DEMANDES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>dans un restaurant</em></h2>
+<p class="cai-lead" style="max-width:58ch">Beaucoup de réservations, des questions répétitives, et quelques appels qui valent plusieurs services. Ces repères sont des points de départ à ajuster à votre établissement.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Traitement</th>
+<th scope="col">Ce que ça vous fait gagner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Question d'allergie ou d'intolérance</th>
+<td data-l="Traitement">Notée mot pour mot, signalée sur la réservation, aucune confirmation donnée</td>
+<td data-l="Ce que ça vous fait gagner">La cuisine vérifie, personne ne s'est engagé à sa place</td>
+</tr>
+<tr>
+<th scope="row">Réservation pour le service en cours</th>
+<td data-l="Traitement">Prise dans la limite des places que vous avez ouvertes</td>
+<td data-l="Ce que ça vous fait gagner">La table se remplit sans interrompre le service</td>
+</tr>
+<tr>
+<th scope="row">Réservation pour un autre jour</th>
+<td data-l="Traitement">Posée sur le plan de salle selon vos règles</td>
+<td data-l="Ce que ça vous fait gagner">Aucun appel perdu pendant le coup de feu</td>
+</tr>
+<tr>
+<th scope="row">Annulation ou modification du nombre de convives</th>
+<td data-l="Traitement">Prise immédiatement, places libérées dans le plan de salle</td>
+<td data-l="Ce que ça vous fait gagner">Les places reprennent de la valeur le soir même</td>
+</tr>
+<tr>
+<th scope="row">Demande de devis traiteur ou de groupe</th>
+<td data-l="Traitement">Date, nombre de couverts, type d'événement et budget recueillis, rappel posé</td>
+<td data-l="Ce que ça vous fait gagner">L'appel le plus rentable de la semaine ne se perd plus</td>
+</tr>
+<tr>
+<th scope="row">Demande de privatisation</th>
+<td data-l="Traitement">Demande notée, rappel posé, aucune date bloquée</td>
+<td data-l="Ce que ça vous fait gagner">Aucune soirée engagée sans votre accord</td>
+</tr>
+<tr>
+<th scope="row">Horaires, jours de fermeture, accès, parking</th>
+<td data-l="Traitement">Répondu à partir de ce que vous avez écrit</td>
+<td data-l="Ce que ça vous fait gagner">Les questions les plus fréquentes ne vous atteignent plus</td>
+</tr>
+<tr>
+<th scope="row">Question sur la carte, le menu du jour, les plats végétariens</th>
+<td data-l="Traitement">Répondu selon ce que vous avez fourni, sans invention</td>
+<td data-l="Ce que ça vous fait gagner">Une information juste, jamais approximative</td>
+</tr>
+<tr>
+<th scope="row">Démarchage, plateforme, fournisseur</th>
+<td data-l="Traitement">Écarté poliment</td>
+<td data-l="Ce que ça vous fait gagner">Vous n'en entendez jamais parler</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/fonctionnement">Voir comment ça se branche</a>
+</section>
+<!-- 6. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien de couverts couvrent une <em>permanence téléphonique de restaurant</em></h2>
+<p class="cai-lead" style="max-width:58ch">Divisez le coût mensuel de la solution par la valeur moyenne d'une réservation. Voici le résultat pour trois montants, à remplacer par le vôtre.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une réservation vous rapporte</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">60 € pour une table de deux</th>
+<td data-l="Télésecrétariat">3 par mois</td>
+<td data-l="Standard 24/7">5 par mois</td>
+<td data-l="Embauche">29 par mois</td>
+</tr>
+<tr>
+<th scope="row">130 € pour une table de quatre</th>
+<td data-l="Télésecrétariat">2 par mois</td>
+<td data-l="Standard 24/7">3 par mois</td>
+<td data-l="Embauche">14 par mois</td>
+</tr>
+<tr>
+<th scope="row">1 200 € pour une prestation traiteur</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">1 par mois</td>
+<td data-l="Embauche">2 par mois</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur. Les trois montants sont des exemples de calcul, pas une moyenne de marché : remplacez-les par votre ticket réel. Sur la dernière ligne, une seule prestation de groupe récupérée dans le mois suffit : c'est la raison pour laquelle les établissements qui font du traiteur ou du séminaire franchissent le seuil les premiers.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 7. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Une table pour ce soir demandée à 19 h 50, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Quatre personnes cherchent une table pour le soir même, en plein service. Voici ce qu'elles obtiennent.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Réservation en ligne</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un a répondu</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Réservation en ligne">Non, il faut passer par le site</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">La table est réservée</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Réservation en ligne">Seulement s'ils vont sur le site</td>
+<td data-l="Standard 24/7">Oui, dans vos places disponibles</td>
+</tr>
+<tr>
+<th scope="row">L'allergie annoncée est transmise en cuisine</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Réservation en ligne">Dans un champ libre, si quelqu'un le lit</td>
+<td data-l="Standard 24/7">Oui, notée et signalée sur la réservation</td>
+</tr>
+<tr>
+<th scope="row">Le service a été interrompu</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Réservation en ligne">Non</td>
+<td data-l="Standard 24/7">Non</td>
+</tr>
+<tr>
+<th scope="row">À vingt et une heures</th>
+<td data-l="Répondeur">Ils dînent ailleurs</td>
+<td data-l="Réservation en ligne">Peut-être chez vous</td>
+<td data-l="Standard 24/7">Ils sont à table</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 8. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions de restaurateurs sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Et si un client annonce une allergie ?</summary>
+<div class="cai-ans"><p>Rien n'est confirmé, jamais. Le standard ne dit pas qu'un plat est sans gluten, sans arachide ou sans lactose, même si l'information figure sur votre carte : une préparation dépend du service, du jour et de la cuisine.</p><p>Ce qu'il fait : noter la demande mot pour mot, la signaler sur la réservation, et dire que la cuisine reviendra vers la personne ou vérifiera à son arrivée. La responsabilité reste là où elle doit être, en cuisine.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il risque de surbooker ma salle ?</summary>
+<div class="cai-ans"><p>Non, parce qu'il ne travaille que dans ce que vous avez ouvert : nombre de couverts par service, par créneau, taille des tables, durée d'occupation, dernier service. Au-delà, il propose un autre horaire ou un autre jour.</p><p>C'est le paramétrage qui demande le plus d'attention au démarrage, et c'est aussi ce qui fait qu'un plan de salle tient.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut chiffrer une prestation traiteur ?</summary>
+<div class="cai-ans"><p>Non. Un devis dépend du menu, du nombre de couverts, du service, du matériel et de la date. Aucun montant n'est avancé.</p><p>Ce qu'il fait, et qui vous fait gagner le premier échange : recueillir la date, le nombre de couverts, le type d'événement et le budget annoncé, puis poser votre rappel. Vous rappelez avec l'essentiel déjà écrit.</p></div>
+</details>
+<details>
+<summary>J'ai déjà la réservation en ligne, ça sert à quoi ?</summary>
+<div class="cai-ans"><p>À couvrir ce qu'elle ne couvre pas : les gens qui appellent au lieu de réserver en ligne, les annulations de dernière minute, les demandes de groupe et de traiteur, et toutes les questions qui ne rentrent pas dans un formulaire.</p><p>Si votre ligne ne sonne presque plus parce que tout passe par la réservation en ligne, ce service ne vous apportera pas grand-chose. Sept jours sur votre vraie ligne vous le diront.</p></div>
+</details>
+<details>
+<summary>Comment il gère les annulations pendant le service ?</summary>
+<div class="cai-ans"><p>Il les prend à la seconde où elles arrivent et libère les places dans le plan de salle. Sur un groupe annulé à vingt et une heures, c'est ce qui permet de reprendre des couverts le soir même au lieu de le découvrir le lendemain matin.</p></div>
+</details>
+<details>
+<summary>J'ai quelqu'un en salle qui décroche, ça sert à quoi ?</summary>
+<div class="cai-ans"><p>À prendre ce qu'il ne peut pas prendre : le deuxième appel pendant qu'il est déjà en ligne, les vingt minutes de rush où la ligne sonne cinq fois, la coupure de l'après-midi, le jour de fermeture et les heures tardives où se demandent les privatisations.</p><p>Les établissements qui ont quelqu'un en salle s'en servent en renfort sur ces créneaux, pas en remplacement.</p></div>
+</details>
+</div>
+</section>
+<!-- 9. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:23ch">Celui qui cherche une table ce soir <em>n'attend pas votre rappel</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront combien d'appels passaient pendant les deux services, combien d'annulations arrivaient trop tard et combien de demandes de groupe se perdaient. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas la restauration ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/restaurant-traiteur#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/restaurant-traiteur",
+      "name": "Permanence téléphonique restaurant et traiteur 24 h/24",
+      "description": "Réservations pendant le coup de feu, annulations, devis de groupe : ce que deviennent vos appels quand la salle est pleine. Coûts comparés et limites à poser.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/restaurant-traiteur#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/restaurant-traiteur#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/restaurant-traiteur#metier",
+      "name": "Permanence téléphonique pour restaurant et traiteur",
+      "serviceType": "Permanence téléphonique, prise de réservation et recueil des demandes de groupe pour restaurants et traiteurs",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Restaurateurs indépendants et traiteurs de petite structure"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/restaurant-traiteur#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Restaurant, traiteur" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/restaurant-traiteur#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/restaurant-traiteur#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Que répond un standard téléphonique quand un client annonce une allergie alimentaire ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Rien n'est confirmé. Le standard ne dit jamais qu'un plat est sans gluten, sans arachide ou sans lactose, même si l'information figure sur la carte, une préparation dépendant du service et du jour. Il note la demande mot pour mot, la signale sur la réservation et annonce que la cuisine vérifiera. La responsabilité reste en cuisine." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique risque-t-il de surbooker la salle d'un restaurant ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non : il ne travaille que dans ce que le restaurant a ouvert, soit le nombre de couverts par service et par créneau, la taille des tables, la durée d'occupation et l'heure du dernier service. Au-delà, il propose un autre horaire ou un autre jour. C'est le paramétrage qui demande le plus d'attention au démarrage." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il chiffrer une prestation traiteur ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Un devis dépend du menu, du nombre de couverts, du service, du matériel et de la date, et aucun montant n'est avancé. Le standard recueille la date, le nombre de couverts, le type d'événement et le budget annoncé, puis pose le rappel." }
+        },
+        {
+          "@type": "Question",
+          "name": "À quoi sert une permanence téléphonique quand un restaurant a déjà la réservation en ligne ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Elle couvre ce que la réservation en ligne ne couvre pas : les clients qui appellent, les annulations de dernière minute, les demandes de groupe et de traiteur, et les questions qui ne rentrent pas dans un formulaire. Si la ligne ne sonne presque plus, le service apporte peu : un essai de sept jours le montre." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont gérées les annulations pendant le service d'un restaurant ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Elles sont prises à la seconde où elles arrivent et les places sont libérées dans le plan de salle. Sur un groupe annulé en soirée, cela permet de reprendre des couverts le soir même au lieu de le découvrir le lendemain matin." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il choisir entre une personne en salle et un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les deux se complètent. Le standard prend le deuxième appel simultané, les vingt minutes de rush où la ligne sonne cinq fois, la coupure de l'après-midi, le jour de fermeture et les heures tardives où se demandent les privatisations. Les établissements qui ont quelqu'un en salle s'en servent en renfort, pas en remplacement." }
+        }
+      ]
+    }
+  ]
+}
+</script>

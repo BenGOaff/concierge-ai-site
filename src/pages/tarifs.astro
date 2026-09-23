@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/tarifs.html?raw'
+---
+
+<Base
+  titre="Tarifs Concierge AI : 297, 497 ou 997 € par mois"
+  description="Les trois formules détaillées, les frais d'installation, l'essai de 7 jours, et combien d'interventions récupérées suffisent à couvrir l'abonnement."
+  chemin="/tarifs"
+  og="/images/6aafddd4b8e451.09097643_tarifs-concierge-ai.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

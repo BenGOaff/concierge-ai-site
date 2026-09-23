@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/mentions-legales.html?raw'
+---
+
+<Base
+  titre="Mentions légales"
+  description="Éditeur, hébergeur, propriété intellectuelle et transparence sur l'affiliation du site concierge-ai.fr."
+  chemin="/mentions-legales"
+  og="/images/6aafaedf5f3426.07202866_og-site.webp"
+>
+  <Fragment set:html={contenu} />
+</Base>

@@ -1,0 +1,423 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- les trois niveaux --- */
+.cai .cai-niv{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-nc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px);display:flex;flex-direction:column}
+.cai .cai-nc--1{border-color:#F5C6C6;background:linear-gradient(170deg,#FFF6F6 0%,#FFFFFF 62%)}
+.cai .cai-nc--3{border-color:#CBEFDB;background:linear-gradient(170deg,#F4FDF8 0%,#FFFFFF 62%)}
+.cai .cai-nc-t{display:inline-flex;align-self:flex-start;font:600 .68rem/1 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;border-radius:99px;padding:8px 13px;margin-bottom:18px;background:var(--soft);color:var(--mute)}
+.cai .cai-nc--1 .cai-nc-t{background:#FBE3E3;color:#9B2C2C}
+.cai .cai-nc--3 .cai-nc-t{background:#E2FBEC;color:var(--gd)}
+.cai .cai-nc h3{font-size:1.14rem;line-height:1.4;margin:0 0 12px}
+.cai .cai-nc p{font-size:.97rem;line-height:1.7;color:var(--grey);margin:0 0 18px;flex:1}
+.cai .cai-nc-a{font:600 .88rem/1.5 'Inter',sans-serif;color:var(--ink);padding-top:16px;border-top:1px solid var(--line)}
+@media(min-width:860px){.cai .cai-niv{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- erreurs --- */
+.cai .cai-err{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,20px)}
+.cai .cai-ec{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(24px,2.8vw,32px)}
+.cai .cai-ec h3{font-size:1.04rem;line-height:1.45;margin:0 0 12px}
+.cai .cai-ec p{font-size:.96rem;line-height:1.7;color:var(--grey);margin:0}
+@media(min-width:760px){.cai .cai-err{grid-template-columns:repeat(2,1fr)}}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- les trois niveaux --- */
+.cai .cai-niv{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-nc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px);display:flex;flex-direction:column}
+.cai .cai-nc--1{border-color:#F5C6C6;background:linear-gradient(170deg,#FFF6F6 0%,#FFFFFF 62%)}
+.cai .cai-nc--3{border-color:#CBEFDB;background:linear-gradient(170deg,#F4FDF8 0%,#FFFFFF 62%)}
+.cai .cai-nc-t{display:inline-flex;align-self:flex-start;font:600 .68rem/1 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;border-radius:99px;padding:8px 13px;margin-bottom:18px;background:var(--soft);color:var(--mute)}
+.cai .cai-nc--1 .cai-nc-t{background:#FBE3E3;color:#9B2C2C}
+.cai .cai-nc--3 .cai-nc-t{background:#E2FBEC;color:var(--gd)}
+.cai .cai-nc h3{font-size:1.14rem;line-height:1.4;margin:0 0 12px}
+.cai .cai-nc p{font-size:.97rem;line-height:1.7;color:var(--grey);margin:0 0 18px;flex:1}
+.cai .cai-nc-a{font:600 .88rem/1.5 'Inter',sans-serif;color:var(--ink);padding-top:16px;border-top:1px solid var(--line)}
+@media(min-width:860px){.cai .cai-niv{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- erreurs --- */
+.cai .cai-err{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,20px)}
+.cai .cai-ec{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(24px,2.8vw,32px)}
+.cai .cai-ec h3{font-size:1.04rem;line-height:1.45;margin:0 0 12px}
+.cai .cai-ec p{font-size:.96rem;line-height:1.7;color:var(--grey);margin:0}
+@media(min-width:760px){.cai .cai-err{grid-template-columns:repeat(2,1fr)}}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Guide · astreinte</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Quelles urgences méritent <em>de vous déranger ?</em></h1>
+<p class="cai-lead" style="max-width:58ch">Être réveillé pour un devis, et rater l'appel qui comptait vraiment. Le problème n'est pas le volume d'appels, c'est l'absence de filtre entre les deux. Voici comment écrire le vôtre.</p>
+<ul class="cai-tick">
+<li>Trois niveaux d'urgence, et ce qu'on fait de chacun</li>
+<li>Les déclencheurs réels, métier par métier</li>
+<li>Les quatre erreurs qui rendent un filtre inutile</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un artisan chez lui pendant le week-end, son téléphone professionnel posé à côté de lui" height="1024" loading="eager" src="/images/6aafba17340dc0.95826110_accueil-weekend.webp" width="1536"/>
+<figcaption>Un dimanche sur deux, l'appel qui vous a interrompu pouvait attendre le lundi.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Qu'est-ce qu'une vraie urgence <em>en astreinte ?</em></h2>
+</div>
+<p class="cai-say">Une vraie urgence est une situation où un délai de quelques heures aggrave le dommage, met une personne en difficulté ou rend l'intervention plus coûteuse. <span class="cai-key">Tout le reste est une demande prioritaire ou une demande planifiable, et se traite sans vous déranger.</span></p>
+<div class="cai-niv">
+<article class="cai-nc cai-nc--1">
+<span class="cai-nc-t">Niveau 1</span>
+<h3>Urgence réelle</h3>
+<p>Le dommage s'aggrave à chaque heure qui passe, ou une personne est en difficulté immédiate. Une fuite active, un tableau qui chauffe, quelqu'un enfermé dehors la nuit, un animal en détresse respiratoire.</p>
+<div class="cai-nc-a">Transfert direct sur votre portable, à n'importe quelle heure.</div>
+</article>
+<article class="cai-nc">
+<span class="cai-nc-t">Niveau 2</span>
+<h3>Demande prioritaire</h3>
+<p>Rien ne s'aggrave dans l'immédiat, mais la personne a besoin d'une réponse rapide et ira voir ailleurs si elle ne l'obtient pas. Une panne gênante mais contenue, un rendez-vous à avancer, un chantier bloqué.</p>
+<div class="cai-nc-a">Créneau posé au plus tôt, résumé envoyé, aucun appel vers vous.</div>
+</article>
+<article class="cai-nc cai-nc--3">
+<span class="cai-nc-t">Niveau 3</span>
+<h3>Demande planifiable</h3>
+<p>Un devis, une question de tarif, une prise de rendez-vous ordinaire, une demande hors zone ou hors compétence. C'est la majorité de vos appels, y compris le soir et le week-end.</p>
+<div class="cai-nc-a">Traité sans vous. Vous lisez le résumé quand vous avez fini.</div>
+</article>
+</div>
+</section>
+<!-- 3. LES DÉCLENCHEURS PAR MÉTIER -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Par métier</span>
+<h2>Ce qui justifie un transfert immédiat, <em>métier par métier</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une urgence de plombier n'est pas une urgence de kinésithérapeute. Ces déclencheurs sont des points de départ à adapter à votre activité, pas une norme.</p>
+</div>
+<table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Métier</th>
+<th scope="col">Transfert immédiat</th>
+<th scope="col">Peut attendre un créneau</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Plombier, chauffagiste</th>
+<td data-l="Transfert immédiat">Fuite active, dégât des eaux, plus de chauffage en hiver</td>
+<td data-l="Peut attendre">Devis salle de bain, remplacement de chauffe-eau programmé</td>
+</tr>
+<tr>
+<th scope="row">Électricien</th>
+<td data-l="Transfert immédiat">Odeur de brûlé, tableau qui chauffe, coupure totale</td>
+<td data-l="Peut attendre">Mise aux normes, devis de rénovation, prise défectueuse</td>
+</tr>
+<tr>
+<th scope="row">Serrurier</th>
+<td data-l="Transfert immédiat">Personne enfermée, enfant seul à l'intérieur, porte qui ne ferme plus après effraction</td>
+<td data-l="Peut attendre">Changement de cylindre, devis blindage, double de clé</td>
+</tr>
+<tr>
+<th scope="row">Garage, carrosserie</th>
+<td data-l="Transfert immédiat">Véhicule immobilisé sur la voie publique</td>
+<td data-l="Peut attendre">Devis réparation, révision, rendez-vous carrosserie</td>
+</tr>
+<tr>
+<th scope="row">Cabinet dentaire</th>
+<td data-l="Transfert immédiat">Dent cassée, abcès, saignement qui ne s'arrête pas</td>
+<td data-l="Peut attendre">Contrôle annuel, devis prothèse, détartrage</td>
+</tr>
+<tr>
+<th scope="row">Vétérinaire</th>
+<td data-l="Transfert immédiat">Animal renversé, détresse respiratoire, suspicion d'intoxication</td>
+<td data-l="Peut attendre">Vaccin, suivi post-opératoire, conseil alimentaire</td>
+</tr>
+<tr>
+<th scope="row">Kiné, ostéopathe</th>
+<td data-l="Transfert immédiat">Blocage aigu, suite immédiate d'accident</td>
+<td data-l="Peut attendre">Première consultation, renouvellement de séances, annulation</td>
+</tr>
+<tr>
+<th scope="row">Avocat, juriste</th>
+<td data-l="Transfert immédiat">Garde à vue, délai de recours qui expire</td>
+<td data-l="Peut attendre">Première demande, question d'honoraires, suivi de dossier</td>
+</tr>
+<tr>
+<th scope="row">Coiffeur, institut, restaurant</th>
+<td data-l="Transfert immédiat">Rien ne justifie d'interrompre une prestation ou un service</td>
+<td data-l="Peut attendre">Réservation, annulation, tarifs, disponibilités</td>
+</tr>
+</tbody>
+</table>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Les métiers de soin et les professions réglementées ont des obligations propres, notamment en matière de secret professionnel et de continuité des soins. Vérifiez ce que votre ordre ou votre convention impose avant de déléguer la prise d'appels.</p>
+</section>
+<!-- 4. ÉCRIRE SES RÈGLES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Méthode</span>
+<h2>Écrire vos règles d'astreinte <em>en cinq étapes</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une demi-heure, une feuille, et vous n'y revenez plus qu'une fois par an.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Listez vos dix dernières vraies urgences.</strong> Pas les urgences théoriques : celles pour lesquelles vous vous êtes réellement déplacé en dehors de vos horaires ces six derniers mois. Elles donnent vos déclencheurs.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Listez les dix derniers dérangements pour rien.</strong> Les appels qui vous ont coupé et qui pouvaient attendre. Ils donnent vos exclusions, et elles valent autant que les déclencheurs.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Écrivez chaque règle en situation, pas en mot-clé.</strong> « Fuite d'eau » seul ne veut rien dire : un robinet qui goutte et un plafond qui s'effondre sont deux appels très différents. Écrivez « de l'eau s'écoule et ne peut pas être coupée ».</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Fixez vos plages.</strong> Une même demande peut être urgente à 22 h et ordinaire à 10 h, parce qu'à 10 h vous pouvez rappeler dans l'heure. Définissez vos règles par créneau, pas seulement par motif.</p></div>
+<div class="cai-beat"><b>5</b><p><strong>Relisez après un mois.</strong> Vous verrez tout de suite si vous avez été transféré pour rien, ou si une vraie urgence est passée en demande planifiable. C'est le seul réglage qui compte vraiment.</p></div>
+</div>
+<a class="cai-more" href="/fonctionnement">Comment ces règles sont appliquées à l'appel</a>
+</section>
+<!-- 5. LES ERREURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">À éviter</span>
+<h2>Quatre erreurs qui rendent <em>un filtre d'astreinte inutile</em></h2>
+</div>
+<div class="cai-err">
+<article class="cai-ec">
+<h3>Tout classer en urgent</h3>
+<p>Par peur de rater quelque chose, on coche tout. Le filtre ne filtre plus rien et vous êtes dérangé autant qu'avant, avec une facture en plus. Un bon filtre laisse passer moins d'un appel sur dix vers vous.</p>
+</article>
+<article class="cai-ec">
+<h3>Déclencher sur des mots isolés</h3>
+<p>Un filtre qui réagit au mot « urgent » transfère tous les appels, puisque tout le monde dit que c'est urgent. Ce sont les situations décrites qui doivent déclencher, pas le vocabulaire employé.</p>
+</article>
+<article class="cai-ec">
+<h3>Oublier la sortie de secours</h3>
+<p>Il existe toujours un cas que vous n'aviez pas prévu. Prévoyez une règle par défaut : en cas de doute sur une situation grave, on transfère. Mieux vaut un appel de trop que le mauvais appel manqué.</p>
+</article>
+<article class="cai-ec">
+<h3>Ne jamais relire ses règles</h3>
+<p>Votre activité change, votre zone change, votre tolérance change. Des règles écrites une fois et jamais relues finissent par transférer les mauvais appels. Une relecture par an suffit.</p>
+</article>
+</div>
+</section>
+<!-- 6. LE COÛT D'UN MAUVAIS TRI -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les deux risques</span>
+<h2>Ce que coûte un mauvais tri, <em>dans les deux sens</em></h2>
+</div>
+<table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Erreur de tri</th>
+<th scope="col">Ce que ça vous coûte</th>
+<th scope="col">Comment l'éviter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Une demande ordinaire transférée</th>
+<td data-l="Ce que ça coûte">Une nuit hachée, une soirée coupée, et l'impression que rien n'a changé</td>
+<td data-l="Comment l'éviter">Des exclusions écrites aussi précisément que les déclencheurs</td>
+</tr>
+<tr>
+<th scope="row">Une vraie urgence planifiée</th>
+<td data-l="Ce que ça coûte">Un client qui appelle le concurrent, et parfois un dommage aggravé</td>
+<td data-l="Comment l'éviter">Une règle par défaut qui transfère en cas de doute sur la gravité</td>
+</tr>
+<tr>
+<th scope="row">Des règles trop générales</th>
+<td data-l="Ce que ça coûte">Les deux erreurs en même temps, en alternance</td>
+<td data-l="Comment l'éviter">Des règles écrites en situations concrètes, pas en catégories</td>
+</tr>
+</tbody>
+</table>
+<a class="cai-more" href="/demonstration">Entendre comment un appel est qualifié</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions sur l'astreinte <em>et le tri des urgences</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Comment définir une urgence dans mon métier ?</summary>
+<div class="cai-ans"><p>Une situation est urgente si attendre quelques heures aggrave le dommage, met une personne en difficulté, ou rend l'intervention plus coûteuse. Le test le plus fiable reste concret : reprenez les dix dernières fois où vous vous êtes déplacé en dehors de vos horaires, et regardez ce que ces situations avaient en commun.</p></div>
+</details>
+<details>
+<summary>Faut-il être joignable 24 h/24 quand on est artisan ?</summary>
+<div class="cai-ans"><p>Votre ligne doit répondre 24 h/24, vous non. C'est la distinction que beaucoup d'indépendants ne font pas : l'appelant veut une réponse immédiate, pas nécessairement vous. Une demande prise en charge, qualifiée et planifiée à 22 h est une demande satisfaite, même si vous dormiez.</p></div>
+</details>
+<details>
+<summary>Un filtre d'astreinte peut-il se tromper ?</summary>
+<div class="cai-ans"><p>Oui, comme une personne. C'est pourquoi une règle par défaut est indispensable : en cas de doute sur une situation potentiellement grave, l'appel est transféré. L'objectif n'est pas zéro transfert inutile, c'est zéro vraie urgence manquée.</p></div>
+</details>
+<details>
+<summary>Comment facturer une intervention d'astreinte ?</summary>
+<div class="cai-ans"><p>La majoration de nuit, de week-end ou de jour férié doit être annoncée avant le déplacement, et figurer sur le devis ou l'ordre de réparation. Si votre accueil téléphonique annonce des tarifs, faites-lui annoncer une fourchette que vous avez validée, jamais un prix ferme.</p></div>
+</details>
+<details>
+<summary>Les professions de santé peuvent-elles déléguer leurs appels ?</summary>
+<div class="cai-ans"><p>C'est un cadre à vérifier auprès de votre ordre professionnel. Le secret médical, l'obligation d'information et les règles de continuité des soins s'appliquent aussi aux appels entrants, et elles varient selon la profession et le mode d'exercice.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Vos règles décident. <em>Pas votre téléphone.</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Un standard qui applique vos critères transfère les vraies urgences sur votre portable et planifie le reste. Sept jours suffisent pour voir ce qui aurait mérité de vous réveiller, et ce qui ne le méritait pas.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/fonctionnement">Voir le fonctionnement</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/demonstration">Écouter un appel réel</a></li>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/calculateur">Calculer ce que je perds</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.concierge-ai.fr/guides/astreinte-et-tri-des-urgences#article",
+      "headline": "Astreinte : quelles urgences méritent de vous déranger",
+      "description": "Trois niveaux d'urgence, les déclencheurs métier par métier, et la méthode pour écrire les règles qui décident ce qui vous réveille et ce qui attend.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-20",
+      "dateModified": "2026-09-20",
+      "mainEntityOfPage": { "@id": "https://www.concierge-ai.fr/guides/astreinte-et-tri-des-urgences#webpage" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/guides/astreinte-et-tri-des-urgences#webpage",
+      "url": "https://www.concierge-ai.fr/guides/astreinte-et-tri-des-urgences",
+      "name": "Astreinte : quelles urgences méritent de vous déranger",
+      "description": "Trois niveaux d'urgence, les déclencheurs métier par métier, et comment écrire les règles qui décident ce qui vous réveille et ce qui attend.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/guides/astreinte-et-tri-des-urgences#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/guides/astreinte-et-tri-des-urgences#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.concierge-ai.fr/guides" },
+        { "@type": "ListItem", "position": 3, "name": "Astreinte et tri des urgences" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.concierge-ai.fr/guides/astreinte-et-tri-des-urgences#howto",
+      "name": "Écrire ses règles d'astreinte et de tri des urgences",
+      "description": "Méthode en cinq étapes pour définir ce qui justifie un appel immédiat et ce qui peut être planifié, dans un métier d'intervention.",
+      "inLanguage": "fr-FR",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Lister ses dix dernières vraies urgences", "text": "Reprendre les situations pour lesquelles un déplacement a réellement eu lieu en dehors des horaires sur les six derniers mois. Elles donnent les déclencheurs." },
+        { "@type": "HowToStep", "position": 2, "name": "Lister les dix derniers dérangements inutiles", "text": "Recenser les appels qui ont interrompu sans raison valable. Ils donnent les exclusions, aussi importantes que les déclencheurs." },
+        { "@type": "HowToStep", "position": 3, "name": "Écrire chaque règle en situation", "text": "Décrire une situation concrète plutôt qu'un mot-clé : « de l'eau s'écoule et ne peut pas être coupée » plutôt que « fuite d'eau »." },
+        { "@type": "HowToStep", "position": 4, "name": "Fixer les plages horaires", "text": "Une même demande peut être urgente à 22 heures et ordinaire à 10 heures. Les règles se définissent par créneau autant que par motif." },
+        { "@type": "HowToStep", "position": 5, "name": "Relire après un mois", "text": "Vérifier si des transferts inutiles ont eu lieu, ou si une vraie urgence a été planifiée à tort, puis corriger les règles." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/guides/astreinte-et-tri-des-urgences#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/guides/astreinte-et-tri-des-urgences#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment définir une urgence dans son métier ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une situation est urgente si attendre quelques heures aggrave le dommage, met une personne en difficulté ou rend l'intervention plus coûteuse. Le test le plus fiable consiste à reprendre les dix derniers déplacements effectués hors horaires et à chercher ce que ces situations avaient en commun." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il être joignable 24 h/24 quand on est artisan ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La ligne doit répondre 24 h/24, la personne non. L'appelant veut une réponse immédiate, pas nécessairement le dirigeant. Une demande prise en charge, qualifiée et planifiée à 22 heures est une demande satisfaite." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un filtre d'astreinte peut-il se tromper ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, comme une personne. Une règle par défaut est donc indispensable : en cas de doute sur une situation potentiellement grave, l'appel est transféré. L'objectif n'est pas zéro transfert inutile mais zéro vraie urgence manquée." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment facturer une intervention d'astreinte ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La majoration de nuit, de week-end ou de jour férié doit être annoncée avant le déplacement et figurer sur le devis ou l'ordre de réparation. Un accueil téléphonique qui annonce des tarifs doit donner une fourchette validée, jamais un prix ferme." }
+        },
+        {
+          "@type": "Question",
+          "name": "Les professions de santé peuvent-elles déléguer leurs appels ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "C'est un cadre à vérifier auprès de l'ordre professionnel concerné. Le secret médical, l'obligation d'information et les règles de continuité des soins s'appliquent aussi aux appels entrants et varient selon la profession et le mode d'exercice." }
+        }
+      ]
+    }
+  ]
+}
+</script>

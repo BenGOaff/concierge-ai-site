@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/politique-de-cookies.html?raw'
+---
+
+<Base
+  titre="Politique de cookies"
+  description="Les traceurs déposés sur ce site, par qui, pour combien de temps, et comment modifier votre choix à tout moment."
+  chemin="/politique-de-cookies"
+  og="/images/6aafaedf5f3426.07202866_og-site.webp"
+>
+  <Fragment set:html={contenu} />
+</Base>

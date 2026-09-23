@@ -1,0 +1,499 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.5rem,2.9vw,2.1rem)}
+.cai .cai-head h2{max-width:28ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+.cai .cai-faq{margin-top:clamp(28px,3.2vw,36px)}
+.cai .cai-nav{margin-top:clamp(34px,3.8vw,44px);display:flex;flex-wrap:wrap;gap:9px}
+.cai .cai-nav a{display:inline-flex;font:600 .88rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.78);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:11px 16px;text-decoration:none;transition:border-color .16s}
+.cai .cai-nav a:hover{border-color:rgba(10,37,64,.3)}
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+/* --- opérateurs compatibles --- */
+.cai .cai-ope-logos{display:block;width:100%;max-width:100%;height:auto;margin:22px 0 0}
+.cai .cai-ope-duo{display:none}
+.cai .cai-ope-fine{font-size:.8rem;line-height:1.5;color:var(--mute);margin:14px 0 0}
+@media(max-width:640px){
+  .cai .cai-ope-logos{display:none}
+  .cai .cai-ope-duo{display:grid;gap:12px;margin-top:20px}
+  .cai .cai-ope-duo span{display:block;width:100%;max-width:100%;aspect-ratio:750/214;background:url('https://d1yei2z3i6k35z.cloudfront.net/473100/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp') 0 0/200% 100% no-repeat}
+  .cai .cai-ope-duo span+span{background-position:100% 0}
+}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.5rem,2.9vw,2.1rem)}
+.cai .cai-head h2{max-width:28ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+.cai .cai-faq{margin-top:clamp(28px,3.2vw,36px)}
+.cai .cai-nav{margin-top:clamp(34px,3.8vw,44px);display:flex;flex-wrap:wrap;gap:9px}
+.cai .cai-nav a{display:inline-flex;font:600 .88rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.78);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:11px 16px;text-decoration:none;transition:border-color .16s}
+.cai .cai-nav a:hover{border-color:rgba(10,37,64,.3)}
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+/* --- opérateurs compatibles --- */
+.cai .cai-ope-logos{display:block;width:100%;max-width:100%;height:auto;margin:22px 0 0}
+.cai .cai-ope-duo{display:none}
+.cai .cai-ope-fine{font-size:.8rem;line-height:1.5;color:var(--mute);margin:14px 0 0}
+@media(max-width:640px){
+  .cai .cai-ope-logos{display:none}
+  .cai .cai-ope-duo{display:grid;gap:12px;margin-top:20px}
+  .cai .cai-ope-duo span{display:block;width:100%;max-width:100%;aspect-ratio:750/214;background:url('/images/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp') 0 0/200% 100% no-repeat}
+  .cai .cai-ope-duo span+span{background-position:100% 0}
+}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Questions fréquentes</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Tout ce qu'on nous demande <em>avant de se lancer</em></h1>
+<p class="cai-lead" style="max-width:58ch">Vingt questions, posées comme vous les posez. Sur ce que vos clients vont entendre, sur ce qui est dit à votre place, sur les urgences, sur le prix, et sur ce qu'il advient de vos données.</p>
+<ul class="cai-tick">
+<li>Sans engagement de durée, résiliation sans justification</li>
+<li>Vous gardez votre numéro, aucune démarche chez votre opérateur</li>
+<li>Rien à installer, rien à apprendre, en service sous 48 h</li>
+<li>Les prix sont affichés, 24 h/24 et 7 j/7, sept jours d'essai</li>
+</ul>
+<nav aria-label="Sommaire des questions" class="cai-nav">
+<a href="#cai-faq-clients">Ce que vos clients vont vivre au téléphone</a>
+<a href="#cai-faq-controle">Ce qui est dit à votre place</a>
+<a href="#cai-faq-urgences">Les urgences et l'astreinte</a>
+<a href="#cai-faq-branchement">Le branchement sur votre ligne</a>
+<a href="#cai-faq-prix">Le prix, l'engagement et la facture</a>
+<a href="#cai-faq-deja">Si vous avez déjà une solution</a>
+<a href="#cai-faq-donnees">Vos données et votre métier</a>
+</nav>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Les trois questions qui reviennent <em>le plus souvent</em></h2>
+</div>
+<p class="cai-say">Vos clients ne parlent pas à une machine qui se fait passer pour vous, et votre téléphone sonne toujours en premier. <span class="cai-key">Vous gardez votre numéro, vous fixez les règles, et vous arrêtez quand vous voulez.</span></p>
+</section>
+<!-- Ce que vos clients vont vivre au téléphone -->
+<section class="cai-box" id="cai-faq-clients">
+<div class="cai-head">
+<h2>Ce que vos clients vont vivre au téléphone</h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Mes clients vont tomber sur un robot, ça va les faire fuir ?</summary>
+<div class="cai-ans"><p>Ce que vos clients supportent mal, c'est la sonnerie dans le vide et le rappel qui n'arrive jamais. Quelqu'un qui cherche un professionnel en urgence ne laisse pas de message : il raccroche et compose le numéro suivant.</p><p>Le standard annonce le nom de votre entreprise et se présente comme son accueil. Il écoute une demande formulée librement, sans menu à touches, et il donne une réponse claire en deux minutes. Le meilleur moyen de trancher reste d'écouter un appel réel plutôt que d'en débattre.</p></div>
+</details>
+<details>
+<summary>Et si l'appelant veut absolument me parler à moi ?</summary>
+<div class="cai-ans"><p>Si vous êtes disponible, vous décrochez : votre téléphone sonne en premier et l'appel ne bascule jamais. Le standard n'intervient que sur les appels que vous n'avez pas pris.</p><p>Quand la demande correspond à ce que vous avez défini comme urgent, l'appel vous est transféré en direct sur votre portable. Sinon, la demande est qualifiée, le créneau est posé, et vous recevez le résumé écrit.</p></div>
+</details>
+<details>
+<summary>Est-ce que mes clients vont comprendre que ce n'est pas un humain ?</summary>
+<div class="cai-ans"><p>Le standard ne se fait pas passer pour vous et ne prétend pas être un membre humain de votre équipe. C'est une question de confiance avec vos clients, et à partir du 2 août 2026 une obligation européenne au titre de l'article 50 du règlement sur l'intelligence artificielle.</p><p>L'argument n'est pas la discrétion : c'est qu'une réponse immédiate à 22 heures vaut mieux qu'un répondeur, même quand elle vient d'une machine annoncée comme telle.</p></div>
+</details>
+</div>
+</section>
+<!-- Ce qui est dit à votre place -->
+<section class="cai-box" id="cai-faq-controle">
+<div class="cai-head">
+<h2>Ce qui est dit à votre place</h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Je ne veux pas que ça raconte n'importe quoi à ma place</summary>
+<div class="cai-ans"><p>Rien n'est dit que vous n'ayez validé. Lors de l'appel de cadrage de trente minutes, vous donnez vos tarifs indicatifs, votre zone d'intervention, vos horaires, les questions qu'on vous pose dix fois par jour et les demandes que vous refusez.</p><p>Le standard applique ces règles sans les interpréter. Quand il ne sait pas répondre, il le dit et transmet la demande plutôt que d'inventer.</p></div>
+</details>
+<details>
+<summary>Et s'il annonce un prix que je ne peux pas tenir ?</summary>
+<div class="cai-ans"><p>Il n'annonce aucune fourchette que vous n'avez pas écrite, et jamais de prix ferme, de devis ou d'engagement. C'est la règle la plus importante à fixer au cadrage, parce qu'une phrase de trop sur un tarif peut coûter un litige.</p><p>Même chose pour les délais : aucun engagement d'intervention qui ne tiendrait pas compte de votre agenda réel.</p></div>
+</details>
+<details>
+<summary>Comment je sais ce qui s'est dit pendant que je travaillais ?</summary>
+<div class="cai-ans"><p>Vous recevez une notification par e-mail après chaque appel dès la formule d'entrée, et le résumé écrit complet à partir de la formule Growth : qui a appelé, pourquoi, avec quelles coordonnées et quel niveau d'urgence.</p><p>Un rapport de performance mensuel vous dit combien d'appels ont été traités et ce qu'ils sont devenus. C'est aussi la première fois que vous voyez le volume réel de vos appels hors horaires.</p></div>
+</details>
+</div>
+</section>
+<!-- Les urgences et l'astreinte -->
+<section class="cai-box" id="cai-faq-urgences">
+<div class="cai-head">
+<h2>Les urgences et l'astreinte</h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Et si quelqu'un appelle pour une vraie urgence ?</summary>
+<div class="cai-ans"><p>Les critères d'urgence sont définis avec vous, à partir de vos propres mots et de votre métier. Quand la situation décrite correspond à l'un d'eux, l'appel est transféré en direct sur votre portable, à n'importe quelle heure.</p><p>Le transfert d'urgence est disponible à partir de la formule Growth.</p></div>
+</details>
+<details>
+<summary>Je veux être dérangé seulement quand c'est vraiment urgent</summary>
+<div class="cai-ans"><p>C'est exactement ce que fait le tri. Une fuite active, un tableau qui chauffe ou une personne enfermée dehors vous parviennent ; un devis de salle de bain ou une demande de tarif sont planifiés sans vous.</p><p>Ce qui fait la qualité du filtre, ce sont vos exclusions autant que vos déclencheurs : la liste de ce qui ne doit jamais vous réveiller compte autant que la liste de ce qui le doit.</p></div>
+</details>
+</div>
+</section>
+<!-- Le branchement sur votre ligne -->
+<section class="cai-box" id="cai-faq-branchement">
+<div class="cai-head">
+<h2>Le branchement sur votre ligne</h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Est-ce que je dois changer de numéro ?</summary>
+<div class="cai-ans"><p>Non. Le standard se branche sur votre ligne actuelle par un renvoi d'appel conditionnel, celui qui se déclenche quand vous ne décrochez pas.</p><p>Vos cartes de visite, votre fiche Google, le marquage de votre véhicule et vos anciens clients gardent le même numéro. Vous n'avez aucune démarche à faire auprès de votre opérateur.</p></div>
+</details>
+<details>
+<summary>Est-ce compatible avec mon opérateur ?</summary>
+<div class="cai-ans"><p>Oui. Le renvoi quand vous ne décrochez pas est une fonction standard des lignes téléphoniques : la solution que nous recommandons fonctionne avec les opérateurs et les lignes pro que vous utilisez déjà, sur mobile comme sur fixe. Vous gardez votre numéro, votre opérateur et votre forfait.</p>
+<img alt="Compatible avec Orange, SFR, Free, Bouygues Telecom, Onoff et Ringover" class="cai-ope-logos" height="214" loading="lazy" src="/images/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp" width="1500"/>
+<div aria-hidden="true" class="cai-ope-duo"><span></span><span></span></div>
+<p class="cai-ope-fine">Orange, SFR, Free, Bouygues Telecom, Onoff et Ringover sont des marques de leurs propriétaires respectifs, citées pour indiquer la compatibilité.</p></div>
+</details>
+<details>
+<summary>Ça va me prendre combien de temps ?</summary>
+<div class="cai-ans"><p>Trente minutes. C'est la durée de l'appel où vous racontez votre métier, et c'est le seul moment où on vous demande du temps.</p><p>Le paramétrage, la mise en ligne et le branchement sont faits par l'équipe. La ligne est en service sous quarante-huit heures.</p></div>
+</details>
+<details>
+<summary>Je ne suis pas informaticien, est-ce que je vais y arriver ?</summary>
+<div class="cai-ans"><p>Il n'y a rien à installer, rien à télécharger et aucun outil à apprendre. Vous ne changez pas votre façon de travailler : votre téléphone sonne comme avant, et vous décrochez quand vous pouvez.</p><p>La seule chose qui change, c'est ce qui arrive aux appels que vous ne prenez pas.</p></div>
+</details>
+<details>
+<summary>Et si le service tombe en panne ?</summary>
+<div class="cai-ans"><p>Votre ligne continue de fonctionner, puisque c'est elle qui sonne en premier. Un incident sur le standard ne vous coupe pas du monde : il vous ramène à la situation d'aujourd'hui, c'est-à-dire un appel non décroché.</p><p>C'est la différence avec un transfert pur et simple de votre numéro vers un prestataire, où une panne chez lui vous rend injoignable.</p></div>
+</details>
+</div>
+</section>
+<!-- Le prix, l'engagement et la facture -->
+<section class="cai-box" id="cai-faq-prix">
+<div class="cai-head">
+<h2>Le prix, l'engagement et la facture</h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>297 € par mois, comment je sais que je vais m'y retrouver ?</summary>
+<div class="cai-ans"><p>En divisant le prix par le montant moyen d'une de vos prestations. À 250 € l'intervention, il faut en récupérer deux par mois pour couvrir l'abonnement d'entrée. À 450 €, une seule suffit.</p><p>L'indicateur à suivre pendant l'essai est simple : combien d'appels ont été traités, et combien de rendez-vous ont été posés pendant que vous travailliez.</p></div>
+</details>
+<details>
+<summary>Encore un abonnement, et je me suis déjà fait avoir</summary>
+<div class="cai-ans"><p>Il n'y a pas d'engagement de durée, pas de durée minimale, pas de frais de résiliation et pas de reconduction tacite sur douze ou vingt-quatre mois. Vous arrêtez quand vous voulez, sans justification à fournir.</p><p>Les sept jours d'essai précèdent tout paiement, et les frais d'installation, affichés à 1 500 €, sont annoncés comme offerts pour les nouveaux clients.</p></div>
+</details>
+<details>
+<summary>C'est quoi exactement une conversation ?</summary>
+<div class="cai-ans"><p>Un échange complet avec un appelant, pas une simple sonnerie sans suite. La formule d'entrée en comprend 500 par mois, ce qui correspond à une vingtaine d'appels entrants par jour ouvré.</p><p>Pour situer votre propre volume : comptez vos appels d'une semaine ordinaire et multipliez par 4,33.</p></div>
+</details>
+<details>
+<summary>Je peux tester avant de payer ?</summary>
+<div class="cai-ans"><p>Oui, sept jours sur chacune des trois formules, sans engagement et sans changer de numéro. Sept jours couvrent un week-end complet et plusieurs soirées, c'est-à-dire précisément les créneaux où les appels se perdent aujourd'hui.</p><p>Vous jugez sur les appels réellement traités pendant cette semaine, pas sur une promesse.</p></div>
+</details>
+</div>
+</section>
+<!-- Si vous avez déjà une solution -->
+<section class="cai-box" id="cai-faq-deja">
+<div class="cai-head">
+<h2>Si vous avez déjà une solution</h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>J'ai déjà un télésecrétariat, ça m'apporte quoi de plus ?</summary>
+<div class="cai-ans"><p>Un télésecrétariat prend un message en heures ouvrées et vous le transmet ; il reste un rappel à faire. Un standard automatique répond à toute heure et pose le rendez-vous pendant l'appel.</p><p>Beaucoup d'indépendants gardent les deux : le télésecrétariat en journée pour la relation humaine et l'administratif, le standard le soir, le week-end et sur les doubles appels.</p></div>
+</details>
+<details>
+<summary>Je travaille seul, je suis trop petit pour ce genre de chose</summary>
+<div class="cai-ans"><p>C'est conçu pour le dirigeant qui est aussi celui qui intervient, seul ou à deux. Les grandes enseignes ont une équipe pour décrocher ; c'est justement ce que vous n'avez pas.</p><p>Un artisan seul est celui qui perd le plus d'appels, parce qu'il est le seul à pouvoir répondre et qu'il a les mains prises toute la journée.</p></div>
+</details>
+<details>
+<summary>Et si ça répond si bien que je suis débordé ?</summary>
+<div class="cai-ans"><p>Vous fixez ce que vous acceptez et ce que vous refusez : hors zone, hors compétence, hors budget. Le standard sait dire non proprement, et une demande refusée proprement vaut mieux qu'un appel jamais rappelé.</p><p>Vous définissez aussi les créneaux de votre agenda qui peuvent être proposés. Ce qui n'est pas ouvert n'est jamais réservé.</p></div>
+</details>
+</div>
+</section>
+<!-- Vos données et votre métier -->
+<section class="cai-box" id="cai-faq-donnees">
+<div class="cai-head">
+<h2>Vos données et votre métier</h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Et le RGPD, les données de mes clients ?</summary>
+<div class="cai-ans"><p>Les informations recueillies pendant un appel sont celles nécessaires au traitement de la demande : nom, adresse d'intervention, téléphone, e-mail de confirmation et motif. Elles remontent dans un espace auquel vous avez accès et qui devient votre fichier client.</p><p>En tant que professionnel, vous restez responsable de ces données vis-à-vis de vos clients. Demandez à l'éditeur les conditions de sous-traitance, le lieu d'hébergement et la durée de conservation avant la mise en service.</p></div>
+</details>
+<details>
+<summary>Est-ce que ça marche pour mon métier ?</summary>
+<div class="cai-ans"><p>La mécanique est la même partout : comprendre la demande, proposer un créneau libre, recueillir les coordonnées, confirmer. Elle sert aussi bien un plombier qu'un kinésithérapeute, un coiffeur, un avocat, un garage ou un restaurant.</p><p>Ce qui change d'un métier à l'autre, c'est le vocabulaire des demandes courantes et la définition de l'urgence. Les deux sont paramétrés au cadrage.</p></div>
+</details>
+<details>
+<summary>Et pour une profession de santé ou réglementée ?</summary>
+<div class="cai-ans"><p>Le secret professionnel, l'obligation d'information et les règles de continuité des soins s'appliquent aussi aux appels entrants, et ils varient selon la profession et le mode d'exercice.</p><p>Vérifiez auprès de votre ordre professionnel ce que votre cadre autorise avant de déléguer la prise d'appels, quelle que soit la solution envisagée.</p></div>
+</details>
+</div>
+</section>
+<!-- SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">La réponse qui compte <em>est sur votre ligne</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours avec vos vrais appels, vos horaires et vos règles répondent à toutes les questions ci-dessus en même temps. Sans engagement, sans changer de numéro, sans rien installer.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/calculateur">Calculer ce que je perds</a></li>
+<li><a href="/guides/astreinte-et-tri-des-urgences">Astreinte et tri des urgences</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/faq#webpage",
+      "url": "https://www.concierge-ai.fr/faq",
+      "name": "FAQ : vos questions sur la permanence téléphonique",
+      "description": "Vos clients face à une machine, le contrôle de ce qui est dit, les urgences, le prix, l'engagement et vos données : les réponses en clair.",
+      "inLanguage": "fr-FR",
+      "isPartOf": {
+        "@id": "https://www.concierge-ai.fr/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://www.concierge-ai.fr/faq#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/faq#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.concierge-ai.fr"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Questions fréquentes"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/faq#faq",
+      "isPartOf": {
+        "@id": "https://www.concierge-ai.fr/faq#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Mes clients vont tomber sur un robot, ça va les faire fuir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ce que vos clients supportent mal, c'est la sonnerie dans le vide et le rappel qui n'arrive jamais. Quelqu'un qui cherche un professionnel en urgence ne laisse pas de message : il raccroche et compose le numéro suivant. Le standard annonce le nom de votre entreprise et se présente comme son accueil. Il écoute une demande formulée librement, sans menu à touches, et il donne une réponse claire en deux minutes. Le meilleur moyen de trancher reste d'écouter un appel réel plutôt que d'en débattre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si l'appelant veut absolument me parler à moi ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si vous êtes disponible, vous décrochez : votre téléphone sonne en premier et l'appel ne bascule jamais. Le standard n'intervient que sur les appels que vous n'avez pas pris. Quand la demande correspond à ce que vous avez défini comme urgent, l'appel vous est transféré en direct sur votre portable. Sinon, la demande est qualifiée, le créneau est posé, et vous recevez le résumé écrit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce que mes clients vont comprendre que ce n'est pas un humain ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le standard ne se fait pas passer pour vous et ne prétend pas être un membre humain de votre équipe. C'est une question de confiance avec vos clients, et à partir du 2 août 2026 une obligation européenne au titre de l'article 50 du règlement sur l'intelligence artificielle. L'argument n'est pas la discrétion : c'est qu'une réponse immédiate à 22 heures vaut mieux qu'un répondeur, même quand elle vient d'une machine annoncée comme telle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Je ne veux pas que ça raconte n'importe quoi à ma place",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rien n'est dit que vous n'ayez validé. Lors de l'appel de cadrage de trente minutes, vous donnez vos tarifs indicatifs, votre zone d'intervention, vos horaires, les questions qu'on vous pose dix fois par jour et les demandes que vous refusez. Le standard applique ces règles sans les interpréter. Quand il ne sait pas répondre, il le dit et transmet la demande plutôt que d'inventer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et s'il annonce un prix que je ne peux pas tenir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'annonce aucune fourchette que vous n'avez pas écrite, et jamais de prix ferme, de devis ou d'engagement. C'est la règle la plus importante à fixer au cadrage, parce qu'une phrase de trop sur un tarif peut coûter un litige. Même chose pour les délais : aucun engagement d'intervention qui ne tiendrait pas compte de votre agenda réel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment je sais ce qui s'est dit pendant que je travaillais ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous recevez une notification par e-mail après chaque appel dès la formule d'entrée, et le résumé écrit complet à partir de la formule Growth : qui a appelé, pourquoi, avec quelles coordonnées et quel niveau d'urgence. Un rapport de performance mensuel vous dit combien d'appels ont été traités et ce qu'ils sont devenus. C'est aussi la première fois que vous voyez le volume réel de vos appels hors horaires."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si quelqu'un appelle pour une vraie urgence ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les critères d'urgence sont définis avec vous, à partir de vos propres mots et de votre métier. Quand la situation décrite correspond à l'un d'eux, l'appel est transféré en direct sur votre portable, à n'importe quelle heure. Le transfert d'urgence est disponible à partir de la formule Growth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Je veux être dérangé seulement quand c'est vraiment urgent",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est exactement ce que fait le tri. Une fuite active, un tableau qui chauffe ou une personne enfermée dehors vous parviennent ; un devis de salle de bain ou une demande de tarif sont planifiés sans vous. Ce qui fait la qualité du filtre, ce sont vos exclusions autant que vos déclencheurs : la liste de ce qui ne doit jamais vous réveiller compte autant que la liste de ce qui le doit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce que je dois changer de numéro ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le standard se branche sur votre ligne actuelle par un renvoi d'appel conditionnel, celui qui se déclenche quand vous ne décrochez pas. Vos cartes de visite, votre fiche Google, le marquage de votre véhicule et vos anciens clients gardent le même numéro. Vous n'avez aucune démarche à faire auprès de votre opérateur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce compatible avec mon opérateur ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Le renvoi quand personne ne décroche est une fonction standard des lignes téléphoniques : la solution fonctionne avec les opérateurs et les lignes pro déjà utilisés, sur mobile comme sur fixe, dont Orange, SFR, Free, Bouygues Telecom, Onoff et Ringover. Le numéro, l'opérateur et le forfait restent les mêmes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ça va me prendre combien de temps ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trente minutes. C'est la durée de l'appel où vous racontez votre métier, et c'est le seul moment où on vous demande du temps. Le paramétrage, la mise en ligne et le branchement sont faits par l'équipe. La ligne est en service sous quarante-huit heures."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Je ne suis pas informaticien, est-ce que je vais y arriver ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y a rien à installer, rien à télécharger et aucun outil à apprendre. Vous ne changez pas votre façon de travailler : votre téléphone sonne comme avant, et vous décrochez quand vous pouvez. La seule chose qui change, c'est ce qui arrive aux appels que vous ne prenez pas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si le service tombe en panne ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Votre ligne continue de fonctionner, puisque c'est elle qui sonne en premier. Un incident sur le standard ne vous coupe pas du monde : il vous ramène à la situation d'aujourd'hui, c'est-à-dire un appel non décroché. C'est la différence avec un transfert pur et simple de votre numéro vers un prestataire, où une panne chez lui vous rend injoignable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "297 € par mois, comment je sais que je vais m'y retrouver ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En divisant le prix par le montant moyen d'une de vos prestations. À 250 € l'intervention, il faut en récupérer deux par mois pour couvrir l'abonnement d'entrée. À 450 €, une seule suffit. L'indicateur à suivre pendant l'essai est simple : combien d'appels ont été traités, et combien de rendez-vous ont été posés pendant que vous travailliez."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Encore un abonnement, et je me suis déjà fait avoir",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y a pas d'engagement de durée, pas de durée minimale, pas de frais de résiliation et pas de reconduction tacite sur douze ou vingt-quatre mois. Vous arrêtez quand vous voulez, sans justification à fournir. Les sept jours d'essai précèdent tout paiement, et les frais d'installation, affichés à 1 500 €, sont annoncés comme offerts pour les nouveaux clients."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "C'est quoi exactement une conversation ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un échange complet avec un appelant, pas une simple sonnerie sans suite. La formule d'entrée en comprend 500 par mois, ce qui correspond à une vingtaine d'appels entrants par jour ouvré. Pour situer votre propre volume : comptez vos appels d'une semaine ordinaire et multipliez par 4,33."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Je peux tester avant de payer ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, sept jours sur chacune des trois formules, sans engagement et sans changer de numéro. Sept jours couvrent un week-end complet et plusieurs soirées, c'est-à-dire précisément les créneaux où les appels se perdent aujourd'hui. Vous jugez sur les appels réellement traités pendant cette semaine, pas sur une promesse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "J'ai déjà un télésecrétariat, ça m'apporte quoi de plus ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un télésecrétariat prend un message en heures ouvrées et vous le transmet ; il reste un rappel à faire. Un standard automatique répond à toute heure et pose le rendez-vous pendant l'appel. Beaucoup d'indépendants gardent les deux : le télésecrétariat en journée pour la relation humaine et l'administratif, le standard le soir, le week-end et sur les doubles appels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Je travaille seul, je suis trop petit pour ce genre de chose",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est conçu pour le dirigeant qui est aussi celui qui intervient, seul ou à deux. Les grandes enseignes ont une équipe pour décrocher ; c'est justement ce que vous n'avez pas. Un artisan seul est celui qui perd le plus d'appels, parce qu'il est le seul à pouvoir répondre et qu'il a les mains prises toute la journée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si ça répond si bien que je suis débordé ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous fixez ce que vous acceptez et ce que vous refusez : hors zone, hors compétence, hors budget. Le standard sait dire non proprement, et une demande refusée proprement vaut mieux qu'un appel jamais rappelé. Vous définissez aussi les créneaux de votre agenda qui peuvent être proposés. Ce qui n'est pas ouvert n'est jamais réservé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et le RGPD, les données de mes clients ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les informations recueillies pendant un appel sont celles nécessaires au traitement de la demande : nom, adresse d'intervention, téléphone, e-mail de confirmation et motif. Elles remontent dans un espace auquel vous avez accès et qui devient votre fichier client. En tant que professionnel, vous restez responsable de ces données vis-à-vis de vos clients. Demandez à l'éditeur les conditions de sous-traitance, le lieu d'hébergement et la durée de conservation avant la mise en service."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce que ça marche pour mon métier ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La mécanique est la même partout : comprendre la demande, proposer un créneau libre, recueillir les coordonnées, confirmer. Elle sert aussi bien un plombier qu'un kinésithérapeute, un coiffeur, un avocat, un garage ou un restaurant. Ce qui change d'un métier à l'autre, c'est le vocabulaire des demandes courantes et la définition de l'urgence. Les deux sont paramétrés au cadrage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et pour une profession de santé ou réglementée ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le secret professionnel, l'obligation d'information et les règles de continuité des soins s'appliquent aussi aux appels entrants, et ils varient selon la profession et le mode d'exercice. Vérifiez auprès de votre ordre professionnel ce que votre cadre autorise avant de déléguer la prise d'appels, quelle que soit la solution envisagée."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>

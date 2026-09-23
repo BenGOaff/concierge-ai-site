@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/faq.html?raw'
+---
+
+<Base
+  titre="FAQ : vos questions sur la permanence téléphonique"
+  description="Vos clients face à une machine, le contrôle de ce qui est dit, les urgences, le prix, l'engagement et vos données : les réponses en clair."
+  chemin="/faq"
+  og="/images/6aaff1bd788a23.72508790_questions-concierge-ai.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

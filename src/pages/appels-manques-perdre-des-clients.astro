@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/appels-manques-perdre-des-clients.html?raw'
+---
+
+<Base
+  titre="Appels manqués : ne plus perdre de clients | concierge-ai.fr"
+  description="Un client qui tombe sur le répondeur appelle souvent le suivant. Ce que coûtent vos appels manqués, et 4 solutions pour décrocher même les mains prises."
+  chemin="/appels-manques-perdre-des-clients"
+  og="/images/6ab110094cccb8.46316757_appels-manques-perdre-des-clients.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

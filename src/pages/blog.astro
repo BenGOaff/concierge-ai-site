@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/blog.html?raw'
+---
+
+<Base
+  titre="Appels manqués et permanence téléphonique : le blog"
+  description="Conseils concrets pour les artisans qui ne peuvent pas décrocher : appels manqués, urgences, soirées à rappeler, et comment ne plus perdre de chantiers."
+  chemin="/blog"
+  og="/images/6ab0ef4b5957b6.71132931_blog.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

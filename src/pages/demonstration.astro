@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/demonstration.html?raw'
+---
+
+<Base
+  titre="Démonstration : standard téléphonique 24/7 en appel réel"
+  description="Écoutez un appel réel : un client demande un débouchage, le standard propose deux créneaux et pose le rendez-vous. Retranscription intégrale."
+  chemin="/demonstration"
+  og="/images/6aafda5fda50f7.43583166_demonstration-demo-concierge-ai.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

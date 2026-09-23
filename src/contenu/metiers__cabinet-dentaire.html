@@ -1,0 +1,472 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Cabinet dentaire</span>
+<h1 style="max-width:23ch;margin:22px 0 20px">Vos mains sont déjà prises, <em>et le téléphone sonne</em></h1>
+<p class="cai-lead" style="max-width:58ch">Une douleur qui ne passe pas, une annulation du matin, un devis de prothèse : vos appels arrivent pendant les soins. Voici ce qu'ils deviennent, ce qu'ils coûtent, et la limite qu'un standard ne doit jamais franchir dans un cabinet.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Le créneau annulé redevient réservable immédiatement</li>
+<li>Sans engagement, sept jours d'essai</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Une chirurgienne-dentiste prépare ses instruments dans son cabinet, son téléphone allumé posé hors de portée" height="643" loading="eager" src="/images/6aaffe11e9d262.93068682_dentiste-permanence-telephone.webp" width="1500"/>
+<figcaption>Pendant un soin, personne ne décroche. Et la douleur, elle, n'attend pas d'horaires.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment un cabinet dentaire peut-il répondre <em>pendant les soins ?</em></h2>
+</div>
+<p class="cai-say">Deux problèmes se superposent dans ce métier : les créneaux annulés qui ne sont jamais repourvus, et les douleurs qui appellent le soir, la nuit et le dimanche. <span class="cai-key">Le premier se règle par un agenda connecté, le second par une consigne de renvoi que vous écrivez vous-même.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où un cabinet dentaire <em>perd un créneau</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est la journée ordinaire d'un praticien sans secrétariat permanent.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>08 h 45</b>
+<p>Un patient annule son rendez-vous de 11 heures. Vous êtes déjà en soin. Le message sera écouté à midi, trop tard pour proposer ce créneau à quelqu'un d'autre.</p>
+</article>
+<article class="cai-scc">
+<b>15 h 05</b>
+<p>Deux appels arrivent pendant que vous êtes au fauteuil. Aucun message : on ne laisse pas de message quand on cherche un dentiste disponible.</p>
+</article>
+<article class="cai-scc">
+<b>21 h 30</b>
+<p>Une douleur qui empêche de dormir. La personne cherche un cabinet joignable, puis finit aux urgences ou chez un confrère de garde.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Un créneau vide ne se reporte pas au lendemain, il disparaît. Et une personne qui a eu mal une nuit entière sans obtenir de réponse garde longtemps le souvenir du cabinet qui ne répondait pas.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. LA LIMITE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le cadre</span>
+<h2>Ce qu'un standard ne fait jamais <em>dans un cabinet dentaire</em></h2>
+<p class="cai-lead" style="max-width:58ch">Avant de parler de rendez-vous, il faut poser la limite, parce qu'elle vous engage personnellement.</p>
+</div>
+<ul class="cai-list">
+<li><b>Aucune évaluation de la douleur</b><span>Un standard automatique ne juge pas si une rage de dents peut attendre. Il note ce que la personne décrit et applique la règle que vous avez écrite, sans l'interpréter.</span></li>
+<li><b>Aucun conseil de soin</b><span>Ni sur un antalgique, ni sur une conduite à tenir, ni sur ce qu'il faut faire d'une dent expulsée. Ces questions vous reviennent, ou reviennent à la régulation médicale.</span></li>
+<li><b>Une consigne de renvoi écrite par vous</b><span>Pour un traumatisme, un saignement qui ne s'arrête pas ou un gonflement du visage, vous écrivez la phrase exacte : appeler le 15, le service de garde ou les urgences. C'est une consigne fixe, jamais une appréciation.</span></li>
+<li><b>Un cadre professionnel à vérifier</b><span>Secret professionnel, obligation d'information, permanence des soins : ces règles s'appliquent aussi aux appels entrants. Votre ordre est la seule source qui fasse autorité sur ce que vous pouvez déléguer et sur la façon d'annoncer votre indisponibilité.</span></li>
+</ul>
+</section>
+<!-- 5. LES DEMANDES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>dans un cabinet dentaire</em></h2>
+<p class="cai-lead" style="max-width:58ch">Beaucoup de gestion d'agenda, et quelques situations où la réponse doit être immédiate. Ces repères sont des points de départ à ajuster à votre exercice.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Traitement</th>
+<th scope="col">Ce que ça vous fait gagner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Traumatisme, dent expulsée, saignement</th>
+<td data-l="Traitement">Consigne de renvoi que vous avez écrite, transfert si vous l'avez demandé</td>
+<td data-l="Ce que ça vous fait gagner">Aucune appréciation faite à votre place</td>
+</tr>
+<tr>
+<th scope="row">Douleur décrite comme insupportable</th>
+<td data-l="Traitement">Situation notée, règle appliquée telle quelle</td>
+<td data-l="Ce que ça vous fait gagner">Vous décidez, à froid, de ce qui déclenche un appel</td>
+</tr>
+<tr>
+<th scope="row">Annulation d'un rendez-vous du jour</th>
+<td data-l="Traitement">Prise immédiatement, créneau libéré dans l'agenda</td>
+<td data-l="Ce que ça vous fait gagner">Le créneau redevient réservable dans la minute</td>
+</tr>
+<tr>
+<th scope="row">Prise de rendez-vous de contrôle ou de détartrage</th>
+<td data-l="Traitement">Posée directement sur un créneau libre</td>
+<td data-l="Ce que ça vous fait gagner">Aucune interruption de soin</td>
+</tr>
+<tr>
+<th scope="row">Nouveau patient cherchant un cabinet</th>
+<td data-l="Traitement">Coordonnées et motif recueillis, rendez-vous posé si vous l'autorisez</td>
+<td data-l="Ce que ça vous fait gagner">Il ne va pas chez le confrère d'à côté</td>
+</tr>
+<tr>
+<th scope="row">Question sur un devis de prothèse ou d'implant</th>
+<td data-l="Traitement">Demande transmise, aucun montant avancé</td>
+<td data-l="Ce que ça vous fait gagner">Aucun chiffre donné hors de votre validation</td>
+</tr>
+<tr>
+<th scope="row">Question de remboursement ou de mutuelle</th>
+<td data-l="Traitement">Transmise, jamais improvisée</td>
+<td data-l="Ce que ça vous fait gagner">Aucune réponse approximative sur un sujet sensible</td>
+</tr>
+<tr>
+<th scope="row">Démarchage commercial ou fournisseur</th>
+<td data-l="Traitement">Écarté poliment</td>
+<td data-l="Ce que ça vous fait gagner">Vous n'en entendez jamais parler</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/guides/astreinte-et-tri-des-urgences">Écrire vos propres règles de renvoi</a>
+</section>
+<!-- 6. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien d'actes couvrent une <em>permanence téléphonique de cabinet dentaire</em></h2>
+<p class="cai-lead" style="max-width:58ch">Divisez le coût mensuel de la solution par le montant moyen d'un de vos actes. Voici le résultat pour trois montants, à remplacer par le vôtre.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si un acte vous rapporte</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">50 €</th>
+<td data-l="Télésecrétariat">3 par mois</td>
+<td data-l="Standard 24/7">6 par mois</td>
+<td data-l="Embauche">34 par mois</td>
+</tr>
+<tr>
+<th scope="row">150 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">2 par mois</td>
+<td data-l="Embauche">12 par mois</td>
+</tr>
+<tr>
+<th scope="row">600 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">1 par mois</td>
+<td data-l="Embauche">3 par mois</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur. Les trois montants sont des exemples de calcul, pas une moyenne de marché : remplacez-les par votre panier réel. Un seul devis de prothèse accepté parce que la personne a pu poser sa question un samedi change l'équilibre du calcul pour plusieurs mois.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 7. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Une douleur à 21 h 30, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une personne a mal et cherche un cabinet joignable un dimanche soir. Voici ce qu'elle obtient.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un a répondu</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non, hors horaires</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Elle sait quoi faire ce soir</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Oui, votre consigne de renvoi</td>
+</tr>
+<tr>
+<th scope="row">Un rendez-vous est posé pour demain</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Oui, sur un créneau que vous avez ouvert</td>
+</tr>
+<tr>
+<th scope="row">Vous avez été dérangé</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Seulement si vous l'avez décidé</td>
+</tr>
+<tr>
+<th scope="row">Le lundi matin</th>
+<td data-l="Répondeur">Elle est allée ailleurs</td>
+<td data-l="Télésecrétariat">Elle rappelle, ou pas</td>
+<td data-l="Standard 24/7">Elle est dans votre agenda</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 8. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions de chirurgiens-dentistes sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Peut-il décider si une urgence dentaire mérite d'être vue ce soir ?</summary>
+<div class="cai-ans"><p>Non, et c'est une limite à poser explicitement. Un standard automatique n'évalue aucune situation clinique. Ce que vous écrivez, c'est une consigne fixe : devant tel élément décrit, la personne est invitée à appeler le 15, le service de garde ou les urgences, et l'appel vous est transféré si vous l'avez demandé.</p><p>Votre rôle reste entier : c'est vous qui décidez, à froid, de ce qui déclenche un appel vers vous.</p></div>
+</details>
+<details>
+<summary>Et le secret professionnel ?</summary>
+<div class="cai-ans"><p>Les informations recueillies sont celles nécessaires à la prise de rendez-vous : identité, coordonnées, motif tel que la personne l'exprime. Dès qu'un motif est renseigné, il s'agit d'un traitement de données de santé.</p><p>Avant toute mise en service, demandez à l'éditeur le lieu d'hébergement, l'existence d'une certification pour l'hébergement de données de santé et les conditions de sous-traitance. Votre ordre est la seule source qui fasse autorité sur ce que vous pouvez déléguer.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut annoncer un devis de prothèse ?</summary>
+<div class="cai-ans"><p>Non. Aucun montant d'acte prothétique ou implantaire n'est avancé : la demande est notée et transmise. Un devis dentaire dépend du bilan, du matériau et de la situation clinique, et il est remis par écrit avant tout acte.</p><p>Il peut en revanche confirmer vos tarifs conventionnés si vous les avez écrits.</p></div>
+</details>
+<details>
+<summary>Comment il gère les annulations de dernière minute ?</summary>
+<div class="cai-ans"><p>Il les prend à l'heure où elles arrivent, y compris à 7 heures du matin ou le dimanche, et le créneau est libéré immédiatement dans l'agenda connecté. Il redevient donc réservable par l'appelant suivant, au lieu de rester vide jusqu'à ce que vous écoutiez le message.</p></div>
+</details>
+<details>
+<summary>Et les rappels de rendez-vous ?</summary>
+<div class="cai-ans"><p>Les invitations d'agenda et les rappels automatiques avant la séance sont compris dès la formule d'entrée. C'est ce qui réduit le nombre de patients qui ne se présentent pas, et sur ce métier chaque absence est un créneau perdu.</p></div>
+</details>
+<details>
+<summary>J'ai déjà une assistante dentaire, ça sert à quoi ?</summary>
+<div class="cai-ans"><p>À prendre ce qu'elle ne peut pas prendre : le deuxième appel pendant qu'elle est déjà en ligne, les moments où elle est au fauteuil avec vous, la pause déjeuner, le samedi et les congés. Les cabinets qui ont une assistante l'utilisent en renfort, pas en remplacement.</p></div>
+</details>
+</div>
+</section>
+<!-- 9. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Une douleur qui appelle un dimanche <em>ne rappelle pas lundi</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront combien d'annulations et de nouveaux patients vous receviez pendant les soins et en dehors du cabinet. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas la dentisterie ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/cabinet-dentaire#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/cabinet-dentaire",
+      "name": "Permanence téléphonique dentiste : ne plus rater d'appel",
+      "description": "Urgences dentaires, annulations, devis prothèse : ce que deviennent vos appels pendant que vous avez les mains dans la bouche d'un patient.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/cabinet-dentaire#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/cabinet-dentaire#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/cabinet-dentaire#metier",
+      "name": "Permanence téléphonique pour cabinet dentaire",
+      "serviceType": "Permanence téléphonique et gestion des rendez-vous pour cabinets dentaires",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Chirurgiens-dentistes exerçant seuls ou en petit cabinet"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/cabinet-dentaire#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Cabinet dentaire" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/cabinet-dentaire#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/cabinet-dentaire#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique peut-il décider si une urgence dentaire doit être vue le soir même ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Un standard automatique n'évalue aucune situation clinique. Le praticien écrit une consigne fixe : devant tel élément décrit, la personne est invitée à appeler le 15, le service de garde ou les urgences, et l'appel est transféré si cela a été demandé. La décision de ce qui déclenche un appel appartient au praticien." }
+        },
+        {
+          "@type": "Question",
+          "name": "Une permanence téléphonique est-elle compatible avec le secret professionnel en cabinet dentaire ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les informations recueillies sont celles nécessaires à la prise de rendez-vous : identité, coordonnées, motif exprimé. Dès qu'un motif est renseigné, il s'agit d'un traitement de données de santé. Il faut demander à l'éditeur le lieu d'hébergement, l'existence d'une certification pour l'hébergement de données de santé et les conditions de sous-traitance. L'ordre est la seule source qui fasse autorité sur ce qui est délégable." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il annoncer un devis de prothèse dentaire ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Aucun montant d'acte prothétique ou implantaire n'est avancé : la demande est notée et transmise. Un devis dentaire dépend du bilan, du matériau et de la situation clinique, et il est remis par écrit avant tout acte. Les tarifs conventionnés écrits par le praticien peuvent en revanche être confirmés." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont gérées les annulations de dernière minute dans un cabinet dentaire ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Elles sont prises à l'heure où elles arrivent, y compris tôt le matin ou le dimanche, et le créneau est libéré immédiatement dans l'agenda connecté. Il redevient réservable par l'appelant suivant au lieu de rester vide." }
+        },
+        {
+          "@type": "Question",
+          "name": "Les rappels de rendez-vous sont-ils compris ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les invitations d'agenda et les rappels automatiques avant la séance sont compris dès la formule d'entrée. C'est ce qui réduit le nombre de patients qui ne se présentent pas, chaque absence étant un créneau perdu." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il choisir entre une assistante dentaire et un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les deux se complètent. Le standard prend le deuxième appel simultané, les moments où l'assistante est au fauteuil, la pause déjeuner, le samedi et les congés. Les cabinets qui ont une assistante l'utilisent en renfort, pas en remplacement." }
+        }
+      ]
+    }
+  ]
+}
+</script>

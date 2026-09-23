@@ -1,0 +1,477 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Auto-école</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Au volant, vous ne pouvez pas décrocher, <em>et c'est la loi</em></h1>
+<p class="cai-lead" style="max-width:58ch">Sept heures par jour dans la voiture, téléphone interdit en main : pendant ce temps, on appelle pour le prix du forfait, pour annuler une leçon, pour s'inscrire. Voici ce que deviennent ces appels, ce qu'ils valent, et ce qu'un standard ne doit jamais promettre à votre place.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Aucune date d'examen, aucun contrat engagé à votre place</li>
+<li>Sans engagement, sept jours d'essai</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un moniteur d'auto-école note la fin d'une leçon sur sa feuille de suivi près de la portière de son véhicule, son téléphone rangé dans sa veste" height="643" loading="eager" src="/images/6ab01102ac3633.22213228_auto-ecole-permanence-telephone.webp" width="1500"/>
+<figcaption>Entre deux leçons, il reste cinq minutes. Pas de quoi rappeler les six personnes qui ont appelé.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment une auto-école peut-elle répondre <em>pendant les leçons ?</em></h2>
+</div>
+<p class="cai-say">C'est le seul métier où l'appel manqué n'est pas une question d'organisation mais d'interdiction : téléphone en main au volant, c'est une amende et un retrait de points. <span class="cai-key">Un standard répond aux questions de forfait et d'horaires à partir de ce que vous avez écrit, prend les annulations de leçon, et ne promet jamais ni date d'examen ni nombre d'heures.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où une auto-école <em>perd une inscription ou une heure</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est la journée ordinaire d'un gérant qui enseigne lui-même.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>09 h 15</b>
+<p>Vous êtes en leçon sur un rond-point. Deux appels passent : le prix du forfait et les horaires du code. Vous ne pouvez pas décrocher, et vous n'y pensez plus à midi.</p>
+</article>
+<article class="cai-scc">
+<b>17 h 40</b>
+<p>Un élève annule sa leçon de deux heures du lendemain matin. Vous écoutez le message à vingt heures : personne à prévenir pour reprendre le créneau, la voiture roulera à vide.</p>
+</article>
+<article class="cai-scc">
+<b>20 h 20</b>
+<p>Un parent appelle pour inscrire son fils. Il a trois auto-écoles ouvertes sur son téléphone et appelle pendant que son fils est à côté de lui. Il ira à celle qui a répondu.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Le deuxième appel coûte une heure de conduite, le troisième coûte un forfait entier. Et les inscriptions se décident le soir et pendant les vacances scolaires, exactement quand le bureau est fermé.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. LA LIMITE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le cadre</span>
+<h2>Ce qu'un standard ne fait jamais <em>dans une auto-école</em></h2>
+<p class="cai-lead" style="max-width:58ch">Trois promesses sont interdites ici, et elles se paramètrent avant tout le reste, parce qu'elles vous engagent.</p>
+</div>
+<ul class="cai-list">
+<li><b>Aucune date d'examen annoncée</b><span>Les places d'examen ne dépendent pas de vous. Une date lâchée au téléphone devient une promesse que vous ne pourrez pas tenir, et c'est le premier motif de litige entre une auto-école et une famille.</span></li>
+<li><b>Aucun nombre d'heures annoncé</b><span>Le volume de formation se détermine après l'évaluation préalable de l'élève, pas au téléphone. Le standard annonce votre forfait tel que vous l'avez écrit, sans jamais préjuger du nombre d'heures nécessaire.</span></li>
+<li><b>Aucun contrat engagé</b><span>Pas d'inscription validée, pas de remise accordée, pas de modalité de paiement négociée. Le contrat de formation est écrit, encadré, et il se signe avec vous.</span></li>
+<li><b>Aucune interprétation d'une situation administrative</b><span>Permis suspendu ou annulé, conduite accompagnée, échange de permis étranger, dossier en cours : ces cas se traitent sur dossier. La demande est notée et vous revient.</span></li>
+</ul>
+</section>
+<!-- 5. LES DEMANDES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>dans une auto-école</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une majorité de questions auxquelles vous avez déjà la réponse écrite, de l'agenda, et quelques appels qui valent un forfait. Ces repères sont des points de départ à ajuster à votre école.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Traitement</th>
+<th scope="col">Ce que ça vous fait gagner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Demande d'inscription</th>
+<td data-l="Traitement">Coordonnées et projet recueillis, rendez-vous d'inscription posé</td>
+<td data-l="Ce que ça vous fait gagner">La famille vient chez vous, pas à l'école suivante</td>
+</tr>
+<tr>
+<th scope="row">Prix du forfait, prix de l'heure</th>
+<td data-l="Traitement">Répondu exactement à partir de votre grille écrite</td>
+<td data-l="Ce que ça vous fait gagner">Le tarif est annoncé clairement, sans vous déranger</td>
+</tr>
+<tr>
+<th scope="row">Annulation ou report d'une leçon</th>
+<td data-l="Traitement">Prise immédiatement, créneau libéré selon vos règles</td>
+<td data-l="Ce que ça vous fait gagner">L'heure peut être reprise par un autre élève</td>
+</tr>
+<tr>
+<th scope="row">Prise d'une leçon de conduite</th>
+<td data-l="Traitement">Posée sur un créneau que vous avez ouvert</td>
+<td data-l="Ce que ça vous fait gagner">Votre planning se remplit pendant que vous roulez</td>
+</tr>
+<tr>
+<th scope="row">Horaires du code, jours d'ouverture du bureau</th>
+<td data-l="Traitement">Répondu à partir de ce que vous avez écrit</td>
+<td data-l="Ce que ça vous fait gagner">Les questions les plus fréquentes ne vous atteignent plus</td>
+</tr>
+<tr>
+<th scope="row">Question de date d'examen</th>
+<td data-l="Traitement">Aucune date avancée, demande transmise</td>
+<td data-l="Ce que ça vous fait gagner">Aucune promesse que vous ne pouvez pas tenir</td>
+</tr>
+<tr>
+<th scope="row">Combien d'heures il me faudra</th>
+<td data-l="Traitement">Renvoyée à l'évaluation préalable, aucun chiffre avancé</td>
+<td data-l="Ce que ça vous fait gagner">Aucun volume promis avant d'avoir vu l'élève</td>
+</tr>
+<tr>
+<th scope="row">Permis suspendu, conduite accompagnée, échange de permis</th>
+<td data-l="Traitement">Situation notée, rendez-vous proposé, aucune interprétation</td>
+<td data-l="Ce que ça vous fait gagner">Ces dossiers arrivent triés sur votre bureau</td>
+</tr>
+<tr>
+<th scope="row">Démarchage commercial ou fournisseur</th>
+<td data-l="Traitement">Écarté poliment</td>
+<td data-l="Ce que ça vous fait gagner">Vous n'en entendez jamais parler</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/fonctionnement">Voir comment ça se branche</a>
+</section>
+<!-- 6. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien d'inscriptions couvrent une <em>permanence téléphonique d'auto-école</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ici le calcul se fait à l'année, parce qu'un forfait se règle en une ou deux fois. Divisez le coût annuel de la solution par le montant moyen d'un forfait.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si un forfait vous rapporte</th>
+<th scope="col">Télésecrétariat 1 800 €</th>
+<th scope="col">Standard 24/7 2 970 €</th>
+<th scope="col">Embauche 20 400 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">1 100 €</th>
+<td data-l="Télésecrétariat">2 dans l'année</td>
+<td data-l="Standard 24/7">3 dans l'année</td>
+<td data-l="Embauche">19 dans l'année</td>
+</tr>
+<tr>
+<th scope="row">1 500 €</th>
+<td data-l="Télésecrétariat">2 dans l'année</td>
+<td data-l="Standard 24/7">2 dans l'année</td>
+<td data-l="Embauche">14 dans l'année</td>
+</tr>
+<tr>
+<th scope="row">2 000 €</th>
+<td data-l="Télésecrétariat">1 dans l'année</td>
+<td data-l="Standard 24/7">2 dans l'année</td>
+<td data-l="Embauche">11 dans l'année</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur, sur douze mois d'abonnement. Les trois montants sont des exemples de calcul, pas une moyenne de marché : remplacez-les par votre forfait réel. Comptez en plus les heures de conduite récupérées sur les annulations, qui se chiffrent à elles seules sur une année.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 7. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Une demande d'inscription à 20 h 20, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un parent appelle trois auto-écoles le soir pour inscrire son fils. Voici ce qu'il obtient chez vous.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Formulaire du site</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un a répondu</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Formulaire du site">Non</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Il connaît le prix du forfait</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Formulaire du site">S'il l'a trouvé sur le site</td>
+<td data-l="Standard 24/7">Oui, votre grille écrite</td>
+</tr>
+<tr>
+<th scope="row">Un rendez-vous d'inscription est posé</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Formulaire du site">Non, une demande est envoyée</td>
+<td data-l="Standard 24/7">Oui, sur un créneau que vous avez ouvert</td>
+</tr>
+<tr>
+<th scope="row">Une date d'examen a été promise</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Formulaire du site">Non</td>
+<td data-l="Standard 24/7">Non, et c'est volontaire</td>
+</tr>
+<tr>
+<th scope="row">Le lendemain</th>
+<td data-l="Répondeur">Son fils est inscrit ailleurs</td>
+<td data-l="Formulaire du site">Vous le rappelez, s'il décroche</td>
+<td data-l="Standard 24/7">Ils sont attendus au bureau</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 8. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions de gérants d'auto-école sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Est-ce qu'il peut donner une date d'examen ?</summary>
+<div class="cai-ans"><p>Non, jamais, et c'est la limite la plus importante à paramétrer. Les places d'examen ne dépendent pas de vous : une date avancée au téléphone devient une promesse que vous ne pourrez pas tenir, et c'est le premier motif de conflit avec une famille.</p><p>La question est notée et vous revient. Vous pouvez écrire une phrase fixe qui explique que les dates dépendent de l'attribution des places, dite mot pour mot.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut dire combien d'heures il faudra ?</summary>
+<div class="cai-ans"><p>Non. Le volume de formation se détermine après l'évaluation préalable de l'élève, et aucun chiffre n'est avancé avant.</p><p>Ce qu'il annonce, c'est votre forfait tel que vous l'avez écrit, avec ce qu'il comprend. C'est en général exactement ce que la personne voulait savoir.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut inscrire un élève ?</summary>
+<div class="cai-ans"><p>Non. Le contrat de formation est écrit et encadré, et il se signe avec vous, au bureau. Aucune remise n'est accordée, aucune modalité de paiement n'est négociée.</p><p>Ce qu'il fait, et qui décide de tout : poser le rendez-vous d'inscription pendant que le parent est encore au téléphone, avec ses trois onglets ouverts.</p></div>
+</details>
+<details>
+<summary>Comment il gère les annulations de leçon ?</summary>
+<div class="cai-ans"><p>Il les prend à l'heure où elles arrivent, y compris le soir et le dimanche, et applique vos règles : délai de prévenance, heure décomptée ou non, créneau libéré dans l'agenda. Ce sont vos conditions, écrites une fois, appliquées sans discussion.</p><p>Une heure libérée la veille au soir peut être reprise par un élève qui attendait un créneau.</p></div>
+</details>
+<details>
+<summary>Et les dossiers particuliers, permis suspendu ou conduite accompagnée ?</summary>
+<div class="cai-ans"><p>La situation est notée telle que la personne la décrit, sans aucune interprétation, et un rendez-vous est proposé. Ces dossiers dépendent de pièces et d'une réglementation qui ne s'improvise pas au téléphone.</p><p>Vous les recevez triés, avec le motif écrit, ce qui vous fait gagner l'essentiel du premier échange.</p></div>
+</details>
+<details>
+<summary>J'ai une secrétaire au bureau, ça sert à quoi ?</summary>
+<div class="cai-ans"><p>À prendre ce qu'elle ne peut pas prendre : le deuxième appel pendant qu'elle reçoit une famille au comptoir, les heures où le bureau est fermé, le soir, le samedi après-midi, les vacances scolaires où les inscriptions arrivent, et ses congés.</p><p>Les écoles qui ont un secrétariat s'en servent en renfort sur ces créneaux, pas en remplacement.</p></div>
+</details>
+</div>
+</section>
+<!-- 9. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:23ch">Les inscriptions se décident le soir, <em>quand le bureau est fermé</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront combien d'appels passaient pendant vos leçons, combien d'annulations arrivaient trop tard et combien de familles appelaient après la fermeture. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas l'enseignement de la conduite ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/auto-ecole#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/auto-ecole",
+      "name": "Permanence téléphonique auto-école 7 jours sur 7",
+      "description": "Demandes de tarifs, inscriptions, annulations de leçon : ce que deviennent vos appels quand vous êtes au volant. Coûts comparés et limites à poser.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/auto-ecole#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/auto-ecole#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/auto-ecole#metier",
+      "name": "Permanence téléphonique pour auto-école",
+      "serviceType": "Permanence téléphonique, réponse aux questions récurrentes et prise de rendez-vous pour écoles de conduite",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Gérants d'auto-école et enseignants de la conduite exerçant seuls ou en petite structure"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/auto-ecole#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Auto-école" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/auto-ecole#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/auto-ecole#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique peut-il donner une date d'examen du permis ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non, jamais. Les places d'examen ne dépendent pas de l'auto-école : une date avancée au téléphone devient une promesse intenable et constitue le premier motif de conflit avec une famille. La question est notée et transmise, et une phrase fixe expliquant que les dates dépendent de l'attribution des places peut être dite mot pour mot." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il annoncer le nombre d'heures de conduite nécessaires ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Le volume de formation se détermine après l'évaluation préalable de l'élève et aucun chiffre n'est avancé avant. Le standard annonce le forfait tel que l'auto-école l'a écrit, avec ce qu'il comprend." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il inscrire un élève dans une auto-école ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Le contrat de formation est écrit et encadré, et il se signe au bureau : aucune remise n'est accordée, aucune modalité de paiement n'est négociée. Le standard pose le rendez-vous d'inscription pendant l'appel." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont gérées les annulations de leçon de conduite ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Elles sont prises à l'heure où elles arrivent, y compris le soir et le dimanche, selon les règles écrites par l'auto-école : délai de prévenance, heure décomptée ou non, créneau libéré dans l'agenda. Une heure libérée la veille au soir peut être reprise par un autre élève." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment un standard traite-t-il un dossier de permis suspendu ou de conduite accompagnée ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La situation est notée telle que la personne la décrit, sans interprétation, et un rendez-vous est proposé. Ces dossiers dépendent de pièces et d'une réglementation qui ne s'improvisent pas au téléphone ; ils arrivent triés, avec le motif écrit." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il choisir entre une secrétaire d'auto-école et un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les deux se complètent. Le standard prend le deuxième appel pendant que la secrétaire reçoit une famille au comptoir, les heures de fermeture, le soir, le samedi après-midi, les vacances scolaires et les congés. Les écoles qui ont un secrétariat s'en servent en renfort, pas en remplacement." }
+        }
+      ]
+    }
+  ]
+}
+</script>

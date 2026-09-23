@@ -1,0 +1,71 @@
+---
+import '../styles/base.css'
+import pied from '../pied-de-page.html?raw'
+
+interface Props {
+  titre: string
+  description: string
+  chemin: string
+  og?: string
+}
+
+const { titre, description, chemin, og } = Astro.props
+const canonique = new URL(chemin, 'https://www.concierge-ai.fr').href
+
+const menu = [
+  { texte: 'Démo', lien: '/demonstration' },
+  { texte: 'Calculateur', lien: '/calculateur' },
+  { texte: 'Comparatif', lien: '/comparer/permanence-telephonique' },
+  { texte: 'Métiers', lien: '/metiers' },
+  { texte: 'Blog', lien: '/blog' },
+]
+const essai = 'https://thomasgio.fr/conciergeai-7109?am_id=bene'
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titre}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonique} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content={titre} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonique} />
+    {og && <meta property="og:image" content={new URL(og, 'https://www.concierge-ai.fr').href} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/images/6aae9b26909ad3.02855117_logoconciergeai2.webp" />
+  </head>
+  <body>
+    <header class="cai-nav">
+      <div class="cai-nav-in">
+        <a class="cai-nav-logo" href="/" aria-label="concierge-ai.fr, accueil">
+          <img src="/images/6aae9b26909ad3.02855117_logoconciergeai2.webp" alt="Concierge AI" width="91" height="32" />
+        </a>
+        <nav aria-label="Navigation principale">
+          <ul>
+            {menu.map((m) => (
+              <li>
+                <a href={m.lien} aria-current={chemin === m.lien ? 'page' : undefined}>{m.texte}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <a class="cai-nav-cta" href={essai} rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+      </div>
+    </header>
+
+    <main class="cai-page">
+      <slot />
+    </main>
+
+    <div class="cai-page">
+      <div class="cai-ft-fond">
+        <Fragment set:html={pied} />
+      </div>
+    </div>
+  </body>
+</html>

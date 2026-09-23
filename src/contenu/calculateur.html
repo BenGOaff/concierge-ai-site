@@ -1,0 +1,401 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:40ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- calculateur --- */
+.cai .cai-calc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(20px,2.6vw,30px)}
+@media(min-width:900px){.cai .cai-calc{grid-template-columns:1.05fr .95fr;align-items:start}}
+.cai .cai-fields{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,36px);display:grid;gap:clamp(24px,2.8vw,32px)}
+.cai .cai-fld label{display:block;font:600 .95rem/1.45 'Inter',sans-serif;color:var(--ink);margin-bottom:6px}
+.cai .cai-fld .cai-hint{display:block;font:400 .86rem/1.55 'Inter',sans-serif;color:var(--mute);margin-bottom:14px}
+.cai .cai-fld-top{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:12px}
+.cai .cai-val{font:700 1.32rem/1 'Inter',sans-serif;color:var(--gd);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cai .cai-calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;max-width:100%;height:6px;border-radius:99px;background:var(--line);outline:none;margin:0;padding:0}
+.cai .cai-calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--g3);box-shadow:0 2px 8px rgba(10,37,64,.22);cursor:pointer}
+.cai .cai-calc input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--g3);box-shadow:0 2px 8px rgba(10,37,64,.22);cursor:pointer}
+.cai .cai-money{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:14px;padding:4px 16px;background:var(--soft);max-width:100%}
+.cai .cai-money input{flex:1;min-width:0;border:0;background:transparent;font:700 1.32rem/1 'Inter',sans-serif;color:var(--ink);padding:14px 0;outline:none;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.cai .cai-money input::-webkit-outer-spin-button,.cai .cai-money input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cai .cai-money span{font:600 1.1rem/1 'Inter',sans-serif;color:var(--mute);flex:none}
+
+.cai .cai-res{background:linear-gradient(165deg,var(--g1) 0%,#F6FEFA 100%);border:1px solid #CBEFDB;border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,36px);display:grid;gap:clamp(22px,2.6vw,28px)}
+.cai .cai-res-b{padding-bottom:clamp(22px,2.6vw,28px);border-bottom:1px solid rgba(21,128,61,.18)}
+.cai .cai-res-b:last-child{padding-bottom:0;border-bottom:0}
+.cai .cai-res-l{display:block;font:600 .72rem/1.3 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--gd);margin-bottom:10px}
+.cai .cai-res-v{display:block;font:700 clamp(2rem,4.4vw,2.9rem)/1.05 'Inter',sans-serif;color:var(--ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cai .cai-res-s{display:block;font:500 .93rem/1.6 'Inter',sans-serif;color:var(--grey);margin-top:9px}
+.cai .cai-res-seuil{background:#fff;border:1px solid #CBEFDB;border-radius:18px;padding:clamp(20px,2.4vw,26px)}
+.cai .cai-res-seuil .cai-res-v{font-size:clamp(1.5rem,3vw,1.95rem);color:var(--gd)}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- formule --- */
+.cai .cai-form{margin-top:clamp(36px,4vw,46px);background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(26px,3vw,36px);display:grid;gap:clamp(20px,2.4vw,26px)}
+.cai .cai-form-l{font:600 .72rem/1.3 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);margin-bottom:9px}
+.cai .cai-form-e{font:600 1.02rem/1.6 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-form-n{font:400 .93rem/1.65 'Inter',sans-serif;color:var(--grey);margin-top:7px}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:40ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- calculateur --- */
+.cai .cai-calc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(20px,2.6vw,30px)}
+@media(min-width:900px){.cai .cai-calc{grid-template-columns:1.05fr .95fr;align-items:start}}
+.cai .cai-fields{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,36px);display:grid;gap:clamp(24px,2.8vw,32px)}
+.cai .cai-fld label{display:block;font:600 .95rem/1.45 'Inter',sans-serif;color:var(--ink);margin-bottom:6px}
+.cai .cai-fld .cai-hint{display:block;font:400 .86rem/1.55 'Inter',sans-serif;color:var(--mute);margin-bottom:14px}
+.cai .cai-fld-top{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:12px}
+.cai .cai-val{font:700 1.32rem/1 'Inter',sans-serif;color:var(--gd);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cai .cai-calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;max-width:100%;height:6px;border-radius:99px;background:var(--line);outline:none;margin:0;padding:0}
+.cai .cai-calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--g3);box-shadow:0 2px 8px rgba(10,37,64,.22);cursor:pointer}
+.cai .cai-calc input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--g3);box-shadow:0 2px 8px rgba(10,37,64,.22);cursor:pointer}
+.cai .cai-money{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:14px;padding:4px 16px;background:var(--soft);max-width:100%}
+.cai .cai-money input{flex:1;min-width:0;border:0;background:transparent;font:700 1.32rem/1 'Inter',sans-serif;color:var(--ink);padding:14px 0;outline:none;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.cai .cai-money input::-webkit-outer-spin-button,.cai .cai-money input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cai .cai-money span{font:600 1.1rem/1 'Inter',sans-serif;color:var(--mute);flex:none}
+
+.cai .cai-res{background:linear-gradient(165deg,var(--g1) 0%,#F6FEFA 100%);border:1px solid #CBEFDB;border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,36px);display:grid;gap:clamp(22px,2.6vw,28px)}
+.cai .cai-res-b{padding-bottom:clamp(22px,2.6vw,28px);border-bottom:1px solid rgba(21,128,61,.18)}
+.cai .cai-res-b:last-child{padding-bottom:0;border-bottom:0}
+.cai .cai-res-l{display:block;font:600 .72rem/1.3 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--gd);margin-bottom:10px}
+.cai .cai-res-v{display:block;font:700 clamp(2rem,4.4vw,2.9rem)/1.05 'Inter',sans-serif;color:var(--ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cai .cai-res-s{display:block;font:500 .93rem/1.6 'Inter',sans-serif;color:var(--grey);margin-top:9px}
+.cai .cai-res-seuil{background:#fff;border:1px solid #CBEFDB;border-radius:18px;padding:clamp(20px,2.4vw,26px)}
+.cai .cai-res-seuil .cai-res-v{font-size:clamp(1.5rem,3vw,1.95rem);color:var(--gd)}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- formule --- */
+.cai .cai-form{margin-top:clamp(36px,4vw,46px);background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(26px,3vw,36px);display:grid;gap:clamp(20px,2.4vw,26px)}
+.cai .cai-form-l{font:600 .72rem/1.3 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);margin-bottom:9px}
+.cai .cai-form-e{font:600 1.02rem/1.6 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-form-n{font:400 .93rem/1.65 'Inter',sans-serif;color:var(--grey);margin-top:7px}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Calculateur</span>
+<h1 style="max-width:23ch;margin:22px 0 20px">Combien vous coûtent <em>vos appels manqués ?</em></h1>
+<p class="cai-lead" style="max-width:58ch">Quatre chiffres que vous connaissez suffisent pour mettre un montant sur les appels auxquels personne ne répond. Aucune estimation cachée, aucune promesse de résultat : la formule complète est écrite sous le calculateur.</p>
+<ul class="cai-tick">
+<li>Quatre curseurs, aucun formulaire à remplir</li>
+<li>La formule est publiée, vous pouvez la vérifier</li>
+<li>Rien n'est enregistré, rien n'est envoyé</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un garagiste s'essuie les mains dans son atelier, son téléphone allumé posé sur l'établi" height="643" loading="eager" src="/images/6aafe5c06473e7.60626556_calculateur-appels-manques-artisans.webp" width="1500"/>
+<figcaption>Les appels auxquels vous ne répondez pas ne laissent aucune trace. C'est ce qui les rend si faciles à sous-estimer.</figcaption>
+</figure>
+</section>
+<!-- 2. LE CALCULATEUR -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos chiffres</span>
+<h2>Estimez ce que représentent <em>vos appels sans réponse</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ajustez les quatre valeurs avec vos chiffres réels. Le résultat se met à jour immédiatement.</p>
+</div>
+<div class="cai-calc">
+<div class="cai-fields">
+<div class="cai-fld">
+<div class="cai-fld-top">
+<label for="cai-c1">Appels entrants par semaine</label>
+<span class="cai-val" id="cai-v1">25</span>
+</div>
+<span class="cai-hint">Tous les appels reçus : nouveaux prospects, clients existants, demandes de devis.</span>
+<input id="cai-c1" max="200" min="5" step="1" type="range" value="25"/>
+</div>
+<div class="cai-fld">
+<div class="cai-fld-top">
+<label for="cai-c2">Part de ces appels sans réponse</label>
+<span class="cai-val" id="cai-v2">30 %</span>
+</div>
+<span class="cai-hint">Sonnerie dans le vide, répondeur, ligne occupée, appel reçu pendant que vous êtes déjà en ligne.</span>
+<input id="cai-c2" max="90" min="0" step="1" type="range" value="30"/>
+</div>
+<div class="cai-fld">
+<label for="cai-c3">Montant moyen d'une prestation</label>
+<span class="cai-hint">Une intervention, pas la valeur d'un client sur l'année. Fourchette couramment observée dans les métiers d'intervention à domicile : 150 à 450 €.</span>
+<div class="cai-money">
+<input id="cai-c3" inputmode="numeric" max="100000" min="0" step="10" type="number" value="250"/>
+<span>€</span>
+</div>
+</div>
+<div class="cai-fld">
+<div class="cai-fld-top">
+<label for="cai-c4">Part des appels qui deviennent une prestation</label>
+<span class="cai-val" id="cai-v4">40 %</span>
+</div>
+<span class="cai-hint">Sur dix personnes qui vous appellent, combien finissent par réserver ?</span>
+<input id="cai-c4" max="100" min="0" step="1" type="range" value="40"/>
+</div>
+</div>
+<div aria-live="polite" class="cai-res">
+<div class="cai-res-b">
+<span class="cai-res-l">Appels sans réponse par mois</span>
+<span class="cai-res-v" id="cai-r1">32</span>
+<span class="cai-res-s">Des demandes dont vous ne saurez jamais ce qu'elles valaient.</span>
+</div>
+<div class="cai-res-b">
+<span class="cai-res-l">Ce qu'ils représentent par mois</span>
+<span class="cai-res-v" id="cai-r2">3 248 €</span>
+<span class="cai-res-s">Soit <b id="cai-r3">38 970 €</b> sur douze mois.</span>
+</div>
+<div class="cai-res-b cai-res-seuil">
+<span class="cai-res-l">Le seuil</span>
+<span class="cai-res-v" id="cai-r4">2 prestations</span>
+<span class="cai-res-s">C'est le nombre de prestations récupérées qu'il faut par mois pour couvrir un abonnement à 297 €.</span>
+</div>
+</div>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Ce calcul est une estimation construite à partir de vos propres chiffres. Il indique ce que représentent les appels auxquels personne ne répond, il ne prédit pas combien vous en récupéreriez.</p>
+<a class="cai-more" href="/tarifs">Comparer ce montant aux tarifs</a>
+</section>
+<!-- 3. LA FORMULE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Transparence</span>
+<h2>La formule du calcul, <em>écrite noir sur blanc</em></h2>
+<p class="cai-lead" style="max-width:58ch">Trois opérations, aucune variable cachée. Vous pouvez la refaire sur un coin de table.</p>
+</div>
+<div class="cai-form">
+<div>
+<div class="cai-form-l">1 — Appels sans réponse par mois</div>
+<div class="cai-form-e">appels par semaine × 4,33 × part sans réponse</div>
+<div class="cai-form-n">Le coefficient 4,33 est le nombre moyen de semaines dans un mois, soit 52 semaines divisées par 12. Utiliser 4 sous-estimerait le résultat d'environ 8 %.</div>
+</div>
+<div>
+<div class="cai-form-l">2 — Montant représenté</div>
+<div class="cai-form-e">appels sans réponse × taux de transformation × montant moyen</div>
+<div class="cai-form-n">On applique aux appels manqués le même taux de transformation qu'aux appels que vous prenez. C'est une hypothèse neutre : elle ne suppose ni que ces appels étaient meilleurs, ni qu'ils étaient moins bons.</div>
+</div>
+<div>
+<div class="cai-form-l">3 — Le seuil</div>
+<div class="cai-form-e">297 ÷ montant moyen, arrondi au supérieur</div>
+<div class="cai-form-n">297 € est le tarif mensuel de l'abonnement d'entrée d'un standard téléphonique 24/7. L'arrondi se fait vers le haut, puisqu'on ne récupère pas une demi-prestation.</div>
+</div>
+</div>
+<a class="cai-more" href="/methode-calcul">Le détail de la méthode et ses limites</a>
+</section>
+<!-- 4. CE QUE LE CALCUL NE DIT PAS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Portée du calcul</span>
+<h2>Ce que ce calculateur <em>mesure exactement</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un ordre de grandeur utile pour décider, pas une comptabilité.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Il mesure une exposition, pas une perte comptable.</strong> Une partie de ces appelants vous aurait rappelé, ou n'aurait rien acheté. Le montant affiché est ce qui est passé devant votre porte, pas ce qui vous a été volé.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Il ne tient pas compte de la saison.</strong> Un plombier en février et un paysagiste en avril ne reçoivent pas le même volume qu'en août. Faites le calcul sur une semaine ordinaire, puis refaites-le sur une semaine de pointe.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Il ignore la valeur du client sur la durée.</strong> Le montant moyen demandé est celui d'une intervention. Un client acquis qui revient trois fois par an vaut beaucoup plus que ce que le calcul affiche.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Il ne promet aucune récupération.</strong> Aucun outil, aucune permanence et aucune embauche ne transforme 100 % des appels manqués en clients. C'est pourquoi la troisième ligne affiche un seuil à atteindre et non un gain attendu.</p></div>
+</div>
+</section>
+<!-- 5. ET MAINTENANT -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Et maintenant</span>
+<h2>Ce que vous pouvez faire <em>de ce chiffre</em></h2>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Vérifiez-le sur une vraie semaine.</strong> Le relevé d'appels de votre opérateur, dans votre espace client, indique les appels reçus et les appels non aboutis. Vous saurez en cinq minutes si votre estimation de départ était juste.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Regardez à quelle heure ils arrivent.</strong> Si la majorité des appels sans réponse tombent après 18 heures ou le week-end, ni une embauche ni un télésecrétariat en heures ouvrées ne les couvrira.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Comparez au coût des solutions.</strong> Mettez le montant mensuel face aux 150 à 300 € d'un télésecrétariat, aux 297 à 997 € d'un standard 24/7 et aux 1 700 à 2 000 € d'une embauche.</p></div>
+</div>
+<a class="cai-more" href="/comparer/permanence-telephonique">Le comparatif des quatre solutions</a>
+</section>
+<!-- 6. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions sur le calcul <em>des appels manqués</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Combien coûte réellement un appel manqué ?</summary>
+<div class="cai-ans"><p>Un appel manqué coûte le montant moyen d'une prestation multiplié par la probabilité que cet appelant serait devenu client. Pour une intervention à domicile à 250 € avec un taux de transformation de 40 %, un appel sans réponse représente en moyenne 100 €. Ce n'est pas une perte certaine, c'est une espérance de gain qui disparaît.</p></div>
+</details>
+<details>
+<summary>Où trouver mon nombre réel d'appels manqués ?</summary>
+<div class="cai-ans"><p>Dans l'espace client de votre opérateur mobile ou fixe, le détail de consommation liste les appels reçus et les appels non aboutis. Sur un smartphone, l'historique d'appels donne aussi les appels manqués, mais il ne montre pas ceux reçus pendant que vous étiez déjà en ligne : ceux-là n'apparaissent nulle part.</p></div>
+</details>
+<details>
+<summary>Pourquoi multiplier par 4,33 et non par 4 ?</summary>
+<div class="cai-ans"><p>Parce qu'un mois ne compte pas quatre semaines mais 4,33 en moyenne, soit 52 divisé par 12. Multiplier par 4 reviendrait à ignorer environ quatre semaines par an et à sous-estimer le résultat d'à peu près 8 %.</p></div>
+</details>
+<details>
+<summary>Mes chiffres sont-ils enregistrés quelque part ?</summary>
+<div class="cai-ans"><p>Non. Le calcul se fait entièrement dans votre navigateur. Rien n'est envoyé, rien n'est stocké, et il n'y a aucun formulaire à remplir pour voir le résultat.</p></div>
+</details>
+<details>
+<summary>Le résultat me paraît énorme, est-ce normal ?</summary>
+<div class="cai-ans"><p>C'est fréquent, et c'est la raison d'être du calcul : un appel manqué ne laisse aucune trace, donc il ne pèse rien dans la perception, alors qu'il pèse le prix d'une intervention. Si le montant vous surprend, baissez la part d'appels sans réponse à ce que vous pensez être votre vrai chiffre, puis vérifiez-le sur votre relevé d'opérateur.</p></div>
+</details>
+</div>
+</section>
+<!-- 7. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:21ch">Le chiffre est une estimation. <em>Une semaine d'essai, non.</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne remplacent toutes les estimations : vous voyez le nombre d'appels réellement reçus hors de vos heures, et ce qu'ils demandaient.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/methode-calcul">La méthode de calcul détaillée</a></li>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/calculateur#webpage",
+      "url": "https://www.concierge-ai.fr/calculateur",
+      "name": "Calculateur : ce que vous coûtent vos appels manqués",
+      "description": "Combien d'appels restent sans réponse chaque mois, ce qu'ils représentent sur un an, et combien il faut en récupérer pour couvrir un standard 24/7.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-20",
+      "dateModified": "2026-09-20",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/calculateur#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/calculateur#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculateur" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.concierge-ai.fr/calculateur#howto",
+      "name": "Calculer ce que représentent les appels manqués d'une entreprise",
+      "description": "Méthode en trois opérations pour estimer le montant représenté par les appels entrants auxquels personne ne répond, à partir du volume d'appels, du taux de non-réponse, du montant moyen d'une prestation et du taux de transformation.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/calculateur#webpage" },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Calculer le nombre d'appels sans réponse par mois",
+          "text": "Multiplier le nombre d'appels entrants par semaine par 4,33, le nombre moyen de semaines dans un mois, puis par la part d'appels qui restent sans réponse."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Convertir ces appels en montant",
+          "text": "Multiplier le nombre d'appels sans réponse par le taux de transformation habituel de l'entreprise, puis par le montant moyen d'une prestation. Le résultat est le montant représenté par mois ; multiplié par douze, il donne le montant annuel."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Déterminer le seuil de rentabilité",
+          "text": "Diviser le coût mensuel de la solution envisagée par le montant moyen d'une prestation et arrondir au supérieur. On obtient le nombre de prestations à récupérer chaque mois pour couvrir cette solution."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/calculateur#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/calculateur#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien coûte réellement un appel manqué ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un appel manqué coûte le montant moyen d'une prestation multiplié par la probabilité que cet appelant serait devenu client. Pour une intervention à domicile à 250 € avec un taux de transformation de 40 %, un appel sans réponse représente en moyenne 100 €. Ce n'est pas une perte certaine mais une espérance de gain qui disparaît." }
+        },
+        {
+          "@type": "Question",
+          "name": "Où trouver son nombre réel d'appels manqués ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Dans l'espace client de l'opérateur mobile ou fixe, le détail de consommation liste les appels reçus et les appels non aboutis. L'historique d'appels d'un smartphone donne les appels manqués, mais il ne montre pas ceux reçus pendant une communication en cours." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi multiplier par 4,33 et non par 4 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Parce qu'un mois compte en moyenne 4,33 semaines, soit 52 divisé par 12. Multiplier par 4 reviendrait à ignorer environ quatre semaines par an et à sous-estimer le résultat d'à peu près 8 %." }
+        },
+        {
+          "@type": "Question",
+          "name": "Les chiffres saisis dans le calculateur sont-ils enregistrés ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Le calcul se fait entièrement dans le navigateur. Rien n'est envoyé ni stocké, et aucun formulaire n'est nécessaire pour voir le résultat." }
+        },
+        {
+          "@type": "Question",
+          "name": "Le résultat paraît énorme, est-ce normal ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "C'est fréquent : un appel manqué ne laisse aucune trace, donc il ne pèse rien dans la perception alors qu'il pèse le prix d'une intervention. En cas de doute, il faut ajuster la part d'appels sans réponse puis la vérifier sur le relevé de l'opérateur." }
+        }
+      ]
+    }
+  ]
+}
+</script>

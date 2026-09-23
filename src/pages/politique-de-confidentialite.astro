@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/politique-de-confidentialite.html?raw'
+---
+
+<Base
+  titre="Politique de confidentialité"
+  description="Quelles données ce site collecte, pourquoi, combien de temps, qui y a accès, et comment exercer vos droits."
+  chemin="/politique-de-confidentialite"
+  og="/images/6aafaedf5f3426.07202866_og-site.webp"
+>
+  <Fragment set:html={contenu} />
+</Base>

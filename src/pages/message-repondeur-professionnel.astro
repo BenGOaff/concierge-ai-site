@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/message-repondeur-professionnel.html?raw'
+---
+
+<Base
+  titre="Message répondeur professionnel : exemples à copier"
+  description="Des messages de répondeur professionnel prêts à copier : journée, soir, week-end, congés, par métier. Écrits pour que le client ne raccroche pas."
+  chemin="/message-repondeur-professionnel"
+  og="/images/6ab14bcaeeb577.50467635_ChatGPTImage21sept.202617_22_23.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

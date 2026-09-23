@@ -1,0 +1,464 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-feat{margin-top:clamp(40px,4.6vw,54px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:40ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- fiches solution --- */
+.cai .cai-sols{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-sol{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(28px,3.2vw,38px)}
+.cai .cai-sol--g{border-color:#CBEFDB;background:linear-gradient(170deg,#F4FDF8 0%,#FFFFFF 60%)}
+.cai .cai-sol-hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.cai .cai-sol-hd h3{font-size:1.22rem;line-height:1.35;margin:0}
+.cai .cai-sol-hd span{font:600 .78rem/1 'Inter',sans-serif;color:var(--mute);background:var(--soft);border-radius:99px;padding:8px 13px}
+.cai .cai-sol--g .cai-sol-hd span{color:var(--gd);background:#E2FBEC}
+.cai .cai-sol dl{margin:0;display:grid;gap:18px}
+.cai .cai-sol dt{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);margin-bottom:7px}
+.cai .cai-sol dd{margin:0;font-size:.98rem;line-height:1.7;color:var(--grey)}
+.cai .cai-sol dd b{color:var(--ink);font-weight:600}
+@media(min-width:880px){.cai .cai-sols{grid-template-columns:repeat(2,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-feat{margin-top:clamp(40px,4.6vw,54px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:40ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- fiches solution --- */
+.cai .cai-sols{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-sol{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(28px,3.2vw,38px)}
+.cai .cai-sol--g{border-color:#CBEFDB;background:linear-gradient(170deg,#F4FDF8 0%,#FFFFFF 60%)}
+.cai .cai-sol-hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.cai .cai-sol-hd h3{font-size:1.22rem;line-height:1.35;margin:0}
+.cai .cai-sol-hd span{font:600 .78rem/1 'Inter',sans-serif;color:var(--mute);background:var(--soft);border-radius:99px;padding:8px 13px}
+.cai .cai-sol--g .cai-sol-hd span{color:var(--gd);background:#E2FBEC}
+.cai .cai-sol dl{margin:0;display:grid;gap:18px}
+.cai .cai-sol dt{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);margin-bottom:7px}
+.cai .cai-sol dd{margin:0;font-size:.98rem;line-height:1.7;color:var(--grey)}
+.cai .cai-sol dd b{color:var(--ink);font-weight:600}
+@media(min-width:880px){.cai .cai-sols{grid-template-columns:repeat(2,1fr)}}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Comparatif</span>
+<h1 style="max-width:23ch;margin:22px 0 20px">Permanence téléphonique : <em>les quatre solutions comparées</em></h1>
+<p class="cai-lead" style="max-width:58ch">Répondeur, télésecrétariat, embauche ou standard automatique 24/7. Ce que chacun couvre réellement, ce qu'il coûte par mois, et comment choisir selon les heures où vos clients appellent.</p>
+<ul class="cai-tick">
+<li>Les quatre solutions sur les mêmes critères</li>
+<li>Les fourchettes de prix relevées sur le marché français</li>
+<li>Le tableau des créneaux horaires réellement couverts</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Une secrétaire avec un casque téléphonique prend des notes au comptoir d'accueil d'un cabinet" height="643" loading="eager" src="/images/6aafe0b13c6570.07244042_comparer-cout-standard-telephone-artisans.webp" width="1500"/>
+<figcaption>Une permanence humaine décroche pendant les heures de bureau. Le téléphone, lui, sonne aussi le reste du temps.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE EXTRACTIBLE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Quelle permanence téléphonique choisir <em>quand on est indépendant ?</em></h2>
+</div>
+<p class="cai-say">Le choix dépend de deux choses seulement : les heures auxquelles vos clients appellent, et ce que vous attendez de l'appel. <span class="cai-key">Un télésecrétariat prend un message en heures ouvrées ; un standard automatique pose un rendez-vous à n'importe quelle heure.</span></p>
+<table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Critère</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Embauche</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un décroche</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">En heures ouvrées</td>
+<td data-l="Embauche">35 h par semaine</td>
+<td data-l="Standard 24/7">24 h/24</td>
+</tr>
+<tr>
+<th scope="row">Soirées et week-ends</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Selon l'option souscrite</td>
+<td data-l="Embauche">Non</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Connaît votre métier</th>
+<td data-l="Répondeur">Sans objet</td>
+<td data-l="Télésecrétariat">Variable selon l'opérateur</td>
+<td data-l="Embauche">Oui, après formation</td>
+<td data-l="Standard 24/7">Oui, selon vos règles</td>
+</tr>
+<tr>
+<th scope="row">Résultat de l'appel</th>
+<td data-l="Répondeur">Rien</td>
+<td data-l="Télésecrétariat">Un message à traiter</td>
+<td data-l="Embauche">Un rendez-vous</td>
+<td data-l="Standard 24/7">Un rendez-vous</td>
+</tr>
+<tr>
+<th scope="row">Pose le rendez-vous dans l'agenda</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Selon l'option souscrite</td>
+<td data-l="Embauche">Oui</td>
+<td data-l="Standard 24/7">Oui, sur créneaux libres</td>
+</tr>
+<tr>
+<th scope="row">Deux appels en même temps</th>
+<td data-l="Répondeur">Sans objet</td>
+<td data-l="Télésecrétariat">Oui</td>
+<td data-l="Embauche">Non</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Congés et absences</th>
+<td data-l="Répondeur">Sans objet</td>
+<td data-l="Télésecrétariat">Couverts</td>
+<td data-l="Embauche">À remplacer</td>
+<td data-l="Standard 24/7">Sans objet</td>
+</tr>
+<tr>
+<th scope="row">Coût mensuel</th>
+<td data-l="Répondeur">0 €</td>
+<td data-l="Télésecrétariat">150 à 300 €</td>
+<td data-l="Embauche">1 700 à 2 000 € chargés</td>
+<td data-l="Standard 24/7">297 à 997 €</td>
+</tr>
+<tr>
+<th scope="row">Engagement</th>
+<td data-l="Répondeur">Aucun</td>
+<td data-l="Télésecrétariat">Souvent annuel</td>
+<td data-l="Embauche">Contrat de travail</td>
+<td data-l="Standard 24/7">Aucun</td>
+</tr>
+</tbody>
+</table>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Fourchettes constatées sur les offres publiques du marché français. Les tarifs de télésecrétariat varient fortement selon le mode de facturation : forfait d'appels, facturation à l'appel ou à la minute. Le coût d'un poste d'accueil correspond à un temps plein chargé.</p>
+</section>
+<!-- 3. LES QUATRE SOLUTIONS EN DÉTAIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Dans le détail</span>
+<h2>Ce que chaque solution de permanence <em>règle et ne règle pas</em></h2>
+<p class="cai-lead" style="max-width:58ch">Aucune des quatre n'est mauvaise en soi. Chacune répond à un problème précis, et échoue sur les autres.</p>
+</div>
+<div class="cai-sols">
+<article class="cai-sol">
+<div class="cai-sol-hd"><h3>Le répondeur</h3><span>0 €</span></div>
+<dl>
+<div><dt>Ce que ça règle</dt><dd>Rien, et ce n'est pas son rôle. Il sert à ne pas laisser sonner dans le vide.</dd></div>
+<div><dt>Ce que ça ne règle pas</dt><dd>Une personne qui cherche un professionnel en urgence ne laisse pas de message : <b>elle raccroche et compose le numéro suivant.</b> Vous ne saurez jamais qui a appelé ni pourquoi.</dd></div>
+<div><dt>Pour qui</dt><dd>Une activité où les clients patientent, prennent rendez-vous longtemps à l'avance et ne comparent pas.</dd></div>
+</dl>
+</article>
+<article class="cai-sol">
+<div class="cai-sol-hd"><h3>Le télésecrétariat</h3><span>150 à 300 € / mois</span></div>
+<dl>
+<div><dt>Ce que ça règle</dt><dd>Une vraie personne décroche pendant que vous travaillez, en heures ouvrées. Elle prend le message et vous le transmet. <b>Plusieurs appels simultanés sont absorbés</b>, et vos congés sont couverts.</dd></div>
+<div><dt>Ce que ça ne règle pas</dt><dd>La couverture s'arrête le plus souvent à la fermeture des bureaux, or une partie des appels arrive après 18 heures et le week-end. Le résultat est un message, pas un créneau : <b>il reste un rappel à faire.</b> Et l'opérateur connaît rarement les spécificités de votre métier.</dd></div>
+<div><dt>Pour qui</dt><dd>Une activité très majoritairement en journée, avec des demandes qui supportent un rappel de quelques heures.</dd></div>
+</dl>
+</article>
+<article class="cai-sol">
+<div class="cai-sol-hd"><h3>L'embauche</h3><span>1 700 à 2 000 € / mois</span></div>
+<dl>
+<div><dt>Ce que ça règle</dt><dd>Quelqu'un qui connaît votre métier, vos clients et vos habitudes, qui décroche, qualifie, pose le rendez-vous et gère aussi le reste de l'administratif.</dd></div>
+<div><dt>Ce que ça ne règle pas</dt><dd>Trente-cinq heures par semaine sur les cent soixante-huit que compte une semaine. <b>Ni les soirées, ni les week-ends, ni les congés, ni les arrêts.</b> Et un seul appel à la fois.</dd></div>
+<div><dt>Pour qui</dt><dd>Une entreprise dont le volume justifie un poste à temps plein et dont les appels arrivent en journée.</dd></div>
+</dl>
+</article>
+<article class="cai-sol cai-sol--g">
+<div class="cai-sol-hd"><h3>Le standard automatique 24/7</h3><span>297 à 997 € / mois</span></div>
+<dl>
+<div><dt>Ce que ça règle</dt><dd>Le téléphone sonne d'abord chez vous. S'il n'est pas décroché, le standard prend le relais, à n'importe quelle heure. Il qualifie selon vos règles, <b>pose le rendez-vous sur un créneau libre de votre agenda</b>, vous transfère les urgences que vous avez définies et vous envoie un résumé écrit.</dd></div>
+<div><dt>Ce que ça ne règle pas</dt><dd>Il ne reçoit personne au comptoir, ne règle pas un litige et ne fait pas votre administratif. <b>Il ne remplace pas une personne : il prend les appels qu'une personne à 35 heures ne peut pas prendre.</b></dd></div>
+<div><dt>Pour qui</dt><dd>Un indépendant ou une petite équipe dont les appels arrivent à toute heure et dont chaque appel a une valeur directe.</dd></div>
+</dl>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Ces solutions ne s'excluent pas. Beaucoup d'indépendants gardent leur télésecrétariat en journée, pour la relation humaine et l'administratif, et ajoutent un standard automatique pour les soirées, les week-ends et les doubles appels.</p>
+</section>
+<!-- 4. LE CRITÈRE QUI TRANCHE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le critère décisif</span>
+<h2>Le vrai critère de choix : <em>l'heure à laquelle on vous appelle</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une semaine compte 168 heures. Un poste à temps plein en couvre 35, soit un cinquième. Voici, créneau par créneau, ce que chaque solution prend en charge.</p>
+</div>
+<table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Créneau</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Embauche</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Semaine, 9 h – 12 h</th>
+<td data-l="Télésecrétariat">Couvert</td>
+<td data-l="Embauche">Couvert</td>
+<td data-l="Standard 24/7">Couvert</td>
+</tr>
+<tr>
+<th scope="row">Pause déjeuner</th>
+<td data-l="Télésecrétariat">Couvert</td>
+<td data-l="Embauche">Non couvert</td>
+<td data-l="Standard 24/7">Couvert</td>
+</tr>
+<tr>
+<th scope="row">Semaine, 14 h – 18 h</th>
+<td data-l="Télésecrétariat">Couvert</td>
+<td data-l="Embauche">Couvert</td>
+<td data-l="Standard 24/7">Couvert</td>
+</tr>
+<tr>
+<th scope="row">Semaine, 18 h – 22 h</th>
+<td data-l="Télésecrétariat">Selon l'option</td>
+<td data-l="Embauche">Non couvert</td>
+<td data-l="Standard 24/7">Couvert</td>
+</tr>
+<tr>
+<th scope="row">Samedi</th>
+<td data-l="Télésecrétariat">Selon l'option</td>
+<td data-l="Embauche">Non couvert</td>
+<td data-l="Standard 24/7">Couvert</td>
+</tr>
+<tr>
+<th scope="row">Dimanche et jours fériés</th>
+<td data-l="Télésecrétariat">Rarement</td>
+<td data-l="Embauche">Non couvert</td>
+<td data-l="Standard 24/7">Couvert</td>
+</tr>
+<tr>
+<th scope="row">La nuit</th>
+<td data-l="Télésecrétariat">Rarement</td>
+<td data-l="Embauche">Non couvert</td>
+<td data-l="Standard 24/7">Couvert</td>
+</tr>
+<tr>
+<th scope="row">Pendant vos congés</th>
+<td data-l="Télésecrétariat">Couvert</td>
+<td data-l="Embauche">À remplacer</td>
+<td data-l="Standard 24/7">Couvert</td>
+</tr>
+</tbody>
+</table>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Les options soirée et week-end existent chez la plupart des télésecrétariats, avec un supplément tarifaire : demandez le prix de l'option avant de comparer les forfaits de base entre eux.</p>
+<a class="cai-more" href="/calculateur">Estimer ce que valent vos appels hors horaires</a>
+</section>
+<!-- 5. COMMENT DÉCIDER -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Décider</span>
+<h2>Choisir sa permanence téléphonique <em>en quatre questions</em></h2>
+<p class="cai-lead" style="max-width:58ch">Répondez dans l'ordre. La première réponse qui bascule vous donne la solution.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Vos clients appellent-ils après 18 heures ou le week-end ?</strong> Si oui, l'embauche et le télésecrétariat de base sont hors-jeu sur ces créneaux. Restent l'option horaires étendues d'un télésecrétariat, ou un standard 24/7.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Un message suffit-il, ou vous faut-il un rendez-vous ?</strong> Si le rappel du soir vous coûte des clients partis ailleurs entre-temps, il vous faut une solution qui bloque le créneau pendant l'appel, pas qui vous transmet un numéro.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Avez-vous des urgences à distinguer du reste ?</strong> Si une fuite active ne doit pas attendre demain mais qu'un devis peut attendre, il vous faut des règles de tri écrites et un transfert direct sur votre portable.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Combien vaut une intervention chez vous ?</strong> Multipliez par le nombre d'appels que vous ne prenez pas chaque mois. Tant que ce montant dépasse le coût de la solution, la question n'est plus le prix.</p></div>
+</div>
+</section>
+<!-- 6. RECOMMANDATION -->
+<section class="cai-box cai-box--d">
+<span class="cai-eye cai-eye--d">Notre recommandation</span>
+<h2 style="margin:24px 0 20px;max-width:21ch">Pour un indépendant, <em>le standard 24/7</em></h2>
+<p class="cai-lead" style="color:#C6DAEC;max-width:58ch">Sur les quatre solutions, c'est la seule qui couvre les 168 heures d'une semaine, qui pose un rendez-vous plutôt que de prendre un message, et qui s'arrête quand vous le décidez. Parmi les standards automatiques disponibles en France, Concierge AI est celui que nous recommandons aux indépendants et aux petites équipes.</p>
+<ul class="cai-feat">
+<li><b>En service sous 48 h</b>Un appel de cadrage de 30 minutes suffit</li>
+<li><b>7 jours d'essai</b>Sans engagement, arrêt sans justification</li>
+<li><b>Votre numéro actuel</b>Rien à changer, personne à prévenir</li>
+<li><b>Agenda connecté</b>Jamais de rendez-vous sur un créneau pris</li>
+</ul>
+<div class="cai-row">
+<a class="cai-btn cai-btn--g" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Tester 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px);color:#8FB0CC">Nous percevons une commission d'affiliation sur ce service. Cela ne change pas les critères du tableau ci-dessus, qui s'appliquent de la même façon aux quatre solutions.</p>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Quelle différence entre un télésecrétariat et un standard automatique ?</summary>
+<div class="cai-ans"><p>Un télésecrétariat est assuré par des personnes qui décrochent pendant les heures ouvrées, prennent un message et vous le transmettent. Un standard automatique répond à toute heure, qualifie la demande selon les règles que vous avez fixées, bloque un créneau dans votre agenda et ne vous transfère que les urgences que vous avez définies.</p><p>La différence de fond n'est pas humain contre machine : c'est un message à rappeler contre un rendez-vous déjà posé.</p></div>
+</details>
+<details>
+<summary>Combien coûte une permanence téléphonique par mois ?</summary>
+<div class="cai-ans"><p>Sur les offres publiques du marché français, un télésecrétariat se situe entre 150 et 300 € par mois selon le volume d'appels et les horaires couverts, un standard automatique 24/7 entre 297 et 997 €, et un poste d'accueil à temps plein entre 1 700 et 2 000 € chargés. Les options soirée et week-end d'un télésecrétariat sont généralement facturées en supplément.</p></div>
+</details>
+<details>
+<summary>Peut-on garder son télésecrétariat et ajouter un standard automatique ?</summary>
+<div class="cai-ans"><p>Oui, et beaucoup d'indépendants font exactement cela : le télésecrétariat en journée, pour la relation humaine et l'administratif, et le standard automatique le soir, le week-end et sur les doubles appels. Les deux se branchent sur la même ligne, à des conditions de renvoi différentes.</p></div>
+</details>
+<details>
+<summary>Faut-il changer de numéro de téléphone ?</summary>
+<div class="cai-ans"><p>Non, dans aucun des cas. Un télésecrétariat comme un standard automatique se branchent sur votre ligne actuelle par un renvoi d'appel. Vos cartes de visite, votre fiche Google, le marquage de votre véhicule et vos anciens clients gardent le même numéro.</p></div>
+</details>
+<details>
+<summary>Et si mes clients n'aiment pas parler à une machine ?</summary>
+<div class="cai-ans"><p>C'est la crainte la plus répandue, et elle se vérifie en écoutant un appel réel plutôt qu'en en discutant. Ce que les clients supportent mal, c'est la sonnerie dans le vide et le rappel qui n'arrive jamais. Un standard correctement paramétré annonce le nom de votre entreprise, ne se fait pas passer pour vous, et donne une réponse claire en deux minutes.</p></div>
+</details>
+<details>
+<summary>Quelle solution pour une activité avec beaucoup d'urgences ?</summary>
+<div class="cai-ans"><p>Celle qui vous permet d'écrire vos propres règles de tri. Une urgence de plombier n'est pas une urgence de kinésithérapeute. Ce qui compte, c'est que les critères soient définis avec vous, que les vraies urgences arrivent en direct sur votre portable, et que le reste soit planifié sans vous déranger.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:21ch">Le meilleur comparatif, <em>c'est une semaine d'essai</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront ce qu'aucun tableau ne peut vous dire : combien d'appels vous receviez en dehors de vos heures, et ce qu'ils valaient.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/tarifs">Voir les tarifs</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/demonstration">Écouter un appel réel</a></li>
+<li><a href="/calculateur">Calculer ce que je perds</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/guides/astreinte-et-tri-des-urgences">Astreinte et tri des urgences</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/comparer/permanence-telephonique#webpage",
+      "url": "https://www.concierge-ai.fr/comparer/permanence-telephonique",
+      "name": "Permanence téléphonique : les 4 solutions comparées",
+      "description": "Répondeur, télésecrétariat, embauche ou standard 24/7 : ce que chacun couvre, ce qu'il coûte par mois, et lequel choisir selon vos horaires d'appels.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-20",
+      "dateModified": "2026-09-20",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/comparer/permanence-telephonique#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/comparer/permanence-telephonique#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Comparer", "item": "https://www.concierge-ai.fr/comparer" },
+        { "@type": "ListItem", "position": 3, "name": "Permanence téléphonique" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/comparer/permanence-telephonique#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/comparer/permanence-telephonique#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre un télésecrétariat et un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un télésecrétariat est assuré par des personnes qui décrochent pendant les heures ouvrées, prennent un message et le transmettent. Un standard automatique répond à toute heure, qualifie la demande selon les règles fixées par le professionnel, bloque un créneau dans son agenda et ne lui transfère que les urgences qu'il a définies. La différence de fond n'est pas humain contre machine : c'est un message à rappeler contre un rendez-vous déjà posé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte une permanence téléphonique par mois ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sur les offres publiques du marché français, un télésecrétariat se situe entre 150 et 300 € par mois selon le volume d'appels et les horaires couverts, un standard automatique 24/7 entre 297 et 997 €, et un poste d'accueil à temps plein entre 1 700 et 2 000 € chargés. Les options soirée et week-end d'un télésecrétariat sont généralement facturées en supplément." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on garder son télésecrétariat et ajouter un standard automatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. Beaucoup d'indépendants gardent le télésecrétariat en journée, pour la relation humaine et l'administratif, et ajoutent un standard automatique le soir, le week-end et sur les doubles appels. Les deux se branchent sur la même ligne, à des conditions de renvoi différentes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il changer de numéro de téléphone pour une permanence téléphonique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non, dans aucun des cas. Un télésecrétariat comme un standard automatique se branchent sur la ligne actuelle par un renvoi d'appel. Les cartes de visite, la fiche Google, le marquage du véhicule et les anciens clients gardent le même numéro." }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si mes clients n'aiment pas parler à une machine ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ce que les clients supportent mal, c'est la sonnerie dans le vide et le rappel qui n'arrive jamais. Un standard correctement paramétré annonce le nom de l'entreprise, ne se fait pas passer pour le dirigeant, et donne une réponse claire en deux minutes. Le meilleur moyen de trancher est d'écouter un appel réel." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle solution de permanence pour une activité avec beaucoup d'urgences ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Celle qui permet d'écrire ses propres règles de tri. Une urgence de plombier n'est pas une urgence de kinésithérapeute. Ce qui compte, c'est que les critères soient définis avec le professionnel, que les vraies urgences arrivent en direct sur son portable, et que le reste soit planifié sans le déranger." }
+        }
+      ]
+    }
+  ]
+}
+</script>

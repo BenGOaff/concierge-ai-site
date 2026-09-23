@@ -1,0 +1,448 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.55rem,3vw,2.2rem)}
+.cai .cai-head h2{max-width:27ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- bandeau photo --- */
+.cai .cai-ph{margin:clamp(40px,4.6vw,56px) 0 0;padding:0}
+.cai .cai-ph img{display:block;width:100%;max-width:100%;height:auto;border-radius:calc(var(--rad) - 10px);background:#DCE6EF}
+.cai .cai-ph figcaption{font:500 .89rem/1.6 'Inter',sans-serif;color:var(--blue);opacity:.78;margin-top:16px;max-width:56ch}
+
+/* --- scènes horodatées --- */
+.cai .cai-sc{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,22px)}
+.cai .cai-scc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(26px,3vw,34px)}
+.cai .cai-scc b{display:inline-flex;font:700 .95rem/1 'Inter',sans-serif;color:var(--gd);background:var(--g1);border:1px solid #CBEFDB;border-radius:99px;padding:10px 15px;margin-bottom:18px;font-variant-numeric:tabular-nums}
+.cai .cai-scc p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0}
+@media(min-width:820px){.cai .cai-sc{grid-template-columns:repeat(3,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- autres métiers --- */
+.cai .cai-mets2{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid var(--line)}
+.cai .cai-mets2 h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mets2 ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.cai .cai-mets2 li{margin:0;padding:0}
+.cai .cai-mets2 a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai .cai-mets2 a:hover{border-color:#B6CADD;color:var(--ink)}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Électricien</span>
+<h1 style="max-width:23ch;margin:22px 0 20px">On ne lâche pas un tableau <em>pour décrocher</em></h1>
+<p class="cai-lead" style="max-width:58ch">Coupure totale, disjoncteur qui saute, odeur de brûlé, devis de rénovation : vos appels arrivent pendant que vous êtes sous tension. Voici ce qu'ils deviennent, ce qu'ils valent, et les solutions pour qu'ils obtiennent une réponse.</p>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro, rien à installer</li>
+<li>Vous définissez ce qui est une urgence électrique</li>
+<li>Sans engagement, sept jours d'essai</li>
+</ul>
+<figure class="cai-ph">
+<img alt="Un électricien tire des câbles depuis un faux plafond, son téléphone allumé posé hors de portée" height="643" loading="eager" src="/images/6aaff3acf143f0.88569380_electricien-permanence-telephone.webp" width="1500"/>
+<figcaption>Les deux mains prises, les bras levés, le téléphone à trois mètres. C'est la journée entière.</figcaption>
+</figure>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Comment un électricien peut-il répondre <em>pendant une intervention ?</em></h2>
+</div>
+<p class="cai-say">Quatre solutions existent : le répondeur, le télésecrétariat en heures ouvrées, l'embauche d'une personne à l'accueil, et le standard téléphonique automatique qui décroche 24 h/24 quand vous ne le pouvez pas. <span class="cai-key">Sur un métier où une odeur de brûlé n'attend pas et où un devis de rénovation peut patienter, ce qui compte est la capacité à trier.</span></p>
+</section>
+<!-- 3. LES TROIS SCÈNES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le quotidien</span>
+<h2>Trois moments où un électricien <em>perd un chantier</em></h2>
+<p class="cai-lead" style="max-width:58ch">Ce ne sont pas des cas rares. C'est la semaine ordinaire d'un artisan seul ou à deux.</p>
+</div>
+<div class="cai-sc">
+<article class="cai-scc">
+<b>09 h 12</b>
+<p>Vous êtes dans un tableau sous tension, tournevis en main. On ne lâche pas pour attraper un téléphone, et il ne sonnera pas une deuxième fois.</p>
+</article>
+<article class="cai-scc">
+<b>14 h 38</b>
+<p>Vous êtes sur un escabeau, les bras levés dans un faux plafond. Le téléphone est resté sur l'établi, à l'autre bout de la pièce.</p>
+</article>
+<article class="cai-scc">
+<b>20 h 05</b>
+<p>Un particulier n'a plus de courant dans la moitié du logement. Il appelle trois électriciens. Il retiendra celui qui a décroché.</p>
+</article>
+</div>
+<p class="cai-fine" style="margin-top:clamp(28px,3.2vw,36px);max-width:64ch">Le soir, vous rappelez. Une fois sur deux vous entendez « c'est bon, j'ai trouvé quelqu'un ». Une personne qui n'a plus de courant n'attend pas un rappel le lendemain.</p>
+<a class="cai-more" href="/calculateur">Chiffrer ce que ça représente chez vous</a>
+</section>
+<!-- 4. LES DEMANDES EN ÉLECTRICITÉ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Vos appels</span>
+<h2>Les demandes qui arrivent vraiment <em>chez un électricien</em></h2>
+<p class="cai-lead" style="max-width:58ch">Toutes n'ont pas la même urgence, et sur ce métier l'écart est large : entre un tableau qui chauffe et une demande de devis, il y a un risque d'incendie. Ces repères sont des points de départ à ajuster à votre façon de travailler.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">La demande</th>
+<th scope="col">Niveau</th>
+<th scope="col">Ce qu'il faut en faire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Odeur de brûlé, tableau qui chauffe</th>
+<td data-l="Niveau">Urgence</td>
+<td data-l="Ce qu'il faut en faire">Vous êtes appelé en direct, avec la consigne de couper au disjoncteur général</td>
+</tr>
+<tr>
+<th scope="row">Étincelles, arc électrique, prise noircie</th>
+<td data-l="Niveau">Urgence</td>
+<td data-l="Ce qu'il faut en faire">Vous êtes appelé en direct, quelle que soit l'heure</td>
+</tr>
+<tr>
+<th scope="row">Coupure totale du logement</th>
+<td data-l="Niveau">Urgence</td>
+<td data-l="Ce qu'il faut en faire">Appel direct si des personnes fragiles ou un congélateur plein sont concernés</td>
+</tr>
+<tr>
+<th scope="row">Disjoncteur qui saute par intermittence</th>
+<td data-l="Niveau">Prioritaire</td>
+<td data-l="Ce qu'il faut en faire">Créneau au plus tôt, résumé envoyé, sans vous déranger</td>
+</tr>
+<tr>
+<th scope="row">Panne sur un seul circuit</th>
+<td data-l="Niveau">Prioritaire</td>
+<td data-l="Ce qu'il faut en faire">Créneau posé pendant l'appel, coordonnées relues</td>
+</tr>
+<tr>
+<th scope="row">Mise aux normes, diagnostic obligatoire</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Visite technique planifiée, aucune promesse de prix</td>
+</tr>
+<tr>
+<th scope="row">Devis de rénovation complète</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Qualification de la surface et des travaux, puis rendez-vous</td>
+</tr>
+<tr>
+<th scope="row">Borne de recharge, photovoltaïque, domotique</th>
+<td data-l="Niveau">Planifiable</td>
+<td data-l="Ce qu'il faut en faire">Rendez-vous sur un créneau libre de votre agenda</td>
+</tr>
+<tr>
+<th scope="row">Demande hors zone ou hors compétence</th>
+<td data-l="Niveau">Refus</td>
+<td data-l="Ce qu'il faut en faire">Refus dit proprement, sans vous faire perdre de temps</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Sur ce métier, une consigne de sécurité donnée au téléphone compte autant que le déplacement : couper au disjoncteur général, ne rien rebrancher, ne pas toucher à un tableau qui a chauffé. Ces phrases se paramètrent avec vous et se disent dès la qualification.</p>
+<a class="cai-more" href="/guides/astreinte-et-tri-des-urgences">Écrire vos propres règles d'astreinte</a>
+</section>
+<!-- 5. LE SEUIL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2>Combien d'interventions couvrent une <em>permanence téléphonique d'électricien</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une intervention de dépannage électrique se situe couramment entre 150 et 450 €. Divisez le coût mensuel de la solution par votre montant moyen.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une intervention vous rapporte</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">150 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">2 par mois</td>
+<td data-l="Embauche">12 par mois</td>
+</tr>
+<tr>
+<th scope="row">250 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">2 par mois</td>
+<td data-l="Embauche">7 par mois</td>
+</tr>
+<tr>
+<th scope="row">450 €</th>
+<td data-l="Télésecrétariat">1 par mois</td>
+<td data-l="Standard 24/7">1 par mois</td>
+<td data-l="Embauche">4 par mois</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:64ch">Nombre arrondi au supérieur, puisqu'on ne récupère pas une demi-intervention. Le télésecrétariat est pris à 150 €, bas de la fourchette du marché, et couvre les heures de bureau ; le standard 24/7 à son tarif d'entrée de 297 € couvre les 168 heures de la semaine. Un chantier de rénovation complète, lui, couvre plusieurs mois d'abonnement à lui seul.</p>
+<a class="cai-more" href="/methode-calcul">La méthode de calcul détaillée</a>
+</section>
+<!-- 6. LE MÊME APPEL AILLEURS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comparaison</span>
+<h2>Un appel d'électricité à 20 h 05, <em>selon la solution</em></h2>
+<p class="cai-lead" style="max-width:58ch">Une personne n'a plus de courant dans la moitié de son logement. Voici où en est sa demande à la fin de l'appel.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">À la fin de l'appel</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Quelqu'un a décroché</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non, bureau fermé</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">La gravité est évaluée</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Le lendemain matin</td>
+<td data-l="Standard 24/7">Pendant l'appel, selon vos critères</td>
+</tr>
+<tr>
+<th scope="row">Consigne de sécurité donnée</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Rarement</td>
+<td data-l="Standard 24/7">Oui, celle que vous avez écrite</td>
+</tr>
+<tr>
+<th scope="row">Créneau bloqué dans l'agenda</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Non</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Votre travail le lendemain</th>
+<td data-l="Répondeur">Écouter, rappeler, négocier un créneau</td>
+<td data-l="Télésecrétariat">Rappeler et espérer</td>
+<td data-l="Standard 24/7">Vous présenter à l'heure prévue</td>
+</tr>
+</tbody>
+</table></div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel en entier</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Questions d'électriciens sur la <em>permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Peut-il donner une consigne de sécurité au téléphone ?</summary>
+<div class="cai-ans"><p>Oui, à condition que ce soit exactement la phrase que vous avez écrite. Couper au disjoncteur général, ne rien rebrancher, ne pas toucher à un tableau qui a chauffé, sortir du logement en cas de fumée : ces consignes se paramètrent au cadrage et se disent dès qu'une situation les déclenche.</p><p>Il ne pose jamais de diagnostic à votre place et ne dit jamais à quelqu'un qu'il peut réarmer sans risque.</p></div>
+</details>
+<details>
+<summary>Comment il distingue une vraie urgence électrique ?</summary>
+<div class="cai-ans"><p>Sur ce que la personne décrit, pas sur le mot « urgent » qu'elle emploie. Une odeur de brûlé, des étincelles ou un tableau chaud déclenchent un transfert immédiat sur votre portable. Un disjoncteur qui saute de temps en temps est classé prioritaire et planifié au plus tôt.</p><p>Vous écrivez vos déclencheurs à partir de vos dix dernières sorties réelles hors horaires, pas d'une liste théorique.</p></div>
+</details>
+<details>
+<summary>Est-ce qu'il peut annoncer un tarif de dépannage ?</summary>
+<div class="cai-ans"><p>Uniquement les fourchettes que vous avez validées, et jamais un prix ferme ni un devis. Sur un dépannage électrique, le diagnostic se fait sur place : un montant annoncé au téléphone et démenti à l'arrivée est la meilleure façon de créer un litige.</p></div>
+</details>
+<details>
+<summary>Et les demandes de mise aux normes et de diagnostic ?</summary>
+<div class="cai-ans"><p>Elles se qualifient très bien au téléphone : surface, année du logement, nature de la demande, présence d'un tableau ancien. La visite technique est ensuite posée sur un créneau libre, sans qu'aucun montant soit avancé.</p><p>Ce sont souvent les appels les plus rentables de la semaine, et ceux qu'on rappelle le plus tard.</p></div>
+</details>
+<details>
+<summary>Je travaille surtout en sous-traitance pour des entreprises</summary>
+<div class="cai-ans"><p>Les appels de vos donneurs d'ordre se traitent comme les autres : identification de l'interlocuteur, nature du chantier, date souhaitée, et créneau posé. Vous pouvez aussi définir une liste d'entreprises dont les appels vous sont transférés directement, quelle que soit la demande.</p></div>
+</details>
+<details>
+<summary>Et si je suis sur un chantier sans réseau ?</summary>
+<div class="cai-ans"><p>C'est le cas où un standard sert le plus. Quand votre téléphone ne sonne pas parce que vous n'avez pas de réseau, l'appel bascule et la demande est traitée quand même. Vous retrouvez le résumé et le rendez-vous en sortant du sous-sol ou du local technique.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Le prochain appel arrive <em>pendant que vous travaillez</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Sept jours sur votre vraie ligne vous diront combien d'appels vous receviez en dehors de vos heures, et lesquels étaient de vraies urgences. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-mets2">
+<h3>Votre métier n'est pas l'électricité ?</h3>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Plombier, chauffagiste</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage, carrosserie</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation, bâtiment</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/kine-osteopathe">Kiné, ostéopathe</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat, juriste</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur, barbier</a></li>
+<li><a href="/metiers/institut-spa">Institut, spa</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant, traiteur</a></li>
+</ul>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/tarifs">Les tarifs</a></li>
+<li><a href="/prix-du-marche">Les prix du marché</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+<li><a href="/faq">Toutes les questions</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/metiers/electricien#webpage",
+      "url": "https://www.concierge-ai.fr/metiers/electricien",
+      "name": "Permanence téléphonique électricien : ne rien rater",
+      "description": "Panne totale, tableau qui chauffe, devis de rénovation : ce que deviennent vos appels quand vous êtes sous tension. Coûts et tri des urgences.",
+      "inLanguage": "fr-FR",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/metiers/electricien#breadcrumb" },
+      "about": { "@id": "https://www.concierge-ai.fr/metiers/electricien#metier" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.concierge-ai.fr/metiers/electricien#metier",
+      "name": "Permanence téléphonique pour électricien",
+      "serviceType": "Permanence téléphonique et prise de rendez-vous pour entreprises d'électricité générale et de dépannage électrique",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Électriciens indépendants ou en petite équipe"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/metiers/electricien#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.concierge-ai.fr/metiers" },
+        { "@type": "ListItem", "position": 3, "name": "Électricien" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/metiers/electricien#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/metiers/electricien#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un standard téléphonique peut-il donner une consigne de sécurité électrique au téléphone ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, à condition que ce soit exactement la phrase écrite par l'électricien : couper au disjoncteur général, ne rien rebrancher, ne pas toucher à un tableau qui a chauffé, sortir du logement en cas de fumée. Ces consignes se paramètrent au cadrage. Le standard ne pose jamais de diagnostic et ne dit jamais qu'un réarmement est sans risque." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment distinguer une vraie urgence électrique au téléphone ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sur ce que la personne décrit, pas sur le mot urgent qu'elle emploie. Une odeur de brûlé, des étincelles ou un tableau chaud déclenchent un transfert immédiat. Un disjoncteur qui saute par intermittence est classé prioritaire et planifié au plus tôt. Les déclencheurs s'écrivent à partir des dix dernières sorties réelles hors horaires." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard peut-il annoncer un tarif de dépannage électrique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Uniquement les fourchettes validées par l'électricien, jamais un prix ferme ni un devis. Sur un dépannage électrique le diagnostic se fait sur place : un montant annoncé au téléphone puis démenti à l'arrivée crée un litige." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont traitées les demandes de mise aux normes et de diagnostic ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Elles se qualifient au téléphone : surface, année du logement, nature de la demande, présence d'un tableau ancien. La visite technique est ensuite posée sur un créneau libre, sans qu'aucun montant soit avancé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si l'électricien travaille surtout en sous-traitance pour des entreprises ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les appels des donneurs d'ordre se traitent comme les autres : identification de l'interlocuteur, nature du chantier, date souhaitée, créneau posé. Une liste d'entreprises dont les appels sont transférés directement peut aussi être définie." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il sur un chantier sans réseau mobile ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "C'est le cas où un standard sert le plus. Quand le téléphone ne sonne pas faute de réseau, l'appel bascule et la demande est traitée quand même. Le résumé et le rendez-vous sont retrouvés en sortant du sous-sol ou du local technique." }
+        }
+      ]
+    }
+  ]
+}
+</script>

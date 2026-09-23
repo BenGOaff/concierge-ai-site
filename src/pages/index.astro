@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/accueil.html?raw'
+---
+
+<Base
+  titre="Permanence téléphonique artisans : ne ratez plus un appel"
+  description="Vous ne pouvez pas décrocher quand vous travaillez. Répondeur, télésecrétariat ou standard 24/7 : le comparatif des coûts, pour 18 métiers."
+  chemin="/"
+  og="/images/6aafda7e1bf4a8.73647982_accueil-concierge-ai.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

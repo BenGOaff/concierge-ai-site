@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/calculateur.html?raw'
+---
+
+<Base
+  titre="Artisans : Calculateur : ce que vous coûtent vos appels manqués"
+  description="Combien d'appels restent sans réponse chaque mois, ce qu'ils représentent sur un an, et combien il faut en récupérer pour couvrir un standard 24/7."
+  chemin="/calculateur"
+  og="/images/6aafe7618ea598.63375751_calcul-appels-manques-artisans.png"
+>
+  <Fragment set:html={contenu} />
+</Base>

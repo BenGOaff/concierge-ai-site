@@ -1,0 +1,414 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- modes de facturation --- */
+.cai .cai-modes{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,20px)}
+.cai .cai-mc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(24px,2.8vw,32px)}
+.cai .cai-mc h3{font-size:1.04rem;line-height:1.45;margin:0 0 10px}
+.cai .cai-mc .cai-mc-p{font:700 1.02rem/1.4 'Inter',sans-serif;color:var(--gd);margin:0 0 14px}
+.cai .cai-mc p{font-size:.96rem;line-height:1.7;color:var(--grey);margin:0}
+@media(min-width:760px){.cai .cai-modes{grid-template-columns:repeat(2,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- sources --- */
+.cai .cai-src{margin-top:clamp(34px,3.8vw,44px);background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(24px,2.8vw,32px)}
+.cai .cai-src h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 16px}
+.cai .cai-src ul{list-style:none;padding:0;margin:0;display:grid;gap:11px}
+.cai .cai-src li{font-size:.92rem;line-height:1.65;color:var(--grey)}
+.cai .cai-src a{color:var(--blue);text-decoration:underline}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(36px,4vw,48px);padding-top:clamp(30px,3.4vw,38px);gap:14px}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- modes de facturation --- */
+.cai .cai-modes{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:clamp(16px,2vw,20px)}
+.cai .cai-mc{background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(24px,2.8vw,32px)}
+.cai .cai-mc h3{font-size:1.04rem;line-height:1.45;margin:0 0 10px}
+.cai .cai-mc .cai-mc-p{font:700 1.02rem/1.4 'Inter',sans-serif;color:var(--gd);margin:0 0 14px}
+.cai .cai-mc p{font-size:.96rem;line-height:1.7;color:var(--grey);margin:0}
+@media(min-width:760px){.cai .cai-modes{grid-template-columns:repeat(2,1fr)}}
+
+/* --- table scrollable en secours --- */
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+
+/* --- sources --- */
+.cai .cai-src{margin-top:clamp(34px,3.8vw,44px);background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(24px,2.8vw,32px)}
+.cai .cai-src h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 16px}
+.cai .cai-src ul{list-style:none;padding:0;margin:0;display:grid;gap:11px}
+.cai .cai-src li{font-size:.92rem;line-height:1.65;color:var(--grey)}
+.cai .cai-src a{color:var(--blue);text-decoration:underline}
+
+/* --- déroulé numéroté --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Relevé de prix</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Le prix d'une permanence téléphonique <em>en France</em></h1>
+<p class="cai-lead" style="max-width:58ch">Quatre modes de facturation qui ne se comparent pas entre eux, des grilles publiques relevées chez trois prestataires, et ce que représentent réellement 100, 200 ou 450 appels par mois.</p>
+<ul class="cai-tick">
+<li>Chaque montant est attribué à sa source</li>
+<li>Les frais qui s'ajoutent à l'abonnement sont listés</li>
+<li>Les calculs de comparaison sont détaillés</li>
+</ul>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Combien coûte une permanence <em>téléphonique par mois ?</em></h2>
+</div>
+<p class="cai-say">Un télésecrétariat en heures ouvrées se situe le plus souvent entre 50 et 300 € HT par mois selon le volume d'appels, auxquels s'ajoutent les appels hors forfait et les options. <span class="cai-key">Un standard automatique 24 h/24 va de 297 à 997 €, et un poste d'accueil à temps plein de 1 700 à 2 000 € chargés.</span></p>
+</section>
+<!-- 3. LES QUATRE MODES DE FACTURATION -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Comprendre les grilles</span>
+<h2>Quatre façons de facturer <em>une permanence téléphonique</em></h2>
+<p class="cai-lead" style="max-width:58ch">Deux devis peuvent afficher le même montant et coûter du simple au double une fois l'année passée. Tout dépend du mode de facturation.</p>
+</div>
+<div class="cai-modes">
+<article class="cai-mc">
+<h3>Le forfait au volume d'appels</h3>
+<p class="cai-mc-p">Le plus répandu</p>
+<p>Un abonnement mensuel comprend un nombre d'appels. Au-delà, chaque appel est facturé entre 0,60 et 3,50 € selon les prestataires. C'est le mode le plus lisible tant que votre volume reste stable : un pic de saison peut faire doubler la facture.</p>
+</article>
+<article class="cai-mc">
+<h3>La facturation à l'appel</h3>
+<p class="cai-mc-p">0,99 à 1,50 € par appel</p>
+<p>Pas de forfait, ou un abonnement de base réduit, puis chaque appel traité est facturé. Intéressant à faible volume, coûteux dès que le téléphone sonne beaucoup. Attention à la définition de l'appel « traité » : un raccroché immédiat compte parfois.</p>
+</article>
+<article class="cai-mc">
+<h3>La facturation à la minute</h3>
+<p class="cai-mc-p">0,80 à 1,50 € la minute</p>
+<p>Un abonnement réduit, de l'ordre de 50 à 80 €, puis un décompte à la durée. Impossible à comparer aux autres modes sans connaître votre durée moyenne d'appel : c'est elle qui décide du montant final.</p>
+</article>
+<article class="cai-mc">
+<h3>L'abonnement à volume inclus</h3>
+<p class="cai-mc-p">Tout compris, 24 h/24</p>
+<p>Un montant fixe avec un plafond de conversations élevé et une couverture continue, y compris la nuit et le week-end. Plus cher à faible volume, plus prévisible à volume élevé. C'est le modèle des standards automatiques.</p>
+</article>
+</div>
+</section>
+<!-- 4. LES GRILLES RELEVÉES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Grilles publiques</span>
+<h2>Les tarifs relevés chez <em>trois prestataires</em></h2>
+<p class="cai-lead" style="max-width:58ch">Montants publiés sur les sites des prestataires, relevés à la source et détaillés en bas de cette section. Ils évoluent : vérifiez-les avant de décider.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Prestataire</th>
+<th scope="col">Formule</th>
+<th scope="col">Prix mensuel</th>
+<th scope="col">Appels inclus</th>
+<th scope="col">Horaires</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Préposé</th>
+<td data-l="Formule">1 appel par jour</td>
+<td data-l="Prix mensuel">18 €</td>
+<td data-l="Appels inclus">22</td>
+<td data-l="Horaires">8 h – 20 h</td>
+</tr>
+<tr>
+<th scope="row">Préposé</th>
+<td data-l="Formule">5 appels par jour</td>
+<td data-l="Prix mensuel">84 €</td>
+<td data-l="Appels inclus">110</td>
+<td data-l="Horaires">8 h – 20 h</td>
+</tr>
+<tr>
+<th scope="row">Préposé</th>
+<td data-l="Formule">10 appels par jour</td>
+<td data-l="Prix mensuel">158 €</td>
+<td data-l="Appels inclus">220</td>
+<td data-l="Horaires">8 h – 20 h</td>
+</tr>
+<tr>
+<th scope="row">Préposé</th>
+<td data-l="Formule">20 appels par jour</td>
+<td data-l="Prix mensuel">299 €</td>
+<td data-l="Appels inclus">440</td>
+<td data-l="Horaires">8 h – 20 h</td>
+</tr>
+<tr>
+<th scope="row">Télésecrétariat MLG</th>
+<td data-l="Formule">Abonnement + 0,98 € par appel</td>
+<td data-l="Prix mensuel">38,50 € HT</td>
+<td data-l="Appels inclus">Aucun, tout à l'unité</td>
+<td data-l="Horaires">Lun-ven 8 h – 18 h</td>
+</tr>
+<tr>
+<th scope="row">Fourchette de marché</th>
+<td data-l="Formule">Forfait externalisé courant</td>
+<td data-l="Prix mensuel">50 à 300 € HT</td>
+<td data-l="Appels inclus">Variable</td>
+<td data-l="Horaires">Heures ouvrées</td>
+</tr>
+<tr>
+<th scope="row">Concierge AI</th>
+<td data-l="Formule">Starter</td>
+<td data-l="Prix mensuel">297 €</td>
+<td data-l="Appels inclus">500 conversations</td>
+<td data-l="Horaires">24 h/24, 7 j/7</td>
+</tr>
+<tr>
+<th scope="row">Concierge AI</th>
+<td data-l="Formule">Growth</td>
+<td data-l="Prix mensuel">497 €</td>
+<td data-l="Appels inclus">2 000 conversations</td>
+<td data-l="Horaires">24 h/24, 7 j/7</td>
+</tr>
+</tbody>
+</table></div>
+<div class="cai-src">
+<h4>Sources du relevé</h4>
+<ul>
+<li>Grille tarifaire publiée par Préposé, consultée le 20 septembre 2026 — <a href="https://prepose.fr/tarifs/" rel="nofollow noopener" target="_blank">prepose.fr/tarifs</a>. Appel hors forfait de 0,60 à 0,80 € selon la formule, sans engagement.</li>
+<li>Grille tarifaire publiée par Télésecrétariat MLG, consultée le 20 septembre 2026 — <a href="https://telesecretaire-mlg.fr/tarifs-du-telesecretariat/" rel="nofollow noopener" target="_blank">telesecretaire-mlg.fr</a>. Appel entrant 0,98 €, appel sortant 0,85 €, sans engagement.</li>
+<li>Fourchettes de marché et coûts à l'appel ou à la minute : article tarifaire publié par Agaphone, consulté le 20 septembre 2026 — <a href="https://www.agaphone.com/2026/05/28/permanence-telephonique-tarif/" rel="nofollow noopener" target="_blank">agaphone.com</a>.</li>
+<li>Tarifs Concierge AI relevés le 20 septembre 2026 sur la page officielle de l'offre.</li>
+</ul>
+</div>
+</section>
+<!-- 5. LE CALCUL À VOLUME ÉGAL -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">À volume égal</span>
+<h2>Ce que coûtent 100, 200 ou 450 appels <em>par mois</em></h2>
+<p class="cai-lead" style="max-width:58ch">Les mêmes grilles, appliquées à trois volumes. C'est la seule façon de comparer des modes de facturation différents.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Volume mensuel</th>
+<th scope="col">Forfait au volume</th>
+<th scope="col">Abonnement + à l'appel</th>
+<th scope="col">Facturation à l'appel seule</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">100 appels</th>
+<td data-l="Forfait au volume">84 €</td>
+<td data-l="Abonnement + à l'appel">136,50 € HT</td>
+<td data-l="À l'appel seule">99 à 150 €</td>
+<td data-l="Standard 24/7">297 €</td>
+</tr>
+<tr>
+<th scope="row">200 appels</th>
+<td data-l="Forfait au volume">158 €</td>
+<td data-l="Abonnement + à l'appel">234,50 € HT</td>
+<td data-l="À l'appel seule">198 à 300 €</td>
+<td data-l="Standard 24/7">297 €</td>
+</tr>
+<tr>
+<th scope="row">450 appels</th>
+<td data-l="Forfait au volume">306 €</td>
+<td data-l="Abonnement + à l'appel">479,50 € HT</td>
+<td data-l="À l'appel seule">446 à 675 €</td>
+<td data-l="Standard 24/7">297 €</td>
+</tr>
+<tr>
+<th scope="row">Heures couvertes</th>
+<td data-l="Forfait au volume">8 h – 20 h</td>
+<td data-l="Abonnement + à l'appel">Lun-ven 8 h – 18 h</td>
+<td data-l="À l'appel seule">Heures ouvrées</td>
+<td data-l="Standard 24/7">168 h par semaine</td>
+</tr>
+<tr>
+<th scope="row">Résultat de l'appel</th>
+<td data-l="Forfait au volume">Un message</td>
+<td data-l="Abonnement + à l'appel">Un message</td>
+<td data-l="À l'appel seule">Un message</td>
+<td data-l="Standard 24/7">Un rendez-vous posé</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(24px,2.8vw,32px);max-width:66ch">Détail des calculs. Forfait au volume : formule Préposé immédiatement supérieure au volume, plus les appels hors forfait au tarif de la formule — à 450 appels, 299 € pour 440 appels inclus plus 10 appels à 0,68 €. Abonnement plus à l'appel : 38,50 € HT d'abonnement MLG plus le volume à 0,98 € l'appel entrant, options non comprises. Facturation à l'appel seule : volume multiplié par la fourchette de 0,99 à 1,50 €. Standard 24/7 : formule Starter de Concierge AI, dont le plafond de 500 conversations couvre les trois volumes.</p>
+<p class="cai-fine" style="margin-top:16px;max-width:66ch">À faible volume et en heures ouvrées, un télésecrétariat revient nettement moins cher. L'écart se resserre autour de 300 appels par mois et s'inverse au-delà. Ce que le montant supplémentaire achète, ce sont les 108 heures hebdomadaires que les horaires de bureau ne couvrent pas, et un rendez-vous posé plutôt qu'un message à rappeler.</p>
+<a class="cai-more" href="/comparer/permanence-telephonique">Le comparatif des quatre solutions</a>
+</section>
+<!-- 6. LES FRAIS QUI S'AJOUTENT -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Au-delà de l'abonnement</span>
+<h2>Les frais qui s'ajoutent <em>au prix affiché</em></h2>
+<p class="cai-lead" style="max-width:58ch">Relevés sur les grilles publiques citées plus haut. Ils ne sont pas cachés, mais ils n'apparaissent pas dans le prix d'appel des offres.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Les frais de mise en service.</strong> De 150 à 350 € selon les prestataires de télésecrétariat. Chez Concierge AI, ils sont affichés à 1 500 € et annoncés comme offerts pour les nouveaux clients au moment de ce relevé.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Les appels hors forfait.</strong> De 0,60 à 3,50 € l'appel selon les prestataires et les formules. C'est la ligne qui fait déraper une facture en pleine saison.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Les options à l'unité.</strong> Sur la grille MLG : 0,18 € par SMS de rappel, 15 € par agenda supplémentaire, 8,50 € pour la synchronisation d'agenda, 10,50 € pour la réservation en ligne, 5,25 € pour l'application mobile. Additionnées, elles pèsent souvent plus que l'abonnement de base.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Les majorations de soirée et de week-end.</strong> Lorsqu'elles existent, les options d'horaires étendus sont facturées en supplément du forfait de base. Demandez leur prix avant de comparer deux forfaits entre eux.</p></div>
+<div class="cai-beat"><b>5</b><p><strong>L'engagement.</strong> Une partie des offres de télésecrétariat fonctionne avec un engagement annuel. Les deux grilles relevées ici annoncent au contraire l'absence d'engagement, comme les standards automatiques.</p></div>
+</div>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions sur le prix <em>d'une permanence téléphonique</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Quel est le prix moyen d'un télésecrétariat par mois ?</summary>
+<div class="cai-ans"><p>Les forfaits externalisés courants se situent entre 50 et 300 € HT par mois selon le volume d'appels et le niveau de service. Sur les grilles publiques relevées en source, un forfait de 110 appels mensuels en horaires 8 h – 20 h est affiché à 84 €, et un forfait de 220 appels à 158 €.</p></div>
+</details>
+<details>
+<summary>Combien coûte un appel traité par un télésecrétariat ?</summary>
+<div class="cai-ans"><p>Entre 0,60 et 1,50 € par appel dans la plupart des cas, avec des appels hors forfait qui peuvent monter jusqu'à 3,50 € chez certains prestataires. Le tarif à l'unité baisse quand le volume du forfait augmente.</p></div>
+</details>
+<details>
+<summary>Comment comparer deux devis de permanence téléphonique ?</summary>
+<div class="cai-ans"><p>En ramenant les deux au même volume mensuel, puis en ajoutant les frais de mise en service étalés sur douze mois, les options souscrites et les appels hors forfait. Deux offres au même prix affiché peuvent différer de plusieurs centaines d'euros par an une fois ce calcul fait.</p></div>
+</details>
+<details>
+<summary>Un standard automatique est-il moins cher qu'un télésecrétariat ?</summary>
+<div class="cai-ans"><p>Cela dépend du volume. En dessous d'environ 300 appels par mois et sur des horaires de bureau, le télésecrétariat revient moins cher. Au-delà, l'abonnement à volume inclus devient plus avantageux, et il couvre en plus les soirées, les week-ends et les nuits.</p></div>
+</details>
+<details>
+<summary>Faut-il payer des frais de mise en service ?</summary>
+<div class="cai-ans"><p>Souvent oui, de l'ordre de 150 à 350 € chez les prestataires de télésecrétariat. Certaines offres les suppriment lors de périodes promotionnelles. C'est une somme à intégrer au coût de la première année, pas à ignorer parce qu'elle n'est versée qu'une fois.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Le bon prix dépend <em>de votre volume</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Comptez vos appels d'une semaine ordinaire, multipliez par 4,33, et reprenez le tableau. Vous saurez en deux minutes quel mode de facturation vous convient.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="/calculateur">Calculer mon volume</a>
+<a class="cai-btn cai-btn--w" href="/comparer/permanence-telephonique">Comparer les solutions</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/tarifs">Les tarifs du standard que nous recommandons</a></li>
+<li><a href="/methode-calcul">La méthode de calcul</a></li>
+<li><a href="/demonstration">Écouter un appel réel</a></li>
+<li><a href="/fonctionnement">Comment ça se branche</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Ce relevé cite des prestataires avec lesquels nous n'avons aucun lien. Il mentionne également un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.concierge-ai.fr/prix-du-marche#webpage",
+      "url": "https://www.concierge-ai.fr/prix-du-marche",
+      "name": "Prix d'une permanence téléphonique : le relevé 2026",
+      "description": "Grilles publiques relevées chez trois prestataires, les quatre modes de facturation, et ce que coûtent 100, 200 ou 450 appels par mois.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-20",
+      "dateModified": "2026-09-20",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/#website" },
+      "breadcrumb": { "@id": "https://www.concierge-ai.fr/prix-du-marche#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.concierge-ai.fr/prix-du-marche#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.concierge-ai.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Prix du marché" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.concierge-ai.fr/prix-du-marche#faq",
+      "isPartOf": { "@id": "https://www.concierge-ai.fr/prix-du-marche#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quel est le prix moyen d'un télésecrétariat par mois ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les forfaits externalisés courants se situent entre 50 et 300 € HT par mois selon le volume d'appels et le niveau de service. Sur les grilles publiques relevées en source, un forfait de 110 appels mensuels en horaires 8 h – 20 h est affiché à 84 €, et un forfait de 220 appels à 158 €." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte un appel traité par un télésecrétariat ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Entre 0,60 et 1,50 € par appel dans la plupart des cas, avec des appels hors forfait pouvant atteindre 3,50 € chez certains prestataires. Le tarif à l'unité baisse quand le volume du forfait augmente." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment comparer deux devis de permanence téléphonique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En ramenant les deux offres au même volume mensuel, puis en ajoutant les frais de mise en service étalés sur douze mois, les options souscrites et les appels hors forfait. Deux offres au même prix affiché peuvent différer de plusieurs centaines d'euros par an." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un standard automatique est-il moins cher qu'un télésecrétariat ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Cela dépend du volume. En dessous d'environ 300 appels par mois et sur des horaires de bureau, le télésecrétariat revient moins cher. Au-delà, l'abonnement à volume inclus devient plus avantageux, et il couvre en plus les soirées, les week-ends et les nuits." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il payer des frais de mise en service pour une permanence téléphonique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Souvent oui, de l'ordre de 150 à 350 € chez les prestataires de télésecrétariat. Certaines offres les suppriment lors de périodes promotionnelles. C'est une somme à intégrer au coût de la première année." }
+        }
+      ]
+    }
+  ]
+}
+</script>

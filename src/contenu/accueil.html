@@ -1,0 +1,630 @@
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai .cai-hero h1{max-width:22ch;margin:22px 0 20px}
+.cai .cai-hero{gap:clamp(28px,3.2vw,44px)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem)}
+.cai-mets{margin-top:clamp(26px,3vw,34px);padding-top:clamp(24px,2.8vw,32px);border-top:1px solid var(--line)}
+.cai-mets h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+.cai-mets ul{display:flex;flex-wrap:wrap;gap:8px}
+.cai-mets a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai-mets a:hover{border-color:#B6CADD;color:var(--ink)}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(40px,4.4vw,52px);padding-top:clamp(32px,3.6vw,40px);gap:14px}
+.cai .cai-say{margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-feat{margin-top:clamp(40px,4.6vw,54px)}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-steps{margin-top:clamp(38px,4.2vw,52px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-links{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D;color:#15803D}
+.cai .cai-more::after{content:"→";font-size:1.05rem;line-height:1}
+.cai-doors{display:grid;gap:clamp(16px,2.2vw,26px)}
+.cai-door{background:#fff;border-radius:var(--rad);padding:clamp(28px,3.2vw,42px);display:flex;flex-direction:column}
+.cai-door--g{background:linear-gradient(150deg,var(--g1) 0%,var(--g2) 100%)}
+.cai-door h3{margin-bottom:14px}
+.cai-door p{font-size:.97rem;color:var(--grey);line-height:1.65;flex:1}
+.cai .cai-door .cai-more{margin-top:30px;align-self:flex-start}
+.cai-links{display:flex;flex-wrap:wrap;gap:11px;margin-top:clamp(28px,3.4vw,38px)}
+.cai-links a{font:600 .93rem/1.3 'Inter',sans-serif;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:14px 20px;text-decoration:none;transition:border-color .16s}
+.cai-links a:hover{border-color:#B6CADD}
+/* panneau métier, version aérée */
+.cai .cai-view{padding:clamp(30px,3.6vw,46px)}
+.cai .cai-view-top{margin-bottom:30px}
+.cai .cai-say{max-width:38ch}
+.cai .cai-two{gap:clamp(20px,2.4vw,26px)}
+.cai .cai-sub{padding:clamp(24px,2.6vw,30px);border:1px solid var(--line)}
+.cai-sub--g{border-color:#CBEFDB}
+.cai .cai-sub h4{margin-bottom:20px;line-height:1.4}
+.cai-tags{gap:10px}
+.cai-tags li{background:#fff;border:1px solid var(--line);padding:11px 16px;font-size:.9rem}
+.cai-sub--g p{font-size:1rem;line-height:1.7}
+.cai .cai-view .cai-more{margin-top:clamp(36px,4vw,46px)}
+@media(min-width:680px){.cai-doors{grid-template-columns:repeat(3,1fr)}}
+/* opérateurs compatibles : une phrase + les logos */
+.cai .cai-ope{display:flex;flex-direction:column;align-items:center;text-align:center;margin:0;padding:clamp(6px,1vw,10px) 0}
+.cai .cai-ope .cai-ope-duo{width:100%}
+.cai .cai-ope p.cai-ope-t{text-align:center}
+.cai .cai-ope-t{font:500 .95rem/1.55 'Inter',sans-serif;color:var(--grey);max-width:100%;margin:0 0 clamp(12px,1.6vw,16px)}
+.cai .cai-ope-logos{display:block;width:100%;max-width:100%;height:auto;margin:0;opacity:.85}
+.cai .cai-ope-duo{display:none}
+@media(min-width:900px){.cai .cai-ope-logos{width:74%}}
+/* photos métiers */
+.cai .cai-ph{position:relative;display:block;overflow:hidden;border-radius:calc(var(--rad) - 14px);background:#DCE6EF;text-decoration:none;isolation:isolate}
+.cai .cai-ph img{display:block;width:100%;height:100%;max-width:100%;object-fit:cover;transition:transform .5s ease}
+.cai .cai-ph:hover img{transform:scale(1.04)}
+.cai .cai-ph span{position:absolute;left:10px;bottom:10px;z-index:1;font:600 .74rem/1.2 'Inter',sans-serif;color:#fff;background:rgba(10,37,64,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:99px;padding:6px 11px;white-space:nowrap}
+.cai .cai-mos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1vw,12px)}
+.cai .cai-mos .cai-ph{aspect-ratio:4/3}
+.cai .cai-mos .cai-ph--xl{grid-column:1 / -1;aspect-ratio:1500/643}
+.cai .cai-pstack{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1vw,12px)}
+.cai .cai-pstack .cai-ph{aspect-ratio:4/3}
+.cai .cai-pstack .cai-ph--xl{grid-column:1 / -1;aspect-ratio:1500/643}
+.cai .cai-pduo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1vw,12px);margin-bottom:30px}
+.cai .cai-pduo .cai-ph{aspect-ratio:4/3}
+.cai .cai-view-ph{display:block;width:100%;max-width:100%;aspect-ratio:1500/643;object-fit:cover;border-radius:calc(var(--rad) - 14px);background:#DCE6EF;margin:0 0 clamp(22px,2.6vw,30px)}
+@media(min-width:900px){
+  .cai .cai-view-ph{aspect-ratio:3/1}
+  .cai .cai-split>.cai-pstack{grid-template-rows:1.15fr 1fr;height:100%;align-self:stretch}
+  .cai .cai-split>.cai-pstack .cai-ph{aspect-ratio:auto;min-height:170px}
+  .cai .cai-ctrl>.cai-pduo{grid-template-columns:1fr;grid-template-rows:1fr 1fr;height:100%;margin:0}
+  .cai .cai-ctrl>.cai-pduo .cai-ph{aspect-ratio:auto;min-height:200px}
+}
+/* chiffres sourcés */
+.cai .cai-kpi{display:grid;gap:clamp(14px,1.8vw,20px);margin-top:clamp(30px,3.6vw,42px)}
+.cai .cai-kpi>div{background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 12px);padding:clamp(22px,2.6vw,30px)}
+.cai .cai-kpi b{display:block;font:800 clamp(2.4rem,4.6vw,3.3rem)/1 'Archivo','Inter',sans-serif;letter-spacing:-.03em;color:var(--ink)}
+.cai .cai-kpi b i{font-style:normal;color:#15803D}
+.cai .cai-kpi p{font:500 1rem/1.55 'Inter',sans-serif;color:var(--ink);margin:14px 0 12px}
+.cai .cai-kpi small{display:block;font:500 .8rem/1.45 'Inter',sans-serif;color:var(--mute)}
+.cai .cai-src{font:500 .82rem/1.6 'Inter',sans-serif;color:var(--mute);margin-top:clamp(20px,2.4vw,26px)}
+.cai .cai-src a{color:var(--mute);text-decoration:underline;text-underline-offset:2px}
+/* scène minute par minute */
+.cai .cai-tl{list-style:none;margin:0;padding:0;display:grid;gap:clamp(12px,1.6vw,16px)}
+.cai .cai-tl li{position:relative;list-style:none;background:#fff;border-radius:calc(var(--rad) - 10px);padding:clamp(20px,2.4vw,28px) clamp(20px,2.4vw,28px) clamp(20px,2.4vw,28px) clamp(74px,7vw,92px)}
+.cai .cai-tl li::before{content:"";position:absolute;left:clamp(34px,3.2vw,42px);top:0;bottom:0;width:2px;background:var(--line)}
+.cai .cai-tl li:first-child::before{top:50%}
+.cai .cai-tl li:last-child::before{bottom:50%}
+.cai .cai-tl li::after{content:"";position:absolute;left:clamp(28px,2.7vw,36px);top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;background:#fff;border:3px solid #22C55E}
+.cai .cai-tl li.is-bad::after{border-color:#0A2540;background:#0A2540}
+.cai .cai-tl time{display:block;font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#15803D;margin-bottom:10px}
+.cai .cai-tl h3{margin:0 0 8px;font-size:1.08rem}
+.cai .cai-tl p{margin:0;font:400 .96rem/1.6 'Inter',sans-serif;color:var(--grey)}
+/* mini calculateur */
+.cai .cai-hc{display:grid;gap:clamp(22px,3vw,40px);align-items:stretch}
+.cai .cai-hc-f{display:grid;gap:clamp(22px,2.6vw,30px)}
+.cai .cai-hc-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
+.cai .cai-hc-top label{font:600 .96rem/1.4 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-hc-top output{font:700 1.05rem/1 'Inter',sans-serif;color:#15803D;white-space:nowrap}
+.cai .cai-hc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;max-width:100%;height:6px;border-radius:99px;background:var(--line);outline:none;margin:0;padding:0}
+.cai .cai-hc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #22C55E;box-shadow:0 2px 8px rgba(10,37,64,.22);cursor:pointer}
+.cai .cai-hc input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #22C55E;box-shadow:0 2px 8px rgba(10,37,64,.22);cursor:pointer}
+.cai .cai-hc-r{background:#0A2540;color:#fff;border-radius:calc(var(--rad) - 10px);padding:clamp(26px,3vw,38px);display:flex;flex-direction:column;justify-content:center}
+.cai .cai-hc-r span{font:600 .72rem/1.3 'Inter',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#86EFAC}
+.cai .cai-hc-r strong{display:block;font:800 clamp(2.4rem,5vw,3.4rem)/1.05 'Archivo','Inter',sans-serif;letter-spacing:-.03em;color:#fff;margin:14px 0 10px}
+.cai .cai-hc-r p{font:400 .98rem/1.6 'Inter',sans-serif;color:#C6DAEC;margin:0}
+.cai .cai-hc-r p b{color:#fff}
+.cai .cai-hc-r .cai-more{color:#86EFAC;border-color:rgba(134,239,172,.4);margin-top:clamp(22px,2.6vw,28px);align-self:flex-start}
+.cai .cai-hc-r .cai-more:hover{color:#86EFAC;border-color:#86EFAC}
+/* réassurance finale */
+.cai .cai-rea{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(24px,2.8vw,30px);padding:0;list-style:none}
+.cai .cai-rea li{list-style:none;font:600 .86rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.7);border-radius:99px;padding:10px 15px}
+@media(min-width:680px){.cai .cai-kpi{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.cai .cai-hc{grid-template-columns:1.1fr .9fr}}
+@media(max-width:640px){
+  .cai .cai-ope-logos{display:none}
+  .cai .cai-ope-duo{display:grid;gap:14px}
+  .cai .cai-ope-duo span{display:block;width:100%;max-width:100%;aspect-ratio:750/214;background:url('https://d1yei2z3i6k35z.cloudfront.net/473100/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp') 0 0/200% 100% no-repeat}
+  .cai .cai-ope-duo span+span{background-position:100% 0}
+}
+</style>
+
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.95rem,3.6vw,2.6rem)}
+.cai .cai-hero h1{max-width:22ch;margin:22px 0 20px}
+.cai .cai-hero{gap:clamp(28px,3.2vw,44px)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem)}
+.cai-mets{margin-top:clamp(26px,3vw,34px);padding-top:clamp(24px,2.8vw,32px);border-top:1px solid var(--line)}
+.cai-mets h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+.cai-mets ul{display:flex;flex-wrap:wrap;gap:8px}
+.cai-mets a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--grey);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;text-decoration:none;transition:border-color .16s,color .16s}
+.cai-mets a:hover{border-color:#B6CADD;color:var(--ink)}
+.cai .cai-row{margin-top:clamp(36px,4vw,46px)}
+.cai .cai-tick{margin-top:clamp(40px,4.4vw,52px);padding-top:clamp(32px,3.6vw,40px);gap:14px}
+.cai .cai-say{margin-bottom:clamp(40px,4.6vw,56px)}
+.cai .cai-feat{margin-top:clamp(40px,4.6vw,54px)}
+.cai .cai-list{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-steps{margin-top:clamp(38px,4.2vw,52px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-links{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D;color:#15803D}
+.cai .cai-more::after{content:"→";font-size:1.05rem;line-height:1}
+.cai-doors{display:grid;gap:clamp(16px,2.2vw,26px)}
+.cai-door{background:#fff;border-radius:var(--rad);padding:clamp(28px,3.2vw,42px);display:flex;flex-direction:column}
+.cai-door--g{background:linear-gradient(150deg,var(--g1) 0%,var(--g2) 100%)}
+.cai-door h3{margin-bottom:14px}
+.cai-door p{font-size:.97rem;color:var(--grey);line-height:1.65;flex:1}
+.cai .cai-door .cai-more{margin-top:30px;align-self:flex-start}
+.cai-links{display:flex;flex-wrap:wrap;gap:11px;margin-top:clamp(28px,3.4vw,38px)}
+.cai-links a{font:600 .93rem/1.3 'Inter',sans-serif;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:14px 20px;text-decoration:none;transition:border-color .16s}
+.cai-links a:hover{border-color:#B6CADD}
+/* panneau métier, version aérée */
+.cai .cai-view{padding:clamp(30px,3.6vw,46px)}
+.cai .cai-view-top{margin-bottom:30px}
+.cai .cai-say{max-width:38ch}
+.cai .cai-two{gap:clamp(20px,2.4vw,26px)}
+.cai .cai-sub{padding:clamp(24px,2.6vw,30px);border:1px solid var(--line)}
+.cai-sub--g{border-color:#CBEFDB}
+.cai .cai-sub h4{margin-bottom:20px;line-height:1.4}
+.cai-tags{gap:10px}
+.cai-tags li{background:#fff;border:1px solid var(--line);padding:11px 16px;font-size:.9rem}
+.cai-sub--g p{font-size:1rem;line-height:1.7}
+.cai .cai-view .cai-more{margin-top:clamp(36px,4vw,46px)}
+@media(min-width:680px){.cai-doors{grid-template-columns:repeat(3,1fr)}}
+/* opérateurs compatibles : une phrase + les logos */
+.cai .cai-ope{display:flex;flex-direction:column;align-items:center;text-align:center;margin:0;padding:clamp(6px,1vw,10px) 0}
+.cai .cai-ope .cai-ope-duo{width:100%}
+.cai .cai-ope p.cai-ope-t{text-align:center}
+.cai .cai-ope-t{font:500 .95rem/1.55 'Inter',sans-serif;color:var(--grey);max-width:100%;margin:0 0 clamp(12px,1.6vw,16px)}
+.cai .cai-ope-logos{display:block;width:100%;max-width:100%;height:auto;margin:0;opacity:.85}
+.cai .cai-ope-duo{display:none}
+@media(min-width:900px){.cai .cai-ope-logos{width:74%}}
+/* photos métiers */
+.cai .cai-ph{position:relative;display:block;overflow:hidden;border-radius:calc(var(--rad) - 14px);background:#DCE6EF;text-decoration:none;isolation:isolate}
+.cai .cai-ph img{display:block;width:100%;height:100%;max-width:100%;object-fit:cover;transition:transform .5s ease}
+.cai .cai-ph:hover img{transform:scale(1.04)}
+.cai .cai-ph span{position:absolute;left:10px;bottom:10px;z-index:1;font:600 .74rem/1.2 'Inter',sans-serif;color:#fff;background:rgba(10,37,64,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:99px;padding:6px 11px;white-space:nowrap}
+.cai .cai-mos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1vw,12px)}
+.cai .cai-mos .cai-ph{aspect-ratio:4/3}
+.cai .cai-mos .cai-ph--xl{grid-column:1 / -1;aspect-ratio:1500/643}
+.cai .cai-pstack{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1vw,12px)}
+.cai .cai-pstack .cai-ph{aspect-ratio:4/3}
+.cai .cai-pstack .cai-ph--xl{grid-column:1 / -1;aspect-ratio:1500/643}
+.cai .cai-pduo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1vw,12px);margin-bottom:30px}
+.cai .cai-pduo .cai-ph{aspect-ratio:4/3}
+.cai .cai-view-ph{display:block;width:100%;max-width:100%;aspect-ratio:1500/643;object-fit:cover;border-radius:calc(var(--rad) - 14px);background:#DCE6EF;margin:0 0 clamp(22px,2.6vw,30px)}
+@media(min-width:900px){
+  .cai .cai-view-ph{aspect-ratio:3/1}
+  .cai .cai-split>.cai-pstack{grid-template-rows:1.15fr 1fr;height:100%;align-self:stretch}
+  .cai .cai-split>.cai-pstack .cai-ph{aspect-ratio:auto;min-height:170px}
+  .cai .cai-ctrl>.cai-pduo{grid-template-columns:1fr;grid-template-rows:1fr 1fr;height:100%;margin:0}
+  .cai .cai-ctrl>.cai-pduo .cai-ph{aspect-ratio:auto;min-height:200px}
+}
+/* chiffres sourcés */
+.cai .cai-kpi{display:grid;gap:clamp(14px,1.8vw,20px);margin-top:clamp(30px,3.6vw,42px)}
+.cai .cai-kpi>div{background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 12px);padding:clamp(22px,2.6vw,30px)}
+.cai .cai-kpi b{display:block;font:800 clamp(2.4rem,4.6vw,3.3rem)/1 'Archivo','Inter',sans-serif;letter-spacing:-.03em;color:var(--ink)}
+.cai .cai-kpi b i{font-style:normal;color:#15803D}
+.cai .cai-kpi p{font:500 1rem/1.55 'Inter',sans-serif;color:var(--ink);margin:14px 0 12px}
+.cai .cai-kpi small{display:block;font:500 .8rem/1.45 'Inter',sans-serif;color:var(--mute)}
+.cai .cai-src{font:500 .82rem/1.6 'Inter',sans-serif;color:var(--mute);margin-top:clamp(20px,2.4vw,26px)}
+.cai .cai-src a{color:var(--mute);text-decoration:underline;text-underline-offset:2px}
+/* scène minute par minute */
+.cai .cai-tl{list-style:none;margin:0;padding:0;display:grid;gap:clamp(12px,1.6vw,16px)}
+.cai .cai-tl li{position:relative;list-style:none;background:#fff;border-radius:calc(var(--rad) - 10px);padding:clamp(20px,2.4vw,28px) clamp(20px,2.4vw,28px) clamp(20px,2.4vw,28px) clamp(74px,7vw,92px)}
+.cai .cai-tl li::before{content:"";position:absolute;left:clamp(34px,3.2vw,42px);top:0;bottom:0;width:2px;background:var(--line)}
+.cai .cai-tl li:first-child::before{top:50%}
+.cai .cai-tl li:last-child::before{bottom:50%}
+.cai .cai-tl li::after{content:"";position:absolute;left:clamp(28px,2.7vw,36px);top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;background:#fff;border:3px solid #22C55E}
+.cai .cai-tl li.is-bad::after{border-color:#0A2540;background:#0A2540}
+.cai .cai-tl time{display:block;font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#15803D;margin-bottom:10px}
+.cai .cai-tl h3{margin:0 0 8px;font-size:1.08rem}
+.cai .cai-tl p{margin:0;font:400 .96rem/1.6 'Inter',sans-serif;color:var(--grey)}
+/* mini calculateur */
+.cai .cai-hc{display:grid;gap:clamp(22px,3vw,40px);align-items:stretch}
+.cai .cai-hc-f{display:grid;gap:clamp(22px,2.6vw,30px)}
+.cai .cai-hc-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
+.cai .cai-hc-top label{font:600 .96rem/1.4 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-hc-top output{font:700 1.05rem/1 'Inter',sans-serif;color:#15803D;white-space:nowrap}
+.cai .cai-hc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;max-width:100%;height:6px;border-radius:99px;background:var(--line);outline:none;margin:0;padding:0}
+.cai .cai-hc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #22C55E;box-shadow:0 2px 8px rgba(10,37,64,.22);cursor:pointer}
+.cai .cai-hc input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #22C55E;box-shadow:0 2px 8px rgba(10,37,64,.22);cursor:pointer}
+.cai .cai-hc-r{background:#0A2540;color:#fff;border-radius:calc(var(--rad) - 10px);padding:clamp(26px,3vw,38px);display:flex;flex-direction:column;justify-content:center}
+.cai .cai-hc-r span{font:600 .72rem/1.3 'Inter',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#86EFAC}
+.cai .cai-hc-r strong{display:block;font:800 clamp(2.4rem,5vw,3.4rem)/1.05 'Archivo','Inter',sans-serif;letter-spacing:-.03em;color:#fff;margin:14px 0 10px}
+.cai .cai-hc-r p{font:400 .98rem/1.6 'Inter',sans-serif;color:#C6DAEC;margin:0}
+.cai .cai-hc-r p b{color:#fff}
+.cai .cai-hc-r .cai-more{color:#86EFAC;border-color:rgba(134,239,172,.4);margin-top:clamp(22px,2.6vw,28px);align-self:flex-start}
+.cai .cai-hc-r .cai-more:hover{color:#86EFAC;border-color:#86EFAC}
+/* réassurance finale */
+.cai .cai-rea{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(24px,2.8vw,30px);padding:0;list-style:none}
+.cai .cai-rea li{list-style:none;font:600 .86rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.7);border-radius:99px;padding:10px 15px}
+@media(min-width:680px){.cai .cai-kpi{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.cai .cai-hc{grid-template-columns:1.1fr .9fr}}
+@media(max-width:640px){
+  .cai .cai-ope-logos{display:none}
+  .cai .cai-ope-duo{display:grid;gap:14px}
+  .cai .cai-ope-duo span{display:block;width:100%;max-width:100%;aspect-ratio:750/214;background:url('/images/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp') 0 0/200% 100% no-repeat}
+  .cai .cai-ope-duo span+span{background-position:100% 0}
+}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<div class="cai-hero">
+<div>
+<span class="cai-eye cai-eye--w">Permanence téléphonique · 18 métiers</span>
+<h1>Ne ratez plus un appel, <em>même quand vous ne pouvez pas décrocher</em></h1>
+<p class="cai-lead">Vous êtes avec un client, votre téléphone sonne. Celui qui appelle ne laisse pas de message : <span class="cai-key">il compose le numéro suivant.</span> Répondeur, télésecrétariat, embauche ou standard 24/7 : voici ce qui décroche vraiment à votre place, et ce que ça coûte.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="#cai-calcul">Calculer ce que je perds</a>
+<a class="cai-btn cai-btn--w" href="#cai-metiers">Voir mon métier</a>
+</div>
+<ul class="cai-tick">
+<li>Vous gardez votre numéro actuel</li>
+<li>Rien à installer, rien à paramétrer</li>
+<li>Décroche aussi le soir et le week-end</li>
+<li>Sans engagement, arrêt à tout moment</li>
+</ul>
+</div>
+<div class="cai-mos">
+<a class="cai-ph cai-ph--xl" href="/metiers/salle-de-sport"><img alt="Une coach sportive qui corrige le mouvement d'une cliente, son téléphone posé sur un banc" height="643" loading="eager" src="/images/6ab00f7a23c932.96132870_salle-de-sport-permanence-telephone.webp" style="object-position:70% 50%" width="1500"/><span>Salle de sport</span></a>
+<a class="cai-ph" href="/metiers/plombier-chauffagiste"><img alt="Un plombier chauffagiste agenouillé devant une chaudière, son téléphone posé au sol" height="643" loading="eager" src="/images/6aaff250d106e8.35603664_plombier-permanence-telephone.webp" style="object-position:18% 50%" width="1500"/><span>Plombier</span></a>
+<a class="cai-ph" href="/metiers/avocat-juriste"><img alt="Un avocat qui annote un dossier à son bureau, son téléphone posé près de lui" height="643" loading="eager" src="/images/6ab007438b11c6.51824732_avocat-permanence-telephone.webp" style="object-position:32% 50%" width="1500"/><span>Avocat</span></a>
+<a class="cai-ph" href="/metiers/expert-comptable"><img alt="Une experte-comptable concentrée sur ses dossiers, son téléphone posé sur le bureau" height="643" loading="lazy" src="/images/6ab00876655382.07149705_comptable-permanence-telephone.webp" style="object-position:74% 50%" width="1500"/><span>Expert-comptable</span></a>
+<a class="cai-ph" href="/metiers/coiffeur-barbier"><img alt="Un barbier qui taille la barbe d'un client, son téléphone posé sur le comptoir" height="643" loading="lazy" src="/images/6ab00b02bb5bb1.28355458_coiffeur-barbier-permanence-telephone.webp" style="object-position:30% 50%" width="1500"/><span>Barbier</span></a>
+</div>
+</div>
+</section>
+<!-- 1 bis. OPÉRATEURS COMPATIBLES -->
+<div class="cai-ope">
+<p class="cai-ope-t">La solution que nous vous proposons est compatible avec votre numéro et les opérateurs que vous utilisez déjà.</p>
+<img alt="Compatible avec Orange, SFR, Free, Bouygues Telecom, Onoff et Ringover" class="cai-ope-logos" height="214" loading="lazy" src="/images/6ab14464b56060.16546502_logo-reseaux-telephoniques-artisans.webp" width="1500"/>
+<div aria-hidden="true" class="cai-ope-duo"><span></span><span></span></div>
+</div>
+<!-- 2. APPELS MANQUÉS : LES CHIFFRES -->
+<section class="cai-box">
+<span class="cai-eye">Appels manqués, les chiffres</span>
+<h2 style="margin:22px 0 18px;max-width:22ch">Un appel manqué, <em>c'est un client qui appelle ailleurs</em></h2>
+<p class="cai-lead">Vous pensez qu'il rappellera, ou qu'il laissera un message. La plupart du temps, il ne fait ni l'un ni l'autre.</p>
+<div class="cai-kpi">
+<div><b>62<i> %</i></b><p>des appels reçus par des petites entreprises ne sont pas décrochés.</p><small>411 Locals, 85 entreprises suivies pendant 30 jours</small></div>
+<div><b>42<i> %</i></b><p>seulement des clients laissent un message quand personne ne répond.</p><small>CallRail, enquête auprès de 1 000 consommateurs</small></div>
+<div><b>82<i> %</i></b><p>disent qu'ils appelleront un concurrent. 21 % le font immédiatement.</p><small>CallRail, enquête auprès de 1 000 consommateurs</small></div>
+</div>
+<p class="cai-src">Études menées aux États-Unis : <a href="https://411locals.us/small-business-owners-dont-answer-62-of-phone-calls" rel="nofollow noopener" target="_blank">411 Locals</a> et <a href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" rel="nofollow noopener" target="_blank">CallRail</a>. Le détail dans notre article <a href="/appels-manques-perdre-des-clients">appels manqués et clients perdus</a>.</p>
+</section>
+<!-- 2 bis. LA SCÈNE -->
+<div class="cai-head">
+<span class="cai-eye">Quand personne ne décroche</span>
+<h2>Un appel manqué <em>n'est pas un appel reporté</em></h2>
+<p class="cai-lead">Voici ce qui se passe quand votre client tombe sur la messagerie. <span class="cai-key">Trois minutes suffisent.</span></p>
+</div>
+<section class="cai-split">
+<div class="cai-pstack">
+<a class="cai-ph cai-ph--xl" href="/metiers/kine-osteopathe"><img alt="Une kinésithérapeute en séance avec un patient, son téléphone posé sur le bureau" height="643" loading="lazy" src="/images/6aaffccd3ab949.45268134_kine-osteo-permanence-telephone.webp" style="object-position:22% 50%" width="1500"/><span>Kiné</span></a>
+<a class="cai-ph" href="/metiers/agence-immobiliere"><img alt="Un agent immobilier devant un immeuble avant une visite, un dossier sous le bras" height="643" loading="lazy" src="/images/6ab009b33e09b0.21151867_agent-immobilier-permanence-telephone.webp" style="object-position:22% 50%" width="1500"/><span>Agence immobilière</span></a>
+<a class="cai-ph" href="/metiers/garage-carrosserie"><img alt="Un mécanicien sous un véhicule sur pont élévateur, son téléphone posé sur l'établi" height="643" loading="lazy" src="/images/6aaff723242f87.36987631_garagiste-permanence-telephone.webp" style="object-position:22% 50%" width="1500"/><span>Garage</span></a>
+</div>
+<ol class="cai-tl">
+<li><time>10 h 12</time><h3>Votre téléphone sonne</h3><p>Vous êtes en rendez-vous, en séance, en visite ou sous un évier. Vous le voyez vibrer, vous ne pouvez pas décrocher.</p></li>
+<li><time>10 h 13</time><h3>Il raccroche sans laisser de message</h3><p>Il revient sur Google et appelle le numéro affiché juste sous le vôtre.</p></li>
+<li class="is-bad"><time>10 h 14</time><h3>Quelqu'un d'autre décroche</h3><p>Un confrère lui répond et lui propose un créneau. Pour lui, c'est réglé.</p></li>
+<li class="is-bad"><time>19 h 40</time><h3>Vous rappelez enfin</h3><p>« C'est bon, j'ai trouvé quelqu'un. » Vous ne saurez jamais combien ce client valait.</p></li>
+</ol>
+</section>
+<!-- 2 ter. LE CALCUL -->
+<div class="cai-head" id="cai-calcul">
+<span class="cai-eye">Votre manque à gagner</span>
+<h2>Combien vous coûtent <em>vos appels manqués ?</em></h2>
+<p class="cai-lead">Trois curseurs, vos propres chiffres. Le résultat se met à jour tout seul.</p>
+</div>
+<section class="cai-box">
+<div class="cai-hc">
+<div class="cai-hc-f">
+<div>
+<div class="cai-hc-top"><label for="cai-h1">Appels manqués par semaine</label><output for="cai-h1" id="cai-o1">8</output></div>
+<input id="cai-h1" max="60" min="1" step="1" style="background: linear-gradient(90deg, rgb(34, 197, 94) 11.8644%, rgb(228, 235, 243) 11.8644%);" type="range" value="8"/>
+</div>
+<div>
+<div class="cai-hc-top"><label for="cai-h2">Montant moyen d'une prestation</label><output for="cai-h2" id="cai-o2">250 €</output></div>
+<input id="cai-h2" max="2000" min="30" step="10" style="background: linear-gradient(90deg, rgb(34, 197, 94) 11.1675%, rgb(228, 235, 243) 11.1675%);" type="range" value="250"/>
+</div>
+<div>
+<div class="cai-hc-top"><label for="cai-h3">Appels qui deviennent un client</label><output for="cai-h3" id="cai-o3">40 %</output></div>
+<input id="cai-h3" max="100" min="5" step="5" style="background: linear-gradient(90deg, rgb(34, 197, 94) 36.8421%, rgb(228, 235, 243) 36.8421%);" type="range" value="40"/>
+</div>
+</div>
+<div aria-live="polite" class="cai-hc-r">
+<span>Ce qui part chez un autre, chaque mois</span>
+<strong id="cai-hr1">3 464 €</strong>
+<p>Soit <b id="cai-hr2">41 568 €</b> sur un an, pour <b id="cai-hr3">35</b> appels sans réponse par mois.</p>
+<a class="cai-more" href="/calculateur">Faire le calcul détaillé</a>
+</div>
+</div>
+</section>
+<!-- 2 quater. CE QUE ÇA COÛTE AUSSI -->
+<div class="cai-head">
+<span class="cai-eye">Et en dehors des heures de travail</span>
+<h2>Les appels manqués vous coûtent aussi <em>vos soirées et vos dimanches</em></h2>
+</div>
+<div class="cai-doors">
+<article class="cai-door">
+<span class="cai-lbl">Entre 19 h et 21 h</span>
+<h3>Deux heures à rappeler</h3>
+<p>Onze appels manqués, un quart d'heure chacun. La moitié ne répond plus, et l'autre a déjà trouvé quelqu'un.</p>
+</article>
+<article class="cai-door">
+<span class="cai-lbl">Le dimanche</span>
+<h3>Le téléphone au milieu de la table</h3>
+<p>Vous décrochez par réflexe pendant le repas. Sur trois appels, un seul méritait de vous déranger.</p>
+</article>
+<article class="cai-door cai-door--g">
+<span class="cai-lbl">En congés</span>
+<h3>Vous ne coupez jamais vraiment</h3>
+<p>Vous partez avec la peur de revenir sans clients. Alors vous regardez vos appels manqués depuis la plage.</p>
+<a class="cai-more" href="/partir-en-vacances-independant">Partir sans perdre de clients</a>
+</article>
+</div>
+<!-- 3. PAR OÙ COMMENCER -->
+<div class="cai-head">
+<span class="cai-eye">Par où commencer</span>
+<h2>Vous en êtes <em>où ?</em></h2>
+<p class="cai-lead">Selon votre situation, vous n'avez pas besoin de la même chose.</p>
+</div>
+<div class="cai-doors">
+<article class="cai-door cai-door--g">
+<h3>Vous voulez savoir comment ça se branche</h3>
+<p>Votre numéro, votre agenda, vos règles d'urgence : ce qui est fait pour vous en 48 heures, étape par étape.</p>
+<a class="cai-more" href="/fonctionnement">Voir le fonctionnement</a>
+</article>
+<article class="cai-door">
+<h3>Vous payez déjà un télésecrétariat</h3>
+<p>Horaires réels, qualification, prise de rendez-vous : ce que vous obtenez pour votre abonnement, et ce qui existe à côté.</p>
+<a class="cai-more" href="/comparer/permanence-telephonique">Comparer avec ce que je paie</a>
+</article>
+<article class="cai-door">
+<h3>Vous voulez entendre ce que ça donne</h3>
+<p>Un appel réel pris de bout en bout par un standard automatique, avec la retranscription complète.</p>
+<a class="cai-more" href="/demonstration">Écouter un appel réel</a>
+</article>
+</div>
+<!-- 4. MÉTIERS -->
+<div class="cai-head" id="cai-metiers">
+<span class="cai-eye">Votre activité</span>
+<h2>Le secrétariat téléphonique <em>dans votre métier</em></h2>
+<p class="cai-lead">Les appels reçus, ce qui est une vraie urgence et ce qui peut attendre ne sont pas les mêmes chez un serrurier et chez un kiné.</p>
+</div>
+<section class="cai-box">
+<div class="cai-sel">
+<label for="cai-select">Choisissez votre activité</label>
+<select id="cai-select"><option value="0">💆  Kiné / Ostéopathe</option><option value="1">🔧  Plombier / Chauffagiste</option><option value="2">🏠  Agence immobilière</option><option value="3">💇  Coiffeur / Barbier</option><option value="4">⚡  Électricien</option><option value="5">🦷  Cabinet dentaire</option><option value="6">🚗  Garage / Carrosserie</option><option value="7">⚖  Avocat / Juriste</option><option value="8">✨  Institut / Spa</option><option value="9">🔐  Serrurier</option><option value="10">🐾  Vétérinaire</option><option value="11">🏗  Rénovation / Bâtiment</option><option value="12">📊  Expert-comptable</option><option value="13">🏋  Salle de sport / Coach</option><option value="14">🌿  Paysagiste / Jardin</option><option value="15">💎  Clinique esthétique</option><option value="16">🚦  Auto-école</option><option value="17">🍽  Restaurant / Traiteur</option></select>
+</div>
+<div aria-label="Choisir une activité" class="cai-chips" id="cai-chips" role="group"><button aria-pressed="true" class="cai-pill" type="button">💆  Kiné / Ostéopathe</button><button aria-pressed="false" class="cai-pill" type="button">🔧  Plombier / Chauffagiste</button><button aria-pressed="false" class="cai-pill" type="button">🏠  Agence immobilière</button><button aria-pressed="false" class="cai-pill" type="button">💇  Coiffeur / Barbier</button><button aria-pressed="false" class="cai-pill" type="button">⚡  Électricien</button><button aria-pressed="false" class="cai-pill" type="button">🦷  Cabinet dentaire</button><button aria-pressed="false" class="cai-pill" type="button">🚗  Garage / Carrosserie</button><button aria-pressed="false" class="cai-pill" type="button">⚖  Avocat / Juriste</button><button aria-pressed="false" class="cai-pill" type="button">✨  Institut / Spa</button><button aria-pressed="false" class="cai-pill" type="button">🔐  Serrurier</button><button aria-pressed="false" class="cai-pill" type="button">🐾  Vétérinaire</button><button aria-pressed="false" class="cai-pill" type="button">🏗  Rénovation / Bâtiment</button><button aria-pressed="false" class="cai-pill" type="button">📊  Expert-comptable</button><button aria-pressed="false" class="cai-pill" type="button">🏋  Salle de sport / Coach</button><button aria-pressed="false" class="cai-pill" type="button">🌿  Paysagiste / Jardin</button><button aria-pressed="false" class="cai-pill" type="button">💎  Clinique esthétique</button><button aria-pressed="false" class="cai-pill" type="button">🚦  Auto-école</button><button aria-pressed="false" class="cai-pill" type="button">🍽  Restaurant / Traiteur</button></div>
+<div aria-live="polite" class="cai-view">
+<img alt="Une kinésithérapeute en séance avec un patient, son téléphone posé sur le bureau" class="cai-view-ph" height="643" id="cai-vimg" loading="lazy" src="/images/6aaffccd3ab949.45268134_kine-osteo-permanence-telephone.webp" style="object-position:22% 50%" width="1500"/>
+<div class="cai-view-top">
+<div aria-hidden="true" class="cai-emo" id="cai-emo">💆</div>
+<h3 id="cai-titre">Kiné / Ostéopathe</h3>
+</div>
+<p class="cai-say" id="cai-say">Vous êtes en séance. On n'interrompt pas un patient sur la table.</p>
+<div class="cai-two">
+<div class="cai-sub">
+<h4>Les appels que vous recevez</h4>
+<ul class="cai-tags" id="cai-tags"><li>Rendez-vous</li><li>Annulation</li><li>Ordonnance</li><li>Première consultation</li></ul>
+</div>
+<div class="cai-sub cai-sub--g">
+<h4>À vous transférer tout de suite</h4>
+<p id="cai-urg">Un blocage aigu, une suite d'accident. Le reste se cale sans vous déranger.</p>
+</div>
+</div>
+<a class="cai-more" href="/metiers/kine-osteopathe" id="cai-lien">Voir la page Kiné / Ostéopathe</a>
+</div>
+<div class="cai-mets">
+<h4>Toutes les pages métier</h4>
+<ul>
+<li><a href="/metiers/kine-osteopathe">Kiné / Ostéopathe</a></li>
+<li><a href="/metiers/plombier-chauffagiste">Plombier / Chauffagiste</a></li>
+<li><a href="/metiers/agence-immobiliere">Agence immobilière</a></li>
+<li><a href="/metiers/coiffeur-barbier">Coiffeur / Barbier</a></li>
+<li><a href="/metiers/electricien">Électricien</a></li>
+<li><a href="/metiers/cabinet-dentaire">Cabinet dentaire</a></li>
+<li><a href="/metiers/garage-carrosserie">Garage / Carrosserie</a></li>
+<li><a href="/metiers/avocat-juriste">Avocat / Juriste</a></li>
+<li><a href="/metiers/institut-spa">Institut / Spa</a></li>
+<li><a href="/metiers/serrurier">Serrurier</a></li>
+<li><a href="/metiers/veterinaire">Vétérinaire</a></li>
+<li><a href="/metiers/renovation-batiment">Rénovation / Bâtiment</a></li>
+<li><a href="/metiers/expert-comptable">Expert-comptable</a></li>
+<li><a href="/metiers/salle-de-sport">Salle de sport / Coach</a></li>
+<li><a href="/metiers/paysagiste">Paysagiste / Jardin</a></li>
+<li><a href="/metiers/clinique-esthetique">Clinique esthétique</a></li>
+<li><a href="/metiers/auto-ecole">Auto-école</a></li>
+<li><a href="/metiers/restaurant-traiteur">Restaurant / Traiteur</a></li>
+</ul>
+</div>
+</section>
+<!-- 5. COMPARATIF -->
+<div class="cai-head" id="cai-comparatif">
+<span class="cai-eye">Le comparatif</span>
+<h2>Répondeur, télésecrétariat, embauche <em>ou standard 24/7</em></h2>
+<p class="cai-lead">Quatre façons de traiter les appels que vous ne prenez pas. Ce qu'elles font réellement, pas ce qu'elles promettent.</p>
+</div>
+<section class="cai-box">
+<table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Critère</th>
+<th scope="col">Répondeur</th>
+<th scope="col">Télésecrétariat</th>
+<th scope="col">Embauche</th>
+<th scope="col">Standard 24/7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Décroche 24 h/24</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Horaires de bureau</td>
+<td data-l="Embauche">35 h par semaine</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Connaît votre métier</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Souvent générique</td>
+<td data-l="Embauche">Après formation</td>
+<td data-l="Standard 24/7">Selon vos règles</td>
+</tr>
+<tr>
+<th scope="row">Pose le rendez-vous</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Prend un message</td>
+<td data-l="Embauche">Oui</td>
+<td data-l="Standard 24/7">Sur vos créneaux libres</td>
+</tr>
+<tr>
+<th scope="row">Trie les vraies urgences</th>
+<td data-l="Répondeur">Non</td>
+<td data-l="Télésecrétariat">Variable</td>
+<td data-l="Embauche">Oui</td>
+<td data-l="Standard 24/7">Selon vos critères</td>
+</tr>
+<tr>
+<th scope="row">Soir, week-end, congés</th>
+<td data-l="Répondeur">Sonne dans le vide</td>
+<td data-l="Télésecrétariat">Rarement</td>
+<td data-l="Embauche">Non</td>
+<td data-l="Standard 24/7">Oui</td>
+</tr>
+<tr>
+<th scope="row">Coût mensuel indicatif</th>
+<td data-l="Répondeur">0 € et des appels perdus</td>
+<td data-l="Télésecrétariat">50 à 300 € HT selon le volume</td>
+<td data-l="Embauche">1 700 à 2 000 € chargés</td>
+<td data-l="Standard 24/7">À partir de 297 €</td>
+</tr>
+</tbody>
+</table>
+<p class="cai-fine" style="margin-top:30px">Ordres de grandeur relevés sur les offres publiques du marché français, hors options et hors frais de mise en service. Ces montants situent les familles de solutions entre elles, ils ne remplacent pas un devis. Grilles et sources dans notre <a href="/prix-du-marche">relevé des prix du marché</a>.</p>
+<div class="cai-links">
+<a href="/comparer/permanence-telephonique">Permanence téléphonique</a>
+<a href="/comparer/embaucher-ou-automatiser">Embauche ou automatisation</a>
+<a href="/comparer/repondeur-renvoi-standard">Répondeur et renvoi d'appel</a>
+</div>
+</section>
+<!-- 6. COMMENT ÇA MARCHE -->
+<div class="cai-head">
+<span class="cai-eye">Comment ça marche</span>
+<h2>Un standard téléphonique 24/7, <em>concrètement</em></h2>
+<p class="cai-lead"><span class="cai-key">Le téléphone sonne d'abord chez vous.</span> Le standard ne prend le relais que si vous ne décrochez pas.</p>
+</div>
+<section class="cai-box">
+<div class="cai-steps" style="margin-top:0">
+<article class="cai-step cai-step--g">
+<span class="cai-num">01</span>
+<span class="cai-lbl" style="margin:14px 0 10px">À chaque appel</span>
+<h3>Ça sonne chez vous</h3>
+<p>Votre numéro ne change pas. Si vous êtes libre, vous décrochez et rien n'est modifié.</p>
+</article>
+<article class="cai-step">
+<span class="cai-num">02</span>
+<span class="cai-lbl" style="margin:14px 0 10px">Si vous ne décrochez pas</span>
+<h3>Le standard répond</h3>
+<p>Il se présente comme l'accueil de votre entreprise et pose les questions que vous avez définies.</p>
+</article>
+<article class="cai-step">
+<span class="cai-num">03</span>
+<span class="cai-lbl" style="margin:14px 0 10px">Dans la foulée</span>
+<h3>Rendez-vous ou urgence</h3>
+<p>Un créneau est bloqué dans votre agenda, ou l'appel vous est transféré s'il coche vos critères.</p>
+</article>
+</div>
+<a class="cai-more" href="/fonctionnement">Le détail du branchement et du paramétrage</a>
+</section>
+<!-- 7. CONTRÔLE -->
+<section class="cai-box">
+<div class="cai-ctrl">
+<div class="cai-pduo">
+<a class="cai-ph" href="/metiers/restaurant-traiteur"><img alt="Une cheffe qui dresse une assiette en plein service, son téléphone posé à côté" height="643" loading="lazy" src="/images/6ab0123e395a28.17074804_restaurant-traiteur-permanence-telephone.webp" style="object-position:72% 50%" width="1500"/><span>Restaurant</span></a>
+<a class="cai-ph" href="/metiers/veterinaire"><img alt="Une vétérinaire qui ausculte un chien, son téléphone posé sur le comptoir" height="643" loading="lazy" src="/images/6ab004aad8f748.45006558_veterinaire-permanence-telephone.webp" style="object-position:25% 50%" width="1500"/><span>Vétérinaire</span></a>
+</div>
+<div>
+<span class="cai-eye">Ce que vous gardez</span>
+<h2 style="margin:22px 0 18px;max-width:17ch">Vous écrivez les règles, <em>il les applique</em></h2>
+<p class="cai-lead">La peur la plus répandue n'est pas le prix. C'est de <span class="cai-key">ne plus savoir ce qui se dit à votre place.</span></p>
+<ul class="cai-list">
+<li><b>Les critères d'urgence</b><span>Ce qui vous est transféré en direct, et ce qui attend demain.</span></li>
+<li><b>Les tarifs annoncés</b><span>Aucune fourchette n'est donnée si vous ne l'avez pas validée.</span></li>
+<li><b>Ce que vous refusez</b><span>Hors zone, hors budget, hors compétence : il sait dire non proprement.</span></li>
+<li><b>Le résumé de chaque appel</b><span>Qui a appelé, pourquoi, quel niveau d'urgence, ce qui a été décidé.</span></li>
+<li><b>Le bouton stop</b><span>Vous reprenez la ligne quand vous voulez, sans justification.</span></li>
+</ul>
+<a class="cai-more" href="/conformite">Données, RGPD et transparence</a>
+</div>
+</div>
+</section>
+<!-- 8. RECOMMANDATION -->
+<section class="cai-box cai-box--d">
+<span class="cai-eye cai-eye--d">Notre recommandation</span>
+<h2 style="margin:24px 0 20px;max-width:19ch">Le standard 24/7 <em>que nous recommandons</em></h2>
+<p class="cai-lead" style="color:#C6DAEC">Parmi les standards téléphoniques automatiques disponibles en France, Concierge AI est celui que nous recommandons aux indépendants et aux petites équipes. Il coche les six critères du tableau et se branche sur le numéro existant.</p>
+<ul class="cai-feat">
+<li><b>En service sous 48 h</b>Un appel de cadrage de 30 minutes suffit</li>
+<li><b>7 jours d'essai</b>Sans engagement, arrêt sans justification</li>
+<li><b>Paramétrage inclus</b>C'est fait pour vous, pas par vous</li>
+<li><b>Agenda connecté</b>Jamais de rendez-vous sur un créneau pris</li>
+</ul>
+<div class="cai-row">
+<a class="cai-btn cai-btn--g" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Tester 7 jours</a>
+</div>
+<p class="cai-fine">Lien partenaire : nous recevons une commission si vous vous abonnez via ce lien, sans surcoût pour vous. Les conditions sont détaillées dans les mentions légales.</p>
+</section>
+<!-- 9. FAQ -->
+<div class="cai-head">
+<span class="cai-eye">Questions fréquentes</span>
+<h2>Ce qu'on nous demande <em>avant de se lancer</em></h2>
+</div>
+<section class="cai-box">
+<div class="cai-faq">
+<details open="">
+<summary>Mes clients vont-ils s'apercevoir que ce n'est pas moi ?</summary>
+<div class="cai-ans"><p>Le standard se présente comme l'accueil de votre entreprise et ne se fait pas passer pour vous. Ce que vos clients détestent, c'est la sonnerie dans le vide et le rappel qui n'arrive jamais. Une réponse claire et un créneau en deux minutes valent mieux qu'un répondeur.</p></div>
+</details>
+<details>
+<summary>Faut-il changer de numéro de téléphone ?</summary>
+<div class="cai-ans"><p>Non. Le standard se branche sur votre ligne actuelle. Vos cartes, votre fiche Google, votre site et vos anciens clients gardent le même numéro, sans démarche auprès de votre opérateur.</p><p>Il fonctionne avec les opérateurs que vous utilisez déjà, sur mobile comme sur fixe : Orange, SFR, Free, Bouygues Telecom, ainsi que les lignes pro Onoff et Ringover.</p></div>
+</details>
+<details>
+<summary>Combien de temps ça prend à mettre en place ?</summary>
+<div class="cai-ans"><p>Un appel de trente minutes : vos horaires, votre zone, vos tarifs indicatifs, ce que vous refusez et ce qui constitue une urgence chez vous. Le reste est fait par l'équipe, la ligne est en service sous quarante-huit heures.</p></div>
+</details>
+<details>
+<summary>Quelle différence avec un télésecrétariat ?</summary>
+<div class="cai-ans"><p>Un télésecrétariat prend un message pendant les heures de bureau et vous le transmet. Un standard automatique répond la nuit et le dimanche, qualifie la demande selon vos règles, bloque le créneau dans votre agenda et ne vous transfère que les urgences que vous avez définies.</p><p>Beaucoup d'indépendants gardent les deux : le télésecrétariat en journée, le standard le reste du temps.</p></div>
+</details>
+<details>
+<summary>Et si je veux arrêter ?</summary>
+<div class="cai-ans"><p>Vous arrêtez, sans préavis et sans motif. La ligne revient à son fonctionnement précédent. Ni durée minimale, ni frais de résiliation, ni reconduction tacite sur douze ou vingt-quatre mois.</p></div>
+</details>
+</div>
+<a class="cai-more" href="/faq">Toutes les questions</a>
+</section>
+<!-- 10. SORTIE -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">7 jours pour voir la différence</span>
+<h2 style="margin:22px 0 0;max-width:20ch">Le prochain appel manqué, <em>quelqu'un d'autre le décrochera</em></h2>
+<p class="cai-lead" style="margin-top:20px">Autant que ce soit votre standard. Sept jours pour voir combien d'appels vous receviez vraiment, et ce qu'ils valaient. Vos soirées et vos dimanches en prime.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Tester 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<ul class="cai-rea">
+<li>Frais d'installation offerts</li>
+<li>Vous gardez votre numéro</li>
+<li>En service sous 48 h</li>
+<li>Sans engagement</li>
+</ul>
+</section>
+</div>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://www.concierge-ai.fr/#website", "url": "https://www.concierge-ai.fr", "name": "concierge-ai.fr", "inLanguage": "fr-FR", "description": "Comparatif des solutions de permanence téléphonique, télésecrétariat et standard 24/7 pour les indépendants."}, {"@type": "Organization", "@id": "https://www.concierge-ai.fr/#org", "name": "concierge-ai.fr", "url": "https://www.concierge-ai.fr", "logo": {"@type": "ImageObject", "url": "https://d1yei2z3i6k35z.cloudfront.net/473100/6aafa75fca2954.32422880_logoconciergeai.webp"}}, {"@type": "WebPage", "@id": "https://www.concierge-ai.fr/#webpage", "url": "https://www.concierge-ai.fr", "name": "Permanence téléphonique : ne ratez plus un appel", "isPartOf": {"@id": "https://www.concierge-ai.fr/#website"}, "inLanguage": "fr-FR", "description": "Un appel manqué, c'est un client qui appelle ailleurs. Calculez ce que vos appels manqués vous coûtent et comparez répondeur, télésecrétariat, embauche et standard téléphonique 24/7."}, {"@type": "FAQPage", "@id": "https://www.concierge-ai.fr/#faq", "mainEntity": [{"@type": "Question", "name": "Mes clients vont-ils s'apercevoir que ce n'est pas moi ?", "acceptedAnswer": {"@type": "Answer", "text": "Le standard se présente comme l'accueil de l'entreprise et ne se fait pas passer pour son dirigeant. Ce que les clients détestent, c'est la sonnerie dans le vide et le rappel qui n'arrive jamais. Une réponse claire et un créneau en deux minutes valent mieux qu'un répondeur."}}, {"@type": "Question", "name": "Faut-il changer de numéro de téléphone ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Le standard se branche sur la ligne actuelle. Cartes de visite, fiche Google, site internet et anciens clients gardent le même numéro, sans démarche auprès de l'opérateur. Il fonctionne avec les opérateurs déjà utilisés, sur mobile comme sur fixe : Orange, SFR, Free, Bouygues Telecom, ainsi que les lignes pro Onoff et Ringover."}}, {"@type": "Question", "name": "Combien de temps prend la mise en place d'un standard téléphonique ?", "acceptedAnswer": {"@type": "Answer", "text": "Un appel de trente minutes pour définir horaires, zone, tarifs indicatifs, refus et critères d'urgence. Le reste est réalisé par l'équipe et la ligne est en service sous quarante-huit heures."}}, {"@type": "Question", "name": "Quelle différence entre un télésecrétariat et un standard automatique ?", "acceptedAnswer": {"@type": "Answer", "text": "Un télésecrétariat prend un message pendant les heures de bureau et le transmet. Un standard automatique répond la nuit et le dimanche, qualifie la demande selon les règles du professionnel, bloque le créneau dans son agenda et ne transfère que les urgences définies. Beaucoup d'indépendants gardent les deux."}}, {"@type": "Question", "name": "Et si je veux arrêter ?", "acceptedAnswer": {"@type": "Answer", "text": "L'arrêt se fait sans préavis ni motif, et la ligne revient à son fonctionnement précédent. Ni durée minimale, ni frais de résiliation, ni reconduction tacite."}}]}]}
+</script>
