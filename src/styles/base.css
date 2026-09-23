@@ -465,3 +465,10 @@ main.cai-page {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(34, 197, 94, 0.36);
 }
+
+/* Les pages d'article se composent de plusieurs blocs successifs
+   (signature, partage, corps, pied d'article) : on rétablit l'écart
+   que la mise en page d'origine plaçait entre eux. */
+main.cai-page > .cai + .cai {
+  margin-top: clamp(16px, 2.2vw, 26px);
+}
