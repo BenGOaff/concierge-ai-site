@@ -549,16 +549,29 @@ a.cai-lia p {
   margin-bottom: clamp(30px, 3.6vw, 44px);
 }
 
-/* Le quiz, posé dans une section du site. La hauteur de repli garde le test
-   utilisable même si le cadre n'annonce jamais sa taille. */
-.cai-quiz iframe {
-  display: block;
-  width: 100%;
-  max-width: 640px;
-  min-height: 560px;
-  margin: clamp(26px, 3vw, 36px) auto 0;
-  border: none;
-  border-radius: 12px;
-  background: #fff;
-  color-scheme: light;
+/* L'appel au quiz : une section avec son bouton, pas de cadre intégré.
+   On reprend la structure des autres sections d'appel à l'action du site,
+   sans « .cai-head », pour que le titre et le bouton soient sur le même bord. */
+.cai-quiz .cai-eye {
+  display: inline-block;
+}
+
+.cai-quiz h2 {
+  margin: 18px 0;
+  max-width: 24ch;
+}
+
+.cai-quiz .cai-lead {
+  max-width: 60ch;
+}
+
+.cai-quiz .cai-row {
+  margin-top: clamp(22px, 2.6vw, 30px);
+}
+
+.cai-quiz-fine {
+  margin: 14px 0 0;
+  font: 400 0.9rem/1.6 'Inter', sans-serif;
+  color: var(--grey);
+  max-width: 52ch;
 }

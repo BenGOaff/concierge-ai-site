@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro'
 import contenu from '../../contenu/metiers__clinique-esthetique.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien vous coûtent <em>vos appels manqués&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui se passe aujourd'hui sur votre ligne, et ce que vous pouvez changer en premier.`,
+}))
 ---
 
 <Base
@@ -9,5 +14,5 @@ import contenu from '../../contenu/metiers__clinique-esthetique.html?raw'
   chemin="/metiers/clinique-esthetique"
   og="/images/6ab00e57d88fa0.27716609_clinique-esthetique-permanence-telephone.png"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

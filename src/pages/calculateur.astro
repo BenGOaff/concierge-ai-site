@@ -3,9 +3,8 @@ import Base from '../layouts/Base.astro'
 import contenu from '../contenu/calculateur.html?raw'
 import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
 const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
-  id: 'calculateur',
   titre: `Et vous, <em>où en êtes-vous vraiment&nbsp;?</em>`,
-  chapo: `Le calcul vous donne un montant. Le test vous dit d'où il vient chez vous, et par quoi commencer. Cinq questions, deux minutes.`,
+  chapo: `Le calcul vous donne un montant. Le test vous dit d'où il vient chez vous, et par quoi commencer.`,
 }))
 ---
 

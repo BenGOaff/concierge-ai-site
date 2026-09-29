@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro'
 import contenu from '../../contenu/category__appels-manques.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien vous coûtent <em>vos appels manqués&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui se passe aujourd'hui sur votre ligne, et ce que vous pouvez changer en premier.`,
+}))
 ---
 
 <Base
@@ -9,5 +14,5 @@ import contenu from '../../contenu/category__appels-manques.html?raw'
   chemin="/category/appels-manques"
   og="/images/6ab0f3f12adce8.67682388_blog.png"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

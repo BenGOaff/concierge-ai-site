@@ -3,9 +3,8 @@ import Base from '../layouts/Base.astro'
 import contenu from '../contenu/demonstration.html?raw'
 import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
 const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
-  id: 'demonstration',
   titre: `Ce que ça donnerait <em>sur votre ligne</em>`,
-  chapo: `Vous venez d'entendre un appel. Cinq questions pour savoir ce qui se passe aujourd'hui sur la vôtre, et recevoir votre diagnostic par email.`,
+  chapo: `Vous venez d'entendre un appel. Cinq questions pour savoir ce qui se passe aujourd'hui sur la vôtre.`,
 }))
 ---
 

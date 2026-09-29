@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro'
 import contenu from '../../contenu/guides__astreinte-et-tri-des-urgences.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien vous coûtent <em>vos appels manqués&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui se passe aujourd'hui sur votre ligne, et ce que vous pouvez changer en premier.`,
+}))
 ---
 
 <Base
@@ -9,5 +14,5 @@ import contenu from '../../contenu/guides__astreinte-et-tri-des-urgences.html?ra
   chemin="/guides/astreinte-et-tri-des-urgences"
   og="/images/6aafea0615a436.58139264_astreinte-telephone.png"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

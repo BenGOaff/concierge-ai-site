@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro'
 import contenu from '../../contenu/comparer__repondeur-renvoi-standard.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Avant de comparer, <em>sachez d'où vous partez</em>`,
+  chapo: `Les solutions ne se valent pas selon votre situation. Cinq questions pour savoir laquelle vous concerne.`,
+}))
 ---
 
 <Base
@@ -9,5 +14,5 @@ import contenu from '../../contenu/comparer__repondeur-renvoi-standard.html?raw'
   chemin="/comparer/repondeur-renvoi-standard"
   og="/images/6ab0cfcaeb2699.38587884_repondeur-renvoi-standard-artisans.png"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

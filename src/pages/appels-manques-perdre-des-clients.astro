@@ -3,9 +3,8 @@ import Base from '../layouts/Base.astro'
 import contenu from '../contenu/appels-manques-perdre-des-clients.html?raw'
 import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
 const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
-  id: 'appels-manques-perdre-des-clients',
   titre: `Combien vous coûtent <em>vos appels manqués&nbsp;?</em>`,
-  chapo: `Cinq questions, deux minutes. Vous recevez votre diagnostic par email, avec ce qui correspond à votre situation.`,
+  chapo: `Cinq questions pour savoir ce qui se passe aujourd'hui sur votre ligne, et ce que vous pouvez changer en premier.`,
 }))
 ---
 

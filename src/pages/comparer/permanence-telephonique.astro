@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro'
 import contenu from '../../contenu/comparer__permanence-telephonique.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Avant de comparer, <em>sachez d'où vous partez</em>`,
+  chapo: `Les solutions ne se valent pas selon votre situation. Cinq questions pour savoir laquelle vous concerne.`,
+}))
 ---
 
 <Base
@@ -9,5 +14,5 @@ import contenu from '../../contenu/comparer__permanence-telephonique.html?raw'
   chemin="/comparer/permanence-telephonique"
   og="/images/6aafe25e9db145.23949167_comparatif-permanence-telephonique-artisans.png"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

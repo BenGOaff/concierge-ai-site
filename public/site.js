@@ -28,30 +28,3 @@
     new MutationObserver(marquer).observe(document.documentElement, { childList: true, subtree: true });
   }
 })();
-
-/* Le quiz Tiquiz annonce sa hauteur par message : on la reporte sur le cadre.
-   Le cadre est chargé paresseusement, donc toujours après ce script. */
-(function () {
-  var cadres = document.querySelectorAll('iframe[data-tiquiz]')
-  if (!cadres.length) return
-
-  window.addEventListener('message', function (e) {
-    if (!e.data) return
-    for (var i = 0; i < cadres.length; i++) {
-      if (e.source !== cadres[i].contentWindow) continue
-      if (e.data.type === 'tiquiz-embed-hello') {
-        cadres[i].contentWindow.postMessage({ type: 'tiquiz-embed-ack' }, '*')
-      } else if (e.data.type === 'tiquiz-embed-height' && e.data.height) {
-        cadres[i].style.height = e.data.height + 'px'
-      }
-    }
-  })
-
-  // Si le bonjour du cadre arrive avant l'écoute, il reste sans réponse :
-  // on confirme aussi dès que le cadre a fini de charger.
-  for (var i = 0; i < cadres.length; i++) {
-    cadres[i].addEventListener('load', function () {
-      try { this.contentWindow.postMessage({ type: 'tiquiz-embed-ack' }, '*') } catch (e) {}
-    })
-  }
-})()
