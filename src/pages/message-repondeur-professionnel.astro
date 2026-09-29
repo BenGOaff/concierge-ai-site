@@ -1,6 +1,12 @@
 ---
 import Base from '../layouts/Base.astro'
 import contenu from '../contenu/message-repondeur-professionnel.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  id: 'message-repondeur-professionnel',
+  titre: `Combien vous coûtent <em>vos appels manqués&nbsp;?</em>`,
+  chapo: `Cinq questions, deux minutes. Vous recevez votre diagnostic par email, avec ce qui correspond à votre situation.`,
+}))
 ---
 
 <Base
@@ -9,5 +15,5 @@ import contenu from '../contenu/message-repondeur-professionnel.html?raw'
   chemin="/message-repondeur-professionnel"
   og="/images/6ab14bcaeeb577.50467635_ChatGPTImage21sept.202617_22_23.png"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

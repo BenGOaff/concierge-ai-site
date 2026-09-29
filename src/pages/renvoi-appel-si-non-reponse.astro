@@ -1,6 +1,12 @@
 ---
 import Base from '../layouts/Base.astro'
 import contenu from '../contenu/renvoi-appel-si-non-reponse.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  id: 'renvoi-appel-si-non-reponse',
+  titre: `Combien vous coûtent <em>vos appels manqués&nbsp;?</em>`,
+  chapo: `Cinq questions, deux minutes. Vous recevez votre diagnostic par email, avec ce qui correspond à votre situation.`,
+}))
 ---
 
 <Base
@@ -9,5 +15,5 @@ import contenu from '../contenu/renvoi-appel-si-non-reponse.html?raw'
   chemin="/renvoi-appel-si-non-reponse"
   og="/images/6ab150a148ba43.71426690_renvoi-appel-si-non-reponse.png"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

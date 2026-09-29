@@ -1,6 +1,12 @@
 ---
 import Base from '../layouts/Base.astro'
 import contenu from '../contenu/appels-manques-perdre-des-clients.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  id: 'appels-manques-perdre-des-clients',
+  titre: `Combien vous coûtent <em>vos appels manqués&nbsp;?</em>`,
+  chapo: `Cinq questions, deux minutes. Vous recevez votre diagnostic par email, avec ce qui correspond à votre situation.`,
+}))
 ---
 
 <Base
@@ -9,5 +15,5 @@ import contenu from '../contenu/appels-manques-perdre-des-clients.html?raw'
   chemin="/appels-manques-perdre-des-clients"
   og="/images/6ab110094cccb8.46316757_appels-manques-perdre-des-clients.png"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

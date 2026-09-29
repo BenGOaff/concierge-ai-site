@@ -548,3 +548,17 @@ a.cai-lia p {
 .cai-blog-liste {
   margin-bottom: clamp(30px, 3.6vw, 44px);
 }
+
+/* Le quiz, posé dans une section du site. La hauteur de repli garde le test
+   utilisable même si le cadre n'annonce jamais sa taille. */
+.cai-quiz iframe {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  min-height: 560px;
+  margin: clamp(26px, 3vw, 36px) auto 0;
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+  color-scheme: light;
+}
