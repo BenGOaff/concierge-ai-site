@@ -13,6 +13,7 @@ const { titre, description, chemin, og } = Astro.props
 const canonique = new URL(chemin, 'https://www.concierge-ai.fr').href
 
 const menu = [
+  { texte: 'Le test', lien: 'https://quiz.concierge-ai.fr/test' },
   { texte: 'Démo', lien: '/demonstration' },
   { texte: 'Calculateur', lien: '/calculateur' },
   { texte: 'Comparatif', lien: '/comparer/permanence-telephonique' },

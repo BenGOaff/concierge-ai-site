@@ -391,8 +391,13 @@
     order: 3;
     flex-basis: 100%;
   }
+  /* Six entrées ne tiennent plus sur une ligne : on les laisse passer à la
+     ligne naturellement, plutôt que d'étirer la première et d'isoler la
+     dernière comme le faisait « space-between ». */
   .cai-nav ul {
-    justify-content: space-between;
+    justify-content: flex-start;
+    column-gap: 18px;
+    row-gap: 8px;
   }
 }
 
@@ -549,29 +554,97 @@ a.cai-lia p {
   margin-bottom: clamp(30px, 3.6vw, 44px);
 }
 
-/* L'appel au quiz : une section avec son bouton, pas de cadre intégré.
-   On reprend la structure des autres sections d'appel à l'action du site,
-   sans « .cai-head », pour que le titre et le bouton soient sur le même bord. */
+/* L'appel au quiz : deux colonnes, l'argumentaire et l'illustration.
+   Moins haut qu'un bloc empilé, et chaque élément respire : le bouton n'est
+   jamais collé à la ligne qui le précède ni à celle qui le suit. */
+.cai-quiz {
+  padding: clamp(26px, 3.4vw, 48px);
+}
+
+.cai-quiz-in {
+  display: grid;
+  gap: clamp(30px, 3.6vw, 54px);
+  align-items: center;
+}
+
 .cai-quiz .cai-eye {
-  display: inline-block;
+  display: inline-flex;
 }
 
 .cai-quiz h2 {
-  margin: 18px 0;
-  max-width: 24ch;
+  margin: 20px 0 0;
+  max-width: 20ch;
+  font-size: clamp(1.55rem, 2.9vw, 2.1rem);
 }
 
 .cai-quiz .cai-lead {
-  max-width: 60ch;
+  margin: 16px 0 0;
+  max-width: 46ch;
 }
 
-.cai-quiz .cai-row {
-  margin-top: clamp(22px, 2.6vw, 30px);
+.cai-quiz .cai-quiz-pts {
+  margin: 26px 0 0;
+  display: grid;
+  gap: 12px;
 }
 
-.cai-quiz-fine {
-  margin: 14px 0 0;
-  font: 400 0.9rem/1.6 'Inter', sans-serif;
+.cai-quiz .cai-quiz-pts li {
+  position: relative;
+  padding-left: 30px;
+  font: 500 0.98rem/1.55 'Inter', sans-serif;
+  color: var(--ink);
+}
+
+.cai-quiz .cai-quiz-pts li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.16em;
+  width: 19px;
+  height: 19px;
+  border-radius: 99px;
+  background: var(--g3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 12px 12px no-repeat;
+}
+
+/* L'air autour du bouton : 34 px au-dessus, 24 px en dessous. */
+.cai-quiz .cai-quiz-go {
+  margin: clamp(28px, 3vw, 36px) 0 0;
+}
+
+.cai-quiz .cai-quiz-fine {
+  margin: 24px 0 0;
+  font: 400 0.88rem/1.65 'Inter', sans-serif;
   color: var(--grey);
-  max-width: 52ch;
+  max-width: 44ch;
+}
+
+.cai-quiz .cai-quiz-vis {
+  border-radius: calc(var(--rad) - 12px);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(10, 37, 64, 0.14);
+}
+
+.cai-quiz .cai-quiz-vis img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 880px) {
+  .cai-quiz-in {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.82fr);
+  }
+}
+
+@media (max-width: 879px) {
+  /* Sur téléphone, l'image accroche en premier, l'argumentaire suit. */
+  .cai-quiz .cai-quiz-vis {
+    order: -1;
+  }
+
+  .cai-quiz .cai-quiz-go .cai-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

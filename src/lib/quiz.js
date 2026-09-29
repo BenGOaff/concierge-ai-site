@@ -9,13 +9,29 @@
  * porte tout leur style. On ne peut donc pas couper le contenu en deux pour
  * glisser un composant au milieu : on insère la section à un emplacement
  * marqué, et le conteneur reste intact.
+ *
+ * La section tient sur deux colonnes : l'argumentaire à gauche, l'illustration
+ * du quiz à droite. Ça prend moins de hauteur qu'un bloc empilé, et l'image
+ * fait le travail de conviction à la place d'un paragraphe de plus.
  */
 
 export const MARQUEUR = '<!--QUIZ-->'
 export const ADRESSE_QUIZ = 'https://quiz.concierge-ai.fr/test'
 
+/** L'illustration : les personnages et les pastilles, sans le titre ni le
+ *  bouton dessinés dans l'image de partage, qui feraient doublon ici. */
+const VISUEL = '/images/quiz-appels-manques.jpg'
+const VISUEL_ALT =
+  'Un plombier et une infirmière, pensifs, entourés de trois constats : appels manqués, clients perdus, soirées interrompues.'
+
 const echapper = (t) => String(t)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+const ARGUMENTS = [
+  'Cinq questions, deux minutes chrono',
+  'Votre diagnostic personnalisé par email',
+  'En bonus, cinq jours pour faire le point',
+]
 
 /**
  * @param {object} o
@@ -32,15 +48,24 @@ export function sectionQuiz({
   eyebrow = 'Le test',
   fond = 'vert',
 }) {
+  const points = ARGUMENTS.map((t) => `<li>${echapper(t)}</li>`).join('\n')
   return `
 <section class="cai-box cai-quiz${fond === 'vert' ? ' cai-box--g' : ''}">
+<div class="cai-quiz-in">
+<div class="cai-quiz-txt">
 <span class="cai-eye">${echapper(eyebrow)}</span>
 <h2>${titre}</h2>
 <p class="cai-lead">${chapo}</p>
-<div class="cai-row">
-<a class="cai-btn cai-btn--k" href="${ADRESSE_QUIZ}">${echapper(bouton)}</a>
+<ul class="cai-quiz-pts">
+${points}
+</ul>
+<p class="cai-quiz-go"><a class="cai-btn cai-btn--k" href="${ADRESSE_QUIZ}">${echapper(bouton)}</a></p>
+<p class="cai-quiz-fine">Gratuit, sans carte bancaire. Vous vous désabonnez en un clic si ça ne vous parle pas.</p>
 </div>
-<p class="cai-quiz-fine">Cinq questions, deux minutes. Votre diagnostic arrive par email, et vous vous désabonnez en un clic si ça ne vous parle pas.</p>
+<figure class="cai-quiz-vis">
+<img src="${VISUEL}" alt="${echapper(VISUEL_ALT)}" width="900" height="883" loading="lazy" decoding="async">
+</figure>
+</div>
 </section>
 `
 }
