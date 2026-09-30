@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/numero-astreinte.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Vos urgences vous coûtent-elles <em>vos nuits&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui arrive vraiment sur votre ligne en dehors des heures, et ce que vous pouvez filtrer en premier.`,
+}))
+---
+
+<Base
+  titre="Numéro d'astreinte : comment en mettre un en place"
+  description="Un numéro d'astreinte ne sert à rien si personne ne décroche. Les trois façons d'en monter un, qui répond la nuit, et les règles de tri à écrire avant d'ouvrir la ligne."
+  chemin="/numero-astreinte"
+  og="/images/repondeur-rendez-vous-og.jpg"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>
