@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/repondeur-qui-prend-les-rendez-vous.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien vous coûtent <em>vos appels manqués&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce que votre répondeur laisse filer chaque mois, et ce que vous pouvez changer en premier.`,
+}))
+---
+
+<Base
+  titre="Répondeur qui prend les rendez-vous : ce qui existe"
+  description="Un répondeur enregistre, il ne pose pas de rendez-vous. Les quatre façons de transformer un appel non décroché en créneau dans votre agenda, et leur prix."
+  chemin="/repondeur-qui-prend-les-rendez-vous"
+  og="/images/repondeur-rendez-vous-og.jpg"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>

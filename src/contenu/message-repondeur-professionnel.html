@@ -403,6 +403,7 @@
 <p class="cai-rep">Après le bip du répondeur, la majorité des clients ne laissent pas de message. Selon une enquête de CallRail auprès de 1 000 consommateurs américains, seuls 42 % laissent un message quand personne ne répond, et 82 % disent qu'ils appelleront un concurrent.</p>
 <p>Un bon message améliore les choses : le client sait qu'il est au bon endroit et quand il sera rappelé. Mais il ne change pas le fond du problème. La personne qui appelle voulait une réponse maintenant : un créneau, un prix, quelqu'un qui s'occupe de sa demande. Le répondeur lui propose d'attendre.</p>
 <p>C'est tout l'écart entre un répondeur et un standard qui décroche à votre place. Avec <a href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Concierge AI</a>, le téléphone sonne d'abord chez vous. Si vous ne décrochez pas, l'assistant de votre entreprise répond, comprend la demande, pose le rendez-vous dans votre agenda et vous envoie un résumé écrit. Vous gardez votre numéro, et l'essai de 7 jours se fait sans engagement. Le détail est dans le comparatif <a href="/comparer/repondeur-renvoi-standard">répondeur, renvoi d'appel ou standard</a>.</p>
+<p>Si c'est cette bascule qui vous intéresse, nous avons détaillé ce qu'est un <a href="/repondeur-qui-prend-les-rendez-vous">répondeur qui prend les rendez-vous</a> : ce qui existe réellement, ce que chaque solution sait faire, et ce que ça coûte.</p>
 <h2 id="questions-message-repondeur">Questions fréquentes sur le message de répondeur professionnel</h2>
 <div class="cai-faqa">
 <details open=""><summary>Quelle est la durée idéale d'un message de répondeur professionnel ?</summary><p>Entre 20 et 30 secondes. C'est assez pour dire qui vous êtes, pourquoi vous ne répondez pas, ce que le client doit laisser et quand vous le rappelez. Au-delà, beaucoup de clients raccrochent avant le bip.</p></details>
@@ -563,6 +564,9 @@
     var body=document.getElementById("cai-art-b"), aside=document.getElementById("cai-toc"), inner=document.getElementById("cai-toc-in");
     var l1=document.getElementById("cai-toc-l"), l2=document.getElementById("cai-tocm-l");
     var hs=body.querySelectorAll("h2"), links=[];
+    /* le sommaire est déjà écrit dans la page : on le vide avant de le reconstruire,
+       sinon chaque entrée apparaît deux fois. */
+    if(l1){l1.innerHTML="";} if(l2){l2.innerHTML="";}
     function slug(t){return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
     for(var i=0;i<hs.length;i++){
       if(!hs[i].id){hs[i].id=slug(hs[i].textContent)||("partie-"+(i+1));}

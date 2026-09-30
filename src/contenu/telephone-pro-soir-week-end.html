@@ -538,6 +538,9 @@
     var body=document.getElementById("cai-art-b"), aside=document.getElementById("cai-toc"), inner=document.getElementById("cai-toc-in");
     var l1=document.getElementById("cai-toc-l"), l2=document.getElementById("cai-tocm-l");
     var hs=body.querySelectorAll("h2"), links=[];
+    /* le sommaire est déjà écrit dans la page : on le vide avant de le reconstruire,
+       sinon chaque entrée apparaît deux fois. */
+    if(l1){l1.innerHTML="";} if(l2){l2.innerHTML="";}
     function slug(t){return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
     for(var i=0;i<hs.length;i++){
       if(!hs[i].id){hs[i].id=slug(hs[i].textContent)||("partie-"+(i+1));}

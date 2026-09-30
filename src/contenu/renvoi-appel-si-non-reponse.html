@@ -414,6 +414,7 @@
 <li><strong>Un proche.</strong> C'est la solution de beaucoup d'indépendants, jusqu'au jour où la personne n'en peut plus de décrocher pendant le repas.</li>
 <li><strong>Un télésecrétariat.</strong> Il prend un message pendant les heures de bureau, rarement le soir et le week-end.</li>
 <li><strong>Un standard qui décroche à votre place.</strong> Il répond 24 h/24 au nom de votre entreprise, pose le rendez-vous dans votre agenda et vous transfère les urgences.</li>
+<li><strong>Un <a href="/repondeur-qui-prend-les-rendez-vous">répondeur qui prend les rendez-vous</a>.</strong> C'est le même principe vu depuis votre messagerie : au lieu d'enregistrer un message, la ligne pose un créneau.</li>
 </ul>
 <p>Un standard comme <a href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Concierge AI</a> repose justement sur ce renvoi si non-réponse : votre téléphone sonne d'abord chez vous, et l'assistant ne prend le relais que si vous ne décrochez pas. Vous gardez votre numéro, votre opérateur et votre forfait, et l'équipe fait le réglage pour vous en 48 heures. Le détail est sur la page <a href="/fonctionnement">comment ça marche</a>, et la comparaison des solutions dans le comparatif <a href="/comparer/repondeur-renvoi-standard">répondeur, renvoi d'appel ou standard</a>.</p>
 <h2 id="questions-renvoi-appel-non-reponse">Questions fréquentes sur le renvoi d'appel si non-réponse</h2>
@@ -577,6 +578,9 @@
     var body=document.getElementById("cai-art-b"), aside=document.getElementById("cai-toc"), inner=document.getElementById("cai-toc-in");
     var l1=document.getElementById("cai-toc-l"), l2=document.getElementById("cai-tocm-l");
     var hs=body.querySelectorAll("h2"), links=[];
+    /* le sommaire est déjà écrit dans la page : on le vide avant de le reconstruire,
+       sinon chaque entrée apparaît deux fois. */
+    if(l1){l1.innerHTML="";} if(l2){l2.innerHTML="";}
     function slug(t){return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
     for(var i=0;i<hs.length;i++){
       if(!hs[i].id){hs[i].id=slug(hs[i].textContent)||("partie-"+(i+1));}
