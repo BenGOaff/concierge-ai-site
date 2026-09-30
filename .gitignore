@@ -7,3 +7,6 @@ dist
 # identifiants se déclarent dans les variables d'environnement de l'hébergeur.
 .env
 .env.*
+
+# polices téléchargées par outils/infographie.py
+.polices/
