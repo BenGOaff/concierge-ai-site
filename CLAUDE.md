@@ -61,6 +61,10 @@ Les trois moteurs sont installés : Chromium, Firefox et WebKit.
 
 ## Référencement classique
 
+- Le sitemap à déclarer dans la Search Console est
+  `https://www.concierge-ai.fr/sitemap-index.xml`. `/sitemap.xml` en est une
+  copie, produite à chaque construction ; `/sitemap-0.xml` est le fichier
+  enfant qui porte les URL.
 - Un `<title>` par page, unique sur le site, 60 signes au maximum.
 - Une `<meta description>` par page, unique elle aussi.
 - Une intention par page. Deux pages sur la même requête se font de l'ombre :
@@ -98,6 +102,7 @@ Les assistants citent ce qu'ils peuvent extraire, attribuer et vérifier.
 | `outils/infographie.py` | Dessine une infographie maison à partir d'une fiche JSON |
 | `outils/espacements.mjs` | Vérifie qu'aucun bloc n'est collé, sur trois largeurs et trois moteurs |
 | `outils/faq-schema.mjs` | Aligne le schéma FAQPage sur les questions réellement affichées |
+| `outils/apres-build.mjs` | Finitions après `astro build` ; recopie l'index de sitemap en `/sitemap.xml` |
 
 Les polices Archivo et Inter sont téléchargées au premier appel dans
 `.polices/`, hors dépôt.
