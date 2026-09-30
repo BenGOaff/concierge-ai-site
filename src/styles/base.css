@@ -496,7 +496,11 @@ a.cai-lia:hover {
   box-shadow: 0 14px 32px rgba(10, 37, 64, 0.1);
 }
 
-.cai-lia-img {
+/* « .cai figure » (classe + balise) l'emporte sur une règle à classe simple :
+   sans ce préfixe, la marge sous la vignette tombe à zéro et le titre la touche.
+   C'est la troisième fois que ce piège frappe ; outils/espacements.mjs le détecte
+   désormais au rendu, sur toutes les pages et toutes les largeurs. */
+.cai .cai-lia-img {
   border-radius: calc(var(--rad) - 14px);
   overflow: hidden;
   aspect-ratio: 16 / 10;
@@ -559,6 +563,13 @@ a.cai-lia p {
    jamais collé à la ligne qui le précède ni à celle qui le suit. */
 .cai-quiz {
   padding: clamp(26px, 3.4vw, 48px);
+}
+
+/* Dans le pied d'article, « .cai-abas » est un bloc simple : ses enfants se
+   séparent par leur propre marge. Le bloc quiz n'en avait aucune et se
+   retrouvait collé sous la signature de la rédaction. */
+.cai-abas .cai-quiz {
+  margin-top: clamp(30px, 3.4vw, 40px);
 }
 
 .cai-quiz-in {

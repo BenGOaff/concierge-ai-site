@@ -1,0 +1,72 @@
+# concierge-ai.fr
+
+> Comparatif indépendant des solutions de permanence et d'accueil téléphonique
+> pour les entreprises qui vivent du téléphone : artisans et bâtiment, garages,
+> cabinets médicaux et paramédicaux, avocats, experts-comptables, agences
+> immobilières, instituts, salles de sport, auto-écoles, consultants.
+
+Le site compare quatre façons de ne plus perdre d'appels — répondeur, renvoi
+d'appel, télésecrétariat humain et standard automatisé 24 h/24 — avec les prix
+relevés chez les prestataires français, les horaires réellement couverts, et
+ce que chaque solution ne règle pas. Les chiffres cités sont sourcés en fin
+d'article. Le site mentionne un service pour lequel il perçoit une commission
+d'affiliation, signalée sur chaque page concernée.
+
+## Outils
+
+- [Calculateur : combien coûtent vos appels manqués](https://www.concierge-ai.fr/calculateur): Combien d'appels restent sans réponse chaque mois, ce qu'ils représentent sur un an, et combien il faut en récupérer pour couvrir un standard 24/7.
+- [Message répondeur professionnel : exemples à copier](https://www.concierge-ai.fr/message-repondeur-professionnel): Des messages de répondeur professionnel prêts à copier : journée, soir, week-end, congés, par métier. Écrits pour que le client ne raccroche pas.
+- [Démonstration : standard téléphonique 24/7 en appel réel](https://www.concierge-ai.fr/demonstration): Écoutez un appel réel : un client demande un débouchage, le standard propose deux créneaux et pose le rendez-vous. Retranscription intégrale.
+- [Méthode de calcul du coût des appels manqués](https://www.concierge-ai.fr/methode-calcul): La formule complète, la justification de chaque variable, les fourchettes utilisées avec leur origine et les limites de l'estimation.
+
+## Comprendre
+
+- [Comment fonctionne un standard téléphonique automatique](https://www.concierge-ai.fr/fonctionnement): Le téléphone sonne d'abord chez vous. Ce qui se passe ensuite, ce que vous paramétrez, et comment la ligne est en service en 48 heures.
+- [Renvoi d'appel si non réponse : codes Orange, SFR, Free](https://www.concierge-ai.fr/renvoi-appel-si-non-reponse): Renvoi d'appel si pas de réponse : les codes pour Orange, SFR, Free et Bouygues, le réglage du temps de sonnerie, et vers qui renvoyer vos appels.
+- [Secrétariat téléphonique : ce qu'il fait, où il s'arrête](https://www.concierge-ai.fr/secretariat-telephonique): Ce qu'un secrétariat téléphonique traite vraiment dans une journée, la différence entre mutualisé et dédié, les heures réellement couvertes, et ce qu'il ne fera pas.
+- [Externaliser son accueil téléphonique : quand et comment](https://www.concierge-ai.fr/externaliser-accueil-telephonique): Quand externaliser son accueil téléphonique devient rentable, ce que vous gardez et ce que vous déléguez, les clauses à verrouiller, et ce que vos clients remarquent.
+- [Numéro d'astreinte : comment en mettre un en place](https://www.concierge-ai.fr/numero-astreinte): Un numéro d'astreinte ne sert à rien si personne ne décroche. Les trois façons d'en monter un, qui répond la nuit, et les règles de tri à écrire avant d'ouvrir la ligne.
+- [Répondeur qui prend les rendez-vous : ce qui existe](https://www.concierge-ai.fr/repondeur-qui-prend-les-rendez-vous): Un répondeur enregistre, il ne pose pas de rendez-vous. Les quatre façons de transformer un appel non décroché en créneau dans votre agenda, et leur prix.
+- [Astreinte : quelles urgences méritent de vous déranger](https://www.concierge-ai.fr/guides/astreinte-et-tri-des-urgences): Trois niveaux d'urgence, les déclencheurs métier par métier, et comment écrire les règles qui décident ce qui vous réveille et ce qui attend.
+
+## Comparer et chiffrer
+
+- [Permanence téléphonique : les 4 solutions comparées](https://www.concierge-ai.fr/comparer/permanence-telephonique): Répondeur, télésecrétariat, embauche ou standard 24/7 : ce que chaque solution règle vraiment, ses limites, et laquelle choisir selon les heures où l'on vous appelle.
+- [Répondeur, renvoi d'appel ou standard : que choisir ?](https://www.concierge-ai.fr/comparer/repondeur-renvoi-standard): Le répondeur que personne n'utilise, le renvoi sur le portable, le SMS « je vous rappelle » : ce que chacun rattrape vraiment, appel par appel.
+- [Embaucher ou automatiser sa permanence téléphonique](https://www.concierge-ai.fr/comparer/embaucher-ou-automatiser): Le coût réel d'une embauche à 35 h, les heures qu'elle ne couvre pas, et les cas où un salarié reste le bon choix. Chiffres sourcés et calculs posés.
+- [Permanence téléphonique : tarifs et prix 2026](https://www.concierge-ai.fr/prix-du-marche): Les tarifs d'une permanence téléphonique en 2026 : grilles relevées chez trois prestataires, les quatre modes de facturation, et le coût réel pour 100, 200 ou 450 appels par mois.
+- [Tarifs Concierge AI : 297, 497 ou 997 € par mois](https://www.concierge-ai.fr/tarifs): Les trois formules détaillées, les frais d'installation, l'essai de 7 jours, et combien d'interventions récupérées suffisent à couvrir l'abonnement.
+
+## Par métier
+
+- [Permanence téléphonique par métier : les 18 couverts](https://www.concierge-ai.fr/metiers): Dix-huit métiers, dix-huit façons de perdre un appel. Permanence et accueil téléphonique : scènes réelles, coûts comparés et limites d'un standard 24 h/24.
+- [Permanence téléphonique agence immobilière 24 h/24](https://www.concierge-ai.fr/metiers/agence-immobiliere): Appel sur une annonce le soir, demande d'estimation, locataire en panne : ce que deviennent vos appels pendant les visites. Coûts comparés et limites.
+- [Permanence téléphonique auto-école 7 jours sur 7](https://www.concierge-ai.fr/metiers/auto-ecole): Demandes de tarifs, inscriptions, annulations de leçon : ce que deviennent vos appels quand vous êtes au volant. Coûts comparés et limites à poser.
+- [Permanence téléphonique avocat : ne plus rater un client](https://www.concierge-ai.fr/metiers/avocat-juriste): Premier appel d'un justiciable, secret professionnel, honoraires : ce que deviennent vos appels pendant une audience. Coûts comparés et limites.
+- [Permanence téléphonique dentiste : ne plus rater d'appel](https://www.concierge-ai.fr/metiers/cabinet-dentaire): Urgences dentaires, annulations, devis prothèse : ce que deviennent vos appels pendant que vous avez les mains dans la bouche d'un patient.
+- [Permanence téléphonique clinique de médecine esthétique](https://www.concierge-ai.fr/metiers/clinique-esthetique): Premiers appels, consultations, suivi après un acte : ce que deviennent vos appels pendant les soins. Cadre médical, coûts comparés et limites à poser.
+- [Permanence téléphonique salon de coiffure et barbier](https://www.concierge-ai.fr/metiers/coiffeur-barbier): Appels pendant une couleur, annulations de dernière minute, réservations après la fermeture : ce que deviennent vos appels. Coûts comparés et limites.
+- [Permanence téléphonique électricien : ne rien rater](https://www.concierge-ai.fr/metiers/electricien): Panne totale, tableau qui chauffe, devis de rénovation : ce que deviennent vos appels quand vous êtes sous tension. Coûts et tri des urgences.
+- [Permanence téléphonique expert-comptable : ne rien rater](https://www.concierge-ai.fr/metiers/expert-comptable): Échéances fiscales, clients qui rappellent, prospects en janvier : ce que deviennent vos appels pendant la saison des bilans. Coûts comparés et limites.
+- [Permanence téléphonique garage et carrosserie 24 h/24](https://www.concierge-ai.fr/metiers/garage-carrosserie): Véhicule immobilisé, devis, rendez-vous d'atelier : vos appels arrivent pendant que vous êtes sous un pont. Coûts comparés et tri des demandes.
+- [Permanence téléphonique institut de beauté et spa](https://www.concierge-ai.fr/metiers/institut-spa): Appels pendant un soin, annulations, réservations le soir : ce que deviennent vos appels quand la cabine est occupée. Coûts comparés et limites.
+- [Permanence téléphonique kiné : ne plus rater d'appel](https://www.concierge-ai.fr/metiers/kine-osteopathe): Vous êtes en séance, le téléphone sonne. Annulations, nouveaux patients, blocages aigus : ce que deviennent vos appels et ce qu'ils coûtent.
+- [Permanence téléphonique paysagiste : ne rien rater](https://www.concierge-ai.fr/metiers/paysagiste): Devis d'entretien, tailles de saison, tontes à replanifier : vos appels tombent quand la débroussailleuse tourne. Comment les trier sans descendre du terrain.
+- [Permanence téléphonique plombier : ne plus rater d'appel](https://www.concierge-ai.fr/metiers/plombier-chauffagiste): Fuite, chaudière, devis : ce que deviennent vos appels quand vous avez les mains dans un siphon. Coûts comparés et tri des urgences en plomberie.
+- [Permanence téléphonique bâtiment : ne plus rater d'appel](https://www.concierge-ai.fr/metiers/renovation-batiment): Demandes de devis, suivi de chantier, délais : vos appels arrivent quand la ponceuse tourne. Coûts comparés et tri des demandes en rénovation.
+- [Permanence téléphonique restaurant et traiteur 24 h/24](https://www.concierge-ai.fr/metiers/restaurant-traiteur): Réservations pendant le coup de feu, annulations, devis de groupe : ce que deviennent vos appels quand la salle est pleine. Coûts comparés et limites à poser.
+- [Permanence téléphonique salle de sport et club de fitness](https://www.concierge-ai.fr/metiers/salle-de-sport): Demandes de tarifs, séances d'essai, questions d'horaires : ce que deviennent vos appels quand vous êtes sur le plateau. Coûts comparés et limites à poser.
+- [Permanence téléphonique serrurier : décrocher 24 h/24](https://www.concierge-ai.fr/metiers/serrurier): Porte claquée, effraction, cylindre à changer : vos appels arrivent la nuit et le week-end. Coûts comparés et tri des urgences en serrurerie.
+- [Permanence téléphonique vétérinaire : répondre 24 h/24](https://www.concierge-ai.fr/metiers/veterinaire): Urgences, rendez-vous, suivi post-opératoire : ce que deviennent vos appels pendant une consultation. Coûts comparés et tri des situations.
+
+## Optional
+
+- [Appels manqués : ne plus perdre de clients | concierge-ai.fr](https://www.concierge-ai.fr/appels-manques-perdre-des-clients): Un client qui tombe sur le répondeur appelle souvent le suivant. Ce que coûtent vos appels manqués, et 4 solutions pour décrocher même les mains prises.
+- [Couper le téléphone pro le soir sans perdre de clients](https://www.concierge-ai.fr/telephone-pro-soir-week-end): Vos clients appellent quand vous avez fini. Comment couper le téléphone pro le soir et le week-end, sans perdre de clients ni vos soirées.
+- [Rendez-vous non honorés : comment réduire les lapins](https://www.concierge-ai.fr/rendez-vous-non-honores): Clients ou patients qui ne viennent pas : pourquoi les rendez-vous non honorés arrivent, ce qu'ils coûtent, et 6 moyens simples de les réduire.
+- [Vacances d'indépendant : partir sans perdre de clients](https://www.concierge-ai.fr/partir-en-vacances-independant): Peur de perdre des clients en partant ? Comment prévenir, gérer vos appels et vraiment couper pendant vos congés d'indépendant, sans rien laisser filer.
+- [FAQ : vos questions sur la permanence téléphonique](https://www.concierge-ai.fr/faq): Vos clients face à une machine, le contrôle de ce qui est dit, les urgences, le prix, l'engagement et vos données : les réponses en clair.
+- [RGPD et assistant téléphonique : ce qui est obligatoire](https://www.concierge-ai.fr/conformite): Annoncer l'assistant automatique, prévenir de l'enregistrement, ne demander que l'utile : les trois règles, et le message d'accueil prêt à reprendre.
+- [Mentions légales](https://www.concierge-ai.fr/mentions-legales): Éditeur, hébergeur, propriété intellectuelle et transparence sur l'affiliation du site concierge-ai.fr.
+- [Politique de confidentialité](https://www.concierge-ai.fr/politique-de-confidentialite): Quelles données ce site collecte, pourquoi, combien de temps, qui y a accès, et comment exercer vos droits.
+- [Politique de cookies](https://www.concierge-ai.fr/politique-de-cookies): Les traceurs déposés sur ce site, par qui, pour combien de temps, et comment modifier votre choix à tout moment.

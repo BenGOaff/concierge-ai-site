@@ -22,6 +22,16 @@ const SITE = 'https://www.concierge-ai.fr'
 const echapper = (t) => String(t)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
+/** Le texte d'un schéma n'est pas du HTML : ni balises, ni entités. */
+const depouillerTexte = (h) => String(h)
+  .replace(/<[^>]+>/g, '')
+  .replace(/&nbsp;/g, ' ')
+  .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+  .replace(/&#x27;|&apos;/g, "'").replace(/&quot;/g, '"')
+  .replace(/\u00a0/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim()
+
 /** Remplace ce qui se trouve entre deux repères, et refuse si le repère n'est pas unique. */
 function entre(source, ouvre, ferme, remplacement, quoi) {
   const i = source.indexOf(ouvre)
@@ -132,8 +142,8 @@ function donneesStructurees(fiche) {
   }, {
     '@type': 'FAQPage',
     mainEntity: fiche.faq.items.map((q) => ({
-      '@type': 'Question', name: q.q,
-      acceptedAnswer: { '@type': 'Answer', text: q.r.replace(/<[^>]+>/g, '').trim() },
+      '@type': 'Question', name: depouillerTexte(q.q),
+      acceptedAnswer: { '@type': 'Answer', text: depouillerTexte(q.r) },
     })),
   }, {
     '@type': 'BreadcrumbList',

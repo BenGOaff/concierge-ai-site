@@ -1,0 +1,7 @@
+# concierge-ai.fr — tout est ouvert, aux moteurs comme aux assistants.
+# On cherche à être cité : rien n'est bloqué.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.concierge-ai.fr/sitemap-index.xml
