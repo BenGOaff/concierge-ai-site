@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/externaliser-accueil-telephonique.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Faut-il déléguer <em>vos appels&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce que vous perdez aujourd'hui sur votre ligne, et quel créneau déléguer en premier.`,
+}))
+---
+
+<Base
+  titre="Externaliser son accueil téléphonique : quand et comment"
+  description="Quand externaliser son accueil téléphonique devient rentable, ce que vous gardez et ce que vous déléguez, les clauses à verrouiller, et ce que vos clients remarquent."
+  chemin="/externaliser-accueil-telephonique"
+  og="/images/externaliser-accueil-telephonique-og.jpg"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>

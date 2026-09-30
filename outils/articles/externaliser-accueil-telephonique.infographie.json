@@ -1,0 +1,13 @@
+{
+  "sortie": "public/images/externaliser-accueil-telephonique",
+  "titre": ["Externaliser son accueil téléphonique", "ne veut pas dire tout déléguer"],
+  "colonnes": ["", "Avant", "Après"],
+  "lignes": [
+    ["Votre numéro", "Le vôtre", "Le vôtre"],
+    ["Qui sonne en premier", "Vous", "Vous"],
+    ["Si vous ne décrochez pas", "Le répondeur", "Quelqu'un répond"],
+    ["Ce qui est dit à vos clients", "Variable", "Vos règles écrites"],
+    ["Après l'appel", "Rien", "Un résumé écrit"]
+  ],
+  "surligne": [2, 2]
+}
