@@ -61,10 +61,15 @@ Les trois moteurs sont installés : Chromium, Firefox et WebKit.
 
 ## Référencement classique
 
-- Le sitemap à déclarer dans la Search Console est
-  `https://www.concierge-ai.fr/sitemap.xml` : la liste complète des 53 URL,
-  sans index intermédiaire. `/sitemap.txt` publie la même liste en texte brut,
-  format que Google accepte aussi et qui ne peut pas mal s'analyser.
+- **Le sitemap déclaré dans la Search Console est `/sitemap.txt`**, et c'est
+  volontaire. Les versions XML — `sitemap-index.xml` puis `sitemap.xml` — ont
+  toutes deux échoué avec « Impossible de lire le sitemap », alors que les
+  fichiers étaient valides et servis en 200. Le format texte est passé du
+  premier coup : 53 pages découvertes. Ne pas « corriger » ça en repassant au
+  XML. Les deux fichiers restent publiés et déclarés dans `robots.txt`.
+- `outils/apres-build.mjs` régénère `/sitemap.xml` et `/sitemap.txt` à chaque
+  construction, à partir du fichier produit par Astro. Aucune liste n'est tenue
+  à la main.
 - Le CDN Hostinger renvoie sa page « Checking your browser » sur toute requête
   GET qui accepte la compression, quel que soit le fichier. Ce n'est pas
   corrigeable depuis le dépôt : un `.htaccess` `no-gzip` a été essayé et n'a eu
