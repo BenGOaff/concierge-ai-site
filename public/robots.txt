@@ -4,4 +4,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.concierge-ai.fr/sitemap-index.xml
+Sitemap: https://www.concierge-ai.fr/sitemap.xml
+Sitemap: https://www.concierge-ai.fr/sitemap.txt

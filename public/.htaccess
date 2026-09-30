@@ -1,0 +1,10 @@
+# Le CDN Hostinger renvoie sa page « Checking your browser » sur les requêtes
+# GET qui acceptent la compression. Un lecteur de sitemap n'exécute pas de
+# JavaScript : il reçoit cette page au lieu du XML. On demande donc au serveur
+# de ne pas compresser les fichiers d'indexation, pour sortir de ce cas.
+<FilesMatch "\.(xml|txt)$">
+  SetEnv no-gzip 1
+  SetEnv dont-vary 1
+  Header unset Content-Encoding
+  Header set Cache-Control "public, max-age=3600"
+</FilesMatch>
