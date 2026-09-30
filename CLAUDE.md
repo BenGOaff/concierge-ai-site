@@ -62,9 +62,14 @@ Les trois moteurs sont installés : Chromium, Firefox et WebKit.
 ## Référencement classique
 
 - Le sitemap à déclarer dans la Search Console est
-  `https://www.concierge-ai.fr/sitemap-index.xml`. `/sitemap.xml` en est une
-  copie, produite à chaque construction ; `/sitemap-0.xml` est le fichier
-  enfant qui porte les URL.
+  `https://www.concierge-ai.fr/sitemap.xml` : la liste complète des 53 URL,
+  sans index intermédiaire. `/sitemap.txt` publie la même liste en texte brut,
+  format que Google accepte aussi et qui ne peut pas mal s'analyser.
+- Le CDN Hostinger renvoie sa page « Checking your browser » sur toute requête
+  GET qui accepte la compression, quel que soit le fichier. Ce n'est pas
+  corrigeable depuis le dépôt : un `.htaccess` `no-gzip` a été essayé et n'a eu
+  aucun effet, le CDN décide avant d'atteindre le serveur. Googlebot, lui,
+  passe : les pages du site reçoivent des impressions dans la Search Console.
 - Un `<title>` par page, unique sur le site, 60 signes au maximum.
 - Une `<meta description>` par page, unique elle aussi.
 - Une intention par page. Deux pages sur la même requête se font de l'ombre :
