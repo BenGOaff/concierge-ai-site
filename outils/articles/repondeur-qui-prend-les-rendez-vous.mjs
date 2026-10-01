@@ -51,7 +51,7 @@ export default {
       id: 'quatre-solutions-rendez-vous',
       h2: 'Quatre façons de transformer un appel non décroché en rendez-vous',
       html: `
-<p class="cai-rep">Quatre solutions existent réellement&nbsp;: rappeler vous-même, envoyer un SMS automatique après chaque appel manqué, faire décrocher un télésecrétariat, ou brancher un standard 24/7 qui pose le rendez-vous dans votre agenda. Elles se distinguent sur trois points&nbsp;: les horaires couverts, qui écrit le rendez-vous, et le prix.</p>
+<p class="cai-rep">Quatre solutions existent réellement&nbsp;: rappeler vous-même, envoyer un SMS automatique après chaque appel manqué, faire décrocher un télésecrétariat, ou connecter un standard 24/7 qui pose le rendez-vous dans votre agenda. Elles se distinguent sur trois choses&nbsp;: les horaires couverts, qui écrit le rendez-vous, et le prix.</p>
 <div class="cai-tw"><table class="cai-at">
 <thead><tr><th scope="col">Solution</th><th scope="col">Horaires réels</th><th scope="col">Pose le rendez-vous&nbsp;?</th><th scope="col">Ordre de prix</th></tr></thead>
 <tbody>
@@ -84,11 +84,11 @@ export default {
 <li><b>5. Vous recevez le résumé</b><span>Qui a appelé, pourquoi, où, quand, et si c'est une vraie urgence. Sur votre téléphone, sans rien ouvrir.</span></li>
 </ol>
 </div>
-<p>Le point important pour un dépanneur, c'est l'étape&nbsp;3. Un standard qui pose des rendez-vous sans trier vous remplit l'agenda de demandes hors zone et de chasseurs de prix. Les règles de tri se décident avec vous&nbsp;: ce que vous acceptez, ce que vous refusez, et ce qui mérite de vous déranger tout de suite. C'est le sujet de notre guide sur <a href="/guides/astreinte-et-tri-des-urgences">l'astreinte et le tri des urgences</a>.</p>`,
+<p>Pour un dépanneur, tout se joue à l'étape&nbsp;3. Un standard qui pose des rendez-vous sans trier vous remplit l'agenda de demandes hors zone et de chasseurs de prix. Les règles de tri se décident avec vous&nbsp;: ce que vous acceptez, ce que vous refusez, et ce qui mérite de vous déranger tout de suite. C'est le sujet de notre guide sur <a href="/guides/astreinte-et-tri-des-urgences">l'astreinte et le tri des urgences</a>.</p>`,
     },
     {
       id: 'informations-a-donner',
-      h2: 'Les informations à lui donner avant de le brancher',
+      h2: 'Les informations à lui donner avant la mise en service',
       html: `
 <p class="cai-rep">Six informations suffisent, et elles tiennent dans un appel de trente minutes&nbsp;: votre zone, vos horaires, vos tarifs, ce que vous refusez, vos critères d'urgence et les questions qui reviennent tous les jours.</p>
 <ul class="cai-ul">

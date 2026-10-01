@@ -20,7 +20,7 @@ export default {
     points: [
       `Un numéro d'astreinte est une ligne jointe en dehors des heures ouvrées, pour les demandes qui ne peuvent pas attendre.`,
       `Trois montages&nbsp;: votre portable en renvoi, une rotation entre plusieurs personnes, ou un accueil téléphonique qui filtre avant de vous transférer.`,
-      `Le point qui fait tout&nbsp;: la liste écrite de ce qui justifie un appel de nuit. Sans elle, vous êtes réveillé pour des demandes de devis.`,
+      `Tout se joue sur la liste écrite de ce qui justifie un appel de nuit. Sans elle, vous êtes réveillé pour des demandes de devis.`,
       `Côté salariés, l'astreinte est encadrée par l'article L3121-9 du Code du travail&nbsp;: elle ouvre droit à une contrepartie, en argent ou en repos.`,
     ],
   },
@@ -54,7 +54,7 @@ export default {
       id: 'monter-numero-astreinte',
       h2: "Les trois façons de monter un numéro d'astreinte",
       html: `
-<p class="cai-rep">Trois montages existent&nbsp;: renvoyer la ligne vers votre portable, organiser une rotation entre plusieurs personnes, ou placer un accueil téléphonique qui filtre avant de transférer. Ils se distinguent sur un point&nbsp;: qui subit les appels qui n'en valaient pas la peine.</p>
+<p class="cai-rep">Trois montages existent&nbsp;: renvoyer la ligne vers votre portable, organiser une rotation entre plusieurs personnes, ou placer un accueil téléphonique qui filtre avant de transférer. Une seule chose les sépare&nbsp;: qui subit les appels qui n'en valaient pas la peine.</p>
 <div class="cai-tw"><table class="cai-at">
 <thead><tr><th scope="col">Montage</th><th scope="col">Mise en place</th><th scope="col">Qui absorbe les faux urgents</th><th scope="col">Coût</th></tr></thead>
 <tbody>
@@ -114,7 +114,7 @@ export default {
       { q: "Comment éviter d'être réveillé pour des demandes qui peuvent attendre ?",
         r: `<p>En écrivant la liste des motifs qui justifient un appel de nuit, et en la faisant appliquer par quelqu'un ou quelque chose qui décroche avant vous. Tant que c'est vous qui décrochez, c'est vous qui faites le tri, donc vous êtes réveillé de toute façon.</p>` },
       { q: "L'astreinte est-elle obligatoire dans mon métier ?",
-        r: `<p>Cela dépend de votre convention collective et, pour certaines professions réglementées, des obligations de continuité de service fixées par votre ordre. Ce point se vérifie auprès de votre branche, pas dans un article général.</p>` },
+        r: `<p>Cela dépend de votre convention collective et, pour certaines professions réglementées, des obligations de continuité de service fixées par votre ordre. Vérifiez-les auprès de votre branche, pas dans un article général.</p>` },
       { q: "Combien coûte une astreinte téléphonique externalisée ?",
         r: `<p>Comptez 150 à 300&nbsp;€ par mois pour un télésecrétariat en heures de bureau, souvent avec un supplément pour les nuits et week-ends, et à partir de 297&nbsp;€ par mois pour une couverture 24&nbsp;h/24 incluse. Le relevé complet est sur notre page des tarifs.</p>` },
       { q: "Que se passe-t-il si l'appelant insiste pour me parler tout de suite ?",

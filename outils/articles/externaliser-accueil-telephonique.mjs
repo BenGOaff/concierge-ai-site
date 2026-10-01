@@ -32,7 +32,7 @@ export default {
       html: `
 <p class="cai-rep">Vous gardez votre numéro, votre téléphone continue de sonner en premier, et vous décrochez quand vous le pouvez. Ce qui change, c'est ce qui se passe quand vous ne décrochez pas&nbsp;: au lieu du répondeur, quelqu'un répond, applique vos consignes et vous envoie un compte rendu.</p>
 <div class="cai-fig"><img alt="Tableau comparant la situation avant et après l'externalisation de l'accueil téléphonique : le numéro reste le vôtre, vous sonnez en premier, et un répondeur est remplacé par quelqu'un qui répond." height="1049" loading="lazy" src="/images/externaliser-accueil-telephonique.png" width="1499"/></div>
-<p>C'est le point que la plupart des dirigeants comprennent de travers, et celui qui les fait renoncer. Externaliser n'est pas un renvoi permanent de la ligne vers un plateau&nbsp;: c'est un <a href="/renvoi-appel-si-non-reponse">renvoi conditionnel</a>, qui ne se déclenche que sur non-réponse. Vos habitués qui vous appellent et que vous prenez ne verront jamais la différence.</p>`,
+<p>C'est ce que la plupart des dirigeants comprennent de travers, et celui qui les fait renoncer. Externaliser n'est pas un renvoi permanent de la ligne vers un plateau&nbsp;: c'est un <a href="/renvoi-appel-si-non-reponse">renvoi conditionnel</a>, qui ne se déclenche que sur non-réponse. Vos habitués qui vous appellent et que vous prenez ne verront jamais la différence.</p>`,
     },
     {
       id: 'quand-externaliser-devient-rentable',

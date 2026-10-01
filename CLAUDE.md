@@ -75,6 +75,53 @@ node outils/debordements.mjs --tous-moteurs
   avant d'être cité. Si la source est inaccessible, on cite la référence sans
   lien, ou on ne cite pas.
 
+## Les mots du client, pas les nôtres
+
+Tout est dans le Drive, dossier `REFERENTIEL` : `referentiel-operationnel.md`
+(le document de travail), `partie-1-avatar.md`, `partie-2-concurrence.md`. **À
+relire avant d'écrire quoi que ce soit.** Le résumé qui suit ne remplace pas la
+lecture.
+
+**Ses mots.** Rater des appels, perdre des chantiers, avoir les mains prises,
+ça sonne dans le vide, caler un créneau, filtrer, être réveillé pour rien,
+garder mon numéro, sans engagement, installé en 48 h, résumé après chaque
+appel, hors zone, pleine saison.
+
+**Les mots bannis en accroche** : IA, intelligence artificielle, agent vocal,
+voicebot, SVI, serveur vocal interactif, modèle de langage, algorithme,
+automatisation, plateforme, dashboard, workflow, scalable. La règle du
+référentiel : si un artisan de 52 ans ne dirait pas le mot au comptoir d'un
+fournisseur, il ne va ni dans un titre ni dans un chapô. Plus bas dans une
+section technique ou de conformité, c'est permis.
+
+**Les formules bannies partout** : la famille « le point » (« le point le plus
+important », « ce point », « un point qui ») ; « personne ne le dit », « ce
+qu'on ne vous dit pas », « contrairement à ce qu'on croit » ; « ce n'est pas X,
+c'est Y » ; les connecteurs de remplissage (par ailleurs, en outre, il est
+important de noter) ; « brancher » un outil, on écrit « connecter ».
+
+**Zéro tiret cadratin, jamais.** Virgule, deux-points, parenthèses, ou deux
+phrases. C'est la signature d'IA qu'elle repère en premier.
+
+**La promesse tient sur deux axes, toujours ensemble** : ne plus perdre
+d'interventions, et récupérer sa vie. Une page qui ne porte que le chiffre
+d'affaires perd la moitié de sa force. Les soirées à rappeler quinze numéros,
+les réveils à 3 h pour rien, le dimanche haché, ça compte autant que les
+chantiers.
+
+**Les trois réassurances, sur chaque page** : ça sonne d'abord chez vous ; vous
+gardez la main et vous recevez un résumé ; vous arrêtez quand vous voulez.
+
+**Ne jamais dénigrer le télésecrétariat frontalement.** Beaucoup de prospects
+en ont un et n'aiment pas qu'on leur dise qu'ils ont eu tort. Rester factuel
+sur les horaires, la qualification et le rendez-vous.
+
+**La phrase test** : un contenu est bon quand un artisan commente « c'est
+exactement ça ».
+
+`node outils/style.mjs` vérifie tout ça automatiquement, article par article.
+Il sort en erreur tant qu'il reste quelque chose.
+
 ## Référencement classique
 
 - **Le sitemap déclaré dans la Search Console est `/sitemap.txt`**, et c'est
@@ -129,6 +176,7 @@ Les assistants citent ce qu'ils peuvent extraire, attribuer et vérifier.
 | `outils/espacements.mjs` | Vérifie qu'aucun bloc n'est collé, sur trois largeurs et trois moteurs |
 | `outils/faq-schema.mjs` | Aligne le schéma FAQPage sur les questions réellement affichées |
 | `outils/debordements.mjs` | Vérifie qu'aucune page ne glisse sur le côté, sur trois largeurs et trois moteurs |
+| `outils/style.mjs` | Vérifie les règles d'écriture du référentiel : mots bannis, jargon en accroche, vocabulaire du client, les deux axes |
 | `outils/metiers-phase1.mjs` | Les trois ajouts de la phase 1 sur les dix-huit pages métier |
 | `outils/apres-build.mjs` | Finitions après `astro build` ; recopie l'index de sitemap en `/sitemap.xml` |
 

@@ -120,7 +120,7 @@ export default {
       { q: 'Faut-il changer de numéro de téléphone ?',
         r: `<p>Non. Le service se branche par un renvoi d'appel sur votre ligne actuelle. Votre téléphone sonne d'abord, et le renvoi ne se déclenche que si vous ne décrochez pas.</p>` },
       { q: 'Un secrétariat téléphonique peut-il prendre des rendez-vous ?',
-        r: `<p>Cela dépend du contrat. Beaucoup prennent un message et vous laissent rappeler. Quand la prise de rendez-vous est incluse, elle suppose un accès à votre agenda et des règles de durée par type de demande&nbsp;: vérifiez ce point précis avant de signer.</p>` },
+        r: `<p>Cela dépend du contrat. Beaucoup prennent un message et vous laissent rappeler. Quand la prise de rendez-vous est incluse, elle suppose un accès à votre agenda et des règles de durée par type de demande&nbsp;: vérifiez-le précisément avant de signer.</p>` },
       { q: 'Comment est-ce facturé ?',
         r: `<p>À l'appel, à la minute, ou au forfait avec un volume inclus. Le mode de facturation change complètement la facture selon votre profil d'appels. Le détail des grilles relevées chez les prestataires est sur notre page des tarifs.</p>` },
       { q: "Est-ce adapté à une activité d'urgence ?",

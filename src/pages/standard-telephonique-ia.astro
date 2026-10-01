@@ -3,14 +3,14 @@ import Base from '../layouts/Base.astro'
 import contenu from '../contenu/standard-telephonique-ia.html?raw'
 import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
 const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
-  titre: `Combien d'appels <em>partent chez le concurrent&nbsp;?</em>`,
+  titre: `Combien de chantiers sont partis <em>chez le concurrent&nbsp;?</em>`,
   chapo: `Cinq questions pour savoir ce qui arrive sur votre ligne le soir et le week-end, et ce que ça représente sur un mois.`,
 }))
 ---
 
 <Base
   titre="Standard téléphonique IA : comment ça marche, prix 2026, limites"
-  description="Ce qu'un standard téléphonique IA fait vraiment d'un appel, les prix publics relevés chez trois prestataires, là où il échoue, et les sept appels à passer pendant l'essai."
+  description="Ce qu'un standard téléphonique IA fait de vos appels quand vous avez les mains prises, les prix affichés chez trois prestataires, ce qu'il rate encore, et les sept appels à passer pendant l'essai."
   chemin="/standard-telephonique-ia"
   og="/images/standard-telephonique-ia-og.jpg"
 >
