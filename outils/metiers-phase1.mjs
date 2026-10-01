@@ -514,7 +514,7 @@ ${etapes}
 ${limites}
 </ul>
 </div>
-<p class="cai-fine cai-mec-fin">${d.fin}</p>
+<p class="cai-fine cai-mec-fin">Le fonctionnement détaillé, les prix relevés chez trois prestataires et les sept appels à passer pendant l’essai sont dans notre guide du <a href="/standard-telephonique-ia">standard téléphonique IA</a>. ${d.fin}</p>
 </section>
 `)
 }

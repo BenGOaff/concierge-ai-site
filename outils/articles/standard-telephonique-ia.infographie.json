@@ -1,0 +1,49 @@
+{
+  "sortie": "public/images/standard-telephonique-ia",
+  "titre": [
+    "Un appel à 20 h 30,",
+    "selon qui décroche"
+  ],
+  "colonnes": [
+    "",
+    "Répondeur",
+    "Télésecrétariat",
+    "Standard IA"
+  ],
+  "lignes": [
+    [
+      "Quelqu'un décroche",
+      "Non",
+      "Bureau fermé",
+      "Oui"
+    ],
+    [
+      "La demande est comprise",
+      "Si message",
+      "Le lendemain",
+      "Pendant l'appel"
+    ],
+    [
+      "Le rendez-vous est posé",
+      "Non",
+      "Rarement",
+      "Oui"
+    ],
+    [
+      "Heures de traitement sur 168",
+      "0",
+      "72",
+      "168"
+    ],
+    [
+      "Ce qu'il vous reste à faire",
+      "Rappeler",
+      "Rappeler",
+      "Vous présenter"
+    ]
+  ],
+  "surligne": [
+    3,
+    3
+  ]
+}

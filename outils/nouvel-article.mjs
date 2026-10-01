@@ -54,7 +54,8 @@ const moisFr = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin',
 
 function dateLongue(iso) {
   const [a, m, j] = iso.split('-').map(Number)
-  return `${j} ${moisFr[m - 1]} ${a}`
+  /* En français, le premier du mois s'écrit « 1er », jamais « 1 ». */
+  return `${j === 1 ? '1er' : j} ${moisFr[m - 1]} ${a}`
 }
 
 const sommaire = (sections, avecClasse) => sections
