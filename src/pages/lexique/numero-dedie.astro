@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/lexique__numero-dedie.html?raw'
+---
+
+<Base
+  titre="Numéro dédié : pourquoi vous ne changez pas de numéro"
+  description="Ce qu'est un numéro dédié, comment il s'articule avec le renvoi d'appel, et pourquoi votre numéro habituel ne change pas."
+  chemin="/lexique/numero-dedie"
+>
+  <Fragment set:html={contenu} />
+</Base>

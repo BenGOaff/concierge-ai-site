@@ -74,9 +74,14 @@ function corps(fiche) {
       '</div>',
     )
   }
-  for (const s of fiche.sections) {
+  /* Le quiz se pose DANS le texte, après la section où le lecteur vient de
+     comprendre ce qu'il perd, et pas à la fin collé au bloc d'essai. Deux
+     appels à l'action de même poids l'un sur l'autre, aucun ne gagne. */
+  const placeQuiz = fiche.sections.length >= 5 ? 2 : Math.max(fiche.sections.length - 2, 0)
+  fiche.sections.forEach((s, i) => {
     morceaux.push(`<h2 id="${s.id}">${echapper(s.h2)}</h2>`, s.html.trim())
-  }
+    if (i === placeQuiz) morceaux.push('<!--QUIZ-->')
+  })
   morceaux.push(
     `<h2 id="${fiche.faq.id}">${echapper(fiche.faq.h2)}</h2>`,
     '<div class="cai-faqa">',
@@ -190,6 +195,10 @@ export async function fabriquer(fiche) {
   s = entre(s, '<ol class="cai-toc-l" id="cai-tocm-l">', '</ol>',
     sommaire([...fiche.sections, fiche.faq].map((x) => ({ id: x.id, h2: x.h2 })), false), 'sommaire mobile')
   s = entre(s, '</ol>\n</details>\n', '<div class="cai-src2">', corps(fiche), 'corps')
+  /* Le gabarit posait le quiz juste au-dessus du bloc d'essai. Le corps le
+     place maintenant lui-même, plus haut : on retire celui du gabarit. */
+  s = s.replace('<!--QUIZ-->\n<section class="cai-box cai-box--g cai-acta">',
+    '<section class="cai-box cai-box--g cai-acta">')
   s = entre(s, '<div class="cai-src2">\n<p class="cai-src2-t">Sources</p>\n<ul>\n', '</ul>',
     fiche.sources.map((x) =>
       `<li><a href="${x.url}" rel="nofollow noopener" target="_blank">${echapper(x.texte)}</a></li>`).join('\n') + '\n',

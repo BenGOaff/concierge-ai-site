@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/lexique__double-appel.html?raw'
+---
+
+<Base
+  titre="Double appel : pourquoi c’est l’appel manqué le plus courant"
+  description="Ce qu'est un double appel, pourquoi il n'apparaît pas toujours dans vos appels manqués, et les trois façons de ne plus le perdre."
+  chemin="/lexique/double-appel"
+>
+  <Fragment set:html={contenu} />
+</Base>

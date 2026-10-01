@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/lexique.html?raw'
+---
+
+<Base
+  titre="Lexique de la permanence téléphonique : 12 termes expliqués"
+  description="Douze mots que vous croiserez en cherchant qui peut décrocher à votre place : ce qu'ils recouvrent, ce qu'ils ne recouvrent pas, et ce que ça coûte."
+  chemin="/lexique"
+>
+  <Fragment set:html={contenu} />
+</Base>

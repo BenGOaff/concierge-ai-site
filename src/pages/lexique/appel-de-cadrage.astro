@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/lexique__appel-de-cadrage.html?raw'
+---
+
+<Base
+  titre="Appel de cadrage : ce qu’on vous demande, et ce qu’il faut préparer"
+  description="Ce qui se décide pendant l'appel de cadrage d'un standard téléphonique, ce qu'il faut préparer en une page, et ce qu'il n'est pas."
+  chemin="/lexique/appel-de-cadrage"
+>
+  <Fragment set:html={contenu} />
+</Base>

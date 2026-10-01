@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/lexique__hors-heures-ouvrees.html?raw'
+---
+
+<Base
+  titre="Hors heures ouvrées : ce que ça représente vraiment"
+  description="Ce que recouvrent les heures non ouvrées, le calcul sur une semaine de 168 heures, et pourquoi le vrai trou est plus large que ça."
+  chemin="/lexique/hors-heures-ouvrees"
+>
+  <Fragment set:html={contenu} />
+</Base>

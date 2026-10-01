@@ -122,6 +122,74 @@ exactement ça ».
 `node outils/style.mjs` vérifie tout ça automatiquement, article par article.
 Il sort en erreur tant qu'il reste quelque chose.
 
+## Un tableau n'est pas une conclusion
+
+Ce site n'est pas un comparateur neutre, c'est un site affilié. Donner des
+chiffres bruts et laisser le lecteur se débrouiller, c'est lui faire le travail
+à moitié et ne rien vendre. **Après chaque tableau, on écrit ce qu'il faut en
+conclure**, et on le mâche.
+
+La règle qui rend ça honnête&nbsp;: **on conclut avec de l'arithmétique que le
+lecteur peut refaire**, pas avec des résultats qu'on n'a pas mesurés.
+
+Ce qui est permis, parce que ça se recalcule à partir des grilles publiées&nbsp;:
+
+- le coût d'une heure réellement couverte (le prix divisé par les heures) ;
+- le nombre d'interventions à récupérer pour couvrir l'abonnement (le prix
+  divisé par le panier) ;
+- le volume à partir duquel une formule passe devant une autre ;
+- ce qu'un mode de facturation fait payer et pas l'autre.
+
+Ce qui est interdit, et c'est sa ligne rouge numéro un&nbsp;: **«&nbsp;ça
+rapporte X clients de plus&nbsp;»**. Il n'y a aujourd'hui ni client, ni
+témoignage, ni chiffre de rétention. Le référentiel est explicite&nbsp;: aucune
+statistique non sourcée ne part dans un contenu signé, et les projections de
+l'étude restent dans l'étude.
+
+On dit aussi quand le concurrent gagne. «&nbsp;Moins de 100 appels par mois, la
+facturation à la minute est franchement moins chère&nbsp;» rend crédible tout
+ce qui suit, et ce qui suit est vrai aussi.
+
+## Deux appels à l'action, deux poids
+
+Le quiz et l'essai de sept jours ont longtemps été le même objet visuel, deux
+cadres verts à gros titre et bouton plein, posés l'un sur l'autre en bas de
+page. Deux actions de même poids ne se départagent pas, et aucune ne gagne.
+
+**Le quiz est doux et il vit dans le texte.** Fond pâle, bordure fine, titre de
+niveau&nbsp;3, bouton à contour (`cai-btn--o`). Il se pose au moment où le
+lecteur vient de comprendre ce qu'il perd&nbsp;: après la troisième section
+d'un article, avant la section mécanisme d'une page métier. C'est un outil
+qu'on lui tend en passant.
+
+**L'essai de sept jours est fort et il reste seul à la fin.** Cadre vert, gros
+titre, bouton plein. C'est la seule action de la page, et le référentiel est
+formel&nbsp;: jamais «&nbsp;appelez-nous&nbsp;», un seul bouton par écran.
+
+Le placement est automatique&nbsp;: `outils/nouvel-article.mjs` pose le
+marqueur `<!--QUIZ-->` lui-même, `outils/metiers-phase1.mjs` aussi. Ne pas le
+remettre en bas de page.
+
+## Le lexique
+
+Douze entrées sous `/lexique`, fabriquées par `outils/lexique.mjs`. Le format
+vient des concurrents qui tiennent la première page avec des glossaires, et les
+moteurs de réponse recopient volontiers une définition courte et autonome.
+
+Deux règles&nbsp;:
+
+- **On ne prend que des termes sur lesquels le site n'a pas déjà une page.**
+  Une entrée «&nbsp;permanence téléphonique&nbsp;» viendrait concurrencer
+  `/comparer/permanence-telephonique`, une entrée «&nbsp;télésecrétariat&nbsp;»
+  concurrencerait `/secretariat-telephonique`. C'est exactement la
+  cannibalisation qu'on a passé du temps à corriger.
+- **Chaque entrée dit ce que le terme recouvre ET ce qu'il ne recouvre pas**,
+  avec le prix constaté quand il y en a un. Aucun lexique concurrent ne met de
+  chiffres, et c'est ce qui rend celui-ci citable.
+
+Le balisage est un `DefinedTerm` par page, rattaché au `DefinedTermSet` de
+l'index.
+
 ## Le calendrier, et il est français
 
 On publie **8 à 12 semaines avant le pic**, pour que la page soit indexée et
@@ -203,6 +271,7 @@ Les assistants citent ce qu'ils peuvent extraire, attribuer et vérifier.
 | `outils/faq-schema.mjs` | Aligne le schéma FAQPage sur les questions réellement affichées |
 | `outils/debordements.mjs` | Vérifie qu'aucune page ne glisse sur le côté, sur trois largeurs et trois moteurs |
 | `outils/style.mjs` | Vérifie les règles d'écriture du référentiel : mots bannis, jargon en accroche, vocabulaire du client, les deux axes |
+| `outils/lexique.mjs` | Fabrique les douze entrées du lexique et son index |
 | `outils/metiers-phase1.mjs` | Les trois ajouts de la phase 1 sur les dix-huit pages métier |
 | `outils/apres-build.mjs` | Finitions après `astro build` ; recopie l'index de sitemap en `/sitemap.xml` |
 

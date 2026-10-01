@@ -498,7 +498,11 @@ function sectionMecanisme(d) {
   const etapes = d.etapes.map(([t, p], i) =>
     `<div class="cai-mec-p"><b>${i + 1}</b><p><strong>${t}</strong>${p}</p></div>`).join('\n')
   const limites = d.limites.map((l) => `<li>${l}</li>`).join('\n')
-  return maison(`<!-- LE MÉCANISME -->
+  /* Le quiz est posé juste avant, pendant que le lecteur a encore en tête le
+     tableau de ce que son appel devient selon la solution. Il vivait en bas
+     de page, collé au bloc d'essai, et les deux se neutralisaient. */
+  return maison(`<!--QUIZ-->
+<!-- LE MÉCANISME -->
 <section class="cai-box">
 <div class="cai-head">
 <span class="cai-eye">Le mécanisme</span>

@@ -19,7 +19,7 @@ export default {
     titre: "Secrétariat téléphonique : ce qu'il faut retenir",
     points: [
       `Il décroche à votre place, qualifie la demande selon vos consignes et vous transmet un message écrit.`,
-      `Un prestataire courant couvre 8&nbsp;h à 20&nbsp;h du lundi au samedi, soit 72&nbsp;heures sur les 168 d'une semaine. Le dimanche et la nuit sont des options.`,
+      `Un prestataire courant couvre 8&nbsp;h à 20&nbsp;h du lundi au samedi, soit 72&nbsp;heures sur les 168 d'une semaine, et vous laisse les <a href="/lexique/hors-heures-ouvrees">heures non ouvrées</a>. Le dimanche et la nuit sont des options.`,
       `Mutualisé, l'opérateur suit plusieurs dizaines de clients&nbsp;; dédié, il ne suit que vous. La différence s'entend au téléphone.`,
       `Il prend un message fiable. Poser un rendez-vous ferme dans votre agenda est beaucoup plus rare qu'on ne le croit.`,
     ],

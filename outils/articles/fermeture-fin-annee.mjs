@@ -88,7 +88,7 @@ export default {
 <li>Enregistrez le message de répondeur avec les dates exactes, et mettez-vous un rappel pour le changer le matin de la reprise.</li>
 <li>Prévenez vos clients en cours avant de partir. Un chantier qui s'arrête sans explication, c'est un appel inquiet le 27&nbsp;décembre.</li>
 <li>Mettez à jour vos horaires sur votre fiche Google. C'est là que la plupart des gens regardent avant d'appeler, et une fiche qui dit «&nbsp;ouvert&nbsp;» un 25&nbsp;décembre vous vaut des appels agacés.</li>
-<li>Réglez le renvoi d'appel vers le numéro qui doit prendre le relais, ou vers votre messagerie si vous coupez vraiment.</li>
+<li>Réglez le renvoi d'appel vers le <a href="/lexique/numero-dedie">numéro</a> qui doit prendre le relais, ou vers votre messagerie si vous coupez vraiment.</li>
 <li>Décidez qui décroche, et dites-le à cette personne. Un relais qui découvre le 26 qu'il était d'astreinte ne tient pas la semaine.</li>
 </ul>
 <p>Sur ce dernier point, il existe trois façons de faire&nbsp;: vous prenez tout, vous tournez avec un confrère, ou vous laissez un <a href="/standard-telephonique-ia">standard téléphonique</a> décrocher et ne vous transférer que ce qui remplit votre liste. Les trois se valent, et la pire est la quatrième&nbsp;: ne rien décider et laisser sonner.</p>

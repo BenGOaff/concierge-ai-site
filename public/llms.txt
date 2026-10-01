@@ -61,6 +61,24 @@ d'affiliation, signalée sur chaque page concernée.
 - [Permanence téléphonique serrurier : décrocher 24 h/24](https://www.concierge-ai.fr/metiers/serrurier): Porte claquée, effraction, cylindre à changer : vos appels arrivent la nuit et le week-end. Coûts comparés et tri des urgences en serrurerie.
 - [Permanence téléphonique vétérinaire : répondre 24 h/24](https://www.concierge-ai.fr/metiers/veterinaire): Urgences, rendez-vous, suivi post-opératoire : ce que deviennent vos appels pendant une consultation. Coûts comparés et tri des situations.
 
+## Lexique
+
+Définitions des termes du sujet, pour les indépendants et les petites entreprises. Chaque entrée dit ce que le terme recouvre, ce qu'il ne recouvre pas, et le prix constaté quand il y en a un.
+
+- [Lexique de la permanence téléphonique](https://www.concierge-ai.fr/lexique): L'index des douze termes.
+- [Serveur vocal interactif (SVI)](https://www.concierge-ai.fr/lexique/serveur-vocal-interactif): Le menu à touches : ce qu'il oriente, ce qu'il ne comprend pas, et pourquoi il tient mal l'urgence.
+- [Taux de décroché](https://www.concierge-ai.fr/lexique/taux-de-decroche): Le calcul, ce qui le fait chuter chez un artisan, comment connaître le sien, et le chiffre qui compte davantage.
+- [Conversation facturée](https://www.concierge-ai.fr/lexique/conversation-facturee): L'unité de facturation des standards automatiques, les trois unités du marché avec les prix relevés, et les questions à faire figurer au contrat.
+- [Débordement d'appels](https://www.concierge-ai.fr/lexique/debordement-d-appels): Quand plusieurs appels arrivent ensemble : à partir du deuxième chez un artisan seul, et les périodes de l'année où ça arrive.
+- [Double appel](https://www.concierge-ai.fr/lexique/double-appel): L'appel qui arrive pendant qu'on est déjà en ligne, pourquoi il n'apparaît pas toujours dans les appels manqués, et le renvoi sur occupation.
+- [Qualification d'appel](https://www.concierge-ai.fr/lexique/qualification-d-appel): Les informations recueillies pendant l'appel qui décident de la suite, et ce qu'une qualification ne doit jamais faire.
+- [Appel de cadrage](https://www.concierge-ai.fr/lexique/appel-de-cadrage): La demi-heure où l'on décrit son métier au prestataire, ce qu'il faut préparer, et ce que ce n'est pas.
+- [Zone d'intervention](https://www.concierge-ai.fr/lexique/zone-d-intervention): Le périmètre déclaré qui devient un filtre, les trois façons de le décrire, et la différence avec la zone de visibilité Google.
+- [Hors heures ouvrées](https://www.concierge-ai.fr/lexique/hors-heures-ouvrees): 118 heures fermées sur 168 pour une activité ouverte 8 h-18 h du lundi au vendredi, et pourquoi le trou réel est plus large.
+- [Centre d'appels](https://www.concierge-ai.fr/lexique/centre-d-appels): Ce qui distingue un centre d'appels d'un télésecrétariat et d'un standard automatique, et pourquoi il convient mal aux TPE.
+- [Numéro dédié](https://www.concierge-ai.fr/lexique/numero-dedie): Le numéro du prestataire qui reçoit le renvoi, pourquoi le numéro habituel ne change pas, et ce qui se passe en cas d'incident.
+- [Script d'accueil](https://www.concierge-ai.fr/lexique/script-d-accueil): Ce qui est dit à la place du professionnel, l'annonce obligatoire depuis le 2 août 2026, et la conduite à tenir quand on ne sait pas.
+
 ## Optional
 
 - [Appels manqués : ne plus perdre de clients | concierge-ai.fr](https://www.concierge-ai.fr/appels-manques-perdre-des-clients): Un client qui tombe sur le répondeur appelle souvent le suivant. Ce que coûtent vos appels manqués, et 4 solutions pour décrocher même les mains prises.

@@ -19,7 +19,7 @@ const demande = process.argv.slice(2).filter((a) => !a.startsWith('--'))
 /** Ce qui ne doit jamais apparaître, nulle part. */
 const INTERDITS = [
   [/—/g, 'tiret cadratin (virgule, deux-points, parenthèses ou deux phrases)'],
-  [/\b(le|ce|un|du|au|les|des) points?\b/gi, 'famille « le point »'],
+  [/(?<!mettre |mis |mise |met )\b(le|ce|un|du|au|les|des) points?\b/gi, 'famille « le point »'],
   [/personne ne (le )?(dit|pense|parle)|on ne vous (le )?dit pas|ce qu.on ne vous dit pas|contrairement à ce qu|les autres se trompent|aucun (des )?(prestataire|concurrent)s? ne/gi,
    '« personne ne le dit » : le fait qu’un sujet soit peu traité sert à le choisir, jamais à l’écrire'],
   [/par ailleurs|en outre|il est important de noter|dans l.ensemble|en résumé|force est de constater/gi, 'connecteur de remplissage'],
@@ -48,6 +48,12 @@ const texteNu = (h) => h.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ')
 
 const articles = demande.length ? demande : readdirSync(join(RACINE, 'outils/articles'))
   .filter((f) => f.endsWith('.mjs')).map((f) => f.slice(0, -4))
+
+/* Les entrées du lexique sont des définitions, pas des articles : on ne leur
+   demande ni le vocabulaire du chantier ni les deux axes de la promesse. Les
+   règles dures, elles, valent pour elles aussi. */
+const lexique = demande.length ? [] : readdirSync(join(RACINE, 'src/contenu'))
+  .filter((f) => f.startsWith('lexique') && f.endsWith('.html'))
 
 let defauts = 0
 for (const slug of articles) {
@@ -85,7 +91,22 @@ for (const slug of articles) {
   }
 }
 
+for (const f of lexique) {
+  const corps = texteNu(readFileSync(join(RACINE, 'src/contenu', f), 'utf8'))
+  const ennuis = []
+  for (const [motif, libelle] of INTERDITS) {
+    const m = corps.match(motif)
+    if (m) ennuis.push(`${m.length}× ${libelle}  (${[...new Set(m)].slice(0, 3).join(', ')})`)
+  }
+  if (ennuis.length) {
+    defauts++
+    console.log(`\n!! ${f}`)
+    ennuis.forEach((e) => console.log('     ' + e))
+  }
+}
+if (lexique.length) console.log(`ok ${lexique.length} page(s) de lexique (règles dures)`)
+
 console.log(defauts === 0
-  ? `\n${articles.length} article(s) contrôlé(s), rien à redire.`
-  : `\n${defauts} article(s) à revoir sur ${articles.length}.`)
+  ? `\n${articles.length + lexique.length} page(s) contrôlée(s), rien à redire.`
+  : `\n${defauts} page(s) à revoir.`)
 process.exit(defauts === 0 ? 0 : 1)

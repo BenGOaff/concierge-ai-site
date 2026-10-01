@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/lexique__centre-d-appels.html?raw'
+---
+
+<Base
+  titre="Centre d’appels : définition et différence avec un télésecrétariat"
+  description="Ce qu'est un centre d'appels, ce qui le distingue d'un télésecrétariat et d'un standard automatique, et pourquoi il convient mal aux TPE."
+  chemin="/lexique/centre-d-appels"
+>
+  <Fragment set:html={contenu} />
+</Base>

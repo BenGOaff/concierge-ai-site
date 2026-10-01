@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/lexique__serveur-vocal-interactif.html?raw'
+---
+
+<Base
+  titre="Serveur vocal interactif (SVI) : définition et limites"
+  description="Ce qu'est un serveur vocal interactif, ce qu'il fait d'un appel, ce qu'il ne sait pas faire, et pourquoi il tient mal l'urgence."
+  chemin="/lexique/serveur-vocal-interactif"
+>
+  <Fragment set:html={contenu} />
+</Base>

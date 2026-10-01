@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/lexique__conversation-facturee.html?raw'
+---
+
+<Base
+  titre="Conversation facturée : ce que le mot recouvre vraiment"
+  description="Ce qu'un prestataire appelle une conversation, pourquoi la définition change tout, et les trois unités de facturation du marché avec les prix relevés."
+  chemin="/lexique/conversation-facturee"
+>
+  <Fragment set:html={contenu} />
+</Base>

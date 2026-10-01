@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/lexique__script-d-accueil.html?raw'
+---
+
+<Base
+  titre="Script d’accueil : ce qu’il contient et ce qu’il interdit"
+  description="Ce que contient un script d'accueil téléphonique, l'obligation d'annonce depuis le 2 août 2026, et la ligne la plus importante du document."
+  chemin="/lexique/script-d-accueil"
+>
+  <Fragment set:html={contenu} />
+</Base>

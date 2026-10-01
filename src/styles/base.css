@@ -566,16 +566,21 @@ a.cai-lia p {
   margin-bottom: clamp(30px, 3.6vw, 44px);
 }
 
-/* L'appel au quiz : deux colonnes, l'argumentaire et l'illustration.
-   Moins haut qu'un bloc empilé, et chaque élément respire : le bouton n'est
-   jamais collé à la ligne qui le précède ni à celle qui le suit. */
+/* L'appel au quiz vit DANS le texte, pas à la fin.
+   Il était auparavant un cadre vert à gros titre et bouton plein, posé juste
+   au-dessus du bloc d'essai qui a exactement la même allure : deux actions de
+   même poids l'une sur l'autre, et aucune ne gagnait. Celui-ci est doux, celui
+   de fin de page est fort. Voir le commentaire de « src/lib/quiz.js ». */
 .cai-quiz {
-  padding: clamp(26px, 3.4vw, 48px);
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--rad) - 10px);
+  padding: clamp(24px, 3vw, 36px);
+  margin: clamp(38px, 4.4vw, 52px) 0;
 }
 
 /* Dans le pied d'article, « .cai-abas » est un bloc simple : ses enfants se
-   séparent par leur propre marge. Le bloc quiz n'en avait aucune et se
-   retrouvait collé sous la signature de la rédaction. */
+   séparent par leur propre marge. */
 .cai-abas .cai-quiz {
   margin-top: clamp(30px, 3.4vw, 40px);
 }
@@ -588,23 +593,37 @@ a.cai-lia p {
 
 .cai-quiz .cai-eye {
   display: inline-flex;
+  background: #fff;
+  border: 1px solid var(--line);
 }
 
-.cai-quiz h2 {
-  margin: 20px 0 0;
-  max-width: 20ch;
-  font-size: clamp(1.55rem, 2.9vw, 2.1rem);
-}
-
-.cai-quiz .cai-lead {
+/* Un titre de niveau 3, et à l'échelle d'un niveau 3 : il ne doit pas
+   concurrencer les H2 de l'article ni le titre du bloc d'essai. */
+.cai .cai-quiz h3 {
   margin: 16px 0 0;
-  max-width: 46ch;
+  max-width: 26ch;
+  font: 800 clamp(1.14rem, 1.9vw, 1.42rem)/1.26 'Archivo', 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.cai .cai-quiz h3 em {
+  font-style: normal;
+  color: var(--gd);
+}
+
+.cai-quiz .cai-quiz-lead {
+  margin: 12px 0 0;
+  max-width: 50ch;
+  font-size: 0.98rem;
+  line-height: 1.68;
+  color: var(--grey);
 }
 
 .cai-quiz .cai-quiz-pts {
-  margin: 26px 0 0;
+  margin: 20px 0 0;
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .cai-quiz .cai-quiz-pts li {
@@ -622,12 +641,12 @@ a.cai-lia p {
   width: 19px;
   height: 19px;
   border-radius: 99px;
-  background: var(--g3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 12px 12px no-repeat;
+  background: var(--gd) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 12px 12px no-repeat;
 }
 
 /* L'air autour du bouton : 34 px au-dessus, 24 px en dessous. */
 .cai-quiz .cai-quiz-go {
-  margin: clamp(28px, 3vw, 36px) 0 0;
+  margin: clamp(24px, 2.6vw, 30px) 0 0;
 }
 
 .cai-quiz .cai-quiz-fine {
@@ -638,10 +657,10 @@ a.cai-lia p {
 }
 
 .cai-quiz .cai-quiz-vis {
-  border-radius: calc(var(--rad) - 12px);
+  border-radius: calc(var(--rad) - 14px);
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 18px 44px rgba(10, 37, 64, 0.14);
+  border: 1px solid var(--line);
 }
 
 .cai-quiz .cai-quiz-vis img {
@@ -652,7 +671,7 @@ a.cai-lia p {
 
 @media (min-width: 880px) {
   .cai-quiz-in {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.82fr);
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
   }
 }
 
@@ -710,3 +729,56 @@ a.cai-lia p {
   .cai .cai-mec-p b{width:30px;height:30px;font-size:.82rem}
   .cai .cai-mec-p p{padding-top:3px}
 }
+
+/* Le bouton à contour du bloc quiz. Il se lit comme une proposition, là où le
+   bouton plein de fin de page se lit comme l'action à faire. */
+.cai-btn--o {
+  background: #fff;
+  color: var(--gd);
+  border-color: #BFE6CE;
+  box-shadow: none;
+}
+
+.cai-btn--o:hover {
+  border-color: var(--gd);
+  background: #F6FEF9;
+}
+
+/* ------------------------------------------------------------------ *
+ * Le lexique : une page par terme, plus l'index.
+ *
+ * Les styles vivent ici et pas dans chaque fichier de contenu, sinon
+ * treize pages porteraient la même feuille recopiée. Tout est préfixé
+ * « .cai » à cause de la règle de la ligne 35.
+ * ------------------------------------------------------------------ */
+.cai .cai-lex-def{background:var(--g1);border:1px solid #CBEFDB;border-radius:calc(var(--rad) - 10px);padding:clamp(22px,2.8vw,30px);margin-top:clamp(22px,2.6vw,28px)}
+.cai .cai-lex-def p{font-size:clamp(1.02rem,1.6vw,1.14rem);line-height:1.7;color:var(--ink);margin:0;max-width:66ch}
+.cai .cai-lex-def p+p{margin-top:14px}
+
+.cai .cai-lex h2{margin-top:clamp(40px,4.4vw,54px)}
+.cai .cai-lex h2:first-of-type{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-lex p{font-size:1rem;line-height:1.72;color:var(--grey);margin-top:clamp(16px,1.8vw,20px);max-width:70ch}
+.cai .cai-lex p strong{color:var(--ink);font-weight:600}
+
+.cai .cai-lex-l{list-style:none;padding:0;margin:clamp(20px,2.2vw,26px) 0 0;display:grid;gap:13px}
+.cai .cai-lex-l li{margin:0;padding:0 0 0 24px;position:relative;font-size:.99rem;line-height:1.7;color:var(--grey);max-width:70ch}
+.cai .cai-lex-l li::before{content:"\2014";position:absolute;left:0;top:0;color:var(--mute)}
+.cai .cai-lex-l li strong{color:var(--ink);font-weight:600}
+
+.cai .cai-lex-non{margin-top:clamp(22px,2.6vw,28px);background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 10px);padding:clamp(22px,2.6vw,30px)}
+.cai .cai-lex-non p:first-child{margin-top:0}
+
+.cai .cai-lex-voir{margin-top:clamp(36px,4vw,46px);padding-top:clamp(26px,3vw,34px);border-top:1px solid var(--line)}
+.cai .cai-lex-voir h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-lex-voir ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-lex-voir li{margin:0;padding:0}
+.cai .cai-lex-voir a{display:inline-flex;font:500 .88rem/1.3 'Inter',sans-serif;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-lex-voir a:hover{border-color:#B6CADD}
+
+/* L'index : une grille de cartes, le terme et sa définition en une ligne. */
+.cai .cai-lex-idx{margin-top:clamp(34px,3.8vw,44px);display:grid;gap:clamp(14px,1.8vw,18px)}
+@media(min-width:760px){.cai .cai-lex-idx{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cai .cai-lex-idx a{display:block;background:#fff;border:1px solid var(--line);border-radius:calc(var(--rad) - 12px);padding:clamp(20px,2.3vw,26px);text-decoration:none;transition:border-color .16s,transform .16s}
+.cai .cai-lex-idx a:hover{border-color:#B6CADD;transform:translateY(-2px)}
+.cai .cai-lex-idx b{display:block;font:700 1.04rem/1.35 'Archivo','Inter',sans-serif;letter-spacing:-.01em;color:var(--ink);margin-bottom:9px}
+.cai .cai-lex-idx span{display:block;font:400 .93rem/1.62 'Inter',sans-serif;color:var(--grey)}
