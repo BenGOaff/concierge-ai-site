@@ -146,9 +146,28 @@ témoignage, ni chiffre de rétention. Le référentiel est explicite&nbsp;: auc
 statistique non sourcée ne part dans un contenu signé, et les projections de
 l'étude restent dans l'étude.
 
-On dit aussi quand le concurrent gagne. «&nbsp;Moins de 100 appels par mois, la
-facturation à la minute est franchement moins chère&nbsp;» rend crédible tout
-ce qui suit, et ce qui suit est vrai aussi.
+**On ne fait pas la promotion du concurrent pour autant.** Un fait défavorable
+s'énonce, il ne se championne pas, et il ne se laisse jamais seul en fin de
+paragraphe. La bonne séquence est&nbsp;: le fait, puis ce que la différence
+achète, puis l'argument qui décide.
+
+Mauvais&nbsp;: «&nbsp;à 40 appels par mois, 95&nbsp;€ contre 297&nbsp;€, le
+choix est vite vu.&nbsp;» Bon&nbsp;: «&nbsp;en dessous d'une centaine d'appels,
+un prestataire qui facture à la minute affiche un montant plus bas, et c'est
+logique&nbsp;: il vous vend des minutes, pas un service installé.&nbsp;» Puis
+la liste de ce qui est compris.
+
+**Les arguments de qualité sont dans le kit partenaire**, et ils sont tous
+vérifiables sur la page officielle de l'offre&nbsp;: installation affichée
+1&nbsp;500&nbsp;€ et annoncée offerte, appel de cadrage de trente minutes avec
+le paramétrage fait par l'équipe, mise en service sous 48&nbsp;heures, sept
+jours d'essai avant tout paiement, aucun engagement de durée, numéro conservé,
+voix française qui emploie le vocabulaire du métier, résumé écrit après chaque
+appel, SMS automatique après un appel manqué et rappels avant rendez-vous à
+partir de Growth, WhatsApp et Instagram sur Elite.
+
+Ces lignes se rappellent chaque fois qu'un prix apparaît. Un montant qui se lit
+seul invite à chercher moins cher ailleurs.
 
 ## Deux appels à l'action, deux poids
 
