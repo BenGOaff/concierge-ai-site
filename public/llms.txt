@@ -21,6 +21,7 @@ d'affiliation, signalée sur chaque page concernée.
 
 ## Comprendre
 
+- [Fermeture de fin d'année : vos appels entre Noël et le Nouvel An](https://www.concierge-ai.fr/fermeture-fin-annee): Le 25 décembre 2026 et le 1er janvier 2027 tombent un vendredi, donc deux ponts de quatre jours. Ce qui arrive sur la ligne d'un artisan pendant cette période, les quatre informations que doit contenir le message de répondeur de fermeture, la liste de ce qui justifie de sortir de table, et pourquoi les chantiers de janvier se décident entre le 26 décembre et le 4 janvier.
 - [Standard téléphonique IA : comment ça marche, prix 2026, limites](https://www.concierge-ai.fr/standard-telephonique-ia): Définition, les cinq maillons de la sonnerie au rendez-vous, les prix publics relevés chez trois prestataires le 1er octobre 2026, les six situations où ça échoue, le cadre légal (article 50 du règlement européen sur l'IA, applicable depuis le 2 août 2026), et les sept appels à passer pendant l'essai.
 - [Comment fonctionne un standard téléphonique automatique](https://www.concierge-ai.fr/fonctionnement): Le téléphone sonne d'abord chez vous. Ce qui se passe ensuite, ce que vous paramétrez, et comment la ligne est en service en 48 heures.
 - [Renvoi d'appel si non réponse : codes Orange, SFR, Free](https://www.concierge-ai.fr/renvoi-appel-si-non-reponse): Renvoi d'appel si pas de réponse : les codes pour Orange, SFR, Free et Bouygues, le réglage du temps de sonnerie, et vers qui renvoyer vos appels.

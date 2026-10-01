@@ -1,0 +1,13 @@
+{
+  "sortie": "public/images/fermeture-fin-annee",
+  "titre": ["Entre le 24 décembre et le 4 janvier,", "très peu de confrères décrochent"],
+  "colonnes": ["", "Avant le 24", "Du 24 au 4", "Après le 4"],
+  "lignes": [
+    ["Confrères qui décrochent", "La plupart", "Très peu", "La plupart"],
+    ["Ce qu'on vous demande", "Devis, entretien", "Fuite, gel, serrure", "Devis, reprise"],
+    ["Jours fériés", "Aucun", "25 déc, 1er janv", "Aucun"],
+    ["Jours fermés d'affilée", "0", "4, puis 4", "0"],
+    ["Vos clients ont le temps", "Non", "Oui", "Non"]
+  ],
+  "surligne": [0, 2]
+}

@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/fermeture-fin-annee.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien d'appels allez-vous rater <em>pendant les fêtes&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui arrive sur votre ligne quand vous fermez, et ce que ça représente.`,
+}))
+---
+
+<Base
+  titre="Fermeture de fin d'année : vos appels entre Noël et le Nouvel An"
+  description="Ce qui arrive sur votre ligne entre le 24 décembre et le 4 janvier, le message de répondeur qui ne fait pas fuir, ce qui mérite de vous sortir de table, et la check-list avant de fermer."
+  chemin="/fermeture-fin-annee"
+  og="/images/fermeture-fin-annee-og.jpg"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>

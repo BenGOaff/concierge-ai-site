@@ -122,6 +122,32 @@ exactement ça ».
 `node outils/style.mjs` vérifie tout ça automatiquement, article par article.
 Il sort en erreur tant qu'il reste quelque chose.
 
+## Le calendrier, et il est français
+
+On publie **8 à 12 semaines avant le pic**, pour que la page soit indexée et
+vieillie quand les gens cherchent. Publier pendant le pic, c'est arriver après.
+
+| Quand ça cherche | Qui | L'angle |
+|---|---|---|
+| Mi-novembre à fin décembre | Tous | Fermeture de fin d'année, message de répondeur, astreinte des fêtes |
+| Novembre à février | Plombier, chauffagiste | Gel, pannes de chaudière, astreinte de nuit |
+| Janvier | Bâtiment, rénovation | Les chantiers décidés pendant les fêtes |
+| Février | Garage | Départs au ski, contrôles techniques |
+| Mars à mai | Paysagiste | Le pic de printemps, taille et entretien |
+| Juin à août | Climatisation, électricien | Canicule, surcharge |
+| Juillet, août | Tous | Congés d'été, partir sans perdre de clients |
+| Septembre | Bâtiment, auto-école | Rentrée, reprise des chantiers, inscriptions |
+| Toute l'année, nuits et week-ends | Serrurier | Porte claquée, urgence nocturne |
+
+**On est en France.** Pas de Thanksgiving, pas de Black Friday comme angle
+éditorial, pas de « back to school ». Les repères sont les jours fériés de
+l'article L3133-1, les ponts, les vacances scolaires et les congés d'août.
+
+Les dates se vérifient avant d'écrire&nbsp;: en 2026, le 25 décembre et le
+1<sup>er</sup> janvier tombent tous les deux un vendredi, ce qui fait deux
+ponts de quatre jours. Le 26 décembre est férié en Alsace-Moselle au titre du
+droit local.
+
 ## Référencement classique
 
 - **Le sitemap déclaré dans la Search Console est `/sitemap.txt`**, et c'est
