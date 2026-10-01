@@ -41,6 +41,22 @@ leur écart vient de `gap` et il est voulu.
 Vérifier aussi à l'œil, au moins une page par type, sur les trois largeurs.
 Les trois moteurs sont installés : Chromium, Firefox et WebKit.
 
+**Le deuxième piège : la largeur.** `.cai` est une grille. Un élément de
+grille a par défaut `min-width: auto`, c'est-à-dire la largeur minimale de son
+contenu : une image large ou un tableau faisait donc gonfler sa section
+au-delà du conteneur, et la page glissait horizontalement. Corrigé par
+`.cai > * { min-width: 0 }`. Le défaut ne se voyait qu'à certaines largeurs,
+surtout sur tablette, jamais sur un écran d'ordinateur. `outils/debordements.mjs`
+le surveille maintenant sur les 53 pages.
+
+**Les deux commandes à lancer avant de pousser quoi que ce soit.**
+
+```
+npm run build && npx --yes http-server dist -p 4328 --silent &
+node outils/espacements.mjs --tous-moteurs
+node outils/debordements.mjs --tous-moteurs
+```
+
 ## Écriture
 
 - **Aérer.** Une idée par paragraphe, trois phrases au maximum. Sauter des
@@ -112,6 +128,8 @@ Les assistants citent ce qu'ils peuvent extraire, attribuer et vérifier.
 | `outils/infographie.py` | Dessine une infographie maison à partir d'une fiche JSON |
 | `outils/espacements.mjs` | Vérifie qu'aucun bloc n'est collé, sur trois largeurs et trois moteurs |
 | `outils/faq-schema.mjs` | Aligne le schéma FAQPage sur les questions réellement affichées |
+| `outils/debordements.mjs` | Vérifie qu'aucune page ne glisse sur le côté, sur trois largeurs et trois moteurs |
+| `outils/metiers-phase1.mjs` | Les trois ajouts de la phase 1 sur les dix-huit pages métier |
 | `outils/apres-build.mjs` | Finitions après `astro build` ; recopie l'index de sitemap en `/sitemap.xml` |
 
 Les polices Archivo et Inter sont téléchargées au premier appel dans

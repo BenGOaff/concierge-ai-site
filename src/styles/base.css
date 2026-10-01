@@ -32,6 +32,14 @@
   text-align:left; -webkit-font-smoothing:antialiased;
 }
 .cai *{box-sizing:border-box;text-align:left}
+/* « .cai » est une grille. Sans cette ligne, chaque section est un élément de
+   grille dont la largeur minimale vaut « auto », c'est-à-dire la largeur
+   minimale de son contenu : une image large ou un tableau faisait donc gonfler
+   la section au-delà du conteneur, et la page glissait sur le côté. Le défaut
+   ne se voyait qu'à certaines largeurs, surtout sur tablette. Les tableaux
+   larges restent lisibles, ils sont déjà dans un « .cai-scroll ».
+   Surveillé par « outils/debordements.mjs ». */
+.cai > *{min-width:0}
 .cai p,.cai h1,.cai h2,.cai h3,.cai h4,.cai ul,.cai li,.cai figure,.cai table{margin:0;padding:0}
 .cai ul{list-style:none}
 .cai img{display:block;width:100%;height:100%;object-fit:cover}
@@ -658,4 +666,47 @@ a.cai-lia p {
     width: 100%;
     justify-content: center;
   }
+}
+
+/* ------------------------------------------------------------------ *
+ * Le bloc « mécanisme » des pages métier (phase 1 du plan de contenu).
+ *
+ * Défini ici plutôt que dans chaque page : quatre des dix-huit pages
+ * n'avaient pas le style « .cai-beats » qui servait de modèle, et un bloc
+ * commun se corrige une fois pour toutes.
+ *
+ * Tous les sélecteurs sont préfixés « .cai » : la règle de la ligne 35
+ * « .cai p, .cai ul, .cai li { margin:0 } » a une spécificité de (0,1,1) et
+ * gagne contre n'importe quelle règle à une seule classe. C'est le piège qui
+ * a déjà collé le bloc quiz et les vignettes de liens.
+ * ------------------------------------------------------------------ */
+.cai .cai-mec{margin-top:clamp(38px,4.2vw,50px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-mec-p{display:grid;grid-template-columns:38px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(22px,2.6vw,28px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-mec-p b{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .9rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-mec-p p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0;padding-top:6px;max-width:66ch}
+.cai .cai-mec-p p strong{display:block;color:var(--ink);font-weight:600;margin-bottom:7px}
+
+.cai .cai-mec-no{margin-top:clamp(32px,3.6vw,42px);background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 8px);padding:clamp(24px,2.8vw,32px)}
+.cai .cai-mec-no h3{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 18px}
+.cai .cai-mec-no ul{list-style:none;padding:0;margin:0;display:grid;gap:13px}
+.cai .cai-mec-no li{margin:0;padding:0 0 0 24px;position:relative;font-size:.98rem;line-height:1.68;color:var(--grey);max-width:70ch}
+.cai .cai-mec-no li::before{content:"\2014";position:absolute;left:0;top:0;color:var(--mute)}
+
+.cai .cai-mec-fin{margin-top:clamp(26px,3vw,34px);max-width:68ch}
+
+/* Les liens posés dans un texte courant n'avaient aucun style : le bleu du
+   navigateur jurait avec la charte. Le cas du cadre sombre est traité à part,
+   le vert foncé y serait illisible. */
+.cai-box:not(.cai-box--d) .cai-ans a,
+.cai-box:not(.cai-box--d) .cai-mec-fin a{color:var(--gd);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;text-decoration-color:rgba(21,128,61,.42);transition:text-decoration-color .16s}
+.cai-box:not(.cai-box--d) .cai-ans a:hover,
+.cai-box:not(.cai-box--d) .cai-mec-fin a:hover{text-decoration-color:var(--gd)}
+.cai-box--d .cai-ans a,.cai-box--d .cai-mec-fin a{color:#86EFAC;text-decoration:underline;text-underline-offset:3px}
+
+/* Sur un téléphone, la pastille numérotée et son écart mangeaient 62 pixels
+   sur 390 : la colonne de texte tombait sous 240 pixels. On resserre. */
+@media(max-width:560px){
+  .cai .cai-mec-p{grid-template-columns:30px 1fr;gap:14px}
+  .cai .cai-mec-p b{width:30px;height:30px;font-size:.82rem}
+  .cai .cai-mec-p p{padding-top:3px}
 }
