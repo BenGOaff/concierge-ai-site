@@ -202,6 +202,55 @@ page officielle de l'offre&nbsp;:
 3. **Le compte rendu écrit après chaque appel**, plus le SMS automatique après
    un appel manqué et les rappels avant rendez-vous à partir de Growth.
 
+## Comparer des prix qui ne se comparent pas
+
+Le marché du standard IA facture de cinq façons différentes : à la minute, à la
+seconde, au forfait de minutes, au forfait de conversations, et sur devis. Alignés
+dans un tableau, ces montants ne veulent rien dire : 49 € et 297 € ne portent pas
+sur le même objet.
+
+**On ramène tout à une seule unité, et c'est celle que le lecteur vit : le prix
+d'une conversation de trois minutes, au plein du volume inclus.** Une division, posée
+sous le tableau, que n'importe qui peut refaire. C'est ce qui transforme un relevé de
+prix en décision, et c'est ce que les IA citent.
+
+Sur ce calcul, en octobre 2026 : Concierge AI Growth 0,25 €, Fonio Team 0,30 €,
+Fonio Solo 0,36 €, Concierge AI Starter 0,59 €, Le Répondeur Intelligent Pro 0,75 €,
+Ringover Growth 0,87 €, Trustlead Solo 0,98 €, Elio 1,50 € HT.
+
+### L'argument de qualité qui sort de l'arithmétique
+
+Un appel qui prend un nom dure quatre-vingt-dix secondes. Un appel qui qualifie la
+demande, vérifie l'adresse, pose le rendez-vous et confirme par SMS dure quatre
+minutes. **Donc un compteur à la minute facture davantage précisément quand le
+standard en fait plus.** Le forfait à la conversation ne compte pas les secondes.
+
+C'est le meilleur argument qualité du site : il est vérifiable, il ne dénigre
+personne, et il sort du tableau au lieu d'être plaqué dessus. À reprendre partout
+où l'on compare des grilles.
+
+La démonstration tient en une ligne : sur 500 appels par mois, quand la conversation
+moyenne passe de deux à cinq minutes, un compteur passe de 253 à 613 €. Le forfait
+reste à 297 €. À deux minutes, trois concurrents sont moins chers. À cinq, aucun.
+
+### Jamais publier un prix de mémoire
+
+Deux erreurs évitées de justesse parce que la page a été rouverte avant publication :
+Fonio n'est pas à 0,15 € la minute, c'est son tarif de **dépassement** (l'offre est
+à 119 € pour 1 000 minutes) ; Trustlead à 49 € n'inclut pas 20 appels par jour mais
+**150 minutes**. Un prix faux publié sur une page de relevé détruit la crédibilité
+de toutes les autres lignes.
+
+**Donc : on rouvre la page tarifaire à la source le jour de la publication, on cite
+l'URL et la date dans le bloc des sources, et on vérifie HT ou TTC.** Et on vérifie
+la période : Soignea facture toutes les quatre semaines, soit treize échéances par
+an et non douze, ce qui fait 325 € HT par mois et non 299.
+
+À surveiller aussi : trois éditeurs n'affichent aucun volume (VOKAI, Volubile et
+Soignea). On écrit « non calculable » dans la colonne, on ne devine pas. Et Voconix
+n'est pas un standard IA : c'est un générateur de messages enregistrés, il relève
+de la page sur le message de répondeur professionnel.
+
 ## Deux appels à l'action, deux poids
 
 Le quiz et l'essai de sept jours ont longtemps été le même objet visuel, deux
