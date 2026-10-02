@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/appels-hiver.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien d'appels du soir <em>partent ailleurs&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui arrive sur votre ligne entre 17 h et 20 h, et ce que ça représente sur un hiver.`,
+}))
+---
+
+<Base
+  titre="Appels d'hiver : le calendrier métier par métier"
+  description="Le 21 décembre, il fait nuit à 16 h 43 à Lille. Vos clients découvrent la panne en rentrant et appellent après 17 h. Voici les six semaines qui comptent, métier par métier, et ce qui se prépare maintenant."
+  chemin="/appels-hiver"
+  og="/images/appels-hiver-og.jpg"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>

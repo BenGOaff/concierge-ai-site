@@ -18,7 +18,7 @@ export default {
   retenir: {
     titre: "Le marché français du répondeur IA en quatre lignes",
     points: [
-      `Les prix affichés vont de <strong>49&nbsp;€ à 997&nbsp;€ par mois</strong>, et de 0,15 à 0,39&nbsp;€ la minute chez ceux qui facturent à l'usage.`,
+      `Les prix affichés vont de <strong>49&nbsp;€ à 997&nbsp;€ par mois</strong>, Sept éditeurs sur neuf vendent des minutes, et la minute hors forfait se facture de 0,15 à 0,39&nbsp;€.`,
       `Trois unités de facturation coexistent&nbsp;: la minute, l'appel par jour, et la conversation. Deux devis au même montant peuvent coûter du simple au double sur une année.`,
       `Deux éditeurs sur neuf affichent clairement où vivent vos données. Un seul mentionne un hébergement certifié pour les données de santé.`,
       `En dessous d'une centaine d'appels par mois, les offres à la minute sont les moins chères. Au-delà, elles deviennent les plus coûteuses.`,
@@ -47,14 +47,14 @@ export default {
 <div class="cai-tw"><table class="cai-at">
 <thead><tr><th scope="col">Éditeur</th><th scope="col">Entrée de gamme</th><th scope="col">Ce qui est facturé</th><th scope="col">Haut de gamme affiché</th></tr></thead>
 <tbody>
-<tr><td data-l="Éditeur">Fonio</td><td data-l="Entrée">0,15 € la minute</td><td data-l="Facturé">La minute</td><td data-l="Haut de gamme">Non affiché</td></tr>
-<tr><td data-l="Éditeur">Trustlead</td><td data-l="Entrée">49 € / mois, 1 à 20 appels par jour</td><td data-l="Facturé">Les appels par jour</td><td data-l="Haut de gamme">Dès 499 €</td></tr>
+<tr><td data-l="Éditeur">Fonio</td><td data-l="Entrée">119 €, 1 000 minutes</td><td data-l="Facturé">Le forfait de minutes</td><td data-l="Haut de gamme">Dès 599 €, 6 000 minutes</td></tr>
+<tr><td data-l="Éditeur">Trustlead</td><td data-l="Entrée">49 €, 150 minutes</td><td data-l="Facturé">Le forfait de minutes</td><td data-l="Haut de gamme">Dès 499 €</td></tr>
 <tr><td data-l="Éditeur">Elio</td><td data-l="Entrée">79 € HT, 150 minutes</td><td data-l="Facturé">La minute</td><td data-l="Haut de gamme">399 € HT, 800 minutes</td></tr>
 <tr><td data-l="Éditeur">Ringover (AIRO)</td><td data-l="Entrée">99 €, 300 minutes</td><td data-l="Facturé">La minute</td><td data-l="Haut de gamme">1 900 €, 10 000 minutes</td></tr>
 <tr><td data-l="Éditeur">Concierge AI</td><td data-l="Entrée">297 €, 500 conversations</td><td data-l="Facturé">La conversation</td><td data-l="Haut de gamme">997 €</td></tr>
 <tr><td data-l="Éditeur">VOKAI</td><td data-l="Entrée">299 €, 1 agent</td><td data-l="Facturé">L'agent</td><td data-l="Haut de gamme">499 €, 3 agents</td></tr>
 <tr><td data-l="Éditeur">Soignea</td><td data-l="Entrée">299 € HT pour 4 semaines</td><td data-l="Facturé">Le forfait</td><td data-l="Haut de gamme">Non affiché</td></tr>
-<tr><td data-l="Éditeur">Le Répondeur Intelligent</td><td data-l="Entrée">Non affiché</td><td data-l="Facturé">Non précisé</td><td data-l="Haut de gamme">Non affiché</td></tr>
+<tr><td data-l="Éditeur">Le Répondeur Intelligent</td><td data-l="Entrée">49 € TTC, 100 minutes</td><td data-l="Facturé">Le forfait de minutes</td><td data-l="Haut de gamme">249 € TTC, 1 000 minutes</td></tr>
 <tr><td data-l="Éditeur">Volubile</td><td data-l="Entrée">Non affiché</td><td data-l="Facturé">Non précisé</td><td data-l="Haut de gamme">Non affiché</td></tr>
 </tbody>
 </table></div>
@@ -73,17 +73,19 @@ export default {
 <div class="cai-tw"><table class="cai-at">
 <thead><tr><th scope="col">Modèle</th><th scope="col">60 appels de 2 min</th><th scope="col">400 appels de 3 min</th></tr></thead>
 <tbody>
-<tr><td data-l="Modèle">À la minute, 0,15 € (Fonio)</td><td data-l="60 appels">18 €</td><td data-l="400 appels">180 €</td></tr>
-<tr><td data-l="Modèle">À la minute, forfait (Elio)</td><td data-l="60 appels">79 € HT</td><td data-l="400 appels">495 € HT</td></tr>
-<tr><td data-l="Modèle">À la minute, forfait (Ringover)</td><td data-l="60 appels">99 €</td><td data-l="400 appels">290 €</td></tr>
-<tr><td data-l="Modèle">Aux appels par jour (Trustlead)</td><td data-l="60 appels">49 €</td><td data-l="400 appels">199 €</td></tr>
+<tr><td data-l="Modèle">À la minute, à la consommation (Ringover)</td><td data-l="60 appels">23 €</td><td data-l="400 appels">368 €</td></tr>
+<tr><td data-l="Modèle">Forfait de minutes (Trustlead)</td><td data-l="60 appels">49 €</td><td data-l="400 appels">301 €</td></tr>
+<tr><td data-l="Modèle">Forfait de minutes (Le Répondeur Intelligent)</td><td data-l="60 appels">57 € TTC</td><td data-l="400 appels">333 € TTC</td></tr>
+<tr><td data-l="Modèle">Forfait de minutes (Elio)</td><td data-l="60 appels">79 € HT</td><td data-l="400 appels">495 € HT</td></tr>
+<tr><td data-l="Modèle">Forfait de minutes (Fonio)</td><td data-l="60 appels">119 €</td><td data-l="400 appels">149 €</td></tr>
 <tr><td data-l="Modèle">À la conversation (Concierge AI)</td><td data-l="60 appels">297 €</td><td data-l="400 appels">297 €</td></tr>
 </tbody>
 </table></div>
-<p class="cai-fine">Calculs faits à partir des grilles relevées plus haut, en TTC pour les éditeurs qui affichent en TTC et en HT pour ceux qui affichent en HT&nbsp;: l'écart de 20&nbsp;% est à vérifier avant toute comparaison. Ringover inclut 60&nbsp;minutes offertes par mois, non déduites ici. Les volumes au-delà du forfait sont facturés à la minute chez Elio et Ringover.</p>
-<p><strong>À faible volume, les offres à la minute gagnent largement</strong>, et il faut le dire&nbsp;: 18&nbsp;€ chez Fonio contre 297&nbsp;€ ailleurs, pour un dépanneur qui reçoit trois appels par jour, la différence est réelle.</p>
+<p class="cai-fine">Calculs faits à partir des grilles relevées plus haut, en retenant à chaque fois la formule la moins chère de l'éditeur. 60 appels de 2&nbsp;minutes font 120&nbsp;minutes par mois, 400 appels de 3&nbsp;minutes en font 1&nbsp;200. Ringover à la consommation&nbsp;: 0,39&nbsp;€ la minute, 60&nbsp;minutes offertes par mois déduites, puis forfait Growth au-delà. Trustlead&nbsp;: 150&nbsp;minutes incluses puis 0,24&nbsp;€. Le Répondeur Intelligent&nbsp;: 0,35&nbsp;€ HT la minute hors forfait, convertie en TTC. Elio&nbsp;: 0,24&nbsp;€ HT. Fonio&nbsp;: 1&nbsp;000&nbsp;minutes incluses puis 0,15&nbsp;€. Les montants HT et TTC ne se comparent pas directement&nbsp;: l'écart est de 20&nbsp;%.</p>
+<p><strong>À faible volume, les compteurs à la minute gagnent largement</strong>, et il faut le dire&nbsp;: 23&nbsp;€ chez Ringover contre 297&nbsp;€, pour un dépanneur qui reçoit trois appels par jour, la différence est réelle. Si vous cherchez à faire prendre un message deux fois par jour, arrêtez-vous là&nbsp;: le compteur suffit.</p>
+<p>Le classement se renverse en changeant une seule chose, et ce n'est pas le nombre d'appels. C'est leur durée.</p>
 <p>Ce qui change au-delà, c'est la pente. À la minute, votre facture monte avec votre activité, et elle monte aussi avec la qualité du travail. <span class="cai-key">Chaque question posée au client vous coûte de l'argent.</span></p>
-<p>Faire passer un appel de 1 à 3&nbsp;minutes pour recueillir l'adresse exacte, l'étage et la nature de la panne, c'est 0,30&nbsp;€ de plus par appel à 0,15&nbsp;€ la minute, et 0,48&nbsp;€ chez un éditeur à 0,24&nbsp;€. Sur 200 appels, entre 60 et 96&nbsp;€ par mois pour avoir bien fait le travail.</p>
+<p>Faire passer un appel de 1 à 3&nbsp;minutes pour recueillir l'adresse exacte, l'étage et la nature de la panne, ce sont deux minutes de plus à payer. Au tarif hors forfait des éditeurs relevés, cela fait 0,30&nbsp;€ de plus par appel chez Fonio, 0,48&nbsp;€ chez Trustlead et Elio, 0,78&nbsp;€ chez Ringover. <strong>Sur 200 appels par mois, de 60 à 156&nbsp;€ pour avoir bien fait le travail.</strong></p>
 <p>Or c'est exactement cette qualification qui transforme un message en intervention. Un modèle qui la facture à la minute vous pousse à l'abréger, au moment précis où il faudrait prendre trente secondes de plus. Au forfait à la conversation, elle ne coûte rien.</p>`,
     },
     {
@@ -154,7 +156,7 @@ export default {
     h2: 'Questions fréquentes sur les répondeurs IA',
     items: [
       { q: "Combien coûte un répondeur IA en France ?",
-        r: `<p>Les prix affichés par les éditeurs au 2&nbsp;octobre 2026 vont de 49&nbsp;€ à 997&nbsp;€ par mois, et de 0,15 à 0,39&nbsp;€ la minute chez ceux qui facturent à l'usage.</p><p>L'écart ne vient pas de la technologie, qui est comparable partout, mais de ce qui est compris&nbsp;: installation faite pour vous ou en libre-service, compte rendu après chaque appel, essai avant paiement.</p>` },
+        r: `<p>Les prix affichés par les éditeurs au 2&nbsp;octobre 2026 vont de 49&nbsp;€ à 997&nbsp;€ par mois. Les formules d'entrée à 49&nbsp;€ comprennent 100 à 150&nbsp;minutes, soit une trentaine à une cinquantaine d'appels, et la minute supplémentaire se facture ensuite de 0,15 à 0,39&nbsp;€.</p><p>L'écart ne vient pas de la technologie, qui est comparable partout, mais de ce qui est compris&nbsp;: installation faite pour vous ou en libre-service, compte rendu après chaque appel, essai avant paiement.</p>` },
       { q: "Quelle différence entre un répondeur IA et un répondeur classique ?",
         r: `<p>Un répondeur classique enregistre un message et s'arrête là. C'est vous qui écoutez, qui rappelez et qui négociez le créneau le soir.</p><p>Un répondeur IA comprend la demande pendant l'appel et agit&nbsp;: il cale un rendez-vous dans votre agenda, transfère une urgence sur votre portable, ou vous envoie une fiche écrite. À la fin de l'appel, il y a un résultat, pas un message à écouter.</p>` },
       { q: "Mes clients vont-ils s'en rendre compte ?",
@@ -181,11 +183,11 @@ export default {
     { url: 'https://trustlead.co/repondeur-ia/', texte: 'Trustlead, formules et prix publiés, relevés le 2 octobre 2026' },
     { url: 'https://eliocall.com/tarifs/', texte: 'Elio, grille tarifaire publiée, relevée le 2 octobre 2026' },
     { url: 'https://www.ringover.fr/repondeur-ia', texte: 'Ringover AIRO, formules et prix publiés, relevés le 2 octobre 2026' },
-    { url: 'https://www.fonio.ai/fr/use-cases/ki-anrufbeantworter/', texte: 'Fonio, tarif à la minute affiché, relevé le 2 octobre 2026' },
+    { url: 'https://fonio.ai/fr/tarifs', texte: 'Fonio, grille tarifaire publiée, relevée le 2 octobre 2026' },
     { url: 'https://soignea.com/', texte: 'Soignea, prix et hébergement des données publiés, relevés le 2 octobre 2026' },
     { url: 'https://vokai.fr/agent-vocal-ia', texte: 'VOKAI, formules et prix publiés, relevés le 2 octobre 2026' },
     { url: 'https://www.volubile.ai/', texte: "Volubile, annonces sur l'hébergement des données, relevées le 2 octobre 2026" },
-    { url: 'https://www.lerepondeurintelligent.fr/', texte: 'Le Répondeur Intelligent, page produit consultée le 2 octobre 2026' },
+    { url: 'https://lerepondeurintelligent.fr/tarifs/', texte: 'Le Répondeur Intelligent, grille tarifaire publiée, relevée le 2 octobre 2026' },
     { url: 'https://artificialintelligenceact.eu/article/50/', texte: "Article 50 du règlement européen sur l'intelligence artificielle, applicable depuis le 2 août 2026" },
   ],
 

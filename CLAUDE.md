@@ -343,6 +343,42 @@ Les dates se vérifient avant d'écrire&nbsp;: en 2026, le 25 décembre et le
 ponts de quatre jours. Le 26 décembre est férié en Alsace-Moselle au titre du
 droit local.
 
+## Les faits d'hiver, vérifiés une fois pour toutes
+
+À réutiliser tels quels, ils sont sourcés et datés. Les reprendre évite de rechercher,
+et surtout d'inventer.
+
+- **Le 21 décembre, le soleil se couche à 16 h 43 à Lille et 16 h 55 à Paris**
+  (Institut de mécanique céleste). La journée dure 8 h 02 à Lille, 8 h 22 à Brest.
+  C'est le fait qui explique tout le reste : la panne se découvre en rentrant, l'appel
+  part entre 17 h et 21 h, et l'artisan a fini sa journée.
+- **L'entretien annuel de chaudière est obligatoire de 4 à 400 kW** (décret du
+  9 juin 2009, article R224-41-8 du code de l'environnement). Attestation sous quinze
+  jours, à conserver deux ans. Aucune amende, mais l'assureur peut refuser d'indemniser
+  sans elle. C'est ça qui déclenche l'appel d'automne.
+- **Plus de 75 % des intoxications au monoxyde de carbone** surviennent pendant la
+  saison de chauffe (Santé publique France), une centaine de décès par an.
+- **Vacances d'hiver 2027** (arrêté du 22 octobre 2025) : zone C du 6 au 22 février,
+  zone A du 13 février au 1er mars, zone B du 20 février au 8 mars. Quatre semaines
+  et demie en tout, et c'est le pic le plus mal anticipé.
+- **Le 25 décembre 2026 et le 1er janvier 2027 tombent tous deux un vendredi.**
+
+Ce qu'on ne publie pas, faute de source solide : les majorations de tarif de dépannage
+en hiver, et le pic d'incendies domestiques de mi-novembre. Les chiffres de pannes de
+batterie existent chez le TCS (Suisse) et l'ADAC (Allemagne), jamais en France : si on
+les cite, on dit de quel pays ils viennent.
+
+### Le pic de chaque métier n'est pas le même
+
+C'est ce qui rend l'article d'hiver utile à dix-huit métiers au lieu de quatre. Le
+chauffagiste et le garage pointent en décembre, le restaurant en novembre et décembre,
+le coiffeur les deux semaines avant Noël, mais **la salle de sport, l'esthétique,
+l'auto-école et l'avocat font leur pic en janvier**, et l'agence immobilière redémarre
+à la mi-janvier. Le paysagiste, lui, est en basse saison.
+
+Ne jamais forcer la saisonnalité d'un métier pour faire tenir un tableau. Un créneau
+creux annoncé comme creux rend crédibles toutes les autres lignes.
+
 ## Référencement classique
 
 - **Le sitemap déclaré dans la Search Console est `/sitemap.txt`**, et c'est
