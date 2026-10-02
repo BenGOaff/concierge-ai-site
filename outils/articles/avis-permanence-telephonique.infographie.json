@@ -1,0 +1,13 @@
+{
+  "sortie": "public/images/avis-permanence-telephonique",
+  "titre": ["Le reproche le plus fréquent", "n'est pas le prix"],
+  "colonnes": ["Ce que disent 275 avis", "Combien de prestataires"],
+  "lignes": [
+    ["Noms et numéros pris à l'oreille", "3 sur 4"],
+    ["Qualité variable selon la personne", "2 sur 4"],
+    ["Horaires qui s'arrêtent le soir", "cité comme un atout"],
+    ["Ligne morte sans alerte", "jusqu'à 1 mois"],
+    ["Tarif jugé trop élevé", "1 sur 4"]
+  ],
+  "surligne": [0, 1]
+}

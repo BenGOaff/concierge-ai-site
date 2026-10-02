@@ -1,0 +1,709 @@
+<style>
+.cai .cai-infos{display:flex;align-items:center;gap:14px;margin:clamp(14px,1.8vw,20px) 0 0}
+.cai .cai-aut-ic{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#0A2540;color:#22C55E;font:800 .9rem/1 'Archivo','Inter',sans-serif;letter-spacing:-.02em;flex:none}
+.cai .cai-aut-t{min-width:0}
+.cai .cai-aut-t b{display:block;font:600 .98rem/1.35 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-aut-t span{display:block;font:500 .88rem/1.45 'Inter',sans-serif;color:var(--mute);margin-top:2px}
+.cai .cai-part{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px;margin:0;padding:clamp(18px,2.2vw,24px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cai .cai-part-t{font:600 .75rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 6px 0 0}
+.cai .cai-part-l{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.cai .cai-part-l a,.cai .cai-part-l button{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);cursor:pointer;padding:0;transition:border-color .16s,background .16s,color .16s}
+.cai .cai-part-l a:hover,.cai .cai-part-l button:hover{border-color:#0A2540;background:#0A2540;color:#fff}
+.cai .cai-part-l svg{width:18px;height:18px;fill:currentColor}
+.cai .cai-part-l .is-ok{background:#15803D;border-color:#15803D;color:#fff}
+/* ===== Mise en page : sommaire collant à gauche sur ordinateur, repliable en haut sur mobile ===== */
+.cai .cai-art-g{display:block;padding:clamp(8px,1vw,14px) 0 0}
+@media(min-width:1024px){.cai .cai-art-g{display:grid;grid-template-columns:270px minmax(0,1fr);gap:clamp(40px,4.4vw,64px);align-items:stretch}}
+.cai .cai-toc{display:none;position:relative}
+@media(min-width:1024px){.cai .cai-toc{display:block}}
+.cai .cai-toc-in{top:var(--cai-top,110px);max-height:calc(100vh - var(--cai-top,110px) - 24px);overflow:auto;padding:4px 6px 12px 0}
+.cai .cai-toc-in.is-sticky{position:sticky}
+.cai .cai-toc-h{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:0;padding:0 0 14px;margin:0;cursor:pointer;font:700 1.12rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);text-align:left}
+.cai .cai-toc-h::after{content:"";width:9px;height:9px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(-135deg);margin:6px 6px 0 0;transition:transform .2s}
+.cai .cai-toc.is-closed .cai-toc-h::after{transform:rotate(45deg);margin-top:0}
+.cai .cai-toc.is-closed .cai-toc-l{display:none}
+.cai .cai-toc-l{list-style:none;margin:0;padding:0 0 0 2px;border-left:2px solid var(--line)}
+.cai .cai-toc-l li{margin:0;padding:0}
+.cai .cai-toc-l a{display:block;font:500 .92rem/1.45 'Inter',sans-serif;color:var(--mute);text-decoration:none;padding:8px 0 8px 16px;margin-left:-2px;border-left:2px solid transparent;transition:color .15s,border-color .15s}
+.cai .cai-toc-l a:hover{color:var(--ink)}
+.cai .cai-toc-l a.is-on{color:var(--ink);border-left-color:#15803D;font-weight:600}
+.cai .cai-tocm{display:block;border:1px solid var(--line);border-radius:16px;background:#fff;margin:0 0 30px}
+@media(min-width:1024px){.cai .cai-tocm{display:none}}
+.cai .cai-tocm summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font:700 1.02rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink)}
+.cai .cai-tocm summary::-webkit-details-marker{display:none}
+.cai .cai-tocm summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);margin:-4px 4px 0 0;transition:transform .2s}
+.cai .cai-tocm[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+.cai .cai-tocm .cai-toc-l{margin:0 20px 16px}
+
+/* ===== Texte ===== */
+.cai .cai-art-b{min-width:0}
+.cai .cai-art-b p{font-size:clamp(1.03rem,1.3vw,1.1rem);line-height:1.8;color:#2A3F55;margin:0 0 22px}
+.cai .cai-art-b strong{color:var(--ink);font-weight:700}
+.cai .cai-art-b a{color:#15803D;text-decoration:underline;text-underline-offset:3px}
+.cai .cai-art-b h2{font:800 clamp(1.5rem,2.6vw,1.95rem)/1.18 'Archivo','Inter',sans-serif;letter-spacing:-.025em;color:var(--ink);margin:clamp(46px,5vw,64px) 0 18px;scroll-margin-top:var(--cai-top,110px)}
+.cai .cai-art-b h3{font:700 clamp(1.18rem,1.8vw,1.32rem)/1.3 'Archivo','Inter',sans-serif;color:var(--ink);margin:32px 0 12px;scroll-margin-top:var(--cai-top,110px)}
+.cai .cai-art-b ul.cai-ul{list-style:none;margin:0 0 24px;padding:0}
+.cai .cai-art-b ul.cai-ul li{position:relative;list-style:none;font-size:clamp(1.03rem,1.3vw,1.1rem);line-height:1.75;color:#2A3F55;margin:0 0 12px;padding:0 0 0 26px}
+.cai .cai-art-b ul.cai-ul li::before{content:"";position:absolute;left:4px;top:.72em;width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 3px #E2FBEC}
+.cai .cai-art-b .cai-chapo{font-size:clamp(1.1rem,1.6vw,1.24rem);line-height:1.75;color:var(--grey);border-left:3px solid #15803D;padding:2px 0 2px 22px;margin:0 0 36px}
+.cai .cai-art-b .cai-rep{font:600 clamp(1.06rem,1.4vw,1.14rem)/1.65 'Inter',sans-serif;color:var(--ink);margin:0 0 20px}
+
+/* ===== L'essentiel à retenir ===== */
+.cai .cai-ret{margin:0 0 36px;padding:clamp(24px,2.8vw,32px);background:#F2FBF5;border:1px solid #CBEFDB;border-radius:20px}
+.cai .cai-ret-h{display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.cai .cai-ret-h i{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#15803D;flex:none}
+.cai .cai-ret-h i::before{content:"";width:16px;height:12px;background:linear-gradient(#fff,#fff) 0 0/16px 2px no-repeat,linear-gradient(#fff,#fff) 0 5px/16px 2px no-repeat,linear-gradient(#fff,#fff) 0 10px/10px 2px no-repeat}
+.cai .cai-ret-h b{font:700 .9rem/1.2 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.cai .cai-ret ul{list-style:none;margin:0;padding:0}
+.cai .cai-ret li{font-size:1.02rem;line-height:1.65;color:#2A3F55;margin:0 0 12px;padding:0 0 0 18px;border-left:2px solid #86DBA8}
+.cai .cai-ret li:last-child{margin-bottom:0}
+
+/* ===== Bon à savoir ===== */
+.cai .cai-bon{display:grid;grid-template-columns:38px 1fr;gap:14px;margin:28px 0 30px;padding:20px 22px;background:var(--soft);border:1px solid var(--line);border-left:4px solid #0D3B66;border-radius:18px}
+.cai .cai-bon i{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#0A2540;color:#22C55E;font:800 1.05rem/1 'Archivo',sans-serif;font-style:normal}
+.cai .cai-bon b{display:block;font:700 .8rem/1.2 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#0D3B66;margin:2px 0 6px}
+.cai .cai-art-b .cai-bon p{margin:0;font-size:1rem;line-height:1.65;color:#2A3F55}
+
+/* ===== Photo ===== */
+.cai .cai-fig{margin:32px 0}
+.cai .cai-fig img{display:block;width:100%;max-width:100%;height:auto;border-radius:18px;background:#DCE6EF}
+.cai .cai-fig figcaption{font:500 .88rem/1.55 'Inter',sans-serif;color:var(--mute);margin-top:12px}
+
+/* ===== Schéma ===== */
+.cai .cai-sch{margin:30px 0;padding:clamp(20px,2.6vw,28px);background:var(--soft);border:1px solid var(--line);border-radius:18px}
+.cai .cai-sch-t{font:700 1rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);margin:0 0 16px}
+.cai .cai-sch ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media(min-width:560px){.cai .cai-sch ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cai .cai-sch li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0}
+.cai .cai-sch li b{display:block;font:700 .8rem/1 'Inter',sans-serif;color:#15803D;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.cai .cai-sch li span{display:block;font-size:.93rem;line-height:1.5;color:#2A3F55}
+
+/* ===== Encart d'action ===== */
+.cai .cai-enc{margin:36px 0;padding:clamp(24px,3vw,32px);background:#0A2540;border-radius:22px}
+.cai .cai-enc-t{font:800 clamp(1.2rem,2vw,1.45rem)/1.25 'Archivo','Inter',sans-serif;color:#fff;margin:0 0 10px}
+.cai .cai-art-b .cai-enc p{color:rgba(255,255,255,.82);margin:0 0 20px;font-size:1rem;line-height:1.65}
+.cai .cai-art-b .cai-enc a.cai-enc-b{display:inline-flex;align-items:center;gap:8px;font:600 .95rem/1 'Inter',sans-serif;background:#22C55E;color:#0A2540;text-decoration:none;padding:15px 22px;border-radius:99px}
+.cai .cai-art-b .cai-enc a.cai-enc-b::after{content:"\2192"}
+
+/* ===== Tableau ===== */
+.cai .cai-tw{margin:26px 0 32px;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:16px}
+.cai .cai-at{width:100%;border-collapse:collapse;font-size:.96rem}
+.cai .cai-at th{background:var(--soft);text-align:left;padding:14px 16px;font:700 .92rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);border-bottom:1px solid var(--line)}
+.cai .cai-at td{padding:14px 16px;border-bottom:1px solid var(--line);color:#2A3F55;line-height:1.5;vertical-align:top}
+.cai .cai-at tr:last-child td{border-bottom:0}
+@media(max-width:640px){
+  .cai .cai-tw{border:0;border-radius:0;overflow:visible}
+  .cai .cai-at thead{display:none}
+  .cai .cai-at tr{display:block;border:1px solid var(--line);border-radius:14px;margin:0 0 12px;padding:6px 0;background:#fff}
+  .cai .cai-at td{display:grid;grid-template-columns:44% 1fr;gap:10px;border:0;padding:8px 14px}
+  .cai .cai-at td::before{content:attr(data-l);font-weight:600;color:var(--ink)}
+}
+
+/* ===== FAQ ===== */
+.cai .cai-faqa{border-top:1px solid var(--line);margin:8px 0 0}
+.cai .cai-faqa details{border-bottom:1px solid var(--line)}
+.cai .cai-faqa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font:600 1.04rem/1.45 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-faqa summary::-webkit-details-marker{display:none}
+.cai .cai-faqa summary::after{content:"+";font:500 1.5rem/1 'Inter',sans-serif;color:#15803D;flex:none}
+.cai .cai-faqa details[open] summary::after{content:"\2212"}
+.cai .cai-faqa details p{margin:0 0 18px}
+
+/* ===== Conclusion et sources ===== */
+.cai .cai-concl{margin:44px 0 0;padding:clamp(24px,2.8vw,30px);border:2px solid #15803D;border-radius:20px}
+.cai .cai-concl-t{font:700 1.15rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);margin:0 0 10px}
+.cai .cai-art-b .cai-concl p{margin:0}
+.cai .cai-src2{margin:30px 0 0;padding:18px 0 0;border-top:1px solid var(--line)}
+.cai .cai-src2-t{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 12px}
+.cai .cai-src2 ul{list-style:none;margin:0;padding:0}
+.cai .cai-src2 li{font-size:.88rem;line-height:1.6;color:var(--grey);margin:0 0 8px}
+.cai .cai-art-b .cai-src2 a{color:var(--grey)}
+
+/* ===== Message à copier ===== */
+.cai .cai-msg{margin:14px 0 26px;padding:18px 20px 20px;background:#fff;border:1px solid var(--line);border-left:4px solid #22C55E;border-radius:16px}
+.cai .cai-msg-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 10px}
+.cai .cai-msg-h b{font:700 .78rem/1.2 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#15803D}
+.cai .cai-msg-c{flex:none;font:600 .82rem/1 'Inter',sans-serif;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;cursor:pointer;transition:background .16s,border-color .16s,color .16s}
+.cai .cai-msg-c:hover{border-color:#0A2540}
+.cai .cai-msg-c.is-ok{background:#15803D;border-color:#15803D;color:#fff}
+.cai .cai-art-b .cai-msg-t{margin:0;font-size:clamp(1rem,1.25vw,1.06rem);line-height:1.75;color:var(--ink)}
+.cai .cai-msg-t mark{background:#E2FBEC;color:#0A2540;padding:1px 3px;border-radius:4px}
+
+/* ===== Code à composer ===== */
+.cai .cai-art-b code{font:600 .92em/1.3 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;color:#0A2540;background:#EEF3F8;border:1px solid var(--line);border-radius:6px;padding:2px 6px;white-space:nowrap}
+.cai .cai-at code{white-space:normal;overflow-wrap:anywhere}
+.cai .cai-ret code{font:600 .92em/1.3 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;color:#0A2540;background:#fff;border:1px solid #CBEFDB;border-radius:6px;padding:2px 6px;white-space:nowrap}
+.cai .cai-abas{margin-top:clamp(40px,4.6vw,56px)}
+.cai .cai-abas-share{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px;padding:clamp(18px,2vw,24px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cai .cai-abas-share p{font:600 1rem/1.4 'Inter',sans-serif;color:var(--ink);margin:0}
+.cai .cai-share{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.cai .cai-share a,.cai .cai-share button{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);cursor:pointer;padding:0;transition:border-color .16s,background .16s,color .16s}
+.cai .cai-share a:hover,.cai .cai-share button:hover{border-color:#0A2540;background:#0A2540;color:#fff}
+.cai .cai-share svg{width:18px;height:18px;fill:currentColor}
+.cai .cai-share .is-ok{background:#15803D;border-color:#15803D;color:#fff}
+.cai .cai-redac{display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:start;margin-top:clamp(30px,3.4vw,40px);padding:clamp(22px,2.6vw,28px);background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 8px)}
+.cai .cai-redac-ic{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:#0A2540;color:#fff;font:700 1.05rem/1 'Inter',sans-serif}
+.cai .cai-redac b{display:block;font:700 1rem/1.4 'Inter',sans-serif;color:var(--ink);margin-bottom:6px}
+.cai .cai-redac p{font-size:.95rem;line-height:1.65;color:var(--grey);margin:0}
+.cai .cai-acta{margin-top:clamp(30px,3.4vw,40px)}
+.cai .cai-acta-t{font:800 clamp(1.4rem,2.6vw,1.9rem)/1.2 'Inter',sans-serif;color:var(--ink);max-width:24ch;margin:14px 0 14px}
+.cai .cai-acta-t em{font-style:normal;color:#15803D}
+.cai .cai-acta .cai-row{margin-top:clamp(24px,2.8vw,32px);display:flex;flex-wrap:wrap;gap:12px}
+.cai .cai-aussi{margin-top:clamp(30px,3.4vw,40px);padding-top:clamp(24px,2.8vw,32px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+.cai .cai-lire-t{margin-top:clamp(40px,4.6vw,56px)}
+.cai .cai-lire-h{font:800 clamp(1.3rem,2.4vw,1.7rem)/1.2 'Archivo','Inter',sans-serif;letter-spacing:-.02em;color:var(--ink);margin:14px 0 0;max-width:30ch}
+</style>
+<div class="cai"><section class="cai-box cai-art-tete"><h1>Avis sur les permanences téléphoniques : ce que disent 275 clients</h1></section></div>
+<div class="cai">
+<style>
+.cai .cai-infos{display:flex;align-items:center;gap:14px;margin:clamp(14px,1.8vw,20px) 0 0}
+.cai .cai-aut-ic{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#0A2540;color:#22C55E;font:800 .9rem/1 'Archivo','Inter',sans-serif;letter-spacing:-.02em;flex:none}
+.cai .cai-aut-t{min-width:0}
+.cai .cai-aut-t b{display:block;font:600 .98rem/1.35 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-aut-t span{display:block;font:500 .88rem/1.45 'Inter',sans-serif;color:var(--mute);margin-top:2px}
+</style>
+<div class="cai-infos">
+<span aria-hidden="true" class="cai-aut-ic">CA</span>
+<div class="cai-aut-t">
+<b>Par la rédaction de concierge-ai.fr</b>
+<span id="cai-meta">Publié le 2 octobre 2026 · 10 min de lecture</span>
+</div>
+</div>
+</div>
+<div class="cai">
+<style>
+.cai .cai-part{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px;margin:0;padding:clamp(18px,2.2vw,24px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cai .cai-part-t{font:600 .75rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 6px 0 0}
+.cai .cai-part-l{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.cai .cai-part-l a,.cai .cai-part-l button{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);cursor:pointer;padding:0;transition:border-color .16s,background .16s,color .16s}
+.cai .cai-part-l a:hover,.cai .cai-part-l button:hover{border-color:#0A2540;background:#0A2540;color:#fff}
+.cai .cai-part-l svg{width:18px;height:18px;fill:currentColor}
+.cai .cai-part-l .is-ok{background:#15803D;border-color:#15803D;color:#fff}
+</style>
+<div class="cai-part" id="cai-part">
+<p class="cai-part-t">Partager cet article</p>
+<div class="cai-part-l">
+<a aria-label="Partager sur WhatsApp" data-net="wa" href="https://wa.me/?text=Avis%20sur%20les%20permanences%20t%C3%A9l%C3%A9phoniques%20%3A%20ce%20que%20disent%20275%20clients%20https%3A%2F%2Fwww.concierge-ai.fr%2Favis-permanence-telephonique" rel="noopener" target="_blank"><svg viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"></path></svg></a>
+<a aria-label="Partager sur LinkedIn" data-net="li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.concierge-ai.fr%2Favis-permanence-telephonique" rel="noopener" target="_blank"><svg viewbox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-4.9c0-1.2 0-2.7-1.6-2.7-1.7 0-2 1.3-2 2.6v5H9.5z"></path></svg></a>
+<a aria-label="Partager sur Facebook" data-net="fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.concierge-ai.fr%2Favis-permanence-telephonique" rel="noopener" target="_blank"><svg viewbox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21z"></path></svg></a>
+<a aria-label="Envoyer par e-mail" data-net="mail" href="mailto:?subject=Avis%20sur%20les%20permanences%20t%C3%A9l%C3%A9phoniques%20%3A%20ce%20que%20disent%20275%20clients&body=https%3A%2F%2Fwww.concierge-ai.fr%2Favis-permanence-telephonique"><svg viewbox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4 7.4V17h16V7.4zm0-2.3L19 7H5z"></path></svg></a>
+<button aria-label="Copier le lien" data-net="copy" type="button"><svg viewbox="0 0 24 24"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.5-3.5a1 1 0 1 1 1.4 1.4L12 13.4a1 1 0 0 1-1.4 0zM8.5 19.5a4 4 0 0 1-2.8-6.8l2.1-2.1a1 1 0 1 1 1.4 1.4l-2.1 2.1a2 2 0 0 0 2.8 2.8l2.1-2.1a1 1 0 0 1 1.4 1.4l-2.1 2.1a4 4 0 0 1-2.8 1.2zm7-5.7a1 1 0 0 1-.7-1.7l2.1-2.1a2 2 0 0 0-2.8-2.8L12 9.3a1 1 0 0 1-1.4-1.4l2.1-2.1a4 4 0 0 1 5.6 5.6l-2.1 2.1a1 1 0 0 1-.7.3z"></path></svg></button>
+</div>
+</div>
+</div>
+<div class="cai cai-art" style="--cai-top: 109px;">
+<style>
+/* ===== Mise en page : sommaire collant à gauche sur ordinateur, repliable en haut sur mobile ===== */
+.cai .cai-art-g{display:block;padding:clamp(8px,1vw,14px) 0 0}
+@media(min-width:1024px){.cai .cai-art-g{display:grid;grid-template-columns:270px minmax(0,1fr);gap:clamp(40px,4.4vw,64px);align-items:stretch}}
+.cai .cai-toc{display:none;position:relative}
+@media(min-width:1024px){.cai .cai-toc{display:block}}
+.cai .cai-toc-in{top:var(--cai-top,110px);max-height:calc(100vh - var(--cai-top,110px) - 24px);overflow:auto;padding:4px 6px 12px 0}
+.cai .cai-toc-in.is-sticky{position:sticky}
+.cai .cai-toc-h{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:0;padding:0 0 14px;margin:0;cursor:pointer;font:700 1.12rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);text-align:left}
+.cai .cai-toc-h::after{content:"";width:9px;height:9px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(-135deg);margin:6px 6px 0 0;transition:transform .2s}
+.cai .cai-toc.is-closed .cai-toc-h::after{transform:rotate(45deg);margin-top:0}
+.cai .cai-toc.is-closed .cai-toc-l{display:none}
+.cai .cai-toc-l{list-style:none;margin:0;padding:0 0 0 2px;border-left:2px solid var(--line)}
+.cai .cai-toc-l li{margin:0;padding:0}
+.cai .cai-toc-l a{display:block;font:500 .92rem/1.45 'Inter',sans-serif;color:var(--mute);text-decoration:none;padding:8px 0 8px 16px;margin-left:-2px;border-left:2px solid transparent;transition:color .15s,border-color .15s}
+.cai .cai-toc-l a:hover{color:var(--ink)}
+.cai .cai-toc-l a.is-on{color:var(--ink);border-left-color:#15803D;font-weight:600}
+.cai .cai-tocm{display:block;border:1px solid var(--line);border-radius:16px;background:#fff;margin:0 0 30px}
+@media(min-width:1024px){.cai .cai-tocm{display:none}}
+.cai .cai-tocm summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font:700 1.02rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink)}
+.cai .cai-tocm summary::-webkit-details-marker{display:none}
+.cai .cai-tocm summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);margin:-4px 4px 0 0;transition:transform .2s}
+.cai .cai-tocm[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+.cai .cai-tocm .cai-toc-l{margin:0 20px 16px}
+
+/* ===== Texte ===== */
+.cai .cai-art-b{min-width:0}
+.cai .cai-art-b p{font-size:clamp(1.03rem,1.3vw,1.1rem);line-height:1.8;color:#2A3F55;margin:0 0 22px}
+.cai .cai-art-b strong{color:var(--ink);font-weight:700}
+.cai .cai-art-b a{color:#15803D;text-decoration:underline;text-underline-offset:3px}
+.cai .cai-art-b h2{font:800 clamp(1.5rem,2.6vw,1.95rem)/1.18 'Archivo','Inter',sans-serif;letter-spacing:-.025em;color:var(--ink);margin:clamp(46px,5vw,64px) 0 18px;scroll-margin-top:var(--cai-top,110px)}
+.cai .cai-art-b h3{font:700 clamp(1.18rem,1.8vw,1.32rem)/1.3 'Archivo','Inter',sans-serif;color:var(--ink);margin:32px 0 12px;scroll-margin-top:var(--cai-top,110px)}
+.cai .cai-art-b ul.cai-ul{list-style:none;margin:0 0 24px;padding:0}
+.cai .cai-art-b ul.cai-ul li{position:relative;list-style:none;font-size:clamp(1.03rem,1.3vw,1.1rem);line-height:1.75;color:#2A3F55;margin:0 0 12px;padding:0 0 0 26px}
+.cai .cai-art-b ul.cai-ul li::before{content:"";position:absolute;left:4px;top:.72em;width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 3px #E2FBEC}
+.cai .cai-art-b .cai-chapo{font-size:clamp(1.1rem,1.6vw,1.24rem);line-height:1.75;color:var(--grey);border-left:3px solid #15803D;padding:2px 0 2px 22px;margin:0 0 36px}
+.cai .cai-art-b .cai-rep{font:600 clamp(1.06rem,1.4vw,1.14rem)/1.65 'Inter',sans-serif;color:var(--ink);margin:0 0 20px}
+
+/* ===== L'essentiel à retenir ===== */
+.cai .cai-ret{margin:0 0 36px;padding:clamp(24px,2.8vw,32px);background:#F2FBF5;border:1px solid #CBEFDB;border-radius:20px}
+.cai .cai-ret-h{display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.cai .cai-ret-h i{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#15803D;flex:none}
+.cai .cai-ret-h i::before{content:"";width:16px;height:12px;background:linear-gradient(#fff,#fff) 0 0/16px 2px no-repeat,linear-gradient(#fff,#fff) 0 5px/16px 2px no-repeat,linear-gradient(#fff,#fff) 0 10px/10px 2px no-repeat}
+.cai .cai-ret-h b{font:700 .9rem/1.2 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.cai .cai-ret ul{list-style:none;margin:0;padding:0}
+.cai .cai-ret li{font-size:1.02rem;line-height:1.65;color:#2A3F55;margin:0 0 12px;padding:0 0 0 18px;border-left:2px solid #86DBA8}
+.cai .cai-ret li:last-child{margin-bottom:0}
+
+/* ===== Bon à savoir ===== */
+.cai .cai-bon{display:grid;grid-template-columns:38px 1fr;gap:14px;margin:28px 0 30px;padding:20px 22px;background:var(--soft);border:1px solid var(--line);border-left:4px solid #0D3B66;border-radius:18px}
+.cai .cai-bon i{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#0A2540;color:#22C55E;font:800 1.05rem/1 'Archivo',sans-serif;font-style:normal}
+.cai .cai-bon b{display:block;font:700 .8rem/1.2 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#0D3B66;margin:2px 0 6px}
+.cai .cai-art-b .cai-bon p{margin:0;font-size:1rem;line-height:1.65;color:#2A3F55}
+
+/* ===== Photo ===== */
+.cai .cai-fig{margin:32px 0}
+.cai .cai-fig img{display:block;width:100%;max-width:100%;height:auto;border-radius:18px;background:#DCE6EF}
+.cai .cai-fig figcaption{font:500 .88rem/1.55 'Inter',sans-serif;color:var(--mute);margin-top:12px}
+
+/* ===== Schéma ===== */
+.cai .cai-sch{margin:30px 0;padding:clamp(20px,2.6vw,28px);background:var(--soft);border:1px solid var(--line);border-radius:18px}
+.cai .cai-sch-t{font:700 1rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);margin:0 0 16px}
+.cai .cai-sch ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media(min-width:560px){.cai .cai-sch ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cai .cai-sch li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0}
+.cai .cai-sch li b{display:block;font:700 .8rem/1 'Inter',sans-serif;color:#15803D;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.cai .cai-sch li span{display:block;font-size:.93rem;line-height:1.5;color:#2A3F55}
+
+/* ===== Encart d'action ===== */
+.cai .cai-enc{margin:36px 0;padding:clamp(24px,3vw,32px);background:#0A2540;border-radius:22px}
+.cai .cai-enc-t{font:800 clamp(1.2rem,2vw,1.45rem)/1.25 'Archivo','Inter',sans-serif;color:#fff;margin:0 0 10px}
+.cai .cai-art-b .cai-enc p{color:rgba(255,255,255,.82);margin:0 0 20px;font-size:1rem;line-height:1.65}
+.cai .cai-art-b .cai-enc a.cai-enc-b{display:inline-flex;align-items:center;gap:8px;font:600 .95rem/1 'Inter',sans-serif;background:#22C55E;color:#0A2540;text-decoration:none;padding:15px 22px;border-radius:99px}
+.cai .cai-art-b .cai-enc a.cai-enc-b::after{content:"\2192"}
+
+/* ===== Tableau ===== */
+.cai .cai-tw{margin:26px 0 32px;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:16px}
+.cai .cai-at{width:100%;border-collapse:collapse;font-size:.96rem}
+.cai .cai-at th{background:var(--soft);text-align:left;padding:14px 16px;font:700 .92rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);border-bottom:1px solid var(--line)}
+.cai .cai-at td{padding:14px 16px;border-bottom:1px solid var(--line);color:#2A3F55;line-height:1.5;vertical-align:top}
+.cai .cai-at tr:last-child td{border-bottom:0}
+@media(max-width:640px){
+  .cai .cai-tw{border:0;border-radius:0;overflow:visible}
+  .cai .cai-at thead{display:none}
+  .cai .cai-at tr{display:block;border:1px solid var(--line);border-radius:14px;margin:0 0 12px;padding:6px 0;background:#fff}
+  .cai .cai-at td{display:grid;grid-template-columns:44% 1fr;gap:10px;border:0;padding:8px 14px}
+  .cai .cai-at td::before{content:attr(data-l);font-weight:600;color:var(--ink)}
+}
+
+/* ===== FAQ ===== */
+.cai .cai-faqa{border-top:1px solid var(--line);margin:8px 0 0}
+.cai .cai-faqa details{border-bottom:1px solid var(--line)}
+.cai .cai-faqa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font:600 1.04rem/1.45 'Inter',sans-serif;color:var(--ink)}
+.cai .cai-faqa summary::-webkit-details-marker{display:none}
+.cai .cai-faqa summary::after{content:"+";font:500 1.5rem/1 'Inter',sans-serif;color:#15803D;flex:none}
+.cai .cai-faqa details[open] summary::after{content:"\2212"}
+.cai .cai-faqa details p{margin:0 0 18px}
+
+/* ===== Conclusion et sources ===== */
+.cai .cai-concl{margin:44px 0 0;padding:clamp(24px,2.8vw,30px);border:2px solid #15803D;border-radius:20px}
+.cai .cai-concl-t{font:700 1.15rem/1.3 'Archivo','Inter',sans-serif;color:var(--ink);margin:0 0 10px}
+.cai .cai-art-b .cai-concl p{margin:0}
+.cai .cai-src2{margin:30px 0 0;padding:18px 0 0;border-top:1px solid var(--line)}
+.cai .cai-src2-t{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 12px}
+.cai .cai-src2 ul{list-style:none;margin:0;padding:0}
+.cai .cai-src2 li{font-size:.88rem;line-height:1.6;color:var(--grey);margin:0 0 8px}
+.cai .cai-art-b .cai-src2 a{color:var(--grey)}
+
+/* ===== Message à copier ===== */
+.cai .cai-msg{margin:14px 0 26px;padding:18px 20px 20px;background:#fff;border:1px solid var(--line);border-left:4px solid #22C55E;border-radius:16px}
+.cai .cai-msg-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 10px}
+.cai .cai-msg-h b{font:700 .78rem/1.2 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#15803D}
+.cai .cai-msg-c{flex:none;font:600 .82rem/1 'Inter',sans-serif;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;cursor:pointer;transition:background .16s,border-color .16s,color .16s}
+.cai .cai-msg-c:hover{border-color:#0A2540}
+.cai .cai-msg-c.is-ok{background:#15803D;border-color:#15803D;color:#fff}
+.cai .cai-art-b .cai-msg-t{margin:0;font-size:clamp(1rem,1.25vw,1.06rem);line-height:1.75;color:var(--ink)}
+.cai .cai-msg-t mark{background:#E2FBEC;color:#0A2540;padding:1px 3px;border-radius:4px}
+
+/* ===== Code à composer ===== */
+.cai .cai-art-b code{font:600 .92em/1.3 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;color:#0A2540;background:#EEF3F8;border:1px solid var(--line);border-radius:6px;padding:2px 6px;white-space:nowrap}
+.cai .cai-at code{white-space:normal;overflow-wrap:anywhere}
+.cai .cai-ret code{font:600 .92em/1.3 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;color:#0A2540;background:#fff;border:1px solid #CBEFDB;border-radius:6px;padding:2px 6px;white-space:nowrap}
+</style>
+<div class="cai-art-g">
+<aside aria-label="Sommaire" class="cai-toc" id="cai-toc">
+<div class="cai-toc-in is-sticky" id="cai-toc-in">
+<button aria-expanded="true" class="cai-toc-h" id="cai-toc-h" type="button">Sommaire</button>
+<ol class="cai-toc-l" id="cai-toc-l"><li><a class="" href="#notes-permanence-telephonique">Les notes, prestataire par prestataire</a></li><li><a class="" href="#ce-que-les-clients-louent">Ce que les clients satisfaits mettent en avant</a></li><li><a class="" href="#quatre-reproches-recurrents">Les quatre reproches qui reviennent partout</a></li><li><a class="" href="#ce-quil-faut-verifier">Les six questions que ces avis vous imposent de poser</a></li><li><a class="" href="#standard-automatique-face-aux-reproches">Ce qu'un standard automatique change sur ces quatre reproches</a></li><li><a class="" href="#questions-avis-permanence-telephonique">Questions fréquentes sur les avis des permanences téléphoniques</a></li></ol>
+</div>
+</aside>
+<div class="cai-art-b" id="cai-art-b">
+<details class="cai-tocm" id="cai-tocm">
+<summary>Sommaire de l'article</summary>
+<ol class="cai-toc-l" id="cai-tocm-l"><li><a href="#notes-permanence-telephonique">Les notes, prestataire par prestataire</a></li><li><a href="#ce-que-les-clients-louent">Ce que les clients satisfaits mettent en avant</a></li><li><a href="#quatre-reproches-recurrents">Les quatre reproches qui reviennent partout</a></li><li><a href="#ce-quil-faut-verifier">Les six questions que ces avis vous imposent de poser</a></li><li><a href="#standard-automatique-face-aux-reproches">Ce qu'un standard automatique change sur ces quatre reproches</a></li><li><a href="#questions-avis-permanence-telephonique">Questions fréquentes sur les avis des permanences téléphoniques</a></li></ol>
+</details>
+<p class="cai-chapo">Vous y pensez depuis le dimanche où vous avez rappelé quinze numéros après le repas. Confier vos appels à quelqu'un, d'accord, mais à qui, et avec quel risque&nbsp;?<br><br>Les prestataires publient des témoignages choisis sur leur propre site, ce qui ne vous avance pas. Alors nous sommes allés lire ceux que les clients déposent eux-mêmes, en public&nbsp;: <strong>275 avis chez cinq prestataires de permanence téléphonique.</strong><br><br>Première chose à savoir&nbsp;: les notes sont bonnes. Déléguer ses appels marche, et ceux qui l'ont fait le disent. Mais les reproches reviennent toujours aux mêmes endroits, chez tout le monde, et ce sont eux qui doivent décider des questions que vous poserez au commercial.</p>
+<div class="cai-ret">
+<div class="cai-ret-h"><i aria-hidden="true"></i><b>Ce que 275 avis clients disent des permanences téléphoniques</b></div>
+<ul>
+<li>Les notes sont bonnes&nbsp;: 4,8 sur 5 chez Préposé sur 51 avis, 4,5 sur 168 avis chez Absys. Déléguer ses appels fonctionne, et les clients le confirment.</li>
+<li>Ce qu'ils louent en premier&nbsp;: les consignes respectées à la lettre, le compte rendu écrit, et le fait de pouvoir enfin se concentrer sur son travail.</li>
+<li>Le reproche le plus répandu n'est pas le prix&nbsp;: c'est <strong>l'orthographe des noms et des numéros, pris à l'oreille</strong>. On le retrouve chez trois prestataires sur quatre.</li>
+<li>Le plus grave est plus rare mais il coûte cher&nbsp;: un client raconte avoir passé un mois sans savoir que son standard n'était plus joignable.</li>
+</ul>
+</div>
+<h2 id="notes-permanence-telephonique">Les notes, prestataire par prestataire</h2>
+<p class="cai-rep">Quatre des cinq prestataires relevés tiennent une note supérieure à 4 sur 5. Le volume d'avis, lui, est faible&nbsp;: 275 au total, dont 168 pour un seul d'entre eux. C'est peu pour un marché entier, et cela invite à lire les commentaires plutôt que les moyennes.</p>
+<div class="cai-tw"><table class="cai-at">
+<thead><tr><th scope="col">Prestataire</th><th scope="col">Note</th><th scope="col">Avis</th><th scope="col">Cinq étoiles</th><th scope="col">Une étoile</th></tr></thead>
+<tbody>
+<tr><td data-l="Prestataire">Préposé</td><td data-l="Note">4,8 / 5</td><td data-l="Avis">51</td><td data-l="5 étoiles">80 %</td><td data-l="1 étoile">0 %</td></tr>
+<tr><td data-l="Prestataire">Absys</td><td data-l="Note">4,5 / 5</td><td data-l="Avis">168</td><td data-l="5 étoiles">72 %</td><td data-l="1 étoile">4 %</td></tr>
+<tr><td data-l="Prestataire">Bureau24</td><td data-l="Note">4,3 / 5</td><td data-l="Avis">27</td><td data-l="5 étoiles">59 %</td><td data-l="1 étoile">26 %</td></tr>
+<tr><td data-l="Prestataire">ClicFone</td><td data-l="Note">voir ci-dessous</td><td data-l="Avis">28</td><td data-l="5 étoiles">46 %</td><td data-l="1 étoile">4 %</td></tr>
+<tr><td data-l="Prestataire">Thelem</td><td data-l="Note">non significative</td><td data-l="Avis">1</td><td data-l="5 étoiles">100 %</td><td data-l="1 étoile">0 %</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine">Relevé sur les fiches publiques Trustpilot le 2&nbsp;octobre 2026. Chez ClicFone, la note affichée et la répartition des étoiles ne concordent pas et la plupart des avis datent de 2018&nbsp;: nous n'utilisons donc que ses commentaires, pas sa moyenne. Chez Thelem, un seul avis ne permet aucune conclusion.</p>
+<p>Deux chiffres méritent qu'on s'y arrête. Absys tient 4,5 sur <strong>168 avis</strong>, ce qui est le seul échantillon un peu sérieux de ce relevé. Et Bureau24 affiche 4,3 avec <strong>26 % d'avis à une étoile</strong>&nbsp;: une moyenne honorable qui cache deux clientèles qui ne vivent pas la même chose.</p>
+<p>C'est la première leçon de ce dépouillement. Sur ce marché, la moyenne ne dit presque rien. Ce qui compte, c'est ce que racontent les mécontents, parce que leurs reproches sont les mêmes partout.</p>
+<h2 id="ce-que-les-clients-louent">Ce que les clients satisfaits mettent en avant</h2>
+<p class="cai-rep">Quatre choses reviennent dans les avis positifs, et ce n'est jamais la gentillesse&nbsp;: les consignes respectées à la lettre, le compte rendu, le fait de pouvoir se concentrer, et l'hébergement des données en France.</p>
+<ul class="cai-ul">
+<li><strong>Les consignes respectées.</strong> C'est le compliment le plus fréquent, et il est toujours formulé pareil. «&nbsp;Bien sur tous les plans et consignes respectées&nbsp;» écrit un client de Préposé. «&nbsp;Les secrétaires répondent suivant nos directives&nbsp;» écrit un client de Bureau24, après deux ans de service. Ce que les gens achètent, ce n'est pas quelqu'un qui décroche&nbsp;: c'est quelqu'un qui dit ce qu'eux auraient dit.</li>
+<li><strong>Le compte rendu.</strong> «&nbsp;Nous sommes ravis de la qualité de l'accueil, de la simplicité d'utilisation et du reporting&nbsp;», chez Absys. Savoir qui a appelé et pourquoi vaut autant que l'appel lui-même.</li>
+<li><strong>Pouvoir travailler tranquille.</strong> «&nbsp;Satisfaite de leur avoir délégué les appels téléphoniques afin de mieux me concentrer&nbsp;», chez Bureau24 en septembre 2026. C'est l'autre moitié du bénéfice, celle qui ne se chiffre pas&nbsp;: ne plus sursauter à chaque sonnerie pendant un chantier, et ne plus passer la soirée à rappeler ceux qu'on a ratés dans la journée.</li>
+<li><strong>Les données en France.</strong> Un client de Préposé en fait son argument principal&nbsp;: «&nbsp;les serveurs où il y a les données sont certifiés RGPD et que les données sont sécurisés sur des serveurs en France&nbsp;». La question revient suffisamment pour mériter d'être posée à tout prestataire.</li>
+</ul>
+<p>Un avis mérite d'être cité à part, parce qu'il vient d'un client du mieux noté du relevé, en mars 2026&nbsp;:</p>
+<div class="cai-bon"><i aria-hidden="true">i</i><div><b>Ce que dit un client de Préposé</b><p>«&nbsp;Nous adorons le couplage de la prise d'appel par les êtres humains avec la vérification de l'intelligence artificielle.&nbsp;»</p><p>Le prestataire humain le mieux noté de ce relevé fait déjà vérifier ses appels par une machine, et ses clients le mettent en avant comme un atout. Le débat «&nbsp;humain contre machine&nbsp;» est plus tranché dans les brochures que chez les gens qui s'en servent.</p></div></div>
+<h2 id="quatre-reproches-recurrents">Les quatre reproches qui reviennent partout</h2>
+<p class="cai-rep">Ils sont étonnamment constants d'un prestataire à l'autre, y compris chez les mieux notés. Ce ne sont pas des défauts de sérieux, ce sont les limites du modèle, et c'est pour ça qu'ils se retrouvent chez tout le monde.</p>
+<h3>1. Les noms et les numéros, pris à l'oreille</h3>
+<p>C'est le reproche le plus répandu du relevé, et on le trouve chez trois prestataires sur quatre.</p>
+<ul class="cai-ul">
+<li>Chez Absys, quatre étoiles&nbsp;: «&nbsp;l'orthographe des noms des clients qui sont vraiment écrits à l'oreille, parfois méconnaissables&nbsp;».</li>
+<li>Chez Bureau24, quatre étoiles&nbsp;: «&nbsp;série d'erreur régulièrement dans la prise des n° de téléphone&nbsp;».</li>
+<li>Chez ClicFone, une étoile&nbsp;: «&nbsp;ClicFone m'a envoyé un mail de confirmation mais avec un autre nom&nbsp;».</li>
+</ul>
+<p>Notez que ces deux premiers avis sont des quatre étoiles. Ce sont des clients contents qui signalent quand même ce défaut, ce qui veut dire qu'il les gêne assez pour en parler.</p><p>Et pour un dépanneur, ça se paie vite. Un numéro mal noté, c'est un rappel impossible et un chantier qui part chez le confrère. Une adresse mal orthographiée, c'est vous devant la mauvaise porte avec le camion, un dimanche, pour une urgence qui vous attendait trois rues plus loin.</p>
+<h3>2. La qualité varie selon la personne qui décroche</h3>
+<p>Chez ClicFone, quatre étoiles&nbsp;: «&nbsp;Satisfaction globale, même s'il persiste quelques couacs selon les secrétaires&nbsp;». Chez Préposé, quatre étoiles également&nbsp;: «&nbsp;Bien choisir son commercial chez Préposé est important car c'est lui qui va faire le suivi des indicateurs de qualité&nbsp;».</p>
+<p>C'est inhérent au service&nbsp;: derrière votre ligne, il y a des personnes différentes selon l'heure et le jour, et elles découvrent votre métier sur une fiche au moment où elles décrochent. Un client de Préposé le dit autrement&nbsp;: «&nbsp;quelques clients se plaignent de difficultés de compréhension dans l'échange&nbsp;».</p><p>C'est la plainte que les artisans formulent le plus souvent entre eux&nbsp;: ils ne comprennent rien au métier. Une fuite active et une demande de devis de salle de bain ne se trient pas pareil, et ça ne s'apprend pas en lisant trois lignes à l'écran.</p>
+<h3>3. Les horaires, qui s'arrêtent là où vos appels continuent</h3>
+<p>Celui-là apparaît dans les avis <em>positifs</em>, ce qui est révélateur. Chez Préposé, cinq étoiles&nbsp;: «&nbsp;l'avantage c'est qu'il soit ouvert de huit heures à 20h et que les instructions soient respectées&nbsp;».</p>
+<p>Huit heures à vingt heures, c'est une bonne amplitude et c'est vendu comme telle. Cela laisse quand même 96&nbsp;heures sur les 168 d'une semaine pendant lesquelles personne ne décroche.</p>
+<p>Et ces 96 heures ne sont pas n'importe lesquelles. C'est le dimanche matin d'une fuite, la nuit d'une chaudière en panne, le 15&nbsp;août d'une porte claquée. Ce sont aussi vos soirées&nbsp;: les appels que la permanence n'a pas pris, c'est vous qui les rappelez entre 19&nbsp;h et 21&nbsp;h, pendant que le repas refroidit et que la moitié des gens ne répondent déjà plus.</p>
+<h3>4. Le service qui s'arrête sans que vous le sachiez</h3>
+<p>C'est le plus rare et de loin le plus cher. Deux avis à une étoile chez Absys&nbsp;:</p>
+<ul class="cai-ul">
+<li>«&nbsp;Le service s'arrête sans prévenir, sans proposer de recharger&nbsp;».</li>
+<li>«&nbsp;1 mois sans savoir que notre standard n'était pas joignable&nbsp;! Sinon le service est très bien&nbsp;».</li>
+</ul>
+<p>Lisez bien la fin du second. Le client trouve le service très bien, et il a passé un mois injoignable. Un forfait qui s'épuise sans alerte, c'est une ligne morte que personne ne surveille.</p><p>Vous ne l'apprenez pas par votre prestataire. Vous l'apprenez par un client agacé qui vous dit avoir appelé trois fois, pendant que les autres, eux, ont appelé le suivant sur Google sans rien vous dire. Un mois d'appels partis ailleurs, c'est une pleine saison perdue pour un chauffagiste.</p>
+<!--QUIZ-->
+<h2 id="ce-quil-faut-verifier">Les six questions que ces avis vous imposent de poser</h2>
+<p class="cai-rep">Chaque reproche ci-dessus se transforme en une question à poser avant de signer, chez n'importe quel prestataire. Posez-les toutes les six, et par écrit.</p>
+<ul class="cai-ul">
+<li><strong>Les noms et numéros sont-ils relus à voix haute avant de raccrocher&nbsp;?</strong> C'est la seule parade connue au défaut le plus fréquent du métier. Si la réponse est non, vous découvrirez les erreurs devant une porte fermée.</li>
+<li><strong>Combien de personnes différentes vont décrocher pour moi&nbsp;?</strong> Et comment mes consignes leur arrivent-elles. En mutualisé, l'opérateur suit plusieurs dizaines d'entreprises dans la journée et découvre la vôtre sur une fiche au moment où il décroche. C'est de là que vient le fameux «&nbsp;ils ne comprennent rien au métier&nbsp;».</li>
+<li><strong>Quelles heures sont réellement couvertes, et lesquelles sont en option&nbsp;?</strong> Faites écrire les horaires au contrat, dimanche et jours fériés compris. C'est le soir et le week-end que vous cherchez à couvrir, pas le mardi 10&nbsp;h où vous décrochez déjà.</li>
+<li><strong>Que se passe-t-il quand mon forfait est épuisé&nbsp;?</strong> Blocage, facturation à l'unité, ou ligne morte. Et suis-je prévenu, par quel moyen, à partir de quel seuil.</li>
+<li><strong>Comment je sais que la ligne fonctionne aujourd'hui&nbsp;?</strong> Un client a mis un mois à s'en apercevoir. Un compte rendu après chaque appel est la seule vérification qui ne demande aucun effort.</li>
+<li><strong>Où sont hébergées les données de mes clients, et combien de temps&nbsp;?</strong> La question revient dans les avis positifs comme un argument, donc elle se pose.</li>
+</ul>
+<p>Ces six questions valent pour un télésecrétariat humain comme pour un standard automatique. Elles ne départagent pas les technologies, elles départagent les prestataires sérieux des autres.</p>
+<h2 id="standard-automatique-face-aux-reproches">Ce qu'un standard automatique change sur ces quatre reproches</h2>
+<p class="cai-rep">Deux des quatre reproches disparaissent par construction, un troisième se règle avec un réglage, et le quatrième existe aussi du côté des machines. Voici la réponse honnête, reproche par reproche.</p>
+<div class="cai-tw"><table class="cai-at">
+<thead><tr><th scope="col">Le reproche</th><th scope="col">Permanence humaine</th><th scope="col">Standard automatique</th></tr></thead>
+<tbody>
+<tr><td data-l="Reproche">Noms et numéros pris à l'oreille</td><td data-l="Humaine">Signalé chez 3 prestataires sur 4</td><td data-l="Automatique">Même faiblesse, corrigée par la relecture à voix haute</td></tr>
+<tr><td data-l="Reproche">Qualité variable selon la personne</td><td data-l="Humaine">Inhérent au mutualisé</td><td data-l="Automatique">Disparaît : les règles sont écrites une fois</td></tr>
+<tr><td data-l="Reproche">Horaires qui s'arrêtent</td><td data-l="Humaine">72 heures sur 168, le reste en option</td><td data-l="Automatique">Disparaît : les 168 heures</td></tr>
+<tr><td data-l="Reproche">Ligne morte sans alerte</td><td data-l="Humaine">Signalé, jusqu'à un mois</td><td data-l="Automatique">Existe aussi, sauf si vous recevez un compte rendu par appel</td></tr>
+</tbody>
+</table></div>
+<p><strong>Sur le premier, soyons précis&nbsp;:</strong> une machine n'entend pas mieux qu'un humain un nom de famille peu courant ou une rue mal articulée. La faiblesse est la même. Ce qui change, c'est que la parade peut être rendue systématique&nbsp;: faire relire l'adresse et le numéro à voix haute avant de raccrocher, à chaque appel, sans fatigue de fin de journée. C'est le premier réglage à vérifier pendant un essai.</p>
+<p><strong>Sur le deuxième, l'écart est net.</strong> Vos consignes sont écrites une fois lors d'un appel de cadrage de trente minutes, et elles s'appliquent de la même façon à 9&nbsp;h et à 23&nbsp;h. Il n'y a pas de couac selon l'opérateur, parce qu'il n'y a pas d'opérateur. En contrepartie, tout ce que vous n'avez pas écrit n'existe pas, et c'est pour ça que cette demi-heure décide de tout le reste.</p>
+<p><strong>Sur le troisième, il n'y a pas de débat&nbsp;:</strong> 168 heures contre 72, pour un prix comparable. Ce sont les quinze rappels du soir qui disparaissent, et le dimanche qui redevient un dimanche. Le détail du calcul est sur <a href="/prix-du-marche">les tarifs d'une permanence téléphonique</a>.</p>
+<p><strong>Sur le quatrième, la vigilance reste la même des deux côtés.</strong> Une ligne peut tomber chez n'importe quel prestataire. Ce qui vous protège n'est pas la technologie, c'est le compte rendu écrit après chaque appel&nbsp;: tant qu'il arrive, la ligne vit. Quand il cesse d'arriver, vous le voyez le jour même et pas au bout d'un mois.</p>
+<p>Et pour le reste, souvenez-vous de ce que disait le client du mieux noté de ce relevé&nbsp;: son prestataire humain fait déjà vérifier ses appels par une machine, et c'est ce qu'il met en avant. Le choix n'est plus vraiment entre les deux.</p>
+<h2 id="questions-avis-permanence-telephonique">Questions fréquentes sur les avis des permanences téléphoniques</h2>
+<div class="cai-faqa">
+<details open=""><summary>Les permanences téléphoniques sont-elles bien notées ?</summary><p>Oui. Quatre des cinq prestataires relevés sur Trustpilot le 2&nbsp;octobre 2026 tiennent une note supérieure à 4 sur 5&nbsp;: 4,8 chez Préposé sur 51 avis, 4,5 chez Absys sur 168 avis, 4,3 chez Bureau24 sur 27 avis.</p><p>Le volume reste faible pour un marché entier, et une moyenne cache parfois deux clientèles&nbsp;: Bureau24 affiche 4,3 avec 26&nbsp;% d'avis à une étoile. Lisez les commentaires avant les moyennes.</p></details>
+<details><summary>Quel est le reproche le plus fréquent ?</summary><p>L'orthographe des noms et la prise des numéros de téléphone, notés à l'oreille. On le retrouve chez trois prestataires sur quatre, et souvent sous la plume de clients qui mettent quatre étoiles&nbsp;: ils sont contents et ça les gêne quand même.</p><p>La parade existe et elle est simple&nbsp;: faire relire l'adresse et le numéro à voix haute avant de raccrocher. Demandez si c'est fait systématiquement.</p></details>
+<details><summary>Que reprochent les avis à une étoile ?</summary><p>Trois choses, par ordre de gravité. Un service qui s'arrête sans prévenir quand le forfait est épuisé. Une ligne injoignable sans que le client le sache, jusqu'à un mois dans un cas. Et le tarif, jugé «&nbsp;exorbitant&nbsp;» par un client d'Absys.</p><p>Les deux premières se préviennent en exigeant un compte rendu après chaque appel&nbsp;: tant qu'il arrive, la ligne fonctionne.</p></details>
+<details><summary>Un télésecrétariat humain fait-il moins d'erreurs qu'une machine ?</summary><p>Pas sur les noms et les numéros, qui sont le reproche le plus fréquent des deux côtés. Une personne fatiguée en fin de journée et une reconnaissance vocale butent sur les mêmes rues mal articulées.</p><p>L'humain garde l'avantage sur l'empathie et sur les situations non prévues. La machine garde l'avantage sur la régularité, puisque ses règles sont écrites une fois et ne varient pas selon l'heure.</p></details>
+<details><summary>Faut-il se fier aux témoignages publiés par les prestataires ?</summary><p>Ils sont choisis, donc ils ne vous apprennent rien sur les problèmes. Les fiches publiques Trustpilot et les avis Google sont plus utiles parce que personne ne les filtre.</p><p>Le réflexe qui aide vraiment&nbsp;: lisez d'abord les avis à une et deux étoiles. Ils vous donnent la liste exacte des questions à poser au commercial.</p></details>
+<details><summary>Combien d'avis faut-il pour que la note soit fiable ?</summary><p>Il n'y a pas de seuil officiel, mais un avis unique ne dit rien&nbsp;: Thelem affiche 100&nbsp;% de cinq étoiles sur un seul avis déposé en 2023.</p><p>Dans ce relevé, seul Absys atteint un volume qui commence à être parlant, avec 168 avis. Regardez aussi la date du dernier avis&nbsp;: une fiche sans commentaire depuis deux ans ne vous renseigne pas sur le service d'aujourd'hui.</p></details>
+<details><summary>Les données de mes clients restent-elles en France ?</summary><p>Cela dépend du prestataire, et c'est à demander par écrit. Un client de Préposé en fait d'ailleurs son argument de satisfaction principal, en citant des serveurs certifiés RGPD situés en France.</p><p>Posez trois questions&nbsp;: ce qui est conservé, où c'est hébergé, et pendant combien de temps. Le détail est sur <a href="/conformite">la page conformité</a>.</p></details>
+</div>
+<div class="cai-concl">
+<p class="cai-concl-t">Ce que ces 275 avis vous font gagner</p>
+<p>Ils ne désignent pas un gagnant, et ce n'était pas le but. Ils vous donnent six questions précises à poser à n'importe quel commercial, et ces six questions viennent d'artisans et de cabinets qui ont déjà payé pour les apprendre.</p><p>Si vous ne deviez en retenir qu'une&nbsp;: demandez ce qui vous revient après chaque appel. Un compte rendu écrit règle le reproche le plus cher du relevé, celui du client resté un mois injoignable sans le savoir.</p>
+<p>Et vérifiez les heures avant de signer. Un service qui ferme à 20&nbsp;h vous rend vos journées, pas vos dimanches ni vos soirées de rappels. Ce sont pourtant celles-là qui vous ont fait chercher une solution.</p>
+</div>
+<div class="cai-src2">
+<p class="cai-src2-t">Sources</p>
+<ul>
+<li><a href="https://fr.trustpilot.com/review/prepose.fr" rel="nofollow noopener" target="_blank">Fiche Trustpilot de Préposé Permanence Téléphonique, 51 avis, relevée le 2 octobre 2026</a></li>
+<li><a href="https://fr.trustpilot.com/review/www.absys.fr" rel="nofollow noopener" target="_blank">Fiche Trustpilot d'Absys, 168 avis, relevée le 2 octobre 2026</a></li>
+<li><a href="https://fr.trustpilot.com/review/bureau24.fr" rel="nofollow noopener" target="_blank">Fiche Trustpilot de Bureau24, 27 avis, relevée le 2 octobre 2026</a></li>
+<li><a href="https://fr.trustpilot.com/review/www.clicfone.com" rel="nofollow noopener" target="_blank">Fiche Trustpilot de ClicFone Télésecrétariat, 28 avis, relevée le 2 octobre 2026</a></li>
+<li><a href="https://fr.trustpilot.com/review/thelem.fr" rel="nofollow noopener" target="_blank">Fiche Trustpilot de Thelem Télésecrétariat, 1 avis, relevée le 2 octobre 2026</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="cai">
+<style>
+.cai .cai-abas{margin-top:clamp(40px,4.6vw,56px)}
+.cai .cai-abas-share{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px;padding:clamp(18px,2vw,24px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cai .cai-abas-share p{font:600 1rem/1.4 'Inter',sans-serif;color:var(--ink);margin:0}
+.cai .cai-share{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.cai .cai-share a,.cai .cai-share button{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);cursor:pointer;padding:0;transition:border-color .16s,background .16s,color .16s}
+.cai .cai-share a:hover,.cai .cai-share button:hover{border-color:#0A2540;background:#0A2540;color:#fff}
+.cai .cai-share svg{width:18px;height:18px;fill:currentColor}
+.cai .cai-share .is-ok{background:#15803D;border-color:#15803D;color:#fff}
+.cai .cai-redac{display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:start;margin-top:clamp(30px,3.4vw,40px);padding:clamp(22px,2.6vw,28px);background:var(--soft);border:1px solid var(--line);border-radius:calc(var(--rad) - 8px)}
+.cai .cai-redac-ic{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:#0A2540;color:#fff;font:700 1.05rem/1 'Inter',sans-serif}
+.cai .cai-redac b{display:block;font:700 1rem/1.4 'Inter',sans-serif;color:var(--ink);margin-bottom:6px}
+.cai .cai-redac p{font-size:.95rem;line-height:1.65;color:var(--grey);margin:0}
+.cai .cai-acta{margin-top:clamp(30px,3.4vw,40px)}
+.cai .cai-acta-t{font:800 clamp(1.4rem,2.6vw,1.9rem)/1.2 'Inter',sans-serif;color:var(--ink);max-width:24ch;margin:14px 0 14px}
+.cai .cai-acta-t em{font-style:normal;color:#15803D}
+.cai .cai-acta .cai-row{margin-top:clamp(24px,2.8vw,32px);display:flex;flex-wrap:wrap;gap:12px}
+.cai .cai-aussi{margin-top:clamp(30px,3.4vw,40px);padding-top:clamp(24px,2.8vw,32px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+.cai .cai-lire-t{margin-top:clamp(40px,4.6vw,56px)}
+.cai .cai-lire-h{font:800 clamp(1.3rem,2.4vw,1.7rem)/1.2 'Archivo','Inter',sans-serif;letter-spacing:-.02em;color:var(--ink);margin:14px 0 0;max-width:30ch}
+</style>
+<div class="cai-abas">
+<div class="cai-abas-share">
+<p>Cet article peut servir à un confrère ?</p>
+<div aria-label="Partager cet article" class="cai-share">
+<a aria-label="Partager sur WhatsApp" data-net="wa" href="https://wa.me/?text=Avis%20sur%20les%20permanences%20t%C3%A9l%C3%A9phoniques%20%3A%20ce%20que%20disent%20275%20clients%20https%3A%2F%2Fwww.concierge-ai.fr%2Favis-permanence-telephonique" rel="noopener" target="_blank"><svg viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"></path></svg></a>
+<a aria-label="Partager sur LinkedIn" data-net="li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.concierge-ai.fr%2Favis-permanence-telephonique" rel="noopener" target="_blank"><svg viewbox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-4.9c0-1.2 0-2.7-1.6-2.7-1.7 0-2 1.3-2 2.6v5H9.5z"></path></svg></a>
+<a aria-label="Partager sur Facebook" data-net="fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.concierge-ai.fr%2Favis-permanence-telephonique" rel="noopener" target="_blank"><svg viewbox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21z"></path></svg></a>
+<a aria-label="Envoyer par e-mail" data-net="mail" href="mailto:?subject=Avis%20sur%20les%20permanences%20t%C3%A9l%C3%A9phoniques%20%3A%20ce%20que%20disent%20275%20clients&body=https%3A%2F%2Fwww.concierge-ai.fr%2Favis-permanence-telephonique"><svg viewbox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4 7.4V17h16V7.4zm0-2.3L19 7H5z"></path></svg></a>
+<button aria-label="Copier le lien" data-net="copy" type="button"><svg viewbox="0 0 24 24"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.5-3.5a1 1 0 1 1 1.4 1.4L12 13.4a1 1 0 0 1-1.4 0zM8.5 19.5a4 4 0 0 1-2.8-6.8l2.1-2.1a1 1 0 1 1 1.4 1.4l-2.1 2.1a2 2 0 0 0 2.8 2.8l2.1-2.1a1 1 0 0 1 1.4 1.4l-2.1 2.1a4 4 0 0 1-2.8 1.2zm7-5.7a1 1 0 0 1-.7-1.7l2.1-2.1a2 2 0 0 0-2.8-2.8L12 9.3a1 1 0 0 1-1.4-1.4l2.1-2.1a4 4 0 0 1 5.6 5.6l-2.1 2.1a1 1 0 0 1-.7.3z"></path></svg></button>
+</div>
+</div>
+<div class="cai-redac">
+<div aria-hidden="true" class="cai-redac-ic">CA</div>
+<div>
+<b>La rédaction de concierge-ai.fr</b>
+<p>Chaque article part de scènes réelles vécues par les indépendants au téléphone, de chiffres sourcés et des questions qu'ils posent vraiment. Les sources sont citées en fin d'article.</p>
+</div>
+</div>
+<section class="cai-box cai-box--g cai-acta">
+<span class="cai-eye cai-eye--w">Passer à l'action</span>
+<div class="cai-acta-t">Les six questions, <em>sur votre vraie ligne</em></div>
+<p class="cai-lead" style="max-width:54ch">Sept jours sur votre vraie ligne : vous voyez combien d'appels passaient sans réponse, et ce qu'ils valaient. Sans engagement, sans changer de numéro.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="https://thomasgio.fr/conciergeai-7109?am_id=bene" rel="sponsored nofollow noopener" target="_blank">Essayer 7 jours</a>
+<a class="cai-btn cai-btn--w" href="/demonstration">Écouter un appel réel</a>
+</div>
+<div class="cai-aussi">
+<h4>Pour aller plus loin</h4>
+<ul>
+<li><a href="/calculateur">Chiffrer mes appels manqués</a></li>
+<li><a href="/comparer/permanence-telephonique">Comparer les solutions</a></li>
+<li><a href="/metiers">Votre métier</a></li>
+<li><a href="/tarifs">Les formules et les prix</a></li>
+<li><a href="/blog">Tous les sujets du blog</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(22px,2.6vw,28px)">Ce site mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+<div class="cai-lire-t">
+<span class="cai-eye">À lire aussi</span>
+<div class="cai-lire-h">D'autres articles pour ne plus perdre de clients au téléphone</div>
+</div><div class="cai-steps cai-lia-grille"><a class="cai-mini cai-lia" href="/prix-du-marche"><figure class="cai-lia-img"><img alt="" height="475" loading="lazy" src="/images/secretariat-telephonique-vignette.webp" width="760"/></figure><h3>Les tarifs d'une permanence téléphonique en France</h3><p>Les grilles publiques relevées chez cinq prestataires, et le coût réel d'une heure couverte.</p><span class="cai-lia-plus">Lire l'article</span></a><a class="cai-mini cai-lia" href="/secretariat-telephonique"><figure class="cai-lia-img"><img alt="" height="475" loading="lazy" src="/images/standard-telephonique-ia-vignette.webp" width="760"/></figure><h3>Secrétariat téléphonique : ce qu'il fait vraiment, et où il s'arrête</h3><p>72 heures couvertes sur 168, mutualisé ou dédié, et les quatre endroits où un télésecrétariat s'arrête.</p><span class="cai-lia-plus">Lire l'article</span></a><a class="cai-mini cai-lia" href="/standard-telephonique-ia"><figure class="cai-lia-img"><img alt="" height="475" loading="lazy" src="/images/repondeur-rendez-vous-vignette.webp" width="760"/></figure><h3>Standard téléphonique IA : ce qu'il fait quand vous avez les mains prises</h3><p>Le mécanisme, les prix relevés chez trois prestataires, et les sept appels à passer pendant l'essai.</p><span class="cai-lia-plus">Lire l'article</span></a></a></div>
+</div>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Avis sur les permanences téléphoniques : ce que disent 275 clients","description":"Ce que disent vraiment 275 avis publics sur cinq prestataires de permanence téléphonique : ce que les clients louent, les quatre reproches qui reviennent partout, et ce qu'il faut vérifier avant de signer.","image":["https://www.concierge-ai.fr/images/avis-permanence-telephonique-og.jpg"],"datePublished":"2026-10-02","dateModified":"2026-10-02","inLanguage":"fr-FR","articleSection":"Coûts et solutions","url":"https://www.concierge-ai.fr/avis-permanence-telephonique","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.concierge-ai.fr/avis-permanence-telephonique"},"keywords":"avis permanence téléphonique, avis télésecrétariat, permanence téléphonique avis clients, télésecrétariat avis artisan, quel télésecrétariat choisir, retour expérience permanence téléphonique","author":{"@type":"Organization","name":"La rédaction de concierge-ai.fr","url":"https://www.concierge-ai.fr"},"publisher":{"@type":"Organization","name":"concierge-ai.fr","url":"https://www.concierge-ai.fr","logo":{"@type":"ImageObject","url":"https://www.concierge-ai.fr/images/6aae9b26909ad3.02855117_logoconciergeai2.webp"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Les permanences téléphoniques sont-elles bien notées ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Quatre des cinq prestataires relevés sur Trustpilot le 2 octobre 2026 tiennent une note supérieure à 4 sur 5 : 4,8 chez Préposé sur 51 avis, 4,5 chez Absys sur 168 avis, 4,3 chez Bureau24 sur 27 avis.Le volume reste faible pour un marché entier, et une moyenne cache parfois deux clientèles : Bureau24 affiche 4,3 avec 26 % d'avis à une étoile. Lisez les commentaires avant les moyennes."}},{"@type":"Question","name":"Quel est le reproche le plus fréquent ?","acceptedAnswer":{"@type":"Answer","text":"L'orthographe des noms et la prise des numéros de téléphone, notés à l'oreille. On le retrouve chez trois prestataires sur quatre, et souvent sous la plume de clients qui mettent quatre étoiles : ils sont contents et ça les gêne quand même.La parade existe et elle est simple : faire relire l'adresse et le numéro à voix haute avant de raccrocher. Demandez si c'est fait systématiquement."}},{"@type":"Question","name":"Que reprochent les avis à une étoile ?","acceptedAnswer":{"@type":"Answer","text":"Trois choses, par ordre de gravité. Un service qui s'arrête sans prévenir quand le forfait est épuisé. Une ligne injoignable sans que le client le sache, jusqu'à un mois dans un cas. Et le tarif, jugé « exorbitant » par un client d'Absys.Les deux premières se préviennent en exigeant un compte rendu après chaque appel : tant qu'il arrive, la ligne fonctionne."}},{"@type":"Question","name":"Un télésecrétariat humain fait-il moins d'erreurs qu'une machine ?","acceptedAnswer":{"@type":"Answer","text":"Pas sur les noms et les numéros, qui sont le reproche le plus fréquent des deux côtés. Une personne fatiguée en fin de journée et une reconnaissance vocale butent sur les mêmes rues mal articulées.L'humain garde l'avantage sur l'empathie et sur les situations non prévues. La machine garde l'avantage sur la régularité, puisque ses règles sont écrites une fois et ne varient pas selon l'heure."}},{"@type":"Question","name":"Faut-il se fier aux témoignages publiés par les prestataires ?","acceptedAnswer":{"@type":"Answer","text":"Ils sont choisis, donc ils ne vous apprennent rien sur les problèmes. Les fiches publiques Trustpilot et les avis Google sont plus utiles parce que personne ne les filtre.Le réflexe qui aide vraiment : lisez d'abord les avis à une et deux étoiles. Ils vous donnent la liste exacte des questions à poser au commercial."}},{"@type":"Question","name":"Combien d'avis faut-il pour que la note soit fiable ?","acceptedAnswer":{"@type":"Answer","text":"Il n'y a pas de seuil officiel, mais un avis unique ne dit rien : Thelem affiche 100 % de cinq étoiles sur un seul avis déposé en 2023.Dans ce relevé, seul Absys atteint un volume qui commence à être parlant, avec 168 avis. Regardez aussi la date du dernier avis : une fiche sans commentaire depuis deux ans ne vous renseigne pas sur le service d'aujourd'hui."}},{"@type":"Question","name":"Les données de mes clients restent-elles en France ?","acceptedAnswer":{"@type":"Answer","text":"Cela dépend du prestataire, et c'est à demander par écrit. Un client de Préposé en fait d'ailleurs son argument de satisfaction principal, en citant des serveurs certifiés RGPD situés en France.Posez trois questions : ce qui est conservé, où c'est hébergé, et pendant combien de temps. Le détail est sur la page conformité."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.concierge-ai.fr"},{"@type":"ListItem","position":2,"name":"Le blog","item":"https://www.concierge-ai.fr/blog"},{"@type":"ListItem","position":3,"name":"Avis sur les permanences téléphoniques : ce que disent 275 clients","item":"https://www.concierge-ai.fr/avis-permanence-telephonique"}]}]}
+</script>
+<!-- scripts de la page -->
+<script>
+(function(){
+  if(window.__caiPartHaut){return;} window.__caiPartHaut=true;
+  function ready(fn){if(document.readyState!=="loading"){fn();}else{document.addEventListener("DOMContentLoaded",fn);}}
+  ready(function(){
+    var box=document.getElementById("cai-part"); if(!box){return;}
+    var url=location.origin+location.pathname;
+    var h1=document.querySelector("h1");
+    var title=(h1&&h1.textContent.trim())||document.title;
+    var u=encodeURIComponent(url), t=encodeURIComponent(title);
+    var hrefs={wa:"https://wa.me/?text="+t+"%20"+u,li:"https://www.linkedin.com/sharing/share-offsite/?url="+u,fb:"https://www.facebook.com/sharer/sharer.php?u="+u,mail:"mailto:?subject="+t+"&body="+t+"%0A%0A"+u};
+    var els=box.querySelectorAll("[data-net]");
+    for(var i=0;i<els.length;i++){
+      (function(el){
+        var k=el.getAttribute("data-net");
+        if(hrefs[k]){el.setAttribute("href",hrefs[k]);}
+        if(k==="copy"){
+          el.addEventListener("click",function(){
+            var done=function(){el.classList.add("is-ok");el.setAttribute("aria-label","Lien copié");setTimeout(function(){el.classList.remove("is-ok");el.setAttribute("aria-label","Copier le lien");},1800);};
+            if(navigator.clipboard){navigator.clipboard.writeText(url).then(done,function(){});}else{var x=document.createElement("textarea");x.value=url;document.body.appendChild(x);x.select();document.execCommand("copy");document.body.removeChild(x);done();}
+          });
+        }
+      })(els[i]);
+    }
+    /* barre de progression, posée sous le menu collant */
+    var wrap=document.createElement("div"), bar=document.createElement("i");
+    wrap.setAttribute("aria-hidden","true");
+    wrap.style.cssText="position:fixed;left:0;right:0;top:0;height:3px;z-index:9999;pointer-events:none;background:transparent";
+    bar.style.cssText="display:block;height:100%;width:100%;background:#22C55E;transform-origin:0 50%;transform:scaleX(0)";
+    wrap.appendChild(bar); document.body.appendChild(wrap);
+    function headerBottom(){
+      var b=0, el=document.elementFromPoint(Math.round(window.innerWidth/2),2);
+      while(el&&el!==document.body&&el!==document.documentElement){
+        var cs=getComputedStyle(el);
+        if((cs.position==="fixed"||cs.position==="sticky")&&el.getBoundingClientRect().top<=2&&el!==wrap){b=Math.max(b,el.getBoundingClientRect().bottom);}
+        el=el.parentElement;
+      }
+      return b;
+    }
+    var tick=false;
+    function upd(){
+      tick=false; if(!bar){return;}
+      wrap.style.top=Math.round(headerBottom())+"px";
+      var art=document.querySelector(".cai-art")||document.body;
+      var r=art.getBoundingClientRect(), h=r.height-window.innerHeight;
+      var p=h>0?Math.min(Math.max(-r.top/h,0),1):0;
+      bar.style.transform="scaleX("+p.toFixed(4)+")";
+    }
+    function on(){if(!tick){tick=true;requestAnimationFrame(upd);}}
+    window.addEventListener("scroll",on,{passive:true});
+    window.addEventListener("resize",on);
+    upd();
+  });
+})();
+</script>
+<script>
+(function(){
+  function ready(fn){if(document.readyState!=="loading"){fn();}else{document.addEventListener("DOMContentLoaded",fn);}}
+  ready(function(){
+    var root=document.querySelector(".cai-art"); if(!root){return;}
+    var body=document.getElementById("cai-art-b"), aside=document.getElementById("cai-toc"), inner=document.getElementById("cai-toc-in");
+    var l1=document.getElementById("cai-toc-l"), l2=document.getElementById("cai-tocm-l");
+    var hs=body.querySelectorAll("h2"), links=[];
+    /* le sommaire est déjà écrit dans la page : on le vide avant de le reconstruire,
+       sinon chaque entrée apparaît deux fois. */
+    if(l1){l1.innerHTML="";} if(l2){l2.innerHTML="";}
+    function slug(t){return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
+    for(var i=0;i<hs.length;i++){
+      if(!hs[i].id){hs[i].id=slug(hs[i].textContent)||("partie-"+(i+1));}
+      [l1,l2].forEach(function(list,k){
+        var li=document.createElement("li"), a=document.createElement("a");
+        a.href="#"+hs[i].id; a.textContent=hs[i].textContent; li.appendChild(a); list.appendChild(li);
+        if(k===0){links.push(a);}
+      });
+    }
+    /* hauteur du menu collant de Systeme.io */
+    var off=110;
+    function headerBottom(){
+      var b=0, x=Math.round(window.innerWidth/2);
+      var el=document.elementFromPoint(x,2);
+      while(el&&el!==document.body&&el!==document.documentElement){
+        var cs=getComputedStyle(el);
+        if((cs.position==="fixed"||cs.position==="sticky")&&el.getBoundingClientRect().top<=2){b=Math.max(b,el.getBoundingClientRect().bottom);}
+        el=el.parentElement;
+      }
+      return b;
+    }
+    function setOff(){off=Math.max(24,Math.round(headerBottom())+24);root.style.setProperty("--cai-top",off+"px");}
+    /* collant : natif si possible, sinon calculé */
+    var native=true, p=aside?aside.parentElement:null;
+    while(p&&p!==document.body){var c=getComputedStyle(p);if(c.overflow!=="visible"||c.overflowY!=="visible"||c.transform!=="none"){native=false;break;}p=p.parentElement;}
+    if(inner){ if(native){inner.classList.add("is-sticky");}else{inner.style.position="absolute";inner.style.left="0";inner.style.right="0";} }
+    function place(){
+      if(!aside||native||getComputedStyle(aside).display==="none"){return;}
+      var r=aside.getBoundingClientRect(), ih=inner.offsetHeight;
+      var t=Math.min(Math.max(off-r.top,0),Math.max(aside.offsetHeight-ih,0));
+      inner.style.top=t+"px";
+    }
+    function spy(){
+      var cur=-1;
+      for(var i=0;i<hs.length;i++){if(hs[i].getBoundingClientRect().top<=off+40){cur=i;}}
+      for(var j=0;j<links.length;j++){links[j].className=(j===cur)?"is-on":"";}
+    }
+    var tick=false;
+    function onScroll(){if(tick){return;}tick=true;requestAnimationFrame(function(){setOff();place();spy();tick=false;});}
+    window.addEventListener("scroll",onScroll,{passive:true});
+    window.addEventListener("resize",onScroll);
+    setOff();place();spy();
+    /* clic sur un lien du sommaire */
+    root.addEventListener("click",function(e){
+      var a=e.target.closest?e.target.closest(".cai-toc-l a"):null; if(!a){return;}
+      var t=document.getElementById(a.getAttribute("href").slice(1)); if(!t){return;}
+      e.preventDefault(); setOff();
+      window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-off+4,behavior:"smooth"});
+      var m=document.getElementById("cai-tocm"); if(m&&a.closest("#cai-tocm")){m.open=false;}
+    });
+    /* replier le sommaire */
+    var btn=document.getElementById("cai-toc-h");
+    if(btn){btn.addEventListener("click",function(){var c=aside.classList.toggle("is-closed");btn.setAttribute("aria-expanded",c?"false":"true");onScroll();});}
+  });
+})();
+</script>
+<script>
+(function(){
+  if(window.__caiMsg){return;} window.__caiMsg=true;
+  document.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".cai-msg-c"):null; if(!b){return;}
+    var p=b.closest(".cai-msg").querySelector(".cai-msg-t"); if(!p){return;}
+    var t=p.textContent.replace(/^[\s«\u00a0]+|[\s»\u00a0]+$/g,"").replace(/\u00a0/g," ");
+    var ok=function(){b.classList.add("is-ok");b.textContent="Copié";setTimeout(function(){b.classList.remove("is-ok");b.textContent="Copier";},1800);};
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){});}
+    else{var x=document.createElement("textarea");x.value=t;document.body.appendChild(x);x.select();document.execCommand("copy");document.body.removeChild(x);ok();}
+  });
+})();
+</script>
+<script>
+(function(){
+  if(window.__caiShareBas){return;}
+  window.__caiShareBas=true;
+  function ready(fn){if(document.readyState!=="loading"){fn();}else{document.addEventListener("DOMContentLoaded",fn);}}
+  ready(function(){
+    var url=location.origin+location.pathname;
+    var h1=document.querySelector("h1");
+    var title=(h1&&h1.textContent.trim())||document.title;
+    var u=encodeURIComponent(url), t=encodeURIComponent(title);
+    var hrefs={wa:"https://wa.me/?text="+t+"%20"+u,li:"https://www.linkedin.com/sharing/share-offsite/?url="+u,fb:"https://www.facebook.com/sharer/sharer.php?u="+u,mail:"mailto:?subject="+t+"&body="+t+"%0A%0A"+u};
+    var els=document.querySelectorAll(".cai-abas .cai-share [data-net]");
+    for(var i=0;i<els.length;i++){
+      (function(el){
+        var n=el.getAttribute("data-net");
+        if(hrefs[n]){el.setAttribute("href",hrefs[n]);}
+        if(n==="copy"){
+          el.addEventListener("click",function(){
+            var done=function(){el.classList.add("is-ok");setTimeout(function(){el.classList.remove("is-ok");},1800);};
+            if(navigator.clipboard){navigator.clipboard.writeText(url).then(done);}else{var x=document.createElement("textarea");x.value=url;document.body.appendChild(x);x.select();document.execCommand("copy");document.body.removeChild(x);done();}
+          });
+        }
+      })(els[i]);
+    }
+  });
+})();
+</script>
+<script>
+/* liste native « À lire aussi » : une carte par ligne sur mobile */
+(function(){
+  if(window.__caiListeMob){return;} window.__caiListeMob=true;
+  function fix(){
+    var mob=window.innerWidth<768, g=document.querySelectorAll("div");
+    for(var i=0;i<g.length;i++){
+      var el=g[i];
+      if(el.closest(".cai")){continue;}
+      if(el.getAttribute("data-cai-grid")==="1"){el.style.gridTemplateColumns=mob?"minmax(0,1fr)":"";continue;}
+      var cs=getComputedStyle(el);
+      if(cs.display!=="grid"||!mob){continue;}
+      var cols=cs.gridTemplateColumns.split(" ").length;
+      if(cols<2){continue;}
+      var kids=el.children, cards=0;
+      for(var k=0;k<kids.length;k++){if(kids[k].querySelector("a img")){cards++;}}
+      if(cards>=1&&cards===kids.length){el.setAttribute("data-cai-grid","1");el.style.gridTemplateColumns="minmax(0,1fr)";}
+    }
+  }
+  function run(){fix();setTimeout(fix,800);setTimeout(fix,2500);}
+  if(document.readyState!=="loading"){run();}else{document.addEventListener("DOMContentLoaded",run);}
+  var t;window.addEventListener("resize",function(){clearTimeout(t);t=setTimeout(fix,200);});
+})();
+</script>

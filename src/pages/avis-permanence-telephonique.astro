@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/avis-permanence-telephonique.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Et vous, combien d'appels <em>partent chez le concurrent&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui arrive sur votre ligne le soir et le week-end, et ce que ça représente sur un mois.`,
+}))
+---
+
+<Base
+  titre="Avis permanence téléphonique : 275 avis clients dépouillés"
+  description="Ce que disent vraiment 275 avis publics sur cinq prestataires de permanence téléphonique : ce que les clients louent, les quatre reproches qui reviennent partout, et ce qu'il faut vérifier avant de signer."
+  chemin="/avis-permanence-telephonique"
+  og="/images/avis-permanence-telephonique-og.jpg"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>
