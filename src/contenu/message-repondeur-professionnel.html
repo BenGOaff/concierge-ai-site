@@ -306,6 +306,14 @@
 .cai .cai-msg-c{flex:none;font:600 .82rem/1 'Inter',sans-serif;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;cursor:pointer;transition:background .16s,border-color .16s,color .16s}
 .cai .cai-msg-c:hover{border-color:#0A2540}
 .cai .cai-msg-c.is-ok{background:#15803D;border-color:#15803D;color:#fff}
+/* --- bouton d'ecoute, ajoute par le script uniquement si une voix francaise existe --- */
+.cai .cai-msg-h{flex-wrap:wrap}
+.cai .cai-msg-h b{margin-right:auto}
+.cai .cai-msg-s{flex:none;display:inline-flex;align-items:center;gap:7px;font:600 .82rem/1 'Inter',sans-serif;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:9px 14px;cursor:pointer;transition:background .16s,border-color .16s,color .16s}
+.cai .cai-msg-s::before{content:"\25B8";font-size:.92rem;line-height:1;color:#15803D}
+.cai .cai-msg-s:hover{border-color:#0A2540}
+.cai .cai-msg-s[aria-pressed="true"]{background:#0A2540;border-color:#0A2540;color:#fff}
+.cai .cai-msg-s[aria-pressed="true"]::before{content:"\25A0";color:#fff}
 .cai .cai-art-b .cai-msg-t{margin:0;font-size:clamp(1rem,1.25vw,1.06rem);line-height:1.75;color:var(--ink)}
 .cai .cai-msg-t mark{background:#E2FBEC;color:#0A2540;padding:1px 3px;border-radius:4px}
 </style>
@@ -313,13 +321,13 @@
 <aside aria-label="Sommaire" class="cai-toc" id="cai-toc">
 <div class="cai-toc-in is-sticky" id="cai-toc-in">
 <button aria-expanded="true" class="cai-toc-h" id="cai-toc-h" type="button">Sommaire</button>
-<ol class="cai-toc-l" id="cai-toc-l"><li><a class="" href="#generateur-message-repondeur">Votre message de répondeur, écrit en dix secondes</a></li><li><a class="" href="#bon-message-repondeur-professionnel">Ce qu'un bon message de répondeur professionnel doit dire</a></li><li><a class="" href="#messages-repondeur-selon-le-moment">Messages de répondeur à copier selon le moment</a></li><li><a class="" href="#repondeur-fin-annee">Message de répondeur pour la fermeture de fin d'année</a></li><li><a class="" href="#exemples-message-repondeur-par-metier">Exemples de message répondeur par métier</a></li><li><a class="" href="#phrases-repondeur-qui-font-raccrocher">Les phrases de répondeur qui font raccrocher vos clients</a></li><li><a class="" href="#apres-le-bip-repondeur">Ce que fait le client après le bip du répondeur</a></li><li><a class="" href="#questions-message-repondeur">Questions fréquentes sur le message de répondeur professionnel</a></li></ol>
+<ol class="cai-toc-l" id="cai-toc-l"><li><a class="" href="#generateur-message-repondeur">Votre message de répondeur, écrit en dix secondes</a></li><li><a class="" href="#ce-que-votre-client-entend">Vous venez d'entendre ce que votre client entend</a></li><li><a class="" href="#bon-message-repondeur-professionnel">Ce qu'un bon message de répondeur professionnel doit dire</a></li><li><a class="" href="#messages-repondeur-selon-le-moment">Messages de répondeur à copier selon le moment</a></li><li><a class="" href="#repondeur-fin-annee">Message de répondeur pour la fermeture de fin d'année</a></li><li><a class="" href="#exemples-message-repondeur-par-metier">Exemples de message répondeur par métier</a></li><li><a class="" href="#phrases-repondeur-qui-font-raccrocher">Les phrases de répondeur qui font raccrocher vos clients</a></li><li><a class="" href="#apres-le-bip-repondeur">Ce que fait le client après le bip du répondeur</a></li><li><a class="" href="#questions-message-repondeur">Questions fréquentes sur le message de répondeur professionnel</a></li></ol>
 </div>
 </aside>
 <div class="cai-art-b" id="cai-art-b">
 <details class="cai-tocm" id="cai-tocm">
 <summary>Sommaire de l'article</summary>
-<ol class="cai-toc-l" id="cai-tocm-l"><li><a href="#generateur-message-repondeur">Votre message de répondeur, écrit en dix secondes</a></li><li><a href="#bon-message-repondeur-professionnel">Ce qu'un bon message de répondeur professionnel doit dire</a></li><li><a href="#messages-repondeur-selon-le-moment">Messages de répondeur à copier selon le moment</a></li><li><a href="#repondeur-fin-annee">Message de répondeur pour la fermeture de fin d'année</a></li><li><a href="#exemples-message-repondeur-par-metier">Exemples de message répondeur par métier</a></li><li><a href="#phrases-repondeur-qui-font-raccrocher">Les phrases de répondeur qui font raccrocher vos clients</a></li><li><a href="#apres-le-bip-repondeur">Ce que fait le client après le bip du répondeur</a></li><li><a href="#questions-message-repondeur">Questions fréquentes sur le message de répondeur professionnel</a></li></ol>
+<ol class="cai-toc-l" id="cai-tocm-l"><li><a href="#generateur-message-repondeur">Votre message de répondeur, écrit en dix secondes</a></li><li><a href="#ce-que-votre-client-entend">Vous venez d'entendre ce que votre client entend</a></li><li><a href="#bon-message-repondeur-professionnel">Ce qu'un bon message de répondeur professionnel doit dire</a></li><li><a href="#messages-repondeur-selon-le-moment">Messages de répondeur à copier selon le moment</a></li><li><a href="#repondeur-fin-annee">Message de répondeur pour la fermeture de fin d'année</a></li><li><a href="#exemples-message-repondeur-par-metier">Exemples de message répondeur par métier</a></li><li><a href="#phrases-repondeur-qui-font-raccrocher">Les phrases de répondeur qui font raccrocher vos clients</a></li><li><a href="#apres-le-bip-repondeur">Ce que fait le client après le bip du répondeur</a></li><li><a href="#questions-message-repondeur">Questions fréquentes sur le message de répondeur professionnel</a></li></ol>
 </details>
 <p class="cai-chapo">Un client vous appelle. Il entend trois sonneries, puis une voix d'opérateur : « Votre correspondant n'est pas disponible, veuillez laisser un message après le bip. » Il ne sait même pas s'il est au bon endroit. Il raccroche, et appelle le suivant. Votre message de répondeur est souvent <strong>la première chose que vos nouveaux clients entendent de vous</strong>. Voici des exemples prêts à copier, selon le moment et selon votre métier.</p>
 <div class="cai-ret">
@@ -391,10 +399,15 @@
 <div class="cai-msg"><div class="cai-msg-h"><b>Votre message</b><button class="cai-msg-c" type="button">Copier</button></div>
 <p class="cai-msg-t" id="cai-g-txt"></p></div>
 <p class="cai-gen-meta" id="cai-g-meta"></p>
-<p class="cai-gen-note">Lisez-le à voix haute avant de l'enregistrer. Un message se juge à l'oreille, pas à l'écrit : s'il vous essouffle, raccourcissez-le.</p>
+<p class="cai-gen-note">Un message se juge à l'oreille, pas à l'écrit. Le bouton « Écouter » le lit à voix haute avec la voix de votre navigateur, pour entendre ce que votre client entendra. S'il vous essouffle, raccourcissez-le.</p>
 </div>
 </div>
 </div>
+<h2 id="ce-que-votre-client-entend">Vous venez d'entendre ce que votre client entend</h2>
+<p class="cai-rep">Le message est bon. Il dit qui vous êtes, pourquoi vous ne répondez pas, et quand vous rappelez. C'est déjà très au-dessus de l'annonce par défaut de l'opérateur, et ça vous coûte dix minutes une seule fois.</p>
+<p>Il reste un répondeur. Il enregistre, il ne répond pas. Au moment où votre client l'entend, il a toujours sa fuite, son rendez-vous à décaler ou son devis à demander, et il a encore deux numéros ouverts dans ses résultats de recherche.</p>
+<p>C'est là que se joue l'écart. Un message bien écrit fait gagner quelques rappels sur ceux qui acceptent de laisser un message. Il ne fait rien pour les autres, et les autres sont la majorité : <a href="/appels-manques-perdre-des-clients">la plupart des appelants ne laissent pas de message</a> et composent le numéro suivant.</p>
+<p>Vous pouvez écouter plus bas le même appel, mais décroché : la demande écoutée, l'adresse vérifiée, le rendez-vous posé dans l'agenda et le résumé écrit qui arrive sur votre téléphone. La différence s'entend en quinze secondes.</p>
 <h2 id="bon-message-repondeur-professionnel">Ce qu'un bon message de répondeur professionnel doit dire</h2>
 <p class="cai-rep">Un bon message de répondeur professionnel dit en moins de 30 secondes qui vous êtes, pourquoi vous ne répondez pas, ce que le client doit laisser, et quand vous le rappelez. Le client sait qu'il est au bon endroit, et qu'il aura une réponse.</p>
 <p>Le message par défaut de l'opérateur fait l'inverse : il ne donne ni votre nom, ni votre métier, ni aucun délai. Pour un client qui vous appelle pour la première fois, c'est un doute de plus, au pire moment.</p>
@@ -707,6 +720,107 @@
     if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){});}
     else{var x=document.createElement("textarea");x.value=t;document.body.appendChild(x);x.select();document.execCommand("copy");document.body.removeChild(x);ok();}
   });
+})();
+</script>
+<script>
+/**
+ * Écouter le message avant de l'enregistrer.
+ *
+ * La page dit depuis toujours qu'un message se juge à l'oreille. Elle donne
+ * désormais le moyen de l'entendre, avec la synthèse vocale du navigateur :
+ * aucun service extérieur, aucune clé, aucune donnée qui sort du téléphone.
+ *
+ * Le bouton n'est ajouté que si une voix française existe réellement. Lire du
+ * français avec une voix anglaise sonne faux, et mieux vaut pas de bouton
+ * qu'un bouton qui donne une mauvaise impression du message.
+ */
+(function(){
+  if(window.__caiDire){return;} window.__caiDire=true;
+  var S=window.speechSynthesis;
+  if(!S||typeof SpeechSynthesisUtterance==="undefined"){return;}
+
+  var voix=null,pose=false,actif=null,gen=0;
+
+  /** Les voix arrivent de façon asynchrone : on retente tant qu'il n'y en a pas. */
+  function poser(){
+    if(pose){return;}
+    var v=S.getVoices()||[];
+    if(!v.length){return;}
+    for(var i=0;i<v.length;i++){ if(/^fr/i.test(v[i].lang)){voix=v[i];break;} }
+    if(!voix){return;}
+    pose=true;
+    var copies=document.querySelectorAll(".cai-msg-h .cai-msg-c");
+    for(var k=0;k<copies.length;k++){
+      var b=document.createElement("button");
+      b.type="button"; b.className="cai-msg-s";
+      b.setAttribute("aria-pressed","false");
+      b.textContent="Écouter";
+      copies[k].parentNode.insertBefore(b,copies[k]);
+    }
+  }
+  poser();
+  if(S.addEventListener){S.addEventListener("voiceschanged",poser);} else {S.onvoiceschanged=poser;}
+  // Sur iOS les voix n'existent parfois qu'après la première interaction.
+  document.addEventListener("pointerdown",function once(){document.removeEventListener("pointerdown",once);setTimeout(poser,0);});
+
+  function arreter(){
+    gen++;
+    try{S.cancel();}catch(e){}
+    if(actif){actif.textContent="Écouter";actif.setAttribute("aria-pressed","false");actif=null;}
+  }
+
+  /** Le texte lu : sans guillemets, sans crochets de champ, sans insécables. */
+  function texteDe(p){
+    return p.textContent
+      .replace(/[\[\]]/g,"")
+      .replace(/ /g," ")
+      .replace(/[«»]/g,"")
+      .replace(/\s+/g," ")
+      .trim();
+  }
+
+  /**
+   * Chrome coupe une énonciation qui dépasse une quinzaine de secondes. On
+   * découpe donc phrase par phrase et on empile : chaque morceau reste court.
+   */
+  function dire(texte){
+    var brut=texte.match(/[^.!?…]+[.!?…]*/g)||[texte];
+    var bouts=[];
+    for(var i=0;i<brut.length;i++){ var t=brut[i].trim(); if(t){bouts.push(t);} }
+    if(!bouts.length){return false;}
+    var mien=gen;
+    for(var j=0;j<bouts.length;j++){
+      var u=new SpeechSynthesisUtterance(bouts[j]);
+      // Si la voix choisie est refusée, la langue suffit à en obtenir une : on lit quand même.
+      try{u.voice=voix;}catch(err){}
+      u.lang=(voix&&voix.lang)||"fr-FR"; u.rate=0.95; u.pitch=1;
+      if(j===bouts.length-1){ u.onend=function(){ if(mien===gen){arreter();} }; }
+      u.onerror=function(){ if(mien===gen){arreter();} };
+      S.speak(u);
+    }
+    return true;
+  }
+
+  document.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".cai-msg-s"):null;
+    if(!b){return;}
+    if(actif===b){arreter();return;}
+    var cadre=b.closest(".cai-msg"); if(!cadre){return;}
+    var p=cadre.querySelector(".cai-msg-t"); if(!p){return;}
+    var t=texteDe(p); if(!t){return;}
+    arreter();
+    // L'état est posé avant de parler : certains moteurs terminent une phrase
+    // courte pendant l'appel à speak, et le bouton resterait bloqué sur Arrêter.
+    actif=b; b.textContent="Arrêter"; b.setAttribute("aria-pressed","true");
+    if(!dire(t)){arreter();}
+  });
+
+  // Changer un champ du générateur pendant la lecture : on arrete, le texte a bougé.
+  var gnr=document.querySelector(".cai-gen");
+  if(gnr){ gnr.addEventListener("input",arreter); gnr.addEventListener("change",arreter); }
+  // Une voix qui continue après la navigation, c'est le pire des souvenirs.
+  window.addEventListener("beforeunload",function(){try{S.cancel();}catch(e){}});
+  window.addEventListener("pagehide",function(){try{S.cancel();}catch(e){}});
 })();
 </script>
 <script>

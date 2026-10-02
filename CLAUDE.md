@@ -251,6 +251,32 @@ Soignea). On écrit « non calculable » dans la colonne, on ne devine pas. Et V
 n'est pas un standard IA : c'est un générateur de messages enregistrés, il relève
 de la page sur le message de répondeur professionnel.
 
+## Écouter le message, et ce que ça débloque
+
+La page sur le message de répondeur capte à elle seule 30 % des impressions du
+site. Elle disait depuis le début qu'un message se juge à l'oreille, sans donner
+le moyen de l'entendre. Le bouton « Écouter » comble ce manque avec la synthèse
+vocale du navigateur : aucun service extérieur, aucune clé, rien qui sorte du
+téléphone, et aucune page française concurrente ne le propose gratuitement.
+
+Les règles qui ont fait tenir la chose, à ne pas défaire :
+
+- **Le bouton n'apparaît que si une voix française existe.** Lire du français avec
+  une voix anglaise sonne faux, et donnerait une mauvaise impression du message.
+  Pas de voix, pas de bouton : c'est le script qui l'ajoute, jamais le HTML.
+- **On découpe phrase par phrase.** Chrome coupe une énonciation qui dépasse une
+  quinzaine de secondes, et les messages en font trente.
+- **L'état du bouton se pose avant de parler**, parce qu'un moteur peut terminer une
+  phrase courte pendant l'appel à speak et laisser le bouton bloqué sur Arrêter.
+- **On lit sans les crochets ni les guillemets**, sinon le lecteur entend
+  « crochet nom de l'entreprise ».
+- La voix se coupe au changement de page et dès qu'un champ du générateur bouge.
+
+Le pivot qui suit l'écoute est le cœur de l'affaire : le lecteur vient d'entendre
+ce que son client entend, et on enchaîne sur **« il reste un répondeur, il
+enregistre, il ne répond pas »**, puis vers l'appel décroché de la démonstration.
+En prose d'article, pas en second encart : la page en a déjà un vers la démo.
+
 ## Deux appels à l'action, deux poids
 
 Le quiz et l'essai de sept jours ont longtemps été le même objet visuel, deux
