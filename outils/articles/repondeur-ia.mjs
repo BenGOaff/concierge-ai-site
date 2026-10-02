@@ -88,18 +88,20 @@ export default {
     },
     {
       id: 'ou-sont-vos-donnees',
-      h2: "Où sont hébergées vos données, et pourquoi ça devient un critère",
+      h2: "Vos données : la question à poser, et la réponse qui compte",
       html: `
-<p class="cai-rep">Deux éditeurs sur neuf affichent clairement où vivent les données de vos clients. Un seul mentionne un hébergement certifié pour les données de santé. Pour les sept autres, l'information se demande.</p>
+<p class="cai-rep">Les informations recueillies pendant vos appels deviennent votre fichier client, et c'est vous le responsable vis-à-vis de vos clients, pas votre prestataire. La question se pose donc à tous, y compris à ceux qui n'en parlent pas sur leur page d'accueil.</p>
+<p>Trois éditeurs du relevé mettent le sujet en avant&nbsp;: Soignea annonce un hébergement en France avec certification HDS pour les professions de santé, Volubile annonce 100&nbsp;% des données en Europe sur une infrastructure Microsoft Azure, Trustlead parle d'une «&nbsp;IA souveraine et européenne&nbsp;». Les six autres n'en disent rien sur leur vitrine.</p>
+<p><strong>Ne tirez pas de conclusion de ce seul écart.</strong> Une phrase sur une page d'accueil n'est pas un engagement contractuel, et son absence ne prouve rien. «&nbsp;100&nbsp;% hébergé en Europe&nbsp;» ne dit rien des sous-traitants techniques, qui sont souvent américains chez tout le monde, y compris chez ceux qui affichent le drapeau. La seule réponse qui vaut est dans le contrat de sous-traitance, pas sur la page de vente.</p>
+<p>Demandez donc la même chose à chacun, par écrit, avant la mise en service&nbsp;:</p>
 <ul class="cai-ul">
-<li><strong>Soignea</strong> annonce des données hébergées en France, et un hébergement certifié HDS pour les médecins et les cliniques. C'est la seule mention de ce type du relevé, et elle n'a de valeur que pour les professions de santé, où elle est obligatoire.</li>
-<li><strong>Volubile</strong> annonce «&nbsp;100&nbsp;% des données hébergées en Europe, aucun transfert hors UE&nbsp;», sur une infrastructure Microsoft Azure européenne.</li>
-<li><strong>Trustlead</strong> met en avant «&nbsp;une IA souveraine et européenne&nbsp;» sans préciser davantage sur sa page d'accueil.</li>
-<li><strong>Fonio</strong> est un produit allemand traduit en français. Rien n'est annoncé sur l'hébergement.</li>
+<li><strong>Qu'est-ce qui est conservé&nbsp;?</strong> L'audio de l'appel, sa transcription, ou seulement la fiche de demande. C'est la question qui change le plus de choses, et la bonne réponse est souvent «&nbsp;le moins possible&nbsp;».</li>
+<li><strong>Pendant combien de temps&nbsp;?</strong> Une durée doit être fixée et limitée. «&nbsp;Indéfiniment&nbsp;» n'est pas une réponse acceptable.</li>
+<li><strong>Qui y a accès, et sous quel contrat&nbsp;?</strong> Demandez le contrat de sous-traitance, c'est un document normal que tout prestataire sérieux fournit.</li>
+<li><strong>Quelles données sont transférées hors Union européenne, et sous quel encadrement&nbsp;?</strong> La question honnête, celle qui distingue les réponses sérieuses des slogans.</li>
 </ul>
-<p>Pourquoi ça compte&nbsp;: les informations recueillies pendant vos appels deviennent votre fichier client, et <strong>c'est vous le responsable vis-à-vis de vos clients</strong>, pas votre prestataire. Si les appels sont enregistrés ou transcrits, la CNIL demande que chaque interlocuteur en soit informé au moment de l'appel.</p>
-<p>Trois questions à poser par écrit avant la mise en service, à n'importe quel éditeur&nbsp;: qu'est-ce qui est conservé (l'audio, le texte, ou seulement la fiche d'appel), où c'est hébergé, et pendant combien de temps. Une durée doit être fixée et limitée. Le détail est sur <a href="/conformite">la page conformité</a>.</p>
-<div class="cai-bon"><i aria-hidden="true">i</i><div><b>L'obligation qui vaut pour tous</b><p>Depuis le 2&nbsp;août 2026, l'article&nbsp;50 du règlement européen sur l'intelligence artificielle impose d'informer votre correspondant qu'il parle à un système d'IA. Une phrase d'accueil suffit, et elle doit figurer dans le script de n'importe quelle solution que vous retiendrez.</p></div></div>`,
+<div class="cai-bon"><i aria-hidden="true">i</i><div><b>Le cas particulier des professions de santé</b><p>Pour un médecin, un dentiste ou une clinique, l'hébergement certifié HDS n'est pas un argument commercial, c'est une obligation. Un seul éditeur du relevé l'annonce. Si vous exercez dans la santé, faites-en votre premier critère d'élimination et vérifiez auprès de votre ordre ce que votre mode d'exercice autorise.</p><p>Pour un artisan, un garage, une agence ou un restaurant, l'obligation n'existe pas. Ce qui compte alors, c'est ce qui est conservé et combien de temps.</p></div></div>
+<p>Et une obligation vaut pour tout le monde, quel que soit l'hébergement&nbsp;: depuis le 2&nbsp;août 2026, l'article&nbsp;50 du règlement européen sur l'intelligence artificielle impose d'informer votre correspondant qu'il parle à un système d'IA. Une phrase d'accueil suffit, et elle doit figurer dans le script de la solution que vous retiendrez. Le détail est sur <a href="/conformite">la page conformité</a>.</p>`,
     },
     {
       id: 'ce-que-le-prix-comprend-repondeur-ia',
@@ -116,7 +118,19 @@ export default {
 <li><strong>Qu'est-ce qui vous revient après l'appel&nbsp;?</strong> Un compte rendu écrit à chaque fois, ou rien. C'est aussi votre seule façon de savoir que la ligne fonctionne encore.</li>
 <li><strong>Que se passe-t-il quand personne ne rappelle&nbsp;?</strong> Un SMS automatique après un appel manqué et des rappels avant rendez-vous récupèrent des demandes qui seraient restées lettre morte. Tout le monde ne le propose pas.</li>
 </ul>
-<p>Posez ces sept questions à trois éditeurs et les écarts de prix s'expliquent presque toujours tout seuls. Une offre qui ne comprend ni l'installation, ni le paramétrage, ni le compte rendu n'est pas moins chère&nbsp;: elle est moins complète, et la différence se paie en soirées passées à configurer.</p>
+<p>Posez ces sept questions à trois éditeurs et les écarts de prix s'expliquent presque toujours tout seuls. Le marché se range en réalité en deux familles, et ce n'est pas une question de technologie.</p>
+<div class="cai-tw"><table class="cai-at">
+<thead><tr><th scope="col">&nbsp;</th><th scope="col">Les offres en libre-service</th><th scope="col">Les offres installées pour vous</th></tr></thead>
+<tbody>
+<tr><td data-l="Critère">Qui écrit vos scripts et vos règles</td><td data-l="Libre-service">Vous, dans une interface</td><td data-l="Installées">Une équipe, après un appel de 30 minutes</td></tr>
+<tr><td data-l="Critère">Votre temps</td><td data-l="Libre-service">Plusieurs soirées</td><td data-l="Installées">Trente minutes, une fois</td></tr>
+<tr><td data-l="Critère">Frais d'installation</td><td data-l="Libre-service">Sans objet</td><td data-l="Installées">Affichés 1 500 € chez Concierge AI, annoncés offerts</td></tr>
+<tr><td data-l="Critère">Ce que vous payez quand vous qualifiez bien</td><td data-l="Libre-service">Plus cher, la minute tourne</td><td data-l="Installées">Rien de plus au forfait à la conversation</td></tr>
+<tr><td data-l="Critère">Prix d'entrée</td><td data-l="Libre-service">49 à 99 €</td><td data-l="Installées">297 à 299 €</td></tr>
+</tbody>
+</table></div>
+<p>Autrement dit, l'écart de prix achète du temps qui est le vôtre. Une offre à 49&nbsp;€ ne comprend ni l'installation, ni le paramétrage, ni forcément le compte rendu&nbsp;: elle n'est pas moins chère, elle est moins complète, et la différence se paie en soirées passées à configurer une interface au lieu d'être à table.</p>
+<p>Et un détail de facturation finit souvent de trancher. <span class="cai-key">Chez les éditeurs qui facturent à la conversation, poser une question de plus au client ne coûte rien.</span> Chez ceux qui facturent à la minute, si. Quand la qualification est précisément ce qui transforme un appel en intervention, c'est le genre de ligne qui se voit sur l'année.</p>
 <p class="cai-fine"><strong>Transparence&nbsp;:</strong> concierge-ai.fr perçoit une commission d'affiliation sur Concierge AI, qui figure dans les tableaux de cette page à sa place et sans traitement de faveur. Les grilles des huit autres éditeurs sont accessibles en un clic dans les sources. Jugez sur les chiffres. <a href="/mentions-legales">Détails</a>.</p>`,
     },
     {

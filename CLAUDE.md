@@ -169,6 +169,39 @@ partir de Growth, WhatsApp et Instagram sur Elite.
 Ces lignes se rappellent chaque fois qu'un prix apparaît. Un montant qui se lit
 seul invite à chercher moins cher ailleurs.
 
+## L'hébergement des données : ce qu'on ne dit pas, et ce qu'on dit à la place
+
+**On n'affirme rien sur l'hébergement des données de Concierge AI.** L'éditeur
+vit aux États-Unis et rien n'est publié sur le sujet. Pas de «&nbsp;données en
+France&nbsp;», pas de «&nbsp;souveraineté&nbsp;», pas de drapeau. Tant qu'une
+source officielle ne le dit pas, le site se tait.
+
+**Et on ne laisse pas le sujet devenir un classement non plus.** Trustlead,
+Volubile et Soignea en font un argument de vente. Un tableau qui listerait qui
+l'annonce et qui ne l'annonce pas se lirait comme un palmarès où Concierge AI
+est absent. La bonne façon de traiter le sujet est de le transformer en
+question posée à tous, avec deux vérités utiles au lecteur&nbsp;:
+
+- une phrase sur une page d'accueil n'est pas un engagement contractuel, et
+  «&nbsp;100&nbsp;% Europe&nbsp;» ne dit rien des sous-traitants techniques ;
+- pour une profession de santé, l'hébergement certifié HDS est une obligation
+  et pas un argument. On le dit clairement, et on laisse ces professionnels
+  aller voir ailleurs si besoin. C'est ce qui protège le site.
+
+**Les trois arguments à mettre devant à la place**, tous vérifiables sur la
+page officielle de l'offre&nbsp;:
+
+1. **L'installation faite pour vous**, affichée 1 500 € et annoncée offerte,
+   plus l'appel de cadrage de trente minutes où une équipe écrit vos règles.
+   Les offres à 49 et 99 € sont en libre-service&nbsp;: c'est vous qui passez
+   les soirées dans l'interface.
+2. **La facturation à la conversation.** Poser une question de plus au client
+   ne coûte rien, là où un éditeur à la minute fait payer chaque seconde de
+   qualification. Et la qualification est précisément ce qui transforme un
+   appel en intervention.
+3. **Le compte rendu écrit après chaque appel**, plus le SMS automatique après
+   un appel manqué et les rappels avant rendez-vous à partir de Growth.
+
 ## Deux appels à l'action, deux poids
 
 Le quiz et l'essai de sept jours ont longtemps été le même objet visuel, deux
