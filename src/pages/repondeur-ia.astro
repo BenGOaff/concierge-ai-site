@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/repondeur-ia.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien d'appels partent <em>chez le concurrent&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui arrive sur votre ligne le soir et le week-end, et ce que ça représente sur un mois.`,
+}))
+---
+
+<Base
+  titre="Répondeur IA : les solutions disponibles en France et leurs prix"
+  description="Neuf répondeurs IA vendus en France, leurs prix relevés à la source, les trois façons de facturer qui ne se comparent pas, où sont hébergées vos données, et comment choisir selon votre volume."
+  chemin="/repondeur-ia"
+  og="/images/repondeur-ia-og.jpg"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>

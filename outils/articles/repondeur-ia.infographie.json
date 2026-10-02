@@ -1,0 +1,13 @@
+{
+  "sortie": "public/images/repondeur-ia",
+  "titre": ["Neuf répondeurs IA vendus en France,", "trois façons de facturer"],
+  "colonnes": ["", "60 appels de 2 min", "400 appels de 3 min"],
+  "lignes": [
+    ["À la minute, 0,15 €", "18 €", "180 €"],
+    ["À la minute, forfait", "99 €", "290 €"],
+    ["Aux appels par jour", "49 €", "199 €"],
+    ["À la conversation", "297 €", "297 €"],
+    ["Qui paramètre", "Vous", "L'équipe"]
+  ],
+  "surligne": [3, 2]
+}

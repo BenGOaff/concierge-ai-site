@@ -1,0 +1,199 @@
+export default {
+  slug: 'repondeur-ia',
+  titre: "Répondeur IA : les solutions disponibles en France et leurs prix",
+  description: "Neuf répondeurs IA vendus en France, leurs prix relevés à la source, les trois façons de facturer qui ne se comparent pas, où sont hébergées vos données, et comment choisir selon votre volume.",
+  h1: "Répondeur IA : ce qui existe en France, et ce que ça coûte vraiment",
+  publie: '2026-10-02',
+  lecture: 12,
+  rubrique: 'Coûts et solutions',
+  og: '/images/repondeur-ia-og.jpg',
+  motsCles: [
+    'répondeur IA', 'répondeur téléphonique IA', 'répondeur intelligent',
+    'répondeur IA prix', 'meilleur répondeur IA', 'répondeur IA artisan',
+    'répondeur automatique intelligent', 'secrétariat IA',
+  ],
+
+  chapo: `Vous tapez «&nbsp;répondeur IA&nbsp;» et vous tombez sur des comparatifs écrits par les éditeurs eux-mêmes, qui se classent tous premiers. Ou sur des listes d'outils américains que vous ne pourrez jamais connecter à votre ligne.<br><br>Alors voici le relevé&nbsp;: <strong>neuf répondeurs IA réellement vendus en France, avec les prix affichés sur leurs propres pages, relevés le 2&nbsp;octobre 2026.</strong><br><br>Trois façons de facturer qui ne se comparent pas entre elles, des écarts de 49 à 997&nbsp;€ par mois, et une question que presque personne ne pose avant de signer. On vous dit aussi dans quel cas le moins cher est le bon choix.`,
+
+  retenir: {
+    titre: "Le marché français du répondeur IA en quatre lignes",
+    points: [
+      `Les prix affichés vont de <strong>49&nbsp;€ à 997&nbsp;€ par mois</strong>, et de 0,15 à 0,39&nbsp;€ la minute chez ceux qui facturent à l'usage.`,
+      `Trois unités de facturation coexistent&nbsp;: la minute, l'appel par jour, et la conversation. Deux devis au même montant peuvent coûter du simple au double sur une année.`,
+      `Deux éditeurs sur neuf affichent clairement où vivent vos données. Un seul mentionne un hébergement certifié pour les données de santé.`,
+      `En dessous d'une centaine d'appels par mois, les offres à la minute sont les moins chères. Au-delà, elles deviennent les plus coûteuses.`,
+    ],
+  },
+
+  sections: [
+    {
+      id: 'repondeur-ia-definition',
+      h2: "Qu'est-ce qu'un répondeur IA, et ce que ce n'est pas",
+      html: `
+<p class="cai-rep">Un répondeur IA décroche vos appels quand vous ne pouvez pas, comprend ce que le client raconte avec ses mots, et agit&nbsp;: il cale un rendez-vous dans votre agenda, vous transfère l'appel si la situation remplit vos critères d'urgence, ou note la demande et vous envoie le compte rendu. Il tourne 24&nbsp;h/24, sans personne derrière.</p>
+<p>Le nom prête à confusion, parce qu'il contient le mot «&nbsp;répondeur&nbsp;». Les trois objets suivants n'ont rien à voir&nbsp;:</p>
+<ul class="cai-ul">
+<li><strong>Le répondeur classique.</strong> Il enregistre un message et s'arrête là. C'est vous qui écoutez, vous qui rappelez, vous qui négociez le créneau le soir.</li>
+<li><strong>Le serveur vocal à touches.</strong> «&nbsp;Tapez 1 pour un devis.&nbsp;» Il range l'appel dans une case sans comprendre la demande. Quelqu'un qui a de l'eau dans son couloir n'a aucune touche à presser. Le détail est dans <a href="/lexique/serveur-vocal-interactif">l'entrée du lexique</a>.</li>
+<li><strong>Le générateur de message vocal.</strong> Il fabrique l'annonce que votre répondeur diffuse, avec une voix de synthèse. C'est utile, mais ça ne décroche pas&nbsp;: <a href="/message-repondeur-professionnel">notre générateur en écrit un gratuitement</a>.</li>
+</ul>
+<p>Ce qui distingue un répondeur IA des trois, c'est qu'il <strong>agit</strong>. À la fin de l'appel, il y a un créneau bloqué, une urgence sur votre portable, ou une fiche écrite. Pas un message à écouter.</p>`,
+    },
+    {
+      id: 'solutions-repondeur-ia-france',
+      h2: "Les neuf répondeurs IA vendus en France, et leurs prix",
+      html: `
+<p class="cai-rep">Relevé le 2&nbsp;octobre 2026 sur les pages publiques de chaque éditeur. Les montants qui ne sont pas affichés sont notés comme tels&nbsp;: quand un prix n'apparaît nulle part, c'est une information en soi.</p>
+<div class="cai-tw"><table class="cai-at">
+<thead><tr><th scope="col">Éditeur</th><th scope="col">Entrée de gamme</th><th scope="col">Ce qui est facturé</th><th scope="col">Haut de gamme affiché</th></tr></thead>
+<tbody>
+<tr><td data-l="Éditeur">Fonio</td><td data-l="Entrée">0,15 € la minute</td><td data-l="Facturé">La minute</td><td data-l="Haut de gamme">Non affiché</td></tr>
+<tr><td data-l="Éditeur">Trustlead</td><td data-l="Entrée">49 € / mois, 1 à 20 appels par jour</td><td data-l="Facturé">Les appels par jour</td><td data-l="Haut de gamme">Dès 499 €</td></tr>
+<tr><td data-l="Éditeur">Elio</td><td data-l="Entrée">79 € HT, 150 minutes</td><td data-l="Facturé">La minute</td><td data-l="Haut de gamme">399 € HT, 800 minutes</td></tr>
+<tr><td data-l="Éditeur">Ringover (AIRO)</td><td data-l="Entrée">99 €, 300 minutes</td><td data-l="Facturé">La minute</td><td data-l="Haut de gamme">1 900 €, 10 000 minutes</td></tr>
+<tr><td data-l="Éditeur">Concierge AI</td><td data-l="Entrée">297 €, 500 conversations</td><td data-l="Facturé">La conversation</td><td data-l="Haut de gamme">997 €</td></tr>
+<tr><td data-l="Éditeur">VOKAI</td><td data-l="Entrée">299 €, 1 agent</td><td data-l="Facturé">L'agent</td><td data-l="Haut de gamme">499 €, 3 agents</td></tr>
+<tr><td data-l="Éditeur">Soignea</td><td data-l="Entrée">299 € HT pour 4 semaines</td><td data-l="Facturé">Le forfait</td><td data-l="Haut de gamme">Non affiché</td></tr>
+<tr><td data-l="Éditeur">Le Répondeur Intelligent</td><td data-l="Entrée">Non affiché</td><td data-l="Facturé">Non précisé</td><td data-l="Haut de gamme">Non affiché</td></tr>
+<tr><td data-l="Éditeur">Volubile</td><td data-l="Entrée">Non affiché</td><td data-l="Facturé">Non précisé</td><td data-l="Haut de gamme">Non affiché</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine">Montants relevés sur les pages publiques des éditeurs le 2&nbsp;octobre 2026, liens en sources. Ringover annonce aussi 0,39&nbsp;€ la minute sans engagement et 60&nbsp;minutes offertes par mois. Trustlead et Soignea affichent une remise à l'année, de 15 et 23&nbsp;%. Ces grilles évoluent, vérifiez-les avant de décider.</p>
+<p>Trois choses sautent aux yeux dans ce tableau.</p>
+<p><strong>Un écart de 1 à 20 sur l'entrée de gamme.</strong> De 49&nbsp;€ chez Trustlead à 299&nbsp;€ chez Soignea et VOKAI. Un écart pareil ne s'explique pas par la technologie, qui est à peu près la même partout&nbsp;: il s'explique par ce qui est compris dans le prix, et on y revient plus bas.</p>
+<p><strong>Trois éditeurs sur neuf n'affichent aucun prix.</strong> Le «&nbsp;devis sur demande&nbsp;» est un choix commercial légitime, mais pour un artisan qui compare le dimanche soir sur son téléphone, c'est souvent éliminatoire. Vous perdez trente minutes à remplir un formulaire pour un chiffre que les autres mettent sur leur page.</p>
+<p><strong>Et personne ne facture la même chose.</strong> C'est le vrai piège, et il mérite sa section.</p>`,
+    },
+    {
+      id: 'comparer-prix-repondeur-ia',
+      h2: "Pourquoi deux devis au même prix ne coûtent pas pareil",
+      html: `
+<p class="cai-rep">Trois unités coexistent sur ce marché&nbsp;: la minute, le nombre d'appels par jour, et la conversation. Pour comparer, il faut tout ramener à votre propre volume. Comptez vos appels d'une semaine ordinaire, multipliez par 4,33, et estimez votre durée moyenne.</p>
+<p>Prenons un dépanneur avec 60&nbsp;appels par mois de 2&nbsp;minutes, puis un cabinet avec 400&nbsp;appels de 3&nbsp;minutes. Voici ce que chaque modèle lui facture.</p>
+<div class="cai-tw"><table class="cai-at">
+<thead><tr><th scope="col">Modèle</th><th scope="col">60 appels de 2 min</th><th scope="col">400 appels de 3 min</th></tr></thead>
+<tbody>
+<tr><td data-l="Modèle">À la minute, 0,15 € (Fonio)</td><td data-l="60 appels">18 €</td><td data-l="400 appels">180 €</td></tr>
+<tr><td data-l="Modèle">À la minute, forfait (Elio)</td><td data-l="60 appels">79 € HT</td><td data-l="400 appels">495 € HT</td></tr>
+<tr><td data-l="Modèle">À la minute, forfait (Ringover)</td><td data-l="60 appels">99 €</td><td data-l="400 appels">290 €</td></tr>
+<tr><td data-l="Modèle">Aux appels par jour (Trustlead)</td><td data-l="60 appels">49 €</td><td data-l="400 appels">199 €</td></tr>
+<tr><td data-l="Modèle">À la conversation (Concierge AI)</td><td data-l="60 appels">297 €</td><td data-l="400 appels">297 €</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine">Calculs faits à partir des grilles relevées plus haut, en TTC pour les éditeurs qui affichent en TTC et en HT pour ceux qui affichent en HT&nbsp;: l'écart de 20&nbsp;% est à vérifier avant toute comparaison. Ringover inclut 60&nbsp;minutes offertes par mois, non déduites ici. Les volumes au-delà du forfait sont facturés à la minute chez Elio et Ringover.</p>
+<p><strong>À faible volume, les offres à la minute gagnent largement</strong>, et il faut le dire&nbsp;: 18&nbsp;€ chez Fonio contre 297&nbsp;€ ailleurs, pour un dépanneur qui reçoit trois appels par jour, la différence est réelle.</p>
+<p>Ce qui change au-delà, c'est la pente. À la minute, votre facture monte avec votre activité, et elle monte aussi avec la qualité du travail. <span class="cai-key">Chaque question posée au client vous coûte de l'argent.</span></p>
+<p>Faire passer un appel de 1 à 3&nbsp;minutes pour recueillir l'adresse exacte, l'étage et la nature de la panne, c'est 0,30&nbsp;€ de plus par appel à 0,15&nbsp;€ la minute, et 0,48&nbsp;€ chez un éditeur à 0,24&nbsp;€. Sur 200 appels, entre 60 et 96&nbsp;€ par mois pour avoir bien fait le travail.</p>
+<p>Or c'est exactement cette qualification qui transforme un message en intervention. Un modèle qui la facture à la minute vous pousse à l'abréger, au moment précis où il faudrait prendre trente secondes de plus. Au forfait à la conversation, elle ne coûte rien.</p>`,
+    },
+    {
+      id: 'ou-sont-vos-donnees',
+      h2: "Où sont hébergées vos données, et pourquoi ça devient un critère",
+      html: `
+<p class="cai-rep">Deux éditeurs sur neuf affichent clairement où vivent les données de vos clients. Un seul mentionne un hébergement certifié pour les données de santé. Pour les sept autres, l'information se demande.</p>
+<ul class="cai-ul">
+<li><strong>Soignea</strong> annonce des données hébergées en France, et un hébergement certifié HDS pour les médecins et les cliniques. C'est la seule mention de ce type du relevé, et elle n'a de valeur que pour les professions de santé, où elle est obligatoire.</li>
+<li><strong>Volubile</strong> annonce «&nbsp;100&nbsp;% des données hébergées en Europe, aucun transfert hors UE&nbsp;», sur une infrastructure Microsoft Azure européenne.</li>
+<li><strong>Trustlead</strong> met en avant «&nbsp;une IA souveraine et européenne&nbsp;» sans préciser davantage sur sa page d'accueil.</li>
+<li><strong>Fonio</strong> est un produit allemand traduit en français. Rien n'est annoncé sur l'hébergement.</li>
+</ul>
+<p>Pourquoi ça compte&nbsp;: les informations recueillies pendant vos appels deviennent votre fichier client, et <strong>c'est vous le responsable vis-à-vis de vos clients</strong>, pas votre prestataire. Si les appels sont enregistrés ou transcrits, la CNIL demande que chaque interlocuteur en soit informé au moment de l'appel.</p>
+<p>Trois questions à poser par écrit avant la mise en service, à n'importe quel éditeur&nbsp;: qu'est-ce qui est conservé (l'audio, le texte, ou seulement la fiche d'appel), où c'est hébergé, et pendant combien de temps. Une durée doit être fixée et limitée. Le détail est sur <a href="/conformite">la page conformité</a>.</p>
+<div class="cai-bon"><i aria-hidden="true">i</i><div><b>L'obligation qui vaut pour tous</b><p>Depuis le 2&nbsp;août 2026, l'article&nbsp;50 du règlement européen sur l'intelligence artificielle impose d'informer votre correspondant qu'il parle à un système d'IA. Une phrase d'accueil suffit, et elle doit figurer dans le script de n'importe quelle solution que vous retiendrez.</p></div></div>`,
+    },
+    {
+      id: 'ce-que-le-prix-comprend-repondeur-ia',
+      h2: "Ce qui explique vraiment l'écart de 49 à 997 €",
+      html: `
+<p class="cai-rep">La technologie est à peu près la même chez tout le monde. Ce qui sépare une offre à 49&nbsp;€ d'une offre à 297&nbsp;€, c'est ce que vous faites vous-même et ce que quelqu'un fait pour vous.</p>
+<p>Voici les sept lignes à demander, dans le même ordre, à chaque éditeur que vous contacterez.</p>
+<ul class="cai-ul">
+<li><strong>Qui installe et paramètre&nbsp;?</strong> Vous, ou une équipe. Et à quel prix. Les offres les moins chères sont presque toujours en libre-service&nbsp;: vous écrivez vous-même vos scripts, vos règles d'urgence et vos horaires.</li>
+<li><strong>Combien de temps on vous demande&nbsp;?</strong> Un appel de cadrage de trente minutes où vous racontez votre métier, ou plusieurs soirées à configurer une interface.</li>
+<li><strong>En combien de temps la ligne est en service&nbsp;?</strong> Quarante-huit heures annoncées chez certains, tout de suite chez les offres en libre-service, à condition d'avoir fait le travail vous-même.</li>
+<li><strong>Y a-t-il un essai, et avant ou après paiement&nbsp;?</strong> Sept jours sur votre vraie ligne avant tout paiement n'est pas la même chose qu'un remboursement sous conditions.</li>
+<li><strong>Quel engagement de durée&nbsp;?</strong> Aucun chez la plupart des éditeurs relevés. Vérifiez la reconduction tacite et les frais de résiliation.</li>
+<li><strong>Qu'est-ce qui vous revient après l'appel&nbsp;?</strong> Un compte rendu écrit à chaque fois, ou rien. C'est aussi votre seule façon de savoir que la ligne fonctionne encore.</li>
+<li><strong>Que se passe-t-il quand personne ne rappelle&nbsp;?</strong> Un SMS automatique après un appel manqué et des rappels avant rendez-vous récupèrent des demandes qui seraient restées lettre morte. Tout le monde ne le propose pas.</li>
+</ul>
+<p>Posez ces sept questions à trois éditeurs et les écarts de prix s'expliquent presque toujours tout seuls. Une offre qui ne comprend ni l'installation, ni le paramétrage, ni le compte rendu n'est pas moins chère&nbsp;: elle est moins complète, et la différence se paie en soirées passées à configurer.</p>
+<p class="cai-fine"><strong>Transparence&nbsp;:</strong> concierge-ai.fr perçoit une commission d'affiliation sur Concierge AI, qui figure dans les tableaux de cette page à sa place et sans traitement de faveur. Les grilles des huit autres éditeurs sont accessibles en un clic dans les sources. Jugez sur les chiffres. <a href="/mentions-legales">Détails</a>.</p>`,
+    },
+    {
+      id: 'quel-repondeur-ia-choisir',
+      h2: "Quel répondeur IA choisir selon votre situation",
+      html: `
+<p class="cai-rep">Il n'y a pas de meilleur répondeur IA dans l'absolu. Il y a votre volume d'appels, le temps que vous pouvez y consacrer, et ce que vous perdez quand un appel se perd.</p>
+<ul class="cai-ul">
+<li><strong>Moins de trois appels par jour, et du temps devant vous.</strong> Les offres à la minute sont imbattables sur le prix. Vous paramétrez vous-même, vous y passez quelques soirées, et vous payez ce que vous consommez. C'est le bon choix si votre panier moyen est bas et votre activité régulière.</li>
+<li><strong>Entre cinq et vingt appels par jour, et aucune soirée à y consacrer.</strong> C'est là que le forfait avec installation faite pour vous se justifie. Le calcul est simple&nbsp;: à 250&nbsp;€ l'intervention, deux chantiers récupérés couvrent 297&nbsp;€. À 450&nbsp;€, un seul suffit.</li>
+<li><strong>Une activité d'urgence, le soir et le week-end.</strong> Vérifiez d'abord la couverture réelle et le transfert des urgences vers votre portable. Un répondeur IA qui ne distingue pas une fuite active d'une demande de devis ne vous sert à rien à 2&nbsp;h du matin.</li>
+<li><strong>Une profession de santé.</strong> L'hébergement certifié HDS n'est pas une option, et il n'est annoncé que par un éditeur du relevé. Vérifiez aussi auprès de votre ordre ce que votre mode d'exercice autorise.</li>
+<li><strong>Plusieurs personnes et plusieurs agendas.</strong> Demandez combien d'appels simultanés sont prévus au contrat. Un «&nbsp;agent&nbsp;» désigne tantôt un assistant configuré, tantôt une ligne simultanée, et la différence se découvre le jour où douze personnes appellent en même temps.</li>
+</ul>
+<p>Dans tous les cas, le vrai juge est l'essai. Les sept appels à passer vous-même avant de payer sont détaillés sur <a href="/standard-telephonique-ia#tester-standard-telephonique-ia">notre guide du standard téléphonique IA</a>&nbsp;: vingt minutes, et vous savez ce que trois mois d'abonnement vous apprendraient.</p>`,
+    },
+  ],
+
+  faq: {
+    id: 'questions-repondeur-ia',
+    h2: 'Questions fréquentes sur les répondeurs IA',
+    items: [
+      { q: "Combien coûte un répondeur IA en France ?",
+        r: `<p>Les prix affichés par les éditeurs au 2&nbsp;octobre 2026 vont de 49&nbsp;€ à 997&nbsp;€ par mois, et de 0,15 à 0,39&nbsp;€ la minute chez ceux qui facturent à l'usage.</p><p>L'écart ne vient pas de la technologie, qui est comparable partout, mais de ce qui est compris&nbsp;: installation faite pour vous ou en libre-service, compte rendu après chaque appel, essai avant paiement.</p>` },
+      { q: "Quelle différence entre un répondeur IA et un répondeur classique ?",
+        r: `<p>Un répondeur classique enregistre un message et s'arrête là. C'est vous qui écoutez, qui rappelez et qui négociez le créneau le soir.</p><p>Un répondeur IA comprend la demande pendant l'appel et agit&nbsp;: il cale un rendez-vous dans votre agenda, transfère une urgence sur votre portable, ou vous envoie une fiche écrite. À la fin de l'appel, il y a un résultat, pas un message à écouter.</p>` },
+      { q: "Mes clients vont-ils s'en rendre compte ?",
+        r: `<p>Oui, et c'est obligatoire. Depuis le 2&nbsp;août 2026, l'article&nbsp;50 du règlement européen sur l'intelligence artificielle impose d'informer votre correspondant qu'il parle à un système d'IA. Une phrase d'accueil y suffit.</p><p>Ce que retiennent vos clients, en pratique, c'est d'avoir obtenu une réponse à 20&nbsp;h&nbsp;15 au lieu de sonner dans le vide.</p>` },
+      { q: "Où sont hébergées les données de mes clients ?",
+        r: `<p>Cela dépend de l'éditeur, et deux seulement sur les neuf relevés l'affichent clairement sur leur site. Un seul mentionne un hébergement certifié HDS pour les données de santé.</p><p>Posez trois questions par écrit&nbsp;: ce qui est conservé, où c'est hébergé, et combien de temps. C'est vous le responsable vis-à-vis de vos clients, pas votre prestataire.</p>` },
+      { q: "Faut-il changer de numéro de téléphone ?",
+        r: `<p>Non, chez aucun des éditeurs relevés. Le branchement se fait par un renvoi d'appel conditionnel sur votre ligne actuelle&nbsp;: votre téléphone sonne d'abord, et le renvoi ne se déclenche que si vous ne décrochez pas.</p><p>Vos cartes de visite, votre fiche Google et le marquage de votre véhicule gardent le même numéro. <a href="/renvoi-appel-si-non-reponse">Les codes de renvoi sont ici</a>, opérateur par opérateur.</p>` },
+      { q: "Le moins cher est-il un mauvais choix ?",
+        r: `<p>Pas du tout, à condition de savoir ce que vous achetez. En dessous de trois appels par jour, une offre à la minute vous coûtera dix fois moins qu'un forfait, et c'est le bon calcul.</p><p>La contrepartie est que vous paramétrez vous-même vos scripts, vos règles d'urgence et vos horaires, et que votre facture monte avec votre activité. Comptez les soirées que vous êtes prêt à y passer.</p>` },
+      { q: "Que se passe-t-il si le répondeur IA ne comprend pas ?",
+        r: `<p>C'est ce qui décide de tout. Un système correctement conçu dit qu'il n'a pas compris, redemande une fois, puis transmet la demande sans l'interpréter. Un système bâclé produit une réponse plausible et fausse.</p><p>Vérifiez-le en un appel pendant l'essai&nbsp;: posez une question que vous n'avez pas prévue au paramétrage, et écoutez ce qu'il en fait.</p>` },
+      { q: "Un répondeur IA remplace-t-il une secrétaire ?",
+        r: `<p>Non, et les éditeurs honnêtes ne le prétendent pas. Il décroche quand personne ne peut décrocher, applique des règles que vous avez écrites, et ne sait rien faire de ce que vous n'avez pas prévu.</p><p>Beaucoup d'indépendants gardent les deux&nbsp;: une personne en journée pour la relation et l'administratif, un répondeur IA le soir, le week-end et sur les doubles appels.</p>` },
+    ],
+  },
+
+  conclusion: {
+    titre: "Ce qu'il faut regarder avant le prix",
+    html: `<p>Neuf éditeurs, des prix de 49 à 997&nbsp;€, et une technologie à peu près équivalente. Ce qui vous départagera n'est pas le montant affiché, c'est la réponse à deux questions&nbsp;: combien de soirées êtes-vous prêt à passer à paramétrer, et que vaut un appel que vous ratez.</p><p>Faites le calcul avec vos chiffres, puis passez les sept appels d'essai sur votre vraie ligne. C'est vingt minutes, et ça vaut tous les comparatifs, celui-ci compris.</p>`,
+  },
+
+  sources: [
+    { url: 'https://trustlead.co/repondeur-ia/', texte: 'Trustlead, formules et prix publiés, relevés le 2 octobre 2026' },
+    { url: 'https://eliocall.com/tarifs/', texte: 'Elio, grille tarifaire publiée, relevée le 2 octobre 2026' },
+    { url: 'https://www.ringover.fr/repondeur-ia', texte: 'Ringover AIRO, formules et prix publiés, relevés le 2 octobre 2026' },
+    { url: 'https://www.fonio.ai/fr/use-cases/ki-anrufbeantworter/', texte: 'Fonio, tarif à la minute affiché, relevé le 2 octobre 2026' },
+    { url: 'https://soignea.com/', texte: 'Soignea, prix et hébergement des données publiés, relevés le 2 octobre 2026' },
+    { url: 'https://vokai.fr/agent-vocal-ia', texte: 'VOKAI, formules et prix publiés, relevés le 2 octobre 2026' },
+    { url: 'https://www.volubile.ai/', texte: "Volubile, annonces sur l'hébergement des données, relevées le 2 octobre 2026" },
+    { url: 'https://www.lerepondeurintelligent.fr/', texte: 'Le Répondeur Intelligent, page produit consultée le 2 octobre 2026' },
+    { url: 'https://artificialintelligenceact.eu/article/50/', texte: "Article 50 du règlement européen sur l'intelligence artificielle, applicable depuis le 2 août 2026" },
+  ],
+
+  cta: `Les sept appels, <em>sur votre vraie ligne</em>`,
+
+  quiz: {
+    titre: `Combien d'appels partent <em>chez le concurrent&nbsp;?</em>`,
+    chapo: `Cinq questions pour savoir ce qui arrive sur votre ligne le soir et le week-end, et ce que ça représente sur un mois.`,
+  },
+
+  lireAussi: [
+    { url: '/standard-telephonique-ia',
+      h3: "Standard téléphonique IA : ce qu'il fait quand vous avez les mains prises",
+      extrait: "Le mécanisme de la sonnerie au rendez-vous, les six situations où ça échoue, et les sept appels à passer pendant l'essai.",
+      img: '/images/standard-telephonique-ia-vignette.webp' },
+    { url: '/avis-permanence-telephonique',
+      h3: 'Avis sur les permanences téléphoniques : ce que disent 275 clients',
+      extrait: "Les quatre reproches qui reviennent chez tous les prestataires, et les six questions à poser avant de signer.",
+      img: '/images/avis-permanence-telephonique-vignette.webp' },
+    { url: '/prix-du-marche',
+      h3: "Les tarifs d'une permanence téléphonique en France",
+      extrait: "Les grilles relevées chez cinq prestataires, humains et machines, et le coût réel d'une heure couverte.",
+      img: '/images/secretariat-telephonique-vignette.webp' },
+  ],
+}
