@@ -89,6 +89,44 @@ export default {
 <p>Or c'est exactement cette qualification qui transforme un message en intervention. Un modèle qui la facture à la minute vous pousse à l'abréger, au moment précis où il faudrait prendre trente secondes de plus. Au forfait à la conversation, elle ne coûte rien.</p>`,
     },
     {
+      id: 'avis-utilisateurs-repondeur-ia',
+      h2: "Ce que disent les utilisateurs, avis à l'appui",
+      html: `
+<p class="cai-rep">Sur les plateformes d'avis publiques, un seul éditeur du panorama en a assez pour être lu sérieusement : 273 avis, 4,4 sur 5. Voici ce qui en ressort, dans les deux sens.</p>
+<p>Ce qui revient le plus souvent chez ceux qui sont satisfaits n'est pas la technologie. C'est ce qui ne tombe plus dans le vide.</p>
+<div class="cai-msg">
+<div class="cai-msg-h"><b>Stanislas E., mars 2026</b></div>
+<p class="cai-msg-t">« Depuis que nous utilisons Fonio, notre taux de réponse aux appels est passé à 100%. Plus aucune demande ne tombe dans le vide, même le week-end. C'est un vrai changement pour notre activité. »</p>
+</div>
+<div class="cai-msg">
+<div class="cai-msg-h"><b>Clemens S., mars 2026</b></div>
+<p class="cai-msg-t">« La voix est naturelle, l'IA comprend vraiment les demandes, et surtout elle qualifie proprement avant de transférer ou de prendre un message. Résultat : beaucoup moins d'appels manqués, une expérience plus fluide pour les clients, et un énorme gain de temps pour l'équipe. »</p>
+</div>
+<div class="cai-msg">
+<div class="cai-msg-h"><b>Mike M., mars 2026</b></div>
+<p class="cai-msg-t">« Les bénéfices sont immédiats : moins d'appels manqués, accueil plus fluide, réponses plus rapides, et surtout un gros gain de temps pour l'équipe. L'assistant peut filtrer les demandes, collecter les infos utiles (nom, motif, coordonnées) et orienter correctement, ce qui évite les interruptions inutiles. »</p>
+</div>
+<p>Trois choses reviennent dans presque tous les avis positifs, et ce sont les mêmes que celles relevées sur le marché du télésecrétariat : le soir et le week-end couverts, la demande qualifiée avant d'arriver sur votre portable, et les informations prises correctement.</p>
+<h3>Le piège de la mise en route</h3>
+<p class="cai-rep">Un utilisateur résume le problème que rencontrent beaucoup de ceux qui achètent une plateforme en libre-service.</p>
+<div class="cai-msg">
+<div class="cai-msg-h"><b>Vladimir, mars 2026</b></div>
+<p class="cai-msg-t">« J'ai essayé de mettre en place plusieurs agents vocaux mais sans succès. Les outils ont l'air en apparence abordables et faciles à mettre en place. Mais ça n'a pas été le cas pour moi. »</p>
+</div>
+<p>C'est le vrai partage du marché, et il ne se lit pas sur une grille tarifaire. D'un côté une plateforme et un scénario à écrire vous-même. De l'autre une installation faite pour vous, à partir d'un appel de cadrage où vous racontez votre métier.</p>
+<h3>Et ce qui revient dans les avis à une étoile</h3>
+<p class="cai-rep">Les reproches ne portent presque jamais sur la qualité des appels. Ils portent sur la facturation et sur la sortie.</p>
+<ul class="cai-ul">
+<li>Des demandes de résiliation sans réponse, avec des prélèvements qui continuent.</li>
+<li>Une garantie de remboursement annoncée puis non appliquée.</li>
+<li>Un support injoignable au moment précis où l'on veut partir.</li>
+</ul>
+<p><strong>Ces trois reproches se neutralisent avec deux questions posées avant de signer</strong>, et les réponses doivent être écrites sur votre devis.</p>
+<div class="cai-bon"><i aria-hidden="true">i</i><div><b>Les deux questions qui évitent les avis à une étoile</b><p>Est-ce que je paie quoi que ce soit avant d'avoir testé sur ma vraie ligne, et pendant combien de jours ? Est-ce que je peux résilier sans justification et sans durée minimale, et par quel moyen exactement ?</p></div></div>
+<p>Sur le relevé d'octobre, les offres qui répondent oui aux deux sont celles qui affichent un essai avant tout paiement et une absence d'engagement. C'est aussi le cas de <a href="/concierge-ai-avis">Concierge AI</a>, avec sept jours sur votre ligne avant le premier euro et une résiliation sans justification.</p>
+<p class="cai-fine">Avis publics consultés sur Trustpilot le 4 octobre 2026, note globale de 4,4 sur 5 pour 273 avis. Les verbatim sont reproduits tels que publiés. Nous avons aussi dépouillé <a href="/avis-permanence-telephonique">275 avis de clients de permanences téléphoniques humaines</a>, dont les reproches sont de nature différente.</p>`,
+    },
+    {
       id: 'ou-sont-vos-donnees',
       h2: "Vos données : la question à poser, et la réponse qui compte",
       html: `
