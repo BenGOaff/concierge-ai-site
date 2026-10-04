@@ -57,8 +57,8 @@ const articles = demande.length ? demande : readdirSync(join(RACINE, 'outils/art
    décision, pas des récits, mais rien n'autorise un tiret cadratin ni une
    tournure de brochure parce que la page est un tableau. */
 const lexique = demande.length ? [] : readdirSync(join(RACINE, 'src/contenu'))
-  .filter((f) => (f.startsWith('lexique') || f.startsWith('comparer__standard-telephonique-'))
-    && f.endsWith('.html'))
+  .filter((f) => (f.startsWith('lexique') || f.startsWith('comparer__standard-telephonique-')
+    || f === 'concierge-ai-avis.html') && f.endsWith('.html'))
 
 let defauts = 0
 for (const slug of articles) {

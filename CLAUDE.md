@@ -413,6 +413,38 @@ avant le bloc de schéma. Sans lui, rien ne casse au build : la page sort en Ti
 New Roman, sans aucun style, et les audits de débordement et d'espacement la
 déclarent verte. Le seul contrôle qui l'attrape est une capture d'écran.
 
+## Les avis : ce qu'on cite, et ce qu'on n'invente jamais
+
+Concierge AI n'a **aucun avis client public**. Vérifié le 4 octobre 2026 : pas de
+fiche Trustpilot pour l'éditeur, pas d'avis Google rattachés au produit, et la page
+de vente officielle n'affiche aucun témoignage. C'est un manque réel, et il est
+tentant de le combler.
+
+**On ne le comble pas avec un témoignage inventé.** Pas de « Michel, plombier »,
+pas de citation anonyme reprise d'un concurrent et posée à côté de la marque. Un faux
+avis de consommateur est une pratique commerciale trompeuse (articles L121-2 et
+L121-4 du code de la consommation, renforcés par la directive Omnibus) : jusqu'à
+deux ans et 300 000 €, portables à 10 % du chiffre d'affaires. Et le vrai risque
+n'est pas là : une capture qui circule atteint blagardette.com, Tipote et Tiquiz,
+pas seulement ce site.
+
+### Ce qui remplace le faux témoignage, et le bat
+
+Les 275 avis publics dépouillés chez cinq prestataires de permanence téléphonique.
+Ils sont réels, datés, vérifiables, et on dit **de qui ils parlent** : ils portent sur
+le marché voisin, jamais sur Concierge AI. C'est ce qui les rend citables, et plus
+convaincants qu'un artisan inventé, parce que le lecteur peut aller vérifier.
+
+Le marché est **bien noté** (4,8/5 chez Préposé sur 51 avis, 4,5 chez Absys sur 168,
+4,3 chez Bureau24 sur 27), donc les quatre reproches récurrents ne visent pas de
+mauvaises entreprises : ils sont structurels. Trois disparaissent par construction
+avec un standard automatique (script identique, pas d'heure de fermeture, coordonnées
+répétées). **Le quatrième, la ligne morte sans alerte, vaut pour tout le monde, et on
+le dit : il peut coûter un mois de chiffre sans qu'on s'en aperçoive.**
+
+C'est la forme à reprendre partout : les avis des autres servent à vendre le concept,
+attribués à leur source, puis on place l'outil sur ce que la structure règle.
+
 ## Référencement classique
 
 - **Le sitemap déclaré dans la Search Console est `/sitemap.txt`**, et c'est

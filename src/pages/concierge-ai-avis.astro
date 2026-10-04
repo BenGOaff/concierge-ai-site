@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro'
+import contenu from '../contenu/concierge-ai-avis.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Avant de comparer, <em>sachez d'où vous partez</em>`,
+  chapo: `Cinq questions pour savoir ce qui arrive sur votre ligne aujourd'hui, et si un standard se justifie chez vous.`,
+}))
+---
+
+<Base
+  titre="Concierge AI : avis, prix et limites en 2026"
+  description="Les trois formules relevées à la source le 4 octobre 2026, la place réelle de l'outil face à neuf concurrents, cinq limites écrites noir sur blanc, et à qui il ne convient pas."
+  chemin="/concierge-ai-avis"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>

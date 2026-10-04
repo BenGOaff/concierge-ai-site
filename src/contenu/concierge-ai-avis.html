@@ -1,0 +1,305 @@
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.9rem,3.5vw,2.55rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(32px,3.6vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+.cai .cai-tick{margin-top:clamp(34px,3.8vw,46px);padding-top:clamp(28px,3.2vw,36px);gap:14px}
+
+/* --- la transparence, en tête et pas en note de bas de page --- */
+.cai .cai-tr{margin-top:clamp(10px,1.2vw,14px);background:#fff;border:1px solid var(--line);border-left:4px solid #0A2540;border-radius:calc(var(--rad) - 10px);padding:clamp(24px,2.8vw,34px)}
+.cai .cai-tr h2{font-size:clamp(1.24rem,2.1vw,1.5rem);margin:0 0 14px;max-width:30ch}
+.cai .cai-tr p{font-size:1rem;line-height:1.72;color:var(--grey);margin:0 0 14px;max-width:68ch}
+.cai .cai-tr p:last-child{margin-bottom:0}
+.cai .cai-tr strong{color:var(--ink);font-weight:600}
+
+/* --- les listes en rythme --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600;display:block;margin-bottom:5px}
+
+/* --- lien de suite --- */
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- pour qui, pour qui pas --- */
+.cai .cai-reco{margin-top:clamp(34px,3.8vw,44px);display:grid;gap:clamp(16px,2vw,20px)}
+.cai .cai-reco-c{background:#fff;border:1px solid var(--line);border-left:4px solid #22C55E;border-radius:calc(var(--rad) - 10px);padding:clamp(22px,2.6vw,30px)}
+.cai .cai-reco-c.est-contre{border-left-color:#CBD5E1}
+.cai .cai-reco-c h3{font-size:1.04rem;line-height:1.45;margin:0 0 12px}
+.cai .cai-reco-c ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.cai .cai-reco-c li{font-size:.98rem;line-height:1.7;color:var(--grey);padding-left:20px;position:relative}
+.cai .cai-reco-c li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:#22C55E}
+.cai .cai-reco-c.est-contre li::before{background:#CBD5E1}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Avis</span>
+<h1 style="max-width:25ch;margin:22px 0 20px">Concierge AI&nbsp;: ce que c'est, ce que ça coûte, et ses limites</h1>
+<p class="cai-lead" style="max-width:58ch">Les trois formules relevées à la source, la place réelle de l'outil face à neuf concurrents, cinq limites écrites noir sur blanc, et à qui il ne convient pas.</p>
+<ul class="cai-tick">
+<li>Relevé sur la page officielle le 4 octobre 2026</li>
+<li>Aucun témoignage client, et on explique pourquoi</li>
+<li>Les limites sont dans la page, pas en bas de page</li>
+</ul>
+</section>
+<!-- 2. LA TRANSPARENCE -->
+<section class="cai-box">
+<div class="cai-tr">
+<h2>D'abord, le conflit d'intérêts</h2>
+<p><strong>Nous sommes affiliés à Concierge AI.</strong> Si vous souscrivez après avoir cliqué depuis ce site, nous touchons une commission de l'éditeur. Votre prix ne change pas, mais notre intérêt, lui, est réel, et vous avez le droit de le savoir avant la première ligne du reste.</p>
+<p>Vous pouvez vous arrêter là. Si vous continuez, voici ce à quoi on s'engage sur cette page&nbsp;: donner les prix exacts avec leur date de relevé, dire ce que l'outil ne fait pas, et nommer les situations où il ne vaut pas le coup.</p>
+<p>Une page d'avis sans une seule limite n'est pas un avis, c'est une page de vente avec un autre titre. Celle-ci en contient cinq, et une liste de métiers pour lesquels on vous conseille autre chose.</p>
+</div>
+</section>
+<!-- 3. EN DEUX PHRASES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Concierge AI, <em>c'est quoi</em></h2>
+</div>
+<p class="cai-say">Un standard téléphonique automatique qui décroche à votre place, jour et nuit, comprend la demande, pose le rendez-vous dans votre agenda et vous envoie un résumé écrit. <span class="cai-key">Il se branche sur votre numéro actuel, vous ne changez ni d'opérateur ni de forfait.</span></p>
+<p style="max-width:70ch">Ce n'est pas un répondeur amélioré et ce n'est pas un télésecrétariat. Un répondeur enregistre, une personne décroche aux heures de bureau. Ici, la ligne est tenue 24&nbsp;h/24, et l'appel se termine par quelque chose de fait&nbsp;: un créneau posé, une urgence transférée sur votre portable, ou un résumé qui arrive sur votre téléphone.</p>
+<p style="max-width:70ch">L'éditeur est français, l'offre est vendue en direct, et la mise en service est annoncée à 48&nbsp;heures après un appel de cadrage de trente minutes.</p>
+</section>
+<!-- 4. CE QUE ÇA FAIT -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Concrètement</span>
+<h2 id="ce-que-ca-fait">Ce qu'il fait <em>d'un appel</em></h2>
+<p class="cai-lead" style="max-width:58ch">Le même appel, du début à la fin, tel qu'il se déroule une fois l'outil branché.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Il décroche, et il le dit.</strong>Dès la première phrase, votre correspondant sait qu'il parle à un assistant automatique. C'est une obligation légale depuis le 2&nbsp;août 2026, et c'est aussi ce qui évite le malaise quand la personne s'en rend compte au milieu de l'appel.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Il écoute et il qualifie.</strong>Pas de menu à touches, pas de « tapez 1 ». La personne parle normalement. Les questions posées sont celles que vous avez dictées au cadrage&nbsp;: la nature du problème, l'adresse, l'étage, l'urgence.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Il trie selon vos règles.</strong>Une fuite active et une demande de devis ne déclenchent pas la même suite. Vous écrivez la liste de ce qui justifie de vous joindre tout de suite, l'outil l'applique, et le reste attend demain.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Il pose le rendez-vous.</strong>Si votre agenda est en ligne, le créneau s'écrit pendant l'appel, sur une disponibilité réelle. L'adresse et le numéro sont répétés à voix haute pour validation avant de raccrocher.</p></div>
+<div class="cai-beat"><b>5</b><p><strong>Il vous rend l'appel par écrit.</strong>Qui a appelé, pourquoi, avec quelles coordonnées et quel niveau d'urgence. C'est ce résumé qui change une soirée&nbsp;: vous lisez au lieu de rappeler à l'aveugle.</p></div>
+</div>
+<a class="cai-more" href="/demonstration">Écouter un appel réel, du début à la fin</a>
+</section>
+<!-- 5. LES FORMULES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les prix</span>
+<h2 id="prix">Les trois formules, <em>et ce qu'elles contiennent</em></h2>
+<p class="cai-lead" style="max-width:58ch">Relevé sur la page officielle de l'offre le 4 octobre 2026. Les conditions évoluent, vérifiez-les avant de souscrire.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Formule</th>
+<th scope="col">Prix mensuel</th>
+<th scope="col">Conversations incluses</th>
+<th scope="col">Ce qu'elle ajoute</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Starter</th>
+<td data-l="Prix mensuel">297 €</td>
+<td data-l="Conversations">500 par mois</td>
+<td data-l="Ce qu'elle ajoute">Le standard 24 h/24 sur votre numéro, agenda et CRM connectés</td>
+</tr>
+<tr style="font-weight:600">
+<th scope="row">Growth</th>
+<td data-l="Prix mensuel">497 €</td>
+<td data-l="Conversations">2 000 par mois</td>
+<td data-l="Ce qu'elle ajoute">Le SMS après un appel manqué, le transfert d'urgence vers votre portable, le chat du site</td>
+</tr>
+<tr>
+<th scope="row">Elite</th>
+<td data-l="Prix mensuel">997 €</td>
+<td data-l="Conversations">Illimitées</td>
+<td data-l="Ce qu'elle ajoute">WhatsApp, Instagram et Messenger réunis, avis Google, relance de base dormante</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(22px,2.6vw,28px);max-width:72ch">En paiement annuel, deux mois sont offerts sur les trois formules, soit 2 970 € pour Starter au lieu de 3 564 €. C'est une économie réelle, qui immobilise une trésorerie d'un an. Les frais d'installation sont affichés à 1 500 € et annoncés offerts au moment de ce relevé&nbsp;: demandez que ce soit écrit sur votre devis, une promotion mensuelle n'est pas un droit acquis.</p>
+<ul class="cai-tick" style="margin-top:clamp(34px,3.8vw,44px)">
+<li>Sept jours d'essai sur votre vraie ligne, avant tout paiement</li>
+<li>Aucune durée minimale, résiliable sans justification</li>
+<li>Mise en service annoncée à 48 heures, après trente minutes de cadrage</li>
+</ul>
+<a class="cai-more" href="/tarifs">Le détail des trois formules</a>
+</section>
+<!--QUIZ-->
+<!-- 6. LA PLACE SUR LE MARCHÉ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Face aux autres</span>
+<h2 id="marche">Où ça se situe vraiment <em>sur le marché</em></h2>
+<p class="cai-lead" style="max-width:58ch">Dix prestataires relevés, cinq modes de facturation. Pour les comparer, on les ramène tous à la même unité&nbsp;: le prix d'une conversation de trois minutes, au plein du volume inclus.</p>
+</div>
+<p class="cai-say">Sur cette unité, Growth est à 0,25&nbsp;€ la conversation. <span class="cai-key">C'est le prix le plus bas des dix prestataires relevés.</span></p>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr><th scope="col">Formule</th><th scope="col">Prix mensuel</th><th scope="col">Le calcul</th><th scope="col">Une conversation de 3 min</th></tr>
+</thead>
+<tbody>
+<tr style="font-weight:600"><th scope="row">Concierge AI Growth</th><td data-l="Prix">497 €</td><td data-l="Calcul">497 ÷ 2 000</td><td data-l="Par conversation">0,25 €</td></tr>
+<tr><th scope="row">Fonio Solo</th><td data-l="Prix">119 €</td><td data-l="Calcul">119 ÷ 333</td><td data-l="Par conversation">0,36 €</td></tr>
+<tr><th scope="row">Concierge AI Starter</th><td data-l="Prix">297 €</td><td data-l="Calcul">297 ÷ 500</td><td data-l="Par conversation">0,59 €</td></tr>
+<tr><th scope="row">Ringover AIRO Growth</th><td data-l="Prix">290 €</td><td data-l="Calcul">0,29 € × 3 min</td><td data-l="Par conversation">0,87 €</td></tr>
+<tr><th scope="row">Trustlead Solo</th><td data-l="Prix">49 €</td><td data-l="Calcul">49 ÷ 50</td><td data-l="Par conversation">0,98 €</td></tr>
+<tr><th scope="row">Elio, 800 minutes</th><td data-l="Prix">399 € HT</td><td data-l="Calcul">399 ÷ 266</td><td data-l="Par conversation">1,50 € HT</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(22px,2.6vw,28px);max-width:72ch">Extrait du relevé complet de dix prestataires, effectué le 2 octobre 2026. « Au plein du volume inclus » veut dire que vous utilisez réellement les conversations payées&nbsp;: c'est la condition de ce calcul, et elle change tout.</p>
+<p style="margin-top:clamp(26px,3vw,34px);max-width:70ch"><strong>Ce chiffre ne vaut qu'à plein volume, et il faut le dire.</strong> Si vous recevez cinquante appels par mois, Starter vous revient à 5,94&nbsp;€ la conversation, contre 0,98&nbsp;€ chez Trustlead. À ce volume-là, le compteur à la minute gagne largement, et personne ne devrait vous dire le contraire.</p>
+<p style="margin-top:clamp(18px,2vw,22px);max-width:70ch">Le forfait à la conversation prend l'avantage sur deux terrains&nbsp;: le volume, et la durée. Un appel qui qualifie la demande, vérifie l'adresse et pose le rendez-vous dure quatre minutes, pas quatre-vingt-dix secondes. Au compteur, ces minutes se paient. Au forfait, la question de plus ne coûte rien.</p>
+<a class="cai-more" href="/prix-du-marche">Le relevé des dix prestataires</a>
+</section>
+<!-- 7. LES AVIS QUI EXISTENT -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les avis</span>
+<h2 id="avis-clients">Les avis qui existent, <em>et ceux qui n'existent pas</em></h2>
+</div>
+<p class="cai-say">Nous ne vous montrerons aucun t&eacute;moignage de client Concierge AI. <span class="cai-key">Il n'en existe aucun de public.</span></p>
+<p style="max-width:70ch">Nous avons cherch&eacute;. Pas de fiche Trustpilot pour l'&eacute;diteur, pas d'avis Google rattach&eacute;s au produit, et la page de vente officielle elle-m&ecirc;me n'en affiche aucun. Au 4 octobre 2026, il n'y a rien &agrave; citer, et nous n'allons pas inventer un artisan satisfait pour combler le vide.</p>
+<p style="margin-top:clamp(18px,2vw,22px);max-width:70ch">En revanche, le march&eacute; voisin en est plein. Nous avons d&eacute;pouill&eacute; <strong>275 avis publics</strong> laiss&eacute;s par des clients de permanences t&eacute;l&eacute;phoniques, chez cinq prestataires. Ces avis ne portent pas sur Concierge AI, et c'est justement ce qui les rend utiles&nbsp;: ils disent ce qui se passe mal quand on confie sa ligne &agrave; quelqu'un d'autre.</p>
+<p style="margin-top:clamp(18px,2vw,22px);max-width:70ch">D'abord une chose qui surprend&nbsp;: <strong>ce march&eacute; est bien not&eacute;.</strong> 4,8 sur 5 chez Pr&eacute;pos&eacute; sur 51 avis, 4,5 chez Absys sur 168, 4,3 chez Bureau24 sur 27. Les reproches qui reviennent ne visent donc pas de mauvaises entreprises. Ils sont structurels, et c'est pour &ccedil;a qu'ils sont instructifs.</p>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr><th scope="col">Le reproche qui revient</th><th scope="col">Ce qu'il vous co&ucirc;te</th><th scope="col">La question &agrave; poser avant de signer</th></tr>
+</thead>
+<tbody>
+<tr><th scope="row">Les noms et les num&eacute;ros pris &agrave; l'oreille</th><td data-l="Ce que &ccedil;a co&ucirc;te">Une adresse fausse, un d&eacute;placement perdu, un client qui ne rappelle pas</td><td data-l="La question">Les coordonn&eacute;es sont-elles r&eacute;p&eacute;t&eacute;es &agrave; voix haute pour validation avant la fin de l'appel&nbsp;?</td></tr>
+<tr><th scope="row">La qualit&eacute; qui varie selon la personne qui d&eacute;croche</th><td data-l="Ce que &ccedil;a co&ucirc;te">Un client bien re&ccedil;u lundi, exp&eacute;di&eacute; jeudi, sans que vous le sachiez</td><td data-l="La question">Comment la consigne est-elle tenue d'un op&eacute;rateur &agrave; l'autre, et qui la contr&ocirc;le&nbsp;?</td></tr>
+<tr><th scope="row">Les horaires qui s'arr&ecirc;tent</th><td data-l="Ce que &ccedil;a co&ucirc;te">L'appel de 20&nbsp;h&nbsp;10 tombe dans le vide, et c'est souvent le plus urgent</td><td data-l="La question">Que se passe-t-il exactement &agrave; 20&nbsp;h&nbsp;01, le dimanche et le 15&nbsp;ao&ucirc;t&nbsp;?</td></tr>
+<tr style="font-weight:600"><th scope="row">La ligne morte sans alerte</th><td data-l="Ce que &ccedil;a co&ucirc;te">Des semaines d'appels perdus avant de s'en apercevoir</td><td data-l="La question">Comment suis-je pr&eacute;venu si la ligne cesse de r&eacute;pondre&nbsp;?</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(22px,2.6vw,28px);max-width:72ch">Relev&eacute; sur 275 avis publics de Pr&eacute;pos&eacute;, Absys, Bureau24, ClicFone et Thelem, consult&eacute;s en octobre 2026. Les verbatim et le d&eacute;tail par prestataire sont sur la page des avis.</p>
+<p style="margin-top:clamp(26px,3vw,34px);max-width:70ch"><strong>Trois de ces quatre reproches disparaissent par construction avec un standard automatique.</strong> Le script est le m&ecirc;me &agrave; chaque appel, donc la qualit&eacute; ne d&eacute;pend pas de qui d&eacute;croche. Il n'y a pas d'heure de fermeture, donc rien ne tombe dans le vide &agrave; 20&nbsp;h&nbsp;01. Et les coordonn&eacute;es sont r&eacute;p&eacute;t&eacute;es &agrave; voix haute avant de raccrocher.</p>
+<p style="margin-top:clamp(18px,2vw,22px);max-width:70ch">Le quatri&egrave;me, lui, reste entier et vaut pour tout le monde, Concierge AI compris&nbsp;: <strong>posez la question de l'alerte en cas de ligne morte</strong>, et demandez la r&eacute;ponse par &eacute;crit. C'est le seul des quatre qui peut vous co&ucirc;ter un mois de chiffre sans que vous vous en rendiez compte.</p>
+<p style="margin-top:clamp(18px,2vw,22px);max-width:70ch">Et la v&eacute;rification qui vaut mieux que tous les avis du monde reste celle que vous faites vous-m&ecirc;me&nbsp;: sept jours, sur votre vraie ligne, avec vos vrais clients, avant tout paiement. Y compris contre notre avis &agrave; nous.</p>
+<a class="cai-more" href="/avis-permanence-telephonique">Les 275 avis clients, prestataire par prestataire</a>
+</section>
+<!-- 8. LES CINQ LIMITES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les limites</span>
+<h2 id="limites">Cinq limites, <em>écrites noir sur blanc</em></h2>
+<p class="cai-lead" style="max-width:58ch">Aucune n'est rédhibitoire, toutes sont vraies. Lisez-les avant l'essai, pas pendant.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Ce n'est pas le moins cher à faible volume.</strong>Sous une centaine d'appels par mois, un compteur à la minute coûte deux à trois fois moins. Le forfait ne reprend l'avantage qu'au volume, ou dès que vos appels dépassent trois minutes.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>C'est une IA, et vos clients le sauront.</strong>La première phrase l'annonce, parce que la loi l'impose depuis le 2&nbsp;août 2026. Une partie de vos appelants demandera une personne&nbsp;: la règle de transfert doit être réglée au cadrage, sinon vous le découvrirez par un client mécontent.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>La qualité dépend de trente minutes.</strong>L'appel de cadrage est le moment où vous dictez vos urgences, vos zones, vos fourchettes de prix. Bâclez-le et le résultat sera moyen, quelle que soit la technologie derrière. C'est la seule chose qu'on vous demande, et c'est celle qui décide de tout.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Le rendez-vous ne se pose que si l'agenda est en ligne.</strong>Google Agenda, Outlook ou un outil de planning connecté&nbsp;: la pose directe fonctionne. Si votre planning vit sur un carnet ou dans un logiciel fermé, vous récupérez une demande à confirmer. C'est utile, mais ce n'est pas ce qui est annoncé.</p></div>
+<div class="cai-beat"><b>5</b><p><strong>Vous n'aurez pas d'avis clients pour vous décider.</strong>Il n'en existe pas de public, et l'éditeur n'en affiche pas. Vous partez sans l'expérience des autres, ce qui est inconfortable. L'essai de sept jours existe précisément pour ça, et c'est la raison de ne pas le sauter.</p></div>
+</div>
+</section>
+<!-- 9. POUR QUI, POUR QUI PAS -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">La conclusion</span>
+<h2 id="pour-qui">À qui ça convient, <em>et à qui on conseille autre chose</em></h2>
+</div>
+<div class="cai-reco">
+<div class="cai-reco-c">
+<h3>Ça vaut le coup si</h3>
+<ul>
+<li>On vous appelle le soir, le week-end ou pendant que vous avez les mains prises, et vous le sentez passer</li>
+<li>Vos appels durent plus de trois minutes parce qu'il faut qualifier, vérifier une adresse, poser un créneau</li>
+<li>Vous recevez plus d'une centaine d'appels par mois</li>
+<li>Votre agenda est en ligne et vous voulez des rendez-vous posés, pas des messages à rappeler</li>
+<li>Une intervention vous rapporte plus de 150 €, donc deux récupérées couvrent le mois</li>
+</ul>
+</div>
+<div class="cai-reco-c est-contre">
+<h3>On vous conseille autre chose si</h3>
+<ul>
+<li>Vous recevez moins de cinquante appels par mois&nbsp;: un compteur à la minute à 49 € fera le travail pour trois fois moins</li>
+<li>Vous cherchez seulement à faire prendre un message&nbsp;: un bon message de répondeur et un renvoi d'appel suffisent, et c'est gratuit</li>
+<li>Votre planning est sur papier ou dans un logiciel fermé&nbsp;: le rendez-vous ne se posera pas tout seul</li>
+<li>Vous exercez une profession de santé soumise à l'hébergement certifié HDS&nbsp;: posez la question par écrit, à Concierge AI comme à tous les autres, et faites-en votre premier critère</li>
+<li>Vos clients tiennent absolument à une voix humaine, et vous le savez déjà</li>
+</ul>
+</div>
+</div>
+<p style="margin-top:clamp(26px,3vw,34px);max-width:70ch">Le partage entre les deux colonnes tient en une mesure, et elle ne coûte rien&nbsp;: comptez vos appels pendant une semaine ordinaire, notez l'heure et la durée de chacun. Vous saurez dans quelle colonne vous êtes avant d'avoir signé quoi que ce soit.</p>
+<a class="cai-more" href="/calculateur">Faire le calcul avec vos chiffres</a>
+</section>
+<!-- 10. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions <em>sur Concierge AI</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Concierge AI, est-ce une arnaque ?</summary>
+<div class="cai-ans"><p>Non, au sens où les quatre signaux d'alerte habituels sont absents&nbsp;: l'éditeur est identifiable, les prix sont affichés publiquement, un essai de sept jours précède tout paiement, et la résiliation se fait sans justification ni durée minimale.</p><p>Cela ne garantit pas que l'outil vous conviendra, et ce n'est pas la même question. C'est exactement ce que les sept jours d'essai servent à vérifier, sur votre ligne et avec vos clients.</p></div>
+</details>
+<details>
+<summary>Combien coûte Concierge AI ?</summary>
+<div class="cai-ans"><p>297 € par mois pour Starter et ses 500 conversations, 497 € pour Growth et ses 2 000 conversations, 997 € pour Elite en conversations illimitées. En paiement annuel, deux mois sont offerts.</p><p>Les frais d'installation sont affichés à 1 500 € et annoncés offerts au moment de ce relevé. Demandez que cette gratuité figure sur votre devis.</p></div>
+</details>
+<details>
+<summary>Existe-t-il des avis clients sur Concierge AI ?</summary>
+<div class="cai-ans"><p>Aucun avis public au 4 octobre 2026. Pas de fiche Trustpilot pour l'éditeur, pas d'avis Google rattachés au produit, et la page de vente officielle n'affiche aucun témoignage.</p><p>C'est un élément à peser dans votre décision. En contrepartie, l'essai de sept jours vous permet de vous faire votre propre avis avant de payer, ce qui vaut mieux qu'un témoignage que vous ne pouvez pas vérifier.</p></div>
+</details>
+<details>
+<summary>L'essai de sept jours est-il vraiment gratuit ?</summary>
+<div class="cai-ans"><p>Il est annoncé gratuit et sans engagement sur les trois formules, avant tout paiement. Vérifiez deux choses avant de commencer&nbsp;: qu'aucune empreinte bancaire n'est demandée, et à quelle date exacte l'essai se termine.</p><p>Profitez-en pour tester ce qui compte vraiment&nbsp;: faites appeler un proche en imitant un client difficile, avec un nom compliqué et une adresse dans le bruit, puis regardez ce qui est noté.</p></div>
+</details>
+<details>
+<summary>Mes clients vont-ils savoir que ce n'est pas une personne ?</summary>
+<div class="cai-ans"><p>Oui, dès la première phrase. L'article 50 du règlement européen sur l'intelligence artificielle, applicable depuis le 2 août 2026, impose d'informer votre correspondant qu'il parle à un système d'intelligence artificielle.</p><p>En pratique, ce que vos clients retiennent, c'est qu'on leur a répondu à 20 h 15 au lieu de sonner dans le vide. Prévoyez quand même une règle de transfert pour ceux qui demandent une personne.</p></div>
+</details>
+<details>
+<summary>Faut-il changer d'opérateur ou de numéro ?</summary>
+<div class="cai-ans"><p>Non. L'outil se branche sur votre numéro actuel, et vous gardez votre opérateur et votre forfait. Le mécanisme est un renvoi d'appel, qui se règle depuis votre téléphone.</p><p>Le détail du branchement est expliqué sur <a href="/fonctionnement">la page qui décrit comment ça se connecte</a>.</p></div>
+</details>
+<details>
+<summary>Peut-on résilier facilement ?</summary>
+<div class="cai-ans"><p>L'offre est annoncée sans durée minimale et résiliable à tout moment, sans justification. C'est la ligne que les artisans échaudés par un engagement de télésecrétariat lisent en premier, et ils ont raison.</p><p>Si vous prenez le paiement annuel pour les deux mois offerts, vous immobilisez une trésorerie d'un an&nbsp;: la souplesse de résiliation ne vous rend pas l'argent déjà versé.</p></div>
+</details>
+<details>
+<summary>Est-ce que ça convient à mon métier ?</summary>
+<div class="cai-ans"><p>Cela dépend surtout de l'heure à laquelle on vous appelle et de la durée de vos appels, pas de votre métier lui-même. Un plombier de dépannage et une salle de sport ont des besoins opposés, et le même outil ne se justifie pas de la même façon.</p><p>Nous avons détaillé la question pour trois métiers&nbsp;: <a href="/comparer/standard-telephonique-plombier">plombier</a>, <a href="/comparer/standard-telephonique-cabinet-dentaire">cabinet dentaire</a> et <a href="/comparer/standard-telephonique-garage">garage</a>.</p></div>
+</details>
+</div>
+</section>
+<!-- 11. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Sept jours valent mieux <em>que notre avis</em></h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Vous venez de lire une page écrite par un site affilié. La seule façon de savoir si l'outil tient chez vous, c'est de le connecter une semaine sur votre vraie ligne, sans payer.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="/demonstration">Écouter un appel réel</a>
+<a class="cai-btn cai-btn--w" href="/tarifs">Les formules et les prix</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/prix-du-marche">Les tarifs de dix prestataires</a></li>
+<li><a href="/avis-permanence-telephonique">275 avis clients dépouillés</a></li>
+<li><a href="/repondeur-ia">Le panorama des standards IA</a></li>
+<li><a href="/comparer/permanence-telephonique">Les quatre familles de solutions</a></li>
+<li><a href="/metiers">Votre métier</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.concierge-ai.fr/concierge-ai-avis#webpage","url":"https://www.concierge-ai.fr/concierge-ai-avis","name":"Concierge AI : avis, prix et limites en 2026","description":"Les trois formules relevées à la source, la place de l outil face à neuf concurrents, cinq limites et à qui il ne convient pas.","inLanguage":"fr-FR","datePublished":"2026-10-04","dateModified":"2026-10-04","isPartOf":{"@id":"https://www.concierge-ai.fr/#website"},"breadcrumb":{"@id":"https://www.concierge-ai.fr/concierge-ai-avis#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://www.concierge-ai.fr/concierge-ai-avis#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.concierge-ai.fr/"},{"@type":"ListItem","position":2,"name":"Concierge AI : avis, prix et limites"}]},{"@type":"FAQPage","@id":"https://www.concierge-ai.fr/concierge-ai-avis#faq","isPartOf":{"@id":"https://www.concierge-ai.fr/concierge-ai-avis#webpage"},"mainEntity":[{"@type":"Question","name":"Concierge AI, est-ce une arnaque ?","acceptedAnswer":{"@type":"Answer","text":"Non, au sens où les quatre signaux d'alerte habituels sont absents : l'éditeur est identifiable, les prix sont affichés publiquement, un essai de sept jours précède tout paiement, et la résiliation se fait sans justification ni durée minimale.Cela ne garantit pas que l'outil vous conviendra, et ce n'est pas la même question. C'est exactement ce que les sept jours d'essai servent à vérifier, sur votre ligne et avec vos clients."}},{"@type":"Question","name":"Combien coûte Concierge AI ?","acceptedAnswer":{"@type":"Answer","text":"297 € par mois pour Starter et ses 500 conversations, 497 € pour Growth et ses 2 000 conversations, 997 € pour Elite en conversations illimitées. En paiement annuel, deux mois sont offerts.Les frais d'installation sont affichés à 1 500 € et annoncés offerts au moment de ce relevé. Demandez que cette gratuité figure sur votre devis."}},{"@type":"Question","name":"Existe-t-il des avis clients sur Concierge AI ?","acceptedAnswer":{"@type":"Answer","text":"Aucun avis public au 4 octobre 2026. Pas de fiche Trustpilot pour l'éditeur, pas d'avis Google rattachés au produit, et la page de vente officielle n'affiche aucun témoignage.C'est un élément à peser dans votre décision. En contrepartie, l'essai de sept jours vous permet de vous faire votre propre avis avant de payer, ce qui vaut mieux qu'un témoignage que vous ne pouvez pas vérifier."}},{"@type":"Question","name":"L'essai de sept jours est-il vraiment gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Il est annoncé gratuit et sans engagement sur les trois formules, avant tout paiement. Vérifiez deux choses avant de commencer : qu'aucune empreinte bancaire n'est demandée, et à quelle date exacte l'essai se termine.Profitez-en pour tester ce qui compte vraiment : faites appeler un proche en imitant un client difficile, avec un nom compliqué et une adresse dans le bruit, puis regardez ce qui est noté."}},{"@type":"Question","name":"Mes clients vont-ils savoir que ce n'est pas une personne ?","acceptedAnswer":{"@type":"Answer","text":"Oui, dès la première phrase. L'article 50 du règlement européen sur l'intelligence artificielle, applicable depuis le 2 août 2026, impose d'informer votre correspondant qu'il parle à un système d'intelligence artificielle.En pratique, ce que vos clients retiennent, c'est qu'on leur a répondu à 20 h 15 au lieu de sonner dans le vide. Prévoyez quand même une règle de transfert pour ceux qui demandent une personne."}},{"@type":"Question","name":"Faut-il changer d'opérateur ou de numéro ?","acceptedAnswer":{"@type":"Answer","text":"Non. L'outil se branche sur votre numéro actuel, et vous gardez votre opérateur et votre forfait. Le mécanisme est un renvoi d'appel, qui se règle depuis votre téléphone.Le détail du branchement est expliqué sur la page qui décrit comment ça se connecte."}},{"@type":"Question","name":"Peut-on résilier facilement ?","acceptedAnswer":{"@type":"Answer","text":"L'offre est annoncée sans durée minimale et résiliable à tout moment, sans justification. C'est la ligne que les artisans échaudés par un engagement de télésecrétariat lisent en premier, et ils ont raison.Si vous prenez le paiement annuel pour les deux mois offerts, vous immobilisez une trésorerie d'un an : la souplesse de résiliation ne vous rend pas l'argent déjà versé."}},{"@type":"Question","name":"Est-ce que ça convient à mon métier ?","acceptedAnswer":{"@type":"Answer","text":"Cela dépend surtout de l'heure à laquelle on vous appelle et de la durée de vos appels, pas de votre métier lui-même. Un plombier de dépannage et une salle de sport ont des besoins opposés, et le même outil ne se justifie pas de la même façon.Nous avons détaillé la question pour trois métiers : plombier, cabinet dentaire et garage."}}]}]}
+</script>
