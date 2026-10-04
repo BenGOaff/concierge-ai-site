@@ -1,0 +1,199 @@
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.9rem,3.5vw,2.55rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(32px,3.6vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+.cai .cai-tick{margin-top:clamp(34px,3.8vw,46px);padding-top:clamp(28px,3.2vw,36px);gap:14px}
+
+/* --- les critères, en rythme --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600;display:block;margin-bottom:5px}
+
+/* --- lien de suite --- */
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- la recommandation --- */
+.cai .cai-reco{margin-top:clamp(34px,3.8vw,44px);display:grid;gap:clamp(16px,2vw,20px)}
+.cai .cai-reco-c{background:#fff;border:1px solid var(--line);border-left:4px solid #22C55E;border-radius:calc(var(--rad) - 10px);padding:clamp(22px,2.6vw,30px)}
+.cai .cai-reco-c.est-contre{border-left-color:#CBD5E1}
+.cai .cai-reco-c h3{font-size:1.04rem;line-height:1.45;margin:0 0 10px}
+.cai .cai-reco-c p{font-size:.98rem;line-height:1.72;color:var(--grey);margin:0}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Comparatif</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Meilleur standard téléphonique pour un cabinet dentaire</h1>
+<p class="cai-lead" style="max-width:58ch">Cinq critères qui éliminent, à commencer par l'hébergement des données, et les solutions mises face au même appel reçu pendant un soin.</p>
+<ul class="cai-tick">
+<li>L'hébergement des données passe avant le prix</li>
+<li>Chaque solution est jugée sur le même appel réel</li>
+<li>Le calcul tient compte des rendez-vous non honorés</li>
+</ul>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Ce qui décide vraiment <em>pour un cabinet dentaire</em></h2>
+</div>
+<p class="cai-say">Pour un cabinet dentaire, le premier critère n'est pas le prix et ce n'est pas non plus la couverture horaire. C'est ce que devient l'enregistrement de l'appel. <span class="cai-key">Un motif d'appel associé à un nom, chez un dentiste, est une donnée de santé.</span></p>
+<p style="max-width:70ch">Le deuxième critère est tout aussi concret&nbsp;: une solution qui prend un message ne vous fait rien gagner, parce que quelqu'un devra rappeler. Ce qui compte est le rendez-vous posé dans l'agenda pendant l'appel.</p>
+</section>
+<!-- 3. LES CINQ CRITÈRES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les critères</span>
+<h2 id="criteres">Les cinq critères qui éliminent, <em>dans l'ordre</em></h2>
+<p class="cai-lead" style="max-width:58ch">Posez ces cinq questions à chaque prestataire, dans cet ordre, avant de regarder le moindre prix. Trois solutions sur quatre tombent avant la troisième.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>L'hébergement des données, et la réponse écrite.</strong>Demandez par écrit ce qui est enregistré, où c'est hébergé, combien de temps c'est conservé et qui y accède. Pour les professions de santé, faites de la certification HDS votre premier critère d'élimination. Une phrase sur une page d'accueil n'est pas un engagement contractuel&nbsp;: la réponse qui compte est dans le contrat de sous-traitance.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Il doit poser le rendez-vous, pas prendre un message.</strong>Un message à rappeler, c'est votre assistante qui rappelle. Le temps n'est pas gagné, il est déplacé, et souvent sur un moment où elle est déjà au fauteuil. Vérifiez que l'agenda est connecté en écriture, pas seulement en lecture.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Il doit énoncer la consigne d'urgence hors horaires.</strong>En dehors des heures d'ouverture, une urgence dentaire relève du 15. Cette phrase doit être prononcée à chaque appel concerné, pas sous-entendue, et elle doit figurer dans le script que vous validez.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Il doit faire baisser les rendez-vous non honorés.</strong>Un fauteuil vide ne se rattrape pas. Le rappel la veille par message est la seule chose qui déplace vraiment l'aiguille. Demandez si c'est inclus ou facturé à l'unité, parce qu'à 0,18 € le message, le total change la comparaison.</p></div>
+<div class="cai-beat"><b>5</b><p><strong>Il ne doit pas écourter l'appel d'un patient âgé.</strong>Répéter, reformuler, confirmer l'heure deux fois&nbsp;: ça prend du temps, et c'est exactement ce qu'il faut faire. Facturé à la minute, ce temps vous coûte, et personne n'a intérêt à le prendre.</p></div>
+</div>
+</section>
+<!-- 4. LE TABLEAU -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Face au même appel</span>
+<h2 id="comparatif">Les solutions comparées sur <em>un appel reçu pendant un soin</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un seul appel, le même pour tout le monde. C'est la seule façon de comparer des offres qui ne se présentent pas de la même manière.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr><th scope="col">La solution</th><th scope="col">Couverture</th><th scope="col">Ce qu'elle fait de l'appel pendant un soin</th><th scope="col">Prix mensuel</th></tr>
+</thead>
+<tbody>
+<tr><th scope="row">Le répondeur du cabinet</th><td data-l="Couverture">24 h/24</td><td data-l="Ce qu'elle fait de l'appel pendant un soin">Enregistre un message que quelqu'un devra écouter puis rappeler</td><td data-l="Prix mensuel">0 €</td></tr>
+<tr><th scope="row">Télésecrétariat médical</th><td data-l="Couverture">Lun-ven, 8 h - 18 h</td><td data-l="Ce qu'elle fait de l'appel pendant un soin">Prend l'appel et pose le rendez-vous, selon le contrat</td><td data-l="Prix mensuel">38 à 299 €</td></tr>
+<tr><th scope="row">Compteur IA à la minute</th><td data-l="Couverture">24 h/24</td><td data-l="Ce qu'elle fait de l'appel pendant un soin">Prend la demande, et facture chaque reformulation</td><td data-l="Prix mensuel">23 à 368 € selon la durée</td></tr>
+<tr style="font-weight:600"><th scope="row">Standard IA au forfait</th><td data-l="Couverture">24 h/24</td><td data-l="Ce qu'elle fait de l'appel pendant un soin">Pose le rendez-vous dans l'agenda, envoie le rappel de la veille</td><td data-l="Prix mensuel">297 €</td></tr>
+<tr><th scope="row">Une assistante dédiée au téléphone</th><td data-l="Couverture">35 h par semaine</td><td data-l="Ce qu'elle fait de l'appel pendant un soin">Tout, et le reste du temps elle est au fauteuil</td><td data-l="Prix mensuel">1 700 à 2 000 € chargés</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(22px,2.6vw,28px);max-width:72ch">Fourchettes relevées sur les grilles publiques de dix prestataires le 2 octobre 2026. Le détail nommé, prestataire par prestataire, est sur la page des tarifs du marché&nbsp;: les montants y sont tenus à jour à un seul endroit.</p>
+<p style="margin-top:clamp(24px,2.8vw,32px);max-width:70ch">Le télésecrétariat médical reste la solution la plus répandue chez les cabinets, et pour de bonnes raisons&nbsp;: il connaît le vocabulaire et il engage une responsabilité contractuelle sur les données. Son angle mort est l'horaire, et le prix des options quand on les additionne.</p>
+<a class="cai-more" href="/prix-du-marche">Les grilles de dix prestataires, nommées</a>
+</section>
+<!--QUIZ-->
+<!-- 5. CE QUE ÇA RAPPORTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2 id="rentabilite">Combien d'actes <em>couvrent la dépense</em></h2>
+<p class="cai-lead" style="max-width:58ch">Divisez le coût mensuel par ce que vous rapporte un acte. C'est la seule division qui change une décision.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si un acte vous rapporte</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr><th scope="row">50&nbsp;€</th><td data-l="Télésecrétariat">3 par mois</td><td data-l="Standard 24/7">6 par mois</td><td data-l="Embauche">34 par mois</td></tr>
+<tr><th scope="row">120&nbsp;€</th><td data-l="Télésecrétariat">2 par mois</td><td data-l="Standard 24/7">3 par mois</td><td data-l="Embauche">15 par mois</td></tr>
+<tr><th scope="row">300&nbsp;€</th><td data-l="Télésecrétariat">1 par mois</td><td data-l="Standard 24/7">1 par mois</td><td data-l="Embauche">6 par mois</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(22px,2.6vw,28px);max-width:72ch">Nombre arrondi au supérieur, puisqu'on ne récupère pas un demi-acte. Le montant moyen d'un acte varie fortement selon votre activité. Remplacez-le par le vôtre, c'est le seul chiffre qui compte. Ce calcul dit ce qu'il faut atteindre pour être à l'équilibre, il ne promet pas que vous l'atteindrez.</p>
+<a class="cai-more" href="/calculateur">Faire le calcul avec vos chiffres</a>
+</section>
+<!-- 6. LA RECOMMANDATION -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">La conclusion</span>
+<h2 id="recommandation">Ce qu'on vous conseille, et pour qui ça ne vaut pas</h2>
+</div>
+<div class="cai-reco">
+<div class="cai-reco-c">
+<h3>Ce qu'on vous conseille</h3>
+<p>Commencez par la question de l'hébergement, et éliminez tout prestataire qui ne répond pas par écrit. Ensuite seulement, comparez sur deux points&nbsp;: le rendez-vous est-il posé dans l'agenda pendant l'appel, et le rappel de la veille est-il inclus. Ce sont les deux seules choses qui changent une journée de cabinet.</p>
+</div>
+<div class="cai-reco-c est-contre">
+<h3>Et quand ça ne vaut pas le coup</h3>
+<p>Si vous tenez votre planning sur un logiciel métier fermé, la pose directe de rendez-vous n'est pas possible chez la plupart des prestataires. Posez la question avant de signer&nbsp;: vous récupérerez une demande à confirmer, ce qui reste utile mais ne vous fait pas gagner le temps annoncé.</p>
+</div>
+</div>
+<p style="margin-top:clamp(26px,3vw,34px);max-width:70ch">Et si votre volume d'appels tient en une dizaine par jour aux heures ouvrées, un télésecrétariat médical couvre votre besoin pour moins cher. Les 168 heures ne se justifient que si l'on vous appelle hors horaires.</p>
+<a class="cai-more" href="/metiers/cabinet-dentaire">Ce qui arrive vraiment sur une ligne de cabinet dentaire</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions <em>de cabinet dentaire</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Les données de mes patients sont-elles protégées ?</summary>
+<div class="cai-ans"><p>Cela dépend entièrement du prestataire, et c'est à vérifier par écrit avant de signer. Demandez ce qui est enregistré, où c'est hébergé, pendant combien de temps et qui y accède.</p><p>Pour une profession de santé, la certification HDS doit être votre premier critère d'élimination. Une mention sur une page d'accueil ne vaut pas engagement&nbsp;: demandez le contrat de sous-traitance.</p></div>
+</details>
+<details>
+<summary>Un standard automatique peut-il poser un rendez-vous dans mon agenda ?</summary>
+<div class="cai-ans"><p>Oui si votre agenda est en ligne et connecté en écriture. Les créneaux proposés sont ceux qui restent libres, et le rendez-vous s'y écrit pendant l'appel.</p><p>Si votre planning vit dans un logiciel métier fermé, la pose directe n'est généralement pas possible. La demande vous arrive alors comme un créneau à confirmer.</p></div>
+</details>
+<details>
+<summary>Que se passe-t-il pour une urgence dentaire le soir ?</summary>
+<div class="cai-ans"><p>La consigne doit être énoncée clairement&nbsp;: en dehors des heures d'ouverture, une urgence dentaire relève du 15. Cette phrase fait partie du script que vous validez, et elle doit être prononcée, pas sous-entendue.</p><p>Le reste des appels du soir est qualifié et planifié pour le lendemain matin.</p></div>
+</details>
+<details>
+<summary>Est-ce que ça réduit vraiment les rendez-vous non honorés ?</summary>
+<div class="cai-ans"><p>Le rappel la veille par message est le levier qui fonctionne, et il fonctionne quel que soit le prestataire qui l'envoie. Ce qui change d'une offre à l'autre, c'est s'il est inclus ou facturé à l'unité.</p><p>À 0,18 € le message et plusieurs centaines de rendez-vous par mois, la ligne pèse. Demandez le prix avant de comparer deux forfaits.</p></div>
+</details>
+<details>
+<summary>Mes patients vont-ils savoir que ce n'est pas une personne ?</summary>
+<div class="cai-ans"><p>Oui, dès la première phrase. Depuis le 2 août 2026, l'article 50 du règlement européen sur l'intelligence artificielle impose d'informer votre correspondant qu'il parle à un système d'intelligence artificielle.</p><p>Une phrase d'accueil y suffit, et elle est prononcée au début de chaque appel.</p></div>
+</details>
+<details>
+<summary>Combien ça coûte pour un cabinet dentaire ?</summary>
+<div class="cai-ans"><p>De 38 à 299 € par mois pour un télésecrétariat médical selon le volume et les options, 297 € pour un standard au forfait couvrant les 168 heures, 1 700 à 2 000 € chargés pour une assistante dédiée au téléphone.</p><p>Le relevé détaillé chez dix prestataires est sur <a href="/prix-du-marche">la page des tarifs du marché</a>.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Un appel pendant un soin, sur votre vraie ligne</h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Le meilleur comparatif reste une semaine sur votre vraie ligne, avec vos vrais appels. Sept jours, sans engagement, avant tout paiement.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="/demonstration">Écouter un appel réel</a>
+<a class="cai-btn cai-btn--w" href="/tarifs">Les formules et les prix</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/metiers/cabinet-dentaire">Votre page métier</a></li>
+<li><a href="/prix-du-marche">Les tarifs de dix prestataires</a></li>
+<li><a href="/comparer/permanence-telephonique">Les quatre familles de solutions</a></li>
+<li><a href="/appels-hiver">Vos appels d'hiver, métier par métier</a></li>
+<li><a href="/repondeur-ia">Le panorama des standards IA</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.concierge-ai.fr/comparer/standard-telephonique-cabinet-dentaire#webpage","url":"https://www.concierge-ai.fr/comparer/standard-telephonique-cabinet-dentaire","name":"Meilleur standard téléphonique cabinet dentaire : comparatif","description":"Les cinq critères qui décident pour un cabinet dentaire, dont l'hébergement des données, les familles de solutions comparées, et le calcul sur un fauteuil vide.","inLanguage":"fr-FR","isPartOf":{"@id":"https://www.concierge-ai.fr/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.concierge-ai.fr"},{"@type":"ListItem","position":2,"name":"Comparer","item":"https://www.concierge-ai.fr/comparer/permanence-telephonique"},{"@type":"ListItem","position":3,"name":"Cabinet dentaire"}]},{"@type":"FAQPage","@id":"https://www.concierge-ai.fr/comparer/standard-telephonique-cabinet-dentaire#faq","isPartOf":{"@id":"https://www.concierge-ai.fr/comparer/standard-telephonique-cabinet-dentaire#webpage"},"mainEntity":[{"@type":"Question","name":"Les données de mes patients sont-elles protégées ?","acceptedAnswer":{"@type":"Answer","text":"Cela dépend entièrement du prestataire, et c'est à vérifier par écrit avant de signer. Demandez ce qui est enregistré, où c'est hébergé, pendant combien de temps et qui y accède.Pour une profession de santé, la certification HDS doit être votre premier critère d'élimination. Une mention sur une page d'accueil ne vaut pas engagement : demandez le contrat de sous-traitance."}},{"@type":"Question","name":"Un standard automatique peut-il poser un rendez-vous dans mon agenda ?","acceptedAnswer":{"@type":"Answer","text":"Oui si votre agenda est en ligne et connecté en écriture. Les créneaux proposés sont ceux qui restent libres, et le rendez-vous s'y écrit pendant l'appel.Si votre planning vit dans un logiciel métier fermé, la pose directe n'est généralement pas possible. La demande vous arrive alors comme un créneau à confirmer."}},{"@type":"Question","name":"Que se passe-t-il pour une urgence dentaire le soir ?","acceptedAnswer":{"@type":"Answer","text":"La consigne doit être énoncée clairement : en dehors des heures d'ouverture, une urgence dentaire relève du 15. Cette phrase fait partie du script que vous validez, et elle doit être prononcée, pas sous-entendue.Le reste des appels du soir est qualifié et planifié pour le lendemain matin."}},{"@type":"Question","name":"Est-ce que ça réduit vraiment les rendez-vous non honorés ?","acceptedAnswer":{"@type":"Answer","text":"Le rappel la veille par message est le levier qui fonctionne, et il fonctionne quel que soit le prestataire qui l'envoie. Ce qui change d'une offre à l'autre, c'est s'il est inclus ou facturé à l'unité.À 0,18 € le message et plusieurs centaines de rendez-vous par mois, la ligne pèse. Demandez le prix avant de comparer deux forfaits."}},{"@type":"Question","name":"Mes patients vont-ils savoir que ce n'est pas une personne ?","acceptedAnswer":{"@type":"Answer","text":"Oui, dès la première phrase. Depuis le 2 août 2026, l'article 50 du règlement européen sur l'intelligence artificielle impose d'informer votre correspondant qu'il parle à un système d'intelligence artificielle.Une phrase d'accueil y suffit, et elle est prononcée au début de chaque appel."}},{"@type":"Question","name":"Combien ça coûte pour un cabinet dentaire ?","acceptedAnswer":{"@type":"Answer","text":"De 38 à 299 € par mois pour un télésecrétariat médical selon le volume et les options, 297 € pour un standard au forfait couvrant les 168 heures, 1 700 à 2 000 € chargés pour une assistante dédiée au téléphone.Le relevé détaillé chez dix prestataires est sur la page des tarifs du marché."}}]}]}
+</script>

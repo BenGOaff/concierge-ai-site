@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/comparer__standard-telephonique-plombier.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien d'interventions <em>partent chez le concurrent&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui arrive sur votre ligne le soir et le week-end, et ce que ça représente sur un mois.`,
+}))
+---
+
+<Base
+  titre="Meilleur standard téléphonique plombier : le comparatif"
+  description="Les cinq critères qui décident pour un plombier, les familles de solutions comparées sur un appel de 23 h, et combien d'interventions il faut récupérer pour que ce soit payé."
+  chemin="/comparer/standard-telephonique-plombier"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>

@@ -1,0 +1,200 @@
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.9rem,3.5vw,2.55rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(32px,3.6vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+.cai .cai-tick{margin-top:clamp(34px,3.8vw,46px);padding-top:clamp(28px,3.2vw,36px);gap:14px}
+
+/* --- les critères, en rythme --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600;display:block;margin-bottom:5px}
+
+/* --- lien de suite --- */
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- la recommandation --- */
+.cai .cai-reco{margin-top:clamp(34px,3.8vw,44px);display:grid;gap:clamp(16px,2vw,20px)}
+.cai .cai-reco-c{background:#fff;border:1px solid var(--line);border-left:4px solid #22C55E;border-radius:calc(var(--rad) - 10px);padding:clamp(22px,2.6vw,30px)}
+.cai .cai-reco-c.est-contre{border-left-color:#CBD5E1}
+.cai .cai-reco-c h3{font-size:1.04rem;line-height:1.45;margin:0 0 10px}
+.cai .cai-reco-c p{font-size:.98rem;line-height:1.72;color:var(--grey);margin:0}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Comparatif</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Meilleur standard téléphonique pour un garage</h1>
+<p class="cai-lead" style="max-width:58ch">Cinq critères qui éliminent, à commencer par l'immatriculation prise juste, et les solutions face au même appel reçu les mains dans un moteur.</p>
+<ul class="cai-tick">
+<li>Votre problème est la journée, pas la nuit</li>
+<li>Chaque solution est jugée sur le même appel réel</li>
+<li>Le calcul se fait par entrée d'atelier</li>
+</ul>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Ce qui décide vraiment <em>pour un garage</em></h2>
+</div>
+<p class="cai-say">Pour un garage, le besoin n'est pas le même que chez un dépanneur. Vos clients n'appellent pas à 3&nbsp;h du matin&nbsp;: ils appellent entre 8&nbsp;h et 18&nbsp;h, pendant que vous avez les mains dans un moteur. <span class="cai-key">Ce qui vous coûte, ce n'est pas la nuit. C'est la journée.</span></p>
+<p style="max-width:70ch">Du coup le critère qui élimine n'est pas la couverture horaire mais la précision&nbsp;: une immatriculation ou un modèle mal pris, et c'est une pièce commandée pour rien.</p>
+</section>
+<!-- 3. LES CINQ CRITÈRES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les critères</span>
+<h2 id="criteres">Les cinq critères qui éliminent, <em>dans l'ordre</em></h2>
+<p class="cai-lead" style="max-width:58ch">Posez ces cinq questions à chaque prestataire, dans cet ordre, avant de regarder le moindre prix. Trois solutions sur quatre tombent avant la troisième.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Il doit prendre la plaque et le modèle sans se tromper.</strong>Une immatriculation mal notée, c'est une pièce commandée pour rien et deux jours perdus. C'est aussi le reproche numéro un dans les avis clients des télésecrétariats, les informations prises à l'oreille. Demandez si la plaque est répétée à voix haute pour validation avant la fin de l'appel.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Il doit donner un créneau, pas une promesse de rappel.</strong>« On vous rappelle » envoie votre client au garage suivant, parce qu'il a une voiture immobilisée et qu'il appelle trois numéros. Un créneau posé dans l'agenda pendant l'appel, c'est une voiture qui entre à l'atelier.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Il doit répondre en journée, pas seulement le soir.</strong>C'est ce qui distingue votre besoin de celui d'un dépanneur. Un standard qui brille à 3&nbsp;h du matin et qui coûte cher pour ça ne règle pas votre problème, qui tient entre 8&nbsp;h et 18&nbsp;h.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Il doit savoir dire qu'il ne sait pas.</strong>Un diagnostic au téléphone sur un bruit de moteur, c'est un client déçu en arrivant et une réputation abîmée. La bonne réponse à « c'est grave, docteur » est un créneau et une fourchette de main d'œuvre, pas un avis.</p></div>
+<div class="cai-beat"><b>5</b><p><strong>Il doit répondre sur le véhicule de courtoisie.</strong>La question tombe à presque chaque appel, et elle décide souvent du rendez-vous. Mettez la réponse dans le script que vous validez, avec vos conditions réelles&nbsp;: disponibilité, caution, carburant.</p></div>
+</div>
+</section>
+<!-- 4. LE TABLEAU -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Face au même appel</span>
+<h2 id="comparatif">Les solutions comparées sur <em>un appel reçu pendant que vous êtes sous un capot</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un seul appel, le même pour tout le monde. C'est la seule façon de comparer des offres qui ne se présentent pas de la même manière.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr><th scope="col">La solution</th><th scope="col">Couverture</th><th scope="col">Ce qu'elle fait de l'appel de 10 h 30</th><th scope="col">Prix mensuel</th></tr>
+</thead>
+<tbody>
+<tr><th scope="row">Le répondeur de l'atelier</th><td data-l="Couverture">24 h/24</td><td data-l="Ce qu'elle fait de l'appel de 10 h 30">Enregistre, si le client accepte de laisser un message</td><td data-l="Prix mensuel">0 €</td></tr>
+<tr><th scope="row">Un compagnon qui s'essuie les mains</th><td data-l="Couverture">Vos horaires</td><td data-l="Ce qu'elle fait de l'appel de 10 h 30">Répond, mais vous perdez dix minutes de travail facturable</td><td data-l="Prix mensuel">0 € affiché</td></tr>
+<tr><th scope="row">Télésecrétariat, heures ouvrées</th><td data-l="Couverture">Lun-ven, 8 h - 18 h</td><td data-l="Ce qu'elle fait de l'appel de 10 h 30">Prend l'appel et le message, pose le créneau selon le contrat</td><td data-l="Prix mensuel">38 à 299 €</td></tr>
+<tr><th scope="row">Compteur IA à la minute</th><td data-l="Couverture">24 h/24</td><td data-l="Ce qu'elle fait de l'appel de 10 h 30">Prend la demande, et facture chaque précision demandée</td><td data-l="Prix mensuel">23 à 368 € selon la durée</td></tr>
+<tr style="font-weight:600"><th scope="row">Standard IA au forfait</th><td data-l="Couverture">24 h/24</td><td data-l="Ce qu'elle fait de l'appel de 10 h 30">Prend la plaque, propose un créneau libre, le pose dans l'agenda</td><td data-l="Prix mensuel">297 €</td></tr>
+<tr><th scope="row">Une personne à l'accueil</th><td data-l="Couverture">35 h par semaine</td><td data-l="Ce qu'elle fait de l'appel de 10 h 30">Tout, et elle fait aussi la facturation et le comptoir</td><td data-l="Prix mensuel">1 700 à 2 000 € chargés</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(22px,2.6vw,28px);max-width:72ch">Fourchettes relevées sur les grilles publiques de dix prestataires le 2 octobre 2026. Le détail nommé, prestataire par prestataire, est sur la page des tarifs du marché&nbsp;: les montants y sont tenus à jour à un seul endroit.</p>
+<p style="margin-top:clamp(24px,2.8vw,32px);max-width:70ch">La deuxième ligne est celle qu'on oublie toujours de compter. Un compagnon qui s'arrête pour décrocher, c'est dix minutes de travail facturable perdues par appel. À quinze appels par jour et 60 € de l'heure d'atelier, le répondeur gratuit coûte cher.</p>
+<a class="cai-more" href="/prix-du-marche">Les grilles de dix prestataires, nommées</a>
+</section>
+<!--QUIZ-->
+<!-- 5. CE QUE ÇA RAPPORTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2 id="rentabilite">Combien d'entrées d'atelier <em>couvrent la dépense</em></h2>
+<p class="cai-lead" style="max-width:58ch">Divisez le coût mensuel par ce que vous rapporte une entrée d'atelier. C'est la seule division qui change une décision.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une entrée d'atelier vous rapporte</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr><th scope="row">200&nbsp;€</th><td data-l="Télésecrétariat">1 par mois</td><td data-l="Standard 24/7">2 par mois</td><td data-l="Embauche">9 par mois</td></tr>
+<tr><th scope="row">400&nbsp;€</th><td data-l="Télésecrétariat">1 par mois</td><td data-l="Standard 24/7">1 par mois</td><td data-l="Embauche">5 par mois</td></tr>
+<tr><th scope="row">800&nbsp;€</th><td data-l="Télésecrétariat">1 par mois</td><td data-l="Standard 24/7">1 par mois</td><td data-l="Embauche">3 par mois</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(22px,2.6vw,28px);max-width:72ch">Nombre arrondi au supérieur, puisqu'on ne récupère pas une demi-facture. Le montant moyen d'une facture d'atelier varie selon que vous faites de l'entretien courant ou de la mécanique lourde. Remplacez-le par le vôtre. Ce calcul dit ce qu'il faut atteindre pour être à l'équilibre, il ne promet pas que vous l'atteindrez.</p>
+<a class="cai-more" href="/calculateur">Faire le calcul avec vos chiffres</a>
+</section>
+<!-- 6. LA RECOMMANDATION -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">La conclusion</span>
+<h2 id="recommandation">Ce qu'on vous conseille, et pour qui ça ne vaut pas</h2>
+</div>
+<div class="cai-reco">
+<div class="cai-reco-c">
+<h3>Ce qu'on vous conseille</h3>
+<p>Pour un garage, prenez d'abord une solution qui pose le créneau pendant l'appel et qui répète l'immatriculation pour validation. La couverture 24 h/24 est un bonus agréable, elle n'est pas votre problème principal. Testez la prise de plaque avant de signer, c'est là que tout se joue.</p>
+</div>
+<div class="cai-reco-c est-contre">
+<h3>Et quand ça ne vaut pas le coup</h3>
+<p>Si vous avez déjà quelqu'un au comptoir toute la journée et que le téléphone est pris à chaque fois, vous n'avez pas besoin d'un standard. Votre sujet est peut-être ailleurs, du côté de la prise de rendez-vous en ligne.</p>
+</div>
+</div>
+<p style="margin-top:clamp(26px,3vw,34px);max-width:70ch">Et si vous faites du dépannage et du remorquage en plus de l'atelier, relisez la page plombier&nbsp;: votre besoin ressemble alors davantage au sien, et l'heure redevient le premier critère.</p>
+<a class="cai-more" href="/metiers/garage-carrosserie">Ce qui arrive vraiment sur une ligne de garage</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions <em>de garage</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Un standard automatique sait-il noter une immatriculation ?</summary>
+<div class="cai-ans"><p>C'est la première chose à tester avant de signer, chez n'importe quel prestataire. Demandez que la plaque et le modèle soient répétés à voix haute pour validation avant la fin de l'appel.</p><p>Les informations prises à l'oreille sont le reproche numéro un relevé dans les avis clients des télésecrétariats, et une plaque fausse coûte une pièce commandée pour rien.</p></div>
+</details>
+<details>
+<summary>Peut-il donner un prix de réparation au téléphone ?</summary>
+<div class="cai-ans"><p>Une fourchette de main d'œuvre que vous avez écrite, oui. Un montant ferme sur un bruit décrit au téléphone, non&nbsp;: c'est un client déçu en arrivant.</p><p>La bonne réponse à « c'est grave » est un créneau de diagnostic et un ordre de grandeur pour l'heure d'atelier.</p></div>
+</details>
+<details>
+<summary>J'ai besoin de quelqu'un en journée, pas la nuit. Est-ce que ça se justifie ?</summary>
+<div class="cai-ans"><p>Oui, et c'est même le cas le plus courant pour un garage. Votre problème n'est pas l'appel de 3&nbsp;h du matin, c'est l'appel de 10&nbsp;h 30 pendant que vous êtes sous un capot.</p><p>Comptez ce qu'un compagnon qui s'arrête pour décrocher vous coûte en temps facturable&nbsp;: dix minutes par appel, à votre taux horaire d'atelier, c'est souvent la vraie dépense.</p></div>
+</details>
+<details>
+<summary>Et la question du véhicule de courtoisie ?</summary>
+<div class="cai-ans"><p>Elle tombe à presque chaque appel et elle décide souvent du rendez-vous. Mettez la réponse dans le script&nbsp;: disponibilité réelle, caution, état du carburant, conditions d'assurance.</p><p>Une réponse claire au téléphone évite une discussion au comptoir et un client mécontent le jour de la restitution.</p></div>
+</details>
+<details>
+<summary>Combien ça coûte pour un garage ?</summary>
+<div class="cai-ans"><p>De 38 à 299 € par mois pour un télésecrétariat en heures ouvrées selon le volume, 297 € pour un standard au forfait qui couvre les 168 heures, 1 700 à 2 000 € chargés pour une personne à l'accueil.</p><p>Le relevé détaillé chez dix prestataires est sur <a href="/prix-du-marche">la page des tarifs du marché</a>.</p></div>
+</details>
+<details>
+<summary>Quand les appels montent-ils le plus dans l'année ?</summary>
+<div class="cai-ans"><p>À la première gelée, puis tout janvier&nbsp;: batteries à plat, refus de démarrage le matin, pare-brise et pneus. C'est aussi la période où vos créneaux sont les plus pleins.</p><p>Le calendrier complet, métier par métier, est dans <a href="/appels-hiver">les appels d'hiver</a>.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Un appel de 10 h 30, sur votre vraie ligne</h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Le meilleur comparatif reste une semaine sur votre vraie ligne, avec vos vrais appels. Sept jours, sans engagement, avant tout paiement.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="/demonstration">Écouter un appel réel</a>
+<a class="cai-btn cai-btn--w" href="/tarifs">Les formules et les prix</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/metiers/garage-carrosserie">Votre page métier</a></li>
+<li><a href="/prix-du-marche">Les tarifs de dix prestataires</a></li>
+<li><a href="/comparer/permanence-telephonique">Les quatre familles de solutions</a></li>
+<li><a href="/appels-hiver">Vos appels d'hiver, métier par métier</a></li>
+<li><a href="/repondeur-ia">Le panorama des standards IA</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.concierge-ai.fr/comparer/standard-telephonique-garage#webpage","url":"https://www.concierge-ai.fr/comparer/standard-telephonique-garage","name":"Meilleur standard téléphonique pour un garage : comparatif","description":"Les cinq critères qui décident pour un garage, dont la plaque prise sans erreur, les solutions comparées sur un appel reçu sous un capot, et le calcul par entrée d'atelier.","inLanguage":"fr-FR","isPartOf":{"@id":"https://www.concierge-ai.fr/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.concierge-ai.fr"},{"@type":"ListItem","position":2,"name":"Comparer","item":"https://www.concierge-ai.fr/comparer/permanence-telephonique"},{"@type":"ListItem","position":3,"name":"Garage"}]},{"@type":"FAQPage","@id":"https://www.concierge-ai.fr/comparer/standard-telephonique-garage#faq","isPartOf":{"@id":"https://www.concierge-ai.fr/comparer/standard-telephonique-garage#webpage"},"mainEntity":[{"@type":"Question","name":"Un standard automatique sait-il noter une immatriculation ?","acceptedAnswer":{"@type":"Answer","text":"C'est la première chose à tester avant de signer, chez n'importe quel prestataire. Demandez que la plaque et le modèle soient répétés à voix haute pour validation avant la fin de l'appel.Les informations prises à l'oreille sont le reproche numéro un relevé dans les avis clients des télésecrétariats, et une plaque fausse coûte une pièce commandée pour rien."}},{"@type":"Question","name":"Peut-il donner un prix de réparation au téléphone ?","acceptedAnswer":{"@type":"Answer","text":"Une fourchette de main d'œuvre que vous avez écrite, oui. Un montant ferme sur un bruit décrit au téléphone, non : c'est un client déçu en arrivant.La bonne réponse à « c'est grave » est un créneau de diagnostic et un ordre de grandeur pour l'heure d'atelier."}},{"@type":"Question","name":"J'ai besoin de quelqu'un en journée, pas la nuit. Est-ce que ça se justifie ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et c'est même le cas le plus courant pour un garage. Votre problème n'est pas l'appel de 3 h du matin, c'est l'appel de 10 h 30 pendant que vous êtes sous un capot.Comptez ce qu'un compagnon qui s'arrête pour décrocher vous coûte en temps facturable : dix minutes par appel, à votre taux horaire d'atelier, c'est souvent la vraie dépense."}},{"@type":"Question","name":"Et la question du véhicule de courtoisie ?","acceptedAnswer":{"@type":"Answer","text":"Elle tombe à presque chaque appel et elle décide souvent du rendez-vous. Mettez la réponse dans le script : disponibilité réelle, caution, état du carburant, conditions d'assurance.Une réponse claire au téléphone évite une discussion au comptoir et un client mécontent le jour de la restitution."}},{"@type":"Question","name":"Combien ça coûte pour un garage ?","acceptedAnswer":{"@type":"Answer","text":"De 38 à 299 € par mois pour un télésecrétariat en heures ouvrées selon le volume, 297 € pour un standard au forfait qui couvre les 168 heures, 1 700 à 2 000 € chargés pour une personne à l'accueil.Le relevé détaillé chez dix prestataires est sur la page des tarifs du marché."}},{"@type":"Question","name":"Quand les appels montent-ils le plus dans l'année ?","acceptedAnswer":{"@type":"Answer","text":"À la première gelée, puis tout janvier : batteries à plat, refus de démarrage le matin, pare-brise et pneus. C'est aussi la période où vos créneaux sont les plus pleins.Le calendrier complet, métier par métier, est dans les appels d'hiver."}}]}]}
+</script>

@@ -1,0 +1,200 @@
+<div class="cai">
+<style>
+.cai h1{font-size:clamp(1.9rem,3.5vw,2.55rem)}
+.cai h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+.cai .cai-head h2{max-width:26ch}
+.cai .cai-head p{margin-top:4px}
+.cai .cai-say{font-size:clamp(1.12rem,1.9vw,1.36rem);max-width:42ch;margin-bottom:clamp(32px,3.6vw,44px)}
+.cai .cai-tbl{margin-top:clamp(34px,3.8vw,44px)}
+.cai .cai-scroll{margin-top:clamp(34px,3.8vw,44px);max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cai .cai-scroll .cai-tbl{margin-top:0;min-width:100%}
+.cai .cai-tick{margin-top:clamp(34px,3.8vw,46px);padding-top:clamp(28px,3.2vw,36px);gap:14px}
+
+/* --- les critères, en rythme --- */
+.cai .cai-beats{margin-top:clamp(40px,4.4vw,52px);display:grid;gap:0;border-top:1px solid var(--line)}
+.cai .cai-beat{display:grid;grid-template-columns:36px 1fr;gap:clamp(16px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,26px) 0;border-bottom:1px solid var(--line)}
+.cai .cai-beat b{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--g1);border:1px solid #CBEFDB;font:600 .88rem/1 'Inter',sans-serif;color:var(--gd)}
+.cai .cai-beat p{font-size:1rem;line-height:1.7;color:var(--grey);margin:0;padding-top:6px}
+.cai .cai-beat p strong{color:var(--ink);font-weight:600;display:block;margin-bottom:5px}
+
+/* --- lien de suite --- */
+.cai .cai-more{display:inline-flex;align-items:center;gap:9px;margin-top:clamp(28px,3.4vw,40px);font:600 .95rem/1.3 'Inter',sans-serif;color:#15803D;text-decoration:none;border-bottom:2px solid rgba(21,128,61,.28);padding-bottom:5px;transition:border-color .16s}
+.cai .cai-more:hover{border-color:#15803D}
+.cai .cai-more::after{content:"\2192";font-size:1.05rem;line-height:1}
+
+/* --- la recommandation --- */
+.cai .cai-reco{margin-top:clamp(34px,3.8vw,44px);display:grid;gap:clamp(16px,2vw,20px)}
+.cai .cai-reco-c{background:#fff;border:1px solid var(--line);border-left:4px solid #22C55E;border-radius:calc(var(--rad) - 10px);padding:clamp(22px,2.6vw,30px)}
+.cai .cai-reco-c.est-contre{border-left-color:#CBD5E1}
+.cai .cai-reco-c h3{font-size:1.04rem;line-height:1.45;margin:0 0 10px}
+.cai .cai-reco-c p{font-size:.98rem;line-height:1.72;color:var(--grey);margin:0}
+
+/* --- pastilles de liens --- */
+.cai .cai-aussi{margin-top:clamp(34px,3.8vw,44px);padding-top:clamp(28px,3.2vw,36px);border-top:1px solid rgba(10,37,64,.12)}
+.cai .cai-aussi h4{font:600 .72rem/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+.cai .cai-aussi ul{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.cai .cai-aussi li{margin:0;padding:0}
+.cai .cai-aussi a{display:inline-flex;font:500 .87rem/1.3 'Inter',sans-serif;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid rgba(10,37,64,.1);border-radius:99px;padding:10px 15px;text-decoration:none;transition:border-color .16s}
+.cai .cai-aussi a:hover{border-color:rgba(10,37,64,.28)}
+</style>
+<!-- 1. HERO -->
+<section class="cai-box cai-box--g">
+<span class="cai-eye cai-eye--w">Comparatif</span>
+<h1 style="max-width:24ch;margin:22px 0 20px">Meilleur standard téléphonique pour un plombier</h1>
+<p class="cai-lead" style="max-width:58ch">Cinq critères qui éliminent, quatre familles de solutions mises face au même appel de 23 h, et le calcul qui dit si ça vaut le coup chez vous.</p>
+<ul class="cai-tick">
+<li>Le critère qui élimine le plus n'est pas le prix</li>
+<li>Chaque solution est jugée sur le même appel réel</li>
+<li>Les prix sont des fourchettes relevées à la source</li>
+</ul>
+</section>
+<!-- 2. RÉPONSE COURTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">En deux phrases</span>
+<h2>Ce qui décide vraiment <em>pour un plombier</em></h2>
+</div>
+<p class="cai-say">Pour un plombier, ce qui élimine le plus de solutions n'est pas le prix, c'est l'heure. Une fuite active à 23&nbsp;h ne se traite pas avec un prestataire dont la ligne ferme à 20&nbsp;h. <span class="cai-key">Les télésecrétariats relevés s'arrêtent entre 18 et 20&nbsp;h. Les standards IA couvrent les 168 heures de la semaine.</span></p>
+<p style="max-width:70ch">Reste à savoir ce que chacun fait de l'appel une fois qu'il décroche, parce que prendre un message et poser une intervention ne sont pas le même métier.</p>
+</section>
+<!-- 3. LES CINQ CRITÈRES -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Les critères</span>
+<h2 id="criteres">Les cinq critères qui éliminent, <em>dans l'ordre</em></h2>
+<p class="cai-lead" style="max-width:58ch">Posez ces cinq questions à chaque prestataire, dans cet ordre, avant de regarder le moindre prix. Trois solutions sur quatre tombent avant la troisième.</p>
+</div>
+<div class="cai-beats">
+<div class="cai-beat"><b>1</b><p><strong>Il doit tenir à 23 h, et le dimanche.</strong>Une fuite active n'attend pas l'ouverture, et c'est exactement l'heure où vos confrères ne décrochent pas. Celui qui répond prend le chantier. Si la solution ferme à 20&nbsp;h, elle ne traite pas la moitié de ce qui a de la valeur.</p></div>
+<div class="cai-beat"><b>2</b><p><strong>Il doit séparer la fuite active du devis de salle de bain.</strong>Les deux arrivent sur la même ligne, souvent à la même heure. L'une vous sort du lit, l'autre attend lundi matin. Sans liste écrite à l'avance, vous êtes réveillé pour un devis, et vous finissez par ne plus décrocher du tout.</p></div>
+<div class="cai-beat"><b>3</b><p><strong>Il doit prendre l'adresse juste du premier coup.</strong>C'est le reproche numéro un dans les avis clients des télésecrétariats&nbsp;: les noms et les numéros pris à l'oreille. Une adresse fausse à 23&nbsp;h, c'est un camion qui roule pour rien et un client qui ne rappellera pas. Demandez si les informations sont répétées à voix haute pour validation avant la fin de l'appel.</p></div>
+<div class="cai-beat"><b>4</b><p><strong>Il doit annoncer une fourchette, jamais un prix ferme.</strong>Les majorations de nuit et de week-end doivent être annoncées avant le déplacement. Un montant ferme donné au téléphone sur un métier où le diagnostic se fait sur place, c'est un litige en préparation. La règle sûre&nbsp;: un ordre de grandeur pour le déplacement, le devis après constat.</p></div>
+<div class="cai-beat"><b>5</b><p><strong>Il ne doit pas vous facturer la question de plus.</strong>Demander l'étage, le code d'accès, si l'arrivée d'eau est coupée&nbsp;: trente secondes qui changent l'intervention. Facturées à la minute, elles vous coûtent de l'argent à chaque appel, et le prestataire n'a aucun intérêt à les prendre.</p></div>
+</div>
+</section>
+<!-- 4. LE TABLEAU -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Face au même appel</span>
+<h2 id="comparatif">Les solutions comparées sur <em>un appel de 23 h pour une fuite active</em></h2>
+<p class="cai-lead" style="max-width:58ch">Un seul appel, le même pour tout le monde. C'est la seule façon de comparer des offres qui ne se présentent pas de la même manière.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr><th scope="col">La solution</th><th scope="col">Couverture</th><th scope="col">Ce qu'elle fait de l'appel de 23 h</th><th scope="col">Prix mensuel</th></tr>
+</thead>
+<tbody>
+<tr><th scope="row">Le répondeur de votre opérateur</th><td data-l="Couverture">24 h/24</td><td data-l="Ce qu'elle fait de l'appel de 23 h">Enregistre, si le client accepte de laisser un message</td><td data-l="Prix mensuel">0 €</td></tr>
+<tr><th scope="row">Télésecrétariat, heures ouvrées</th><td data-l="Couverture">Lun-ven, 8 h - 18 h</td><td data-l="Ce qu'elle fait de l'appel de 23 h">Rien, la ligne est fermée depuis cinq heures</td><td data-l="Prix mensuel">38 à 160 €</td></tr>
+<tr><th scope="row">Télésecrétariat, horaires étendus</th><td data-l="Couverture">Lun-sam, 8 h - 20 h</td><td data-l="Ce qu'elle fait de l'appel de 23 h">Rien après 20 h, sauf option de garde facturée</td><td data-l="Prix mensuel">84 à 299 €</td></tr>
+<tr><th scope="row">Compteur IA à la minute</th><td data-l="Couverture">24 h/24</td><td data-l="Ce qu'elle fait de l'appel de 23 h">Prend la demande, et vous facture chaque question posée</td><td data-l="Prix mensuel">23 à 368 € selon la durée</td></tr>
+<tr style="font-weight:600"><th scope="row">Standard IA au forfait</th><td data-l="Couverture">24 h/24</td><td data-l="Ce qu'elle fait de l'appel de 23 h">Qualifie l'urgence, vérifie l'adresse, vous transfère ou planifie</td><td data-l="Prix mensuel">297 €</td></tr>
+<tr><th scope="row">Une personne à l'accueil</th><td data-l="Couverture">35 h par semaine</td><td data-l="Ce qu'elle fait de l'appel de 23 h">Rien, elle dort</td><td data-l="Prix mensuel">1 700 à 2 000 € chargés</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(22px,2.6vw,28px);max-width:72ch">Fourchettes relevées sur les grilles publiques de dix prestataires le 2 octobre 2026. Le détail nommé, prestataire par prestataire, est sur la page des tarifs du marché&nbsp;: les montants y sont tenus à jour à un seul endroit.</p>
+<p style="margin-top:clamp(24px,2.8vw,32px);max-width:70ch">Trois des six lignes ne font rien du tout de cet appel. C'est la première chose à regarder avant de comparer des prix, parce qu'une solution qui ne couvre pas vos heures n'est pas moins chère, elle est absente.</p>
+<a class="cai-more" href="/prix-du-marche">Les grilles de dix prestataires, nommées</a>
+</section>
+<!--QUIZ-->
+<!-- 5. CE QUE ÇA RAPPORTE -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Le calcul</span>
+<h2 id="rentabilite">Combien d'interventions <em>couvrent la dépense</em></h2>
+<p class="cai-lead" style="max-width:58ch">Divisez le coût mensuel par ce que vous rapporte une intervention. C'est la seule division qui change une décision.</p>
+</div>
+<div class="cai-scroll"><table class="cai-tbl">
+<thead>
+<tr>
+<th scope="col">Si une intervention vous rapporte</th>
+<th scope="col">Télésecrétariat 150 €</th>
+<th scope="col">Standard 24/7 297 €</th>
+<th scope="col">Embauche 1 700 €</th>
+</tr>
+</thead>
+<tbody>
+<tr><th scope="row">150&nbsp;€</th><td data-l="Télésecrétariat">1 par mois</td><td data-l="Standard 24/7">2 par mois</td><td data-l="Embauche">12 par mois</td></tr>
+<tr><th scope="row">250&nbsp;€</th><td data-l="Télésecrétariat">1 par mois</td><td data-l="Standard 24/7">2 par mois</td><td data-l="Embauche">7 par mois</td></tr>
+<tr><th scope="row">450&nbsp;€</th><td data-l="Télésecrétariat">1 par mois</td><td data-l="Standard 24/7">1 par mois</td><td data-l="Embauche">4 par mois</td></tr>
+</tbody>
+</table></div>
+<p class="cai-fine" style="margin-top:clamp(22px,2.6vw,28px);max-width:72ch">Nombre arrondi au supérieur, puisqu'on ne récupère pas une demi-intervention. Une intervention de plomberie se situe couramment entre 150 et 450 € selon la nature du dépannage. Ce calcul dit ce qu'il faut atteindre pour être à l'équilibre, il ne promet pas que vous l'atteindrez.</p>
+<a class="cai-more" href="/calculateur">Faire le calcul avec vos chiffres</a>
+</section>
+<!-- 6. LA RECOMMANDATION -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">La conclusion</span>
+<h2 id="recommandation">Ce qu'on vous conseille, et pour qui ça ne vaut pas</h2>
+</div>
+<div class="cai-reco">
+<div class="cai-reco-c">
+<h3>Ce qu'on vous conseille</h3>
+<p>Si vous faites du dépannage en urgence, prenez un standard qui couvre les 168 heures et qui facture au forfait de conversations. L'heure est votre premier critère, et le compteur à la minute vous pousse à écourter l'appel au moment précis où il faut demander l'étage et si l'eau est coupée.</p>
+</div>
+<div class="cai-reco-c est-contre">
+<h3>Et quand ça ne vaut pas le coup</h3>
+<p>Si vous ne faites que du chantier planifié, sans astreinte, et que vos clients vous appellent en journée, un télésecrétariat en heures ouvrées suffit et coûte trois fois moins cher. Ne payez pas pour des nuits que personne n'utilise.</p>
+</div>
+</div>
+<p style="margin-top:clamp(26px,3vw,34px);max-width:70ch">Entre les deux, le partage se fait sur une question simple&nbsp;: combien d'appels recevez-vous après 19&nbsp;h et le week-end&nbsp;? Comptez-les pendant une semaine ordinaire avant de signer quoi que ce soit.</p>
+<a class="cai-more" href="/metiers/plombier-chauffagiste">Ce qui arrive vraiment sur une ligne de plombier</a>
+</section>
+<!-- 7. FAQ -->
+<section class="cai-box">
+<div class="cai-head">
+<span class="cai-eye">Questions</span>
+<h2>Vos questions <em>de plombier</em></h2>
+</div>
+<div class="cai-faq">
+<details open="">
+<summary>Quel standard téléphonique choisir quand on est plombier seul ?</summary>
+<div class="cai-ans"><p>Celui qui couvre les heures où l'on vous appelle, et qui sait distinguer une fuite active d'une demande de devis. Pour un plombier qui fait du dépannage, cela élimine d'emblée les solutions qui ferment à 18 ou 20&nbsp;h.</p><p>Le deuxième critère est la qualité de l'adresse prise. Un déplacement perdu à 23&nbsp;h coûte plus cher qu'un mois d'abonnement.</p></div>
+</details>
+<details>
+<summary>Un standard automatique sait-il reconnaître une urgence de plomberie ?</summary>
+<div class="cai-ans"><p>Selon vos règles, pas selon les siennes. Vous écrivez la liste des motifs qui justifient un transfert immédiat&nbsp;: fuite active, dégât des eaux, plus d'eau chaude en hiver, chaudière morte. Le reste est planifié et vous le découvrez au réveil.</p><p>Sans cette liste, aucune solution ne fera le tri correctement, humaine ou non.</p></div>
+</details>
+<details>
+<summary>Peut-il annoncer un prix de dépannage au téléphone ?</summary>
+<div class="cai-ans"><p>Une fourchette que vous avez écrite, oui. Un prix ferme, non. Sur un métier où le diagnostic se fait sur place, annoncer un montant que vous ne pourrez pas tenir est le meilleur moyen de vous créer un litige.</p><p>Les majorations de nuit et de week-end, elles, doivent être annoncées avant le déplacement. Faites-les énoncer sous forme de fourchette validée par vous.</p></div>
+</details>
+<details>
+<summary>Combien ça coûte, pour un plombier ?</summary>
+<div class="cai-ans"><p>De 0 € pour un répondeur à 2 000 € chargés pour une personne à l'accueil. Entre les deux, un télésecrétariat en heures ouvrées se situe entre 38 et 299 € selon le volume, un standard IA au forfait à 297 € pour les 168 heures de la semaine.</p><p>Le détail des grilles relevées chez dix prestataires est sur <a href="/prix-du-marche">la page des tarifs du marché</a>.</p></div>
+</details>
+<details>
+<summary>Mes clients sont souvent âgés, est-ce que ça passe ?</summary>
+<div class="cai-ans"><p>Il n'y a ni menu à touches ni « tapez 1 »&nbsp;: la personne parle normalement. C'est plus simple qu'un serveur vocal, et nettement plus simple qu'un répondeur sur lequel il faut laisser un message.</p><p>Vérifiez une chose avant de signer&nbsp;: que l'adresse et le numéro soient répétés à voix haute pour validation. C'est ce qui fait la différence sur un appel pris dans le bruit.</p></div>
+</details>
+<details>
+<summary>Je suis déjà d'astreinte, à quoi ça sert ?</summary>
+<div class="cai-ans"><p>Être d'astreinte veut dire répondre à tout, y compris à ce qui pouvait attendre lundi. Un filtre garde l'astreinte et supprime les réveils inutiles&nbsp;: les vraies urgences arrivent sur votre portable, le reste est planifié.</p><p>C'est la différence entre une nuit où vous dormez et une nuit où vous sursautez à chaque sonnerie. La méthode est détaillée dans <a href="/guides/astreinte-et-tri-des-urgences">astreinte et tri des urgences</a>.</p></div>
+</details>
+</div>
+</section>
+<!-- 8. SORTIE -->
+<section class="cai-box cai-box--g">
+<h2 style="max-width:22ch">Un appel de fuite à 23 h, sur votre vraie ligne</h2>
+<p class="cai-lead" style="margin-top:20px;max-width:56ch">Le meilleur comparatif reste une semaine sur votre vraie ligne, avec vos vrais appels. Sept jours, sans engagement, avant tout paiement.</p>
+<div class="cai-row">
+<a class="cai-btn cai-btn--k" href="/demonstration">Écouter un appel réel</a>
+<a class="cai-btn cai-btn--w" href="/tarifs">Les formules et les prix</a>
+</div>
+<div class="cai-aussi">
+<h4>À lire aussi</h4>
+<ul>
+<li><a href="/metiers/plombier-chauffagiste">Votre page métier</a></li>
+<li><a href="/prix-du-marche">Les tarifs de dix prestataires</a></li>
+<li><a href="/comparer/permanence-telephonique">Les quatre familles de solutions</a></li>
+<li><a href="/appels-hiver">Vos appels d'hiver, métier par métier</a></li>
+<li><a href="/repondeur-ia">Le panorama des standards IA</a></li>
+</ul>
+</div>
+<p class="cai-fine" style="margin-top:clamp(26px,3vw,32px)">Cette page mentionne un service pour lequel concierge-ai.fr perçoit une commission d'affiliation. <a href="/mentions-legales" style="color:inherit;text-decoration:underline">Détails</a>.</p>
+</section>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.concierge-ai.fr/comparer/standard-telephonique-plombier#webpage","url":"https://www.concierge-ai.fr/comparer/standard-telephonique-plombier","name":"Meilleur standard téléphonique plombier : le comparatif","description":"Les cinq critères qui décident pour un plombier, les familles de solutions comparées sur un appel de 23 h, et combien d'interventions il faut récupérer pour que ce soit payé.","inLanguage":"fr-FR","isPartOf":{"@id":"https://www.concierge-ai.fr/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.concierge-ai.fr"},{"@type":"ListItem","position":2,"name":"Comparer","item":"https://www.concierge-ai.fr/comparer/permanence-telephonique"},{"@type":"ListItem","position":3,"name":"Plombier"}]},{"@type":"FAQPage","@id":"https://www.concierge-ai.fr/comparer/standard-telephonique-plombier#faq","isPartOf":{"@id":"https://www.concierge-ai.fr/comparer/standard-telephonique-plombier#webpage"},"mainEntity":[{"@type":"Question","name":"Quel standard téléphonique choisir quand on est plombier seul ?","acceptedAnswer":{"@type":"Answer","text":"Celui qui couvre les heures où l'on vous appelle, et qui sait distinguer une fuite active d'une demande de devis. Pour un plombier qui fait du dépannage, cela élimine d'emblée les solutions qui ferment à 18 ou 20 h.Le deuxième critère est la qualité de l'adresse prise. Un déplacement perdu à 23 h coûte plus cher qu'un mois d'abonnement."}},{"@type":"Question","name":"Un standard automatique sait-il reconnaître une urgence de plomberie ?","acceptedAnswer":{"@type":"Answer","text":"Selon vos règles, pas selon les siennes. Vous écrivez la liste des motifs qui justifient un transfert immédiat : fuite active, dégât des eaux, plus d'eau chaude en hiver, chaudière morte. Le reste est planifié et vous le découvrez au réveil.Sans cette liste, aucune solution ne fera le tri correctement, humaine ou non."}},{"@type":"Question","name":"Peut-il annoncer un prix de dépannage au téléphone ?","acceptedAnswer":{"@type":"Answer","text":"Une fourchette que vous avez écrite, oui. Un prix ferme, non. Sur un métier où le diagnostic se fait sur place, annoncer un montant que vous ne pourrez pas tenir est le meilleur moyen de vous créer un litige.Les majorations de nuit et de week-end, elles, doivent être annoncées avant le déplacement. Faites-les énoncer sous forme de fourchette validée par vous."}},{"@type":"Question","name":"Combien ça coûte, pour un plombier ?","acceptedAnswer":{"@type":"Answer","text":"De 0 € pour un répondeur à 2 000 € chargés pour une personne à l'accueil. Entre les deux, un télésecrétariat en heures ouvrées se situe entre 38 et 299 € selon le volume, un standard IA au forfait à 297 € pour les 168 heures de la semaine.Le détail des grilles relevées chez dix prestataires est sur la page des tarifs du marché."}},{"@type":"Question","name":"Mes clients sont souvent âgés, est-ce que ça passe ?","acceptedAnswer":{"@type":"Answer","text":"Il n'y a ni menu à touches ni « tapez 1 » : la personne parle normalement. C'est plus simple qu'un serveur vocal, et nettement plus simple qu'un répondeur sur lequel il faut laisser un message.Vérifiez une chose avant de signer : que l'adresse et le numéro soient répétés à voix haute pour validation. C'est ce qui fait la différence sur un appel pris dans le bruit."}},{"@type":"Question","name":"Je suis déjà d'astreinte, à quoi ça sert ?","acceptedAnswer":{"@type":"Answer","text":"Être d'astreinte veut dire répondre à tout, y compris à ce qui pouvait attendre lundi. Un filtre garde l'astreinte et supprime les réveils inutiles : les vraies urgences arrivent sur votre portable, le reste est planifié.C'est la différence entre une nuit où vous dormez et une nuit où vous sursautez à chaque sonnerie. La méthode est détaillée dans astreinte et tri des urgences."}}]}]}
+</script>

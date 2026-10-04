@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/comparer__standard-telephonique-garage.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien d'entrées d'atelier <em>vous échappent&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui arrive sur votre ligne pendant que vous travaillez, et ce que ça représente sur un mois.`,
+}))
+---
+
+<Base
+  titre="Meilleur standard téléphonique pour un garage : comparatif"
+  description="Les cinq critères qui décident pour un garage, dont la plaque prise sans erreur, les solutions comparées sur un appel reçu sous un capot, et le calcul par entrée d'atelier."
+  chemin="/comparer/standard-telephonique-garage"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>

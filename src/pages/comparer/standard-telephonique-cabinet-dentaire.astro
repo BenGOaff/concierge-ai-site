@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro'
+import contenu from '../../contenu/comparer__standard-telephonique-cabinet-dentaire.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien de patients <em>appellent ailleurs&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir ce qui arrive sur votre ligne pendant les soins, et ce que ça représente sur un mois.`,
+}))
+---
+
+<Base
+  titre="Meilleur standard téléphonique cabinet dentaire : comparatif"
+  description="Les cinq critères qui décident pour un cabinet dentaire, dont l'hébergement des données, les familles de solutions comparées, et le calcul sur un fauteuil vide."
+  chemin="/comparer/standard-telephonique-cabinet-dentaire"
+>
+  <Fragment set:html={contenuAvecQuiz} />
+</Base>

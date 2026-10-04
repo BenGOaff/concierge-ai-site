@@ -51,9 +51,14 @@ const articles = demande.length ? demande : readdirSync(join(RACINE, 'outils/art
 
 /* Les entrées du lexique sont des définitions, pas des articles : on ne leur
    demande ni le vocabulaire du chantier ni les deux axes de la promesse. Les
-   règles dures, elles, valent pour elles aussi. */
+   règles dures, elles, valent pour elles aussi.
+
+   Les comparatifs par métier sont dans le même cas : ce sont des pages de
+   décision, pas des récits, mais rien n'autorise un tiret cadratin ni une
+   tournure de brochure parce que la page est un tableau. */
 const lexique = demande.length ? [] : readdirSync(join(RACINE, 'src/contenu'))
-  .filter((f) => f.startsWith('lexique') && f.endsWith('.html'))
+  .filter((f) => (f.startsWith('lexique') || f.startsWith('comparer__standard-telephonique-'))
+    && f.endsWith('.html'))
 
 let defauts = 0
 for (const slug of articles) {
@@ -104,7 +109,7 @@ for (const f of lexique) {
     ennuis.forEach((e) => console.log('     ' + e))
   }
 }
-if (lexique.length) console.log(`ok ${lexique.length} page(s) de lexique (règles dures)`)
+if (lexique.length) console.log(`ok ${lexique.length} page(s) de lexique et de comparatif (règles dures)`)
 
 console.log(defauts === 0
   ? `\n${articles.length + lexique.length} page(s) contrôlée(s), rien à redire.`

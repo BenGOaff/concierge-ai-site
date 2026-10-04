@@ -379,6 +379,40 @@ l'auto-école et l'avocat font leur pic en janvier**, et l'agence immobilière r
 Ne jamais forcer la saisonnalité d'un métier pour faire tenir un tableau. Un créneau
 creux annoncé comme creux rend crédibles toutes les autres lignes.
 
+## Trois pages sur le même métier, sans se cannibaliser
+
+Le site a maintenant trois niveaux sur un même métier. Ils ne répondent pas à la
+même question, et c'est la seule chose qui les empêche de se manger entre eux.
+
+| La page | La question à laquelle elle répond |
+| --- | --- |
+| `/metiers/<x>` | Qu'est-ce qui arrive à mes appels, et combien ça me coûte |
+| `/comparer/permanence-telephonique` | Quelles sont les quatre familles de solutions |
+| `/comparer/standard-telephonique-<x>` | Laquelle je prends, pour **mon** métier |
+
+Les trois comparatifs par métier sortent de `outils/comparatif-metier.mjs`. Ajouter
+un métier, c'est ajouter une entrée à `METIERS`, pas écrire une page.
+
+### Les deux règles du générateur
+
+**Les prix nommés par prestataire vivent sur `/prix-du-marche`, nulle part ailleurs.**
+Les comparatifs métier ne portent que des fourchettes par famille, et un lien vers
+l'observatoire. On a déjà payé une fois le prix de la duplication : `/repondeur-ia` a
+gardé deux tarifs faux pendant deux jours après leur correction sur l'observatoire,
+et le site se contredisait tout seul.
+
+**Chaque page dit pour qui la recommandation ne vaut pas.** Un encadré vert pour le
+conseil, un encadré gris pour la limite, et une phrase qui donne le critère de
+partage. C'est ce qui rend le conseil crédible, et c'est demandé : le lecteur nous
+fait confiance pour lui donner une direction, pas une liste d'options.
+
+### Le piège du gabarit
+
+Une page de contenu doit ouvrir `<div class="cai">` avant ses sections et le fermer
+avant le bloc de schéma. Sans lui, rien ne casse au build : la page sort en Times
+New Roman, sans aucun style, et les audits de débordement et d'espacement la
+déclarent verte. Le seul contrôle qui l'attrape est une capture d'écran.
+
 ## Référencement classique
 
 - **Le sitemap déclaré dans la Search Console est `/sitemap.txt`**, et c'est
