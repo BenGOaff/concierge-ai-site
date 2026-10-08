@@ -490,6 +490,37 @@ Les assistants citent ce qu'ils peuvent extraire, attribuer et vérifier.
 - `public/llms.txt` résume le site pour les agents : le tenir à jour quand une
   page importante est ajoutée.
 
+## Playwright n'est pas dans package.json, et c'est voulu
+
+Les trois audits (`debordements`, `espacements`, `faq-schema`) ont besoin de
+Playwright. Il n'est **pas** déclaré en dépendance, pour une raison : `dist` est
+dans `.gitignore`, donc Hostinger construit le site lui-même et lance `npm install`
+à chaque déploiement. Une dépendance Playwright y ferait télécharger les
+navigateurs à chaque fois, pour un outil qui ne sert qu'ici.
+
+**Quand les audits plantent avec `Cannot find package 'playwright'`** :
+
+```
+npm install --no-save playwright@1.63.0
+```
+
+**La version est à respecter.** Le conteneur fournit des navigateurs pré-installés
+dans `/opt/pw-browsers` aux révisions chromium-1194, firefox-1543 et webkit-2359.
+Seul Playwright 1.63.0 attend firefox-1543 et webkit-2359. Une version plus récente
+cherche des révisions qui n'existent pas ici et les deux moteurs refusent de
+démarrer. Le chromium du conteneur ne correspond à aucune version, d'où
+l'`executablePath: '/opt/pw-browsers/chromium'` explicite dans chaque outil.
+
+C'est ce qui est arrivé le 8 octobre : un `npm audit fix` a élagué Playwright,
+installé mais jamais déclaré, et les trois audits sont tombés d'un coup.
+
+### Les mises à jour de sécurité
+
+`npm audit fix` sans `--force`, puis **rebuild complet et les trois audits**. Le
+contrôle qui compte après une montée de version : l'empreinte du CSS construit
+(`dist/_astro/Base.*.css`). Si elle ne bouge pas, PostCSS a produit exactement le
+même fichier et le rendu est intact.
+
 ## Outils du dépôt
 
 | Fichier | Ce qu'il fait |
