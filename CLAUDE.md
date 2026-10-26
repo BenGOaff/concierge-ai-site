@@ -504,7 +504,9 @@ navigateurs à chaque fois, pour un outil qui ne sert qu'ici.
 npm install --no-save playwright@1.63.0
 ```
 
-**La version est à respecter.** Le conteneur fournit des navigateurs pré-installés
+**Attention, l'image du conteneur change d'une session à l'autre.** Le 8 octobre : chromium-1194, firefox-1543, webkit-2359. Le 26 octobre : chromium-1243 seul, sans Firefox ni WebKit, et `npx playwright install` échoue faute de bibliothèques système. **Donc : `ls /opt/pw-browsers/` d'abord**, choisir la version de Playwright dont les révisions correspondent, et si deux moteurs manquent, auditer sur Chromium seul en le disant, plutôt que de perdre une heure à les installer.
+
+**La version est à respecter.** Un conteneur fournit des navigateurs pré-installés
 dans `/opt/pw-browsers` aux révisions chromium-1194, firefox-1543 et webkit-2359.
 Seul Playwright 1.63.0 attend firefox-1543 et webkit-2359. Une version plus récente
 cherche des révisions qui n'existent pas ici et les deux moteurs refusent de
