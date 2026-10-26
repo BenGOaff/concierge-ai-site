@@ -33,3 +33,24 @@ const liens = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
 writeFileSync(join(DIST, 'sitemap.txt'), liens.join('\n') + '\n', 'utf8')
 
 console.log(`sitemap.xml et sitemap.txt : ${liens.length} URL`)
+
+/* Le canonical de chaque page doit être exactement l'URL que le sitemap
+   annonce, slash final compris. Sinon le sitemap dit « indexe ceci » pendant
+   que la page répond « non, l'originale est là-bas », vers une adresse qui
+   redirige, et Google indexe les deux. C'est arrivé : au 26 octobre,
+   /lexique/double-appel et /lexique/double-appel/ se partageaient
+   215 impressions au lieu d'en cumuler 215 sur une seule. */
+const ecarts = []
+for (const url of liens) {
+  const chemin = new URL(url).pathname
+  const fichier = join(DIST, chemin === '/' ? 'index.html' : chemin.replace(/^\//, '') + 'index.html')
+  if (!existsSync(fichier)) { ecarts.push(`${url} : page introuvable`); continue }
+  const trouve = (readFileSync(fichier, 'utf8').match(/rel="canonical" href="([^"]+)"/) || [])[1]
+  if (trouve !== url) ecarts.push(`${url}\n       canonical : ${trouve || 'absent'}`)
+}
+if (ecarts.length) {
+  console.error(`\n${ecarts.length} canonical ne correspond(ent) pas au sitemap :`)
+  ecarts.slice(0, 10).forEach((e) => console.error('  ' + e))
+  process.exit(1)
+}
+console.log(`canonical : ${liens.length} page(s) alignée(s) sur le sitemap`)

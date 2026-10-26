@@ -10,7 +10,15 @@ interface Props {
 }
 
 const { titre, description, chemin, og } = Astro.props
-const canonique = new URL(chemin, 'https://www.concierge-ai.fr').href
+/* Le canonical doit désigner l'URL réellement servie, slash final compris.
+   Astro construit en `format: 'directory'`, donc /appels-hiver/index.html est
+   servi à /appels-hiver/ et l'hébergeur redirige /appels-hiver en 301 vers lui.
+   Sans ce slash, chaque page déclarait un canonical qui redirige, pendant que le
+   sitemap listait la version avec slash : deux ordres contradictoires, et Google
+   a indexé les deux. Vu le 26 octobre dans la Search Console, où /lexique/
+   double-appel et /lexique/double-appel/ se partageaient 215 impressions. */
+const nu = chemin.replace(/\/+$/, '')
+const canonique = new URL(nu === '' ? '/' : nu + '/', 'https://www.concierge-ai.fr').href
 
 const menu = [
   { texte: 'Le test', lien: 'https://quiz.concierge-ai.fr/test' },
