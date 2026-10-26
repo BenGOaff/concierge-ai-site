@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro'
 import contenu from '../../contenu/lexique__centre-d-appels.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien d'appels <em>vous échappent&nbsp;?</em>`,
+  chapo: `Le mot est clair, reste à savoir ce qui se passe chez vous. Cinq questions, deux minutes.`,
+}))
 ---
 
 <Base
@@ -8,5 +13,5 @@ import contenu from '../../contenu/lexique__centre-d-appels.html?raw'
   description="Ce qu'est un centre d'appels, ce qui le distingue d'un télésecrétariat et d'un standard automatique, et pourquoi il convient mal aux TPE."
   chemin="/lexique/centre-d-appels"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

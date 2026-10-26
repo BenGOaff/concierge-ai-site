@@ -1,6 +1,11 @@
 ---
 import Base from '../layouts/Base.astro'
 import contenu from '../contenu/lexique.html?raw'
+import { sectionQuiz, MARQUEUR } from '../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Et sur votre ligne, <em>ça donne quoi&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir combien d'appels vous ratez vraiment, et ce que ça représente sur un mois.`,
+}))
 ---
 
 <Base
@@ -8,5 +13,5 @@ import contenu from '../contenu/lexique.html?raw'
   description="Douze mots que vous croiserez en cherchant qui peut décrocher à votre place : ce qu'ils recouvrent, ce qu'ils ne recouvrent pas, et ce que ça coûte."
   chemin="/lexique"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

@@ -307,7 +307,8 @@ ${fait}
 <div class="cai-lex-non">
 <p>${t.pasfait}</p>
 </div>
-${prix}<div class="cai-lex-voir">
+${prix}<!--QUIZ-->
+<div class="cai-lex-voir">
 <h3>À ne pas confondre avec</h3>
 <ul>
 ${pastilles(t.voir)}
@@ -362,6 +363,7 @@ function pageIndex() {
 ${cartes}
 </div>
 </section>
+<!--QUIZ-->
 <section class="cai-box cai-box--g">
 <h2 style="max-width:24ch">Par où commencer <em>si vous découvrez le sujet</em></h2>
 <div class="cai-lex-voir" style="border:0;padding-top:clamp(18px,2vw,24px);margin-top:0">
@@ -381,9 +383,18 @@ ${JSON.stringify(schema)}
 `)
 }
 
-const astro = (fichier, chemin, titre, description, profondeur) => `---
+/* Le lexique n'avait aucun appel à l'action, alors que ce sont ses pages qui
+   remontent. Au 26 octobre elles faisaient 659 des 1 658 impressions du site,
+   soit 40 %, et les seules positions de première page. Un visiteur qui cherche
+   « heures ouvrées » n'achète rien, mais il n'avait même pas où cliquer. */
+const astro = (fichier, chemin, titre, description, profondeur, quiz) => `---
 import Base from '${'../'.repeat(profondeur)}layouts/Base.astro'
 import contenu from '${'../'.repeat(profondeur)}contenu/${fichier}?raw'
+import { sectionQuiz, MARQUEUR } from '${'../'.repeat(profondeur)}lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: \`${quiz.titre}\`,
+  chapo: \`${quiz.chapo}\`,
+}))
 ---
 
 <Base
@@ -391,7 +402,7 @@ import contenu from '${'../'.repeat(profondeur)}contenu/${fichier}?raw'
   description="${description.replace(/"/g, '&quot;')}"
   chemin="${chemin}"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>
 `
 
@@ -405,12 +416,18 @@ const ecrit = (chemin, contenu) => {
 ecrit(join(RACINE, 'src/contenu/lexique.html'), pageIndex())
 ecrit(join(RACINE, 'src/pages/lexique.astro'), astro('lexique.html', '/lexique',
   'Lexique de la permanence téléphonique : 12 termes expliqués',
-  "Douze mots que vous croiserez en cherchant qui peut décrocher à votre place : ce qu'ils recouvrent, ce qu'ils ne recouvrent pas, et ce que ça coûte.", 1))
+  "Douze mots que vous croiserez en cherchant qui peut décrocher à votre place : ce qu'ils recouvrent, ce qu'ils ne recouvrent pas, et ce que ça coûte.", 1, {
+  titre: `Et sur votre ligne, <em>ça donne quoi&nbsp;?</em>`,
+  chapo: `Cinq questions pour savoir combien d'appels vous ratez vraiment, et ce que ça représente sur un mois.`,
+}))
 
 for (const t of TERMES) {
   ecrit(join(RACINE, `src/contenu/lexique__${t.slug}.html`), pageTerme(t))
   ecrit(join(RACINE, `src/pages/lexique/${t.slug}.astro`),
-    astro(`lexique__${t.slug}.html`, `/lexique/${t.slug}`, t.titre, t.description, 2))
+    astro(`lexique__${t.slug}.html`, `/lexique/${t.slug}`, t.titre, t.description, 2, {
+  titre: `Combien d'appels <em>vous échappent&nbsp;?</em>`,
+  chapo: `Le mot est clair, reste à savoir ce qui se passe chez vous. Cinq questions, deux minutes.`,
+}))
 }
 
 console.log(`\n${n} fichier(s) ${ecrire ? 'écrits' : 'à écrire'} pour ${TERMES.length} termes.`)

@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro'
 import contenu from '../../contenu/lexique__appel-de-cadrage.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien d'appels <em>vous échappent&nbsp;?</em>`,
+  chapo: `Le mot est clair, reste à savoir ce qui se passe chez vous. Cinq questions, deux minutes.`,
+}))
 ---
 
 <Base
@@ -8,5 +13,5 @@ import contenu from '../../contenu/lexique__appel-de-cadrage.html?raw'
   description="Ce qui se décide pendant l'appel de cadrage d'un standard téléphonique, ce qu'il faut préparer en une page, et ce qu'il n'est pas."
   chemin="/lexique/appel-de-cadrage"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

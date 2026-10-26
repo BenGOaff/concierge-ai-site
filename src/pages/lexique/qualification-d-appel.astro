@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro'
 import contenu from '../../contenu/lexique__qualification-d-appel.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien d'appels <em>vous échappent&nbsp;?</em>`,
+  chapo: `Le mot est clair, reste à savoir ce qui se passe chez vous. Cinq questions, deux minutes.`,
+}))
 ---
 
 <Base
@@ -8,5 +13,5 @@ import contenu from '../../contenu/lexique__qualification-d-appel.html?raw'
   description="Ce que recouvre la qualification d'un appel entrant, les questions qui décident vraiment de la suite, et ce qu'elle ne remplace pas."
   chemin="/lexique/qualification-d-appel"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

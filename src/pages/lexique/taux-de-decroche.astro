@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro'
 import contenu from '../../contenu/lexique__taux-de-decroche.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien d'appels <em>vous échappent&nbsp;?</em>`,
+  chapo: `Le mot est clair, reste à savoir ce qui se passe chez vous. Cinq questions, deux minutes.`,
+}))
 ---
 
 <Base
@@ -8,5 +13,5 @@ import contenu from '../../contenu/lexique__taux-de-decroche.html?raw'
   description="Comment se calcule un taux de décroché, ce qui le fait chuter chez un artisan, comment connaître le vôtre, et le chiffre qui compte davantage."
   chemin="/lexique/taux-de-decroche"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>

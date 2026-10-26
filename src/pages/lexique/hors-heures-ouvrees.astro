@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro'
 import contenu from '../../contenu/lexique__hors-heures-ouvrees.html?raw'
+import { sectionQuiz, MARQUEUR } from '../../lib/quiz.js'
+const contenuAvecQuiz = contenu.replace(MARQUEUR, sectionQuiz({
+  titre: `Combien d'appels <em>vous échappent&nbsp;?</em>`,
+  chapo: `Le mot est clair, reste à savoir ce qui se passe chez vous. Cinq questions, deux minutes.`,
+}))
 ---
 
 <Base
@@ -8,5 +13,5 @@ import contenu from '../../contenu/lexique__hors-heures-ouvrees.html?raw'
   description="Ce que recouvrent les heures non ouvrées, le calcul sur une semaine de 168 heures, et pourquoi le vrai trou est plus large que ça."
   chemin="/lexique/hors-heures-ouvrees"
 >
-  <Fragment set:html={contenu} />
+  <Fragment set:html={contenuAvecQuiz} />
 </Base>
