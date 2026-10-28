@@ -1,0 +1,20 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy: upgrade-insecure-requests
+
+# Nom à empreinte : le fichier ne change jamais sous ce nom.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Durées reprises telles quelles de Hostinger.
+/images/*
+  Cache-Control: public, max-age=604800
+
+/site.js
+  Cache-Control: public, max-age=604800
+
+/consentement.js
+  Cache-Control: public, max-age=604800
