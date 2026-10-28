@@ -37,13 +37,30 @@ npm run preview  # vérifier le résultat avant de pousser
 
 ## Réglages de mise en ligne
 
+Le site est servi par Cloudflare Workers. Chaque push sur `main` déclenche la
+construction et la mise en ligne.
+
 | Réglage | Valeur |
 | --- | --- |
 | Framework | Astro |
 | Commande d'installation | `npm install` |
 | Commande de build | `npm run build` |
+| Commande de déploiement | `npx wrangler deploy` |
 | Dossier de sortie | `dist` |
-| Version de Node | 22.x |
+| Version de Node | 22 |
+
+| Fichier | Rôle |
+| --- | --- |
+| `wrangler.jsonc` | `force-trailing-slash`, pour que `/page` mène à `/page/` comme le déclarent les 75 canonical et le sitemap |
+| `public/_headers` | en-têtes de sécurité, et cache d'un an sur `/_astro/` dont les noms portent une empreinte |
+| `public/_redirects` | redirections traitées au niveau du réseau |
+
+`concierge-ai.fr` sans www redirige en 301 vers `www`, par une règle Cloudflare
+et non par le dépôt.
+
+Pas de politique de sécurité du contenu restrictive : l'accueil charge quatre
+origines tierces et porte trois scripts en ligne. En ajouter une demande ses
+propres tests, sous peine de casser l'analytique ou le consentement en silence.
 
 ## Une redirection à connaître
 

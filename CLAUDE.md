@@ -1,7 +1,12 @@
 # concierge-ai.fr — règles de travail
 
-Site Astro statique. `npm run build` produit `dist/`. Hostinger déploie chaque
+Site Astro statique. `npm run build` produit `dist/`. Cloudflare déploie chaque
 push sur `main`. Rien d'autre n'est à faire pour mettre en ligne.
+
+Trois fichiers portent la configuration d'hébergement, lus par Cloudflare et
+jamais publiés : `wrangler.jsonc` (dont `force-trailing-slash`, sans lequel
+chaque page aurait de nouveau deux URL), `public/_headers` (en-têtes de
+sécurité et durées de cache) et `public/_redirects`.
 
 ## À qui on parle
 
